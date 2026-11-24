@@ -27,5 +27,8 @@ export function quote(value: string, shell: Shell): string {
   if (shell === 'powershell') {
     return `'${value.replace(/'/g, "''")}'`
   }
+  if (/[\r\n]/.test(value)) {
+    throw new Error('cmd cannot pass a newline inside one argument')
+  }
   return `"${value.replace(/"/g, '""')}"`
 }

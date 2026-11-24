@@ -17,6 +17,8 @@ export function render(command: Command, shell: Shell): string {
     if (arg.kind === 'option' && arg.value !== undefined) {
       parts.push(flag, quote(arg.value, shell))
     } else if (arg.kind === 'value') {
+      // Every value arg except the output is an input file.
+      if (arg.name !== 'output') parts.push('-i')
       parts.push(quote(arg.value ?? arg.name, shell))
     } else {
       parts.push(flag)
