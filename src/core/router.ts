@@ -1,17 +1,19 @@
 import type { Route } from './types'
 
-/**
- * Parse a location hash into a route.
- */
+/** Read a shareable state from the URL hash. */
 export function parseHash(hash: string): Route {
-  void hash
-  throw new Error('NotImplemented: parseHash')
+  const params = new URLSearchParams(hash.replace(/^#/, ''))
+  const routeParams: Record<string, string> = {}
+  for (const [key, value] of params) routeParams[key] = value
+  return { page: params.get('page') ?? 'home', params: routeParams }
 }
 
-/**
- * Build a location hash from a route.
- */
+/** Write a shareable state to the URL hash. */
 export function buildHash(route: Route): string {
-  void route
-  throw new Error('NotImplemented: buildHash')
+  const params = new URLSearchParams()
+  params.set('page', route.page)
+  for (const [key, value] of Object.entries(route.params)) {
+    if (key !== 'page') params.set(key, value)
+  }
+  return `#${params.toString()}`
 }
