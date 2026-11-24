@@ -1,0 +1,51 @@
+/* Receipt cards sit on panel, in room, with rule borders. */
+
+.ui-receipt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--rule);
+  background: var(--panel);
+}
+
+.ui-receipt__sentences {
+  margin: 0;
+  color: var(--film-2);
+  font: 400 14px/1.55 var(--font-ui);
+}
+
+.ui-receipt__toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ui-receipt__note {
+  color: var(--film-2);
+  font: 400 13px/1.4 var(--font-ui);
+}
+
+.ui-receipt__code {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--rule);
+  background: var(--room);
+  color: var(--film);
+  font: 400 13px/1.55 var(--font-mono);
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+.ui-receipt__footer {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin: 0;
+  color: var(--film-2);
+  font: 400 13px/1.4 var(--font-ui);
+}
+
+.ui-receipt__stamp {
+  color: var(--ok);
+}

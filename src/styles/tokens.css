@@ -1,0 +1,52 @@
+/*
+ * Design tokens for the FFmpeg command generator.
+ * Dark theme. All values on a 4px spacing scale.
+ */
+
+:root {
+  /* Neutral ramp */
+  --room: #131a1b;
+  --panel: #1a2425;
+  --film: #f2ede3;
+  --film-2: #a9b4af;
+  --rule: #2c3a3a;
+
+  /* Accent */
+  --tungsten: #e5a24a;
+
+  /* Signals */
+  --alert: #e0674f;
+  --ok: #7fb58a;
+
+  /* Font stacks */
+  --font-display: Fraunces, serif;
+  --font-ui: IBM Plex Sans, sans-serif;
+  --font-mono: IBM Plex Mono, monospace;
+
+  /* Three text roles */
+  --text-display: var(--font-display);
+  --text-ui: var(--font-ui);
+  --text-mono: var(--font-mono);
+
+  /* Spacing on a 4px scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Type */
+  --type-display: 38px;
+  --type-ui: 16px;
+  --type-body: 17px;
+  --type-mono: 13px;
+  --line-height-body: 1.55;
+
+  /* Shape: sharp */
+  --radius: 0px;
+}

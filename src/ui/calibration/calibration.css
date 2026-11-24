@@ -1,0 +1,11 @@
+.ui-calibration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ui-calibration__input {
+  min-height: 44px;
+  resize: vertical;
+  font-family: var(--font-mono);
+}

@@ -1,0 +1,42 @@
+/* Outcome cards, built from design tokens. Grid on the 4px spacing scale,
+ * sharp shape. */
+
+.outcome-grid__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.outcome-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  color: var(--film);
+  font: 400 var(--type-ui)/1.4 var(--font-ui);
+  text-align: left;
+}
+
+.outcome-card:hover {
+  border-color: var(--tungsten);
+}
+
+.outcome-card__icon {
+  color: var(--film-2);
+}
+
+.outcome-card__label {
+  font: 500 var(--type-ui) var(--font-ui);
+}
+
+.outcome-card__sentence {
+  color: var(--film-2);
+  font: 400 14px/1.5 var(--font-ui);
+}

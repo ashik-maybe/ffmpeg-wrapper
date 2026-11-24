@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "crf conflicts with b:v for the same output",
+      "fix": "Use only one rate control mode: drop -crf or -b:v",
+      "requireAny": ["crf"],
+      "forbidAny": ["b:v"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "-c copy conflicts with filters",
+      "fix": "Drop -vf, -filter_complex or -af, or drop -c copy",
+      "requireAny": ["c"],
+      "valueConstraint": { "oneOf": ["copy"] },
+      "forbidAny": ["vf", "filter_complex", "af"]
+    },
+    {
+      "code": "E_INVALID_CHOICE",
+      "severity": "error",
+      "message": "atempo must be between 0.5 and 100",
+      "fix": "Set the atempo value in the 0.5-100 range",
+      "requireAny": ["atempo"],
+      "valueConstraint": { "min": 0.5, "max": 100 }
+    },
+    {
+      "code": "E_UNVERIFIED",
+      "severity": "info",
+      "message": "-ss before -i is an input seek; -to then sets the output end time",
+      "fix": "Use -t for a duration, or place -ss after -i for an output seek",
+      "order": { "flag": "ss", "before": "i" }
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "warning",
+      "message": "-vf and -filter_complex are mutually exclusive",
+      "fix": "Use only one of -vf or -filter_complex",
+      "requireAny": ["vf"],
+      "forbidAny": ["filter_complex"]
+    }
+  ]
+}

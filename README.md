@@ -1,82 +1,47 @@
-# FFmpeg Command Generator
+# FFmpeg command generator
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Bun-000000?style=for-the-badge&logoColor=white" alt="Bun">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logoColor=white" alt="Vite">
-</p>
+This app builds FFmpeg commands from typed recipes and user inputs.
+It runs in the browser and never uploads files.
 
-A beautiful, hyper-responsive webapp that lets you graphically select options and generates ready-to-use FFmpeg commands. Copy, paste, done!
+## Pinned version
 
----
+The generated spec targets FFmpeg 9.1 "Gauss".
+Tool data comes from pinned binaries and cached help output.
 
-## ✨ Features
+## Run the gate
 
-- **12 Operations** - Everything FFmpeg can do
-- **Real-time Preview** - Command updates as you type
-- **One-click Copy** - Copy commands to clipboard instantly
-- **Dual Themes** - Catppuccin Mocha & Latte (persists in localStorage)
-- **Responsive** - Works beautifully on desktop, tablet, and mobile
-- **Usage Guides** - Helpful tips for each operation
+Install dependencies, then run the full gate:
 
----
-
-## 🚀 Operations
-
-| Operation | Description |
-|-----------|-------------|
-| **Convert** | Convert between video formats (MP4, MKV, WebM, AVI, MOV, FLV, WMV) |
-| **Audio** | Extract audio or convert audio format with bitrate, sample rate, volume control |
-| **Trim** | Cut video at specific timestamps (supports `10` or `00:00:10` format) |
-| **Filters** | Scale, crop, rotate, flip, speed, denoise, brightness, contrast, saturation |
-| **Encode** | Advanced encoding with CRF, presets, resolution, bitrate control |
-| **Concat** | Join multiple videos (demuxer & protocol methods) |
-| **Subtitles** | Add or burn subtitles with font styling options |
-| **GIF** | Create optimized animated GIFs with palette generation |
-| **Thumbnails** | Extract frames as images (single, interval, or all frames) |
-| **Merge** | Combine separate video and audio files |
-| **Stream** | RTMP streaming configuration |
-| **Metadata** | Edit file metadata (title, artist, album, cover art) |
-
----
-
-## 🛠️ Tech Stack
-
-- **Bun** - Fast JavaScript runtime & package manager
-- **Vite** - Next-generation frontend tooling
-- **Vanilla JS** - No framework, lightweight & fast
-- **FontAwesome 6** - Beautiful icons
-- **Catppuccin** - Soothing pastel theme
-
----
-
-## 📦 Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/ashik-maybe/ffmpeg-command-generator
-cd ffmpeg-commands
-
-# Install dependencies with bun
-bun install
+```sh
+bun install --frozen-lockfile
+bun run ci
 ```
 
----
+The gate runs lint, format check, typecheck, design lint, tests, and build.
 
-## 🎯 Usage
+## Generate the spec
 
-```bash
-# Start development server
-bun run dev
+The spec compiler reads cached FFmpeg help files in `.cache/`.
+Regenerate the JSON spec with:
 
-# Build for production
-bun run build
-
-# Preview production build
-bun run preview
+```sh
+node tools/spec-compiler/generate.mjs
 ```
 
-Then open http://localhost:5173 in your browser.
+Check the generated spec counts with:
 
----
+```sh
+bun run spec:check
+```
 
-<p align="center">Made with ☕ and 🎬</p>
+## Recipe families
+
+The app includes recipe families for web encoding, trim and cut, concat, audio extraction and loudness, subtitles, overlays and text, GIF and thumbnails, transforms, audio replacement, HDR to SDR, and HLS.
+Advanced mode lets you add raw FFmpeg arguments.
+Raw arguments are marked unverified and are not validated like recipes.
+
+## Coverage limits
+
+Coverage is limited to the included recipes and generated spec data.
+The app does not cover everything FFmpeg can do.
+Generated commands still need review before you run them.

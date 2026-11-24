@@ -1,0 +1,2412 @@
+[
+  {
+    "name": "aap",
+    "type": "AA->A",
+    "description": "Apply Affine Projection algorithm to first audio stream."
+  },
+  {
+    "name": "abench",
+    "type": "A->A",
+    "description": "Benchmark part of a filtergraph."
+  },
+  {
+    "name": "acompressor",
+    "type": "A->A",
+    "description": "Audio compressor."
+  },
+  {
+    "name": "acontrast",
+    "type": "A->A",
+    "description": "Simple audio dynamic range compression/expansion filter."
+  },
+  {
+    "name": "acopy",
+    "type": "A->A",
+    "description": "Copy the input audio unchanged to the output."
+  },
+  {
+    "name": "acue",
+    "type": "A->A",
+    "description": "Delay filtering to match a cue."
+  },
+  {
+    "name": "acrossfade",
+    "type": "N->A",
+    "description": "Cross fade two input audio streams."
+  },
+  {
+    "name": "acrossover",
+    "type": "A->N",
+    "description": "Split audio into per-bands streams."
+  },
+  {
+    "name": "acrusher",
+    "type": "A->A",
+    "description": "Reduce audio bit resolution."
+  },
+  {
+    "name": "adeclick",
+    "type": "A->A",
+    "description": "Remove impulsive noise from input audio."
+  },
+  {
+    "name": "adeclip",
+    "type": "A->A",
+    "description": "Remove clipping from input audio."
+  },
+  {
+    "name": "adecorrelate",
+    "type": "A->A",
+    "description": "Apply decorrelation to input audio."
+  },
+  {
+    "name": "adelay",
+    "type": "A->A",
+    "description": "Delay one or more audio channels."
+  },
+  {
+    "name": "adenorm",
+    "type": "A->A",
+    "description": "Remedy denormals by adding extremely low-level noise."
+  },
+  {
+    "name": "aderivative",
+    "type": "A->A",
+    "description": "Compute derivative of input audio."
+  },
+  {
+    "name": "adrc",
+    "type": "A->A",
+    "description": "Audio Spectral Dynamic Range Controller."
+  },
+  {
+    "name": "adynamicequalizer",
+    "type": "A->A",
+    "description": "Apply Dynamic Equalization of input audio."
+  },
+  {
+    "name": "adynamicsmooth",
+    "type": "A->A",
+    "description": "Apply Dynamic Smoothing of input audio."
+  },
+  {
+    "name": "aecho",
+    "type": "A->A",
+    "description": "Add echoing to the audio."
+  },
+  {
+    "name": "aemphasis",
+    "type": "A->A",
+    "description": "Audio emphasis."
+  },
+  {
+    "name": "aeval",
+    "type": "A->A",
+    "description": "Filter audio signal according to a specified expression."
+  },
+  {
+    "name": "aexciter",
+    "type": "A->A",
+    "description": "Enhance high frequency part of audio."
+  },
+  {
+    "name": "afade",
+    "type": "A->A",
+    "description": "Fade in/out input audio."
+  },
+  {
+    "name": "afftdn",
+    "type": "A->A",
+    "description": "Denoise audio samples using FFT."
+  },
+  {
+    "name": "afftfilt",
+    "type": "A->A",
+    "description": "Apply arbitrary expressions to samples in frequency domain."
+  },
+  {
+    "name": "afir",
+    "type": "N->A",
+    "description": "Apply Finite Impulse Response filter with supplied coefficients in additional stream(s)."
+  },
+  {
+    "name": "aformat",
+    "type": "A->A",
+    "description": "Convert the input audio to one of the specified formats."
+  },
+  {
+    "name": "afreqshift",
+    "type": "A->A",
+    "description": "Apply frequency shifting to input audio."
+  },
+  {
+    "name": "afwtdn",
+    "type": "A->A",
+    "description": "Denoise audio stream using Wavelets."
+  },
+  {
+    "name": "agate",
+    "type": "A->A",
+    "description": "Audio gate."
+  },
+  {
+    "name": "aiir",
+    "type": "A->N",
+    "description": "Apply Infinite Impulse Response filter with supplied coefficients."
+  },
+  {
+    "name": "aintegral",
+    "type": "A->A",
+    "description": "Compute integral of input audio."
+  },
+  {
+    "name": "ainterleave",
+    "type": "N->A",
+    "description": "Temporally interleave audio inputs."
+  },
+  {
+    "name": "alatency",
+    "type": "A->A",
+    "description": "Report audio filtering latency."
+  },
+  {
+    "name": "alimiter",
+    "type": "A->A",
+    "description": "Audio lookahead limiter."
+  },
+  {
+    "name": "allpass",
+    "type": "A->A",
+    "description": "Apply a two-pole all-pass filter."
+  },
+  {
+    "name": "aloop",
+    "type": "A->A",
+    "description": "Loop audio samples."
+  },
+  {
+    "name": "amerge",
+    "type": "N->A",
+    "description": "Merge two or more audio streams into a single multi-channel stream."
+  },
+  {
+    "name": "ametadata",
+    "type": "A->A",
+    "description": "Manipulate audio frame metadata."
+  },
+  {
+    "name": "amix",
+    "type": "N->A",
+    "description": "Audio mixing."
+  },
+  {
+    "name": "amultiply",
+    "type": "AA->A",
+    "description": "Multiply two audio streams."
+  },
+  {
+    "name": "anequalizer",
+    "type": "A->N",
+    "description": "Apply high-order audio parametric multi band equalizer."
+  },
+  {
+    "name": "anlmdn",
+    "type": "A->A",
+    "description": "Reduce broadband noise from stream using Non-Local Means."
+  },
+  {
+    "name": "anlmf",
+    "type": "AA->A",
+    "description": "Apply Normalized Least-Mean-Fourth algorithm to first audio stream."
+  },
+  {
+    "name": "anlms",
+    "type": "AA->A",
+    "description": "Apply Normalized Least-Mean-Squares algorithm to first audio stream."
+  },
+  {
+    "name": "anull",
+    "type": "A->A",
+    "description": "Pass the source unchanged to the output."
+  },
+  {
+    "name": "apad",
+    "type": "A->A",
+    "description": "Pad audio with silence."
+  },
+  {
+    "name": "aperms",
+    "type": "A->A",
+    "description": "Set permissions for the output audio frame."
+  },
+  {
+    "name": "aphaser",
+    "type": "A->A",
+    "description": "Add a phasing effect to the audio."
+  },
+  {
+    "name": "aphaseshift",
+    "type": "A->A",
+    "description": "Apply phase shifting to input audio."
+  },
+  {
+    "name": "apsnr",
+    "type": "AA->A",
+    "description": "Measure Audio Peak Signal-to-Noise Ratio."
+  },
+  {
+    "name": "apsyclip",
+    "type": "A->A",
+    "description": "Audio Psychoacoustic Clipper."
+  },
+  {
+    "name": "apulsator",
+    "type": "A->A",
+    "description": "Audio pulsator."
+  },
+  {
+    "name": "arealtime",
+    "type": "A->A",
+    "description": "Slow down filtering to match realtime."
+  },
+  {
+    "name": "aresample",
+    "type": "A->A",
+    "description": "Resample audio data."
+  },
+  {
+    "name": "areverse",
+    "type": "A->A",
+    "description": "Reverse an audio clip."
+  },
+  {
+    "name": "arls",
+    "type": "AA->A",
+    "description": "Apply Recursive Least Squares algorithm to first audio stream."
+  },
+  {
+    "name": "arnndn",
+    "type": "A->A",
+    "description": "Reduce noise from speech using Recurrent Neural Networks."
+  },
+  {
+    "name": "asdr",
+    "type": "AA->A",
+    "description": "Measure Audio Signal-to-Distortion Ratio."
+  },
+  {
+    "name": "asegment",
+    "type": "A->N",
+    "description": "Segment audio stream."
+  },
+  {
+    "name": "aselect",
+    "type": "A->N",
+    "description": "Select audio frames to pass in output."
+  },
+  {
+    "name": "asendcmd",
+    "type": "A->A",
+    "description": "Send commands to filters."
+  },
+  {
+    "name": "asetnsamples",
+    "type": "A->A",
+    "description": "Set the number of samples for each output audio frames."
+  },
+  {
+    "name": "asetpts",
+    "type": "A->A",
+    "description": "Set PTS for the output audio frame."
+  },
+  {
+    "name": "asetrate",
+    "type": "A->A",
+    "description": "Change the sample rate without altering the data."
+  },
+  {
+    "name": "asettb",
+    "type": "A->A",
+    "description": "Set timebase for the audio output link."
+  },
+  {
+    "name": "ashowinfo",
+    "type": "A->A",
+    "description": "Show textual information for each audio frame."
+  },
+  {
+    "name": "asidedata",
+    "type": "A->A",
+    "description": "Manipulate audio frame side data."
+  },
+  {
+    "name": "asisdr",
+    "type": "AA->A",
+    "description": "Measure Audio Scale-Invariant Signal-to-Distortion Ratio."
+  },
+  {
+    "name": "asoftclip",
+    "type": "A->A",
+    "description": "Audio Soft Clipper."
+  },
+  {
+    "name": "aspectralstats",
+    "type": "A->A",
+    "description": "Show frequency domain statistics about audio frames."
+  },
+  {
+    "name": "asplit",
+    "type": "A->N",
+    "description": "Pass on the audio input to N audio outputs."
+  },
+  {
+    "name": "astats",
+    "type": "A->A",
+    "description": "Show time domain statistics about audio frames."
+  },
+  {
+    "name": "astreamselect",
+    "type": "N->N",
+    "description": "Select audio streams"
+  },
+  {
+    "name": "asubboost",
+    "type": "A->A",
+    "description": "Boost subwoofer frequencies."
+  },
+  {
+    "name": "asubcut",
+    "type": "A->A",
+    "description": "Cut subwoofer frequencies."
+  },
+  {
+    "name": "asupercut",
+    "type": "A->A",
+    "description": "Cut super frequencies."
+  },
+  {
+    "name": "asuperpass",
+    "type": "A->A",
+    "description": "Apply high order Butterworth band-pass filter."
+  },
+  {
+    "name": "asuperstop",
+    "type": "A->A",
+    "description": "Apply high order Butterworth band-stop filter."
+  },
+  {
+    "name": "atempo",
+    "type": "A->A",
+    "description": "Adjust audio tempo."
+  },
+  {
+    "name": "atilt",
+    "type": "A->A",
+    "description": "Apply spectral tilt to audio."
+  },
+  {
+    "name": "atrim",
+    "type": "A->A",
+    "description": "Pick one continuous section from the input, drop the rest."
+  },
+  {
+    "name": "axcorrelate",
+    "type": "AA->A",
+    "description": "Cross-correlate two audio streams."
+  },
+  {
+    "name": "bandpass",
+    "type": "A->A",
+    "description": "Apply a two-pole Butterworth band-pass filter."
+  },
+  {
+    "name": "bandreject",
+    "type": "A->A",
+    "description": "Apply a two-pole Butterworth band-reject filter."
+  },
+  {
+    "name": "bass",
+    "type": "A->A",
+    "description": "Boost or cut lower frequencies."
+  },
+  {
+    "name": "biquad",
+    "type": "A->A",
+    "description": "Apply a biquad IIR filter with the given coefficients."
+  },
+  {
+    "name": "channelmap",
+    "type": "A->A",
+    "description": "Remap audio channels."
+  },
+  {
+    "name": "channelsplit",
+    "type": "A->N",
+    "description": "Split audio into per-channel streams."
+  },
+  {
+    "name": "chorus",
+    "type": "A->A",
+    "description": "Add a chorus effect to the audio."
+  },
+  {
+    "name": "compand",
+    "type": "A->A",
+    "description": "Compress or expand audio dynamic range."
+  },
+  {
+    "name": "compensationdelay",
+    "type": "A->A",
+    "description": "Audio Compensation Delay Line."
+  },
+  {
+    "name": "crossfeed",
+    "type": "A->A",
+    "description": "Apply headphone crossfeed filter."
+  },
+  {
+    "name": "crystalizer",
+    "type": "A->A",
+    "description": "Simple audio noise sharpening filter."
+  },
+  {
+    "name": "dcshift",
+    "type": "A->A",
+    "description": "Apply a DC shift to the audio."
+  },
+  {
+    "name": "deesser",
+    "type": "A->A",
+    "description": "Apply de-essing to the audio."
+  },
+  {
+    "name": "dialoguenhance",
+    "type": "A->A",
+    "description": "Audio Dialogue Enhancement."
+  },
+  {
+    "name": "drmeter",
+    "type": "A->A",
+    "description": "Measure audio dynamic range."
+  },
+  {
+    "name": "dynaudnorm",
+    "type": "A->A",
+    "description": "Dynamic Audio Normalizer."
+  },
+  {
+    "name": "earwax",
+    "type": "A->A",
+    "description": "Widen the stereo image."
+  },
+  {
+    "name": "ebur128",
+    "type": "A->N",
+    "description": "EBU R128 scanner."
+  },
+  {
+    "name": "equalizer",
+    "type": "A->A",
+    "description": "Apply two-pole peaking equalization (EQ) filter."
+  },
+  {
+    "name": "extrastereo",
+    "type": "A->A",
+    "description": "Increase difference between stereo audio channels."
+  },
+  {
+    "name": "firequalizer",
+    "type": "A->A",
+    "description": "Finite Impulse Response Equalizer."
+  },
+  {
+    "name": "flanger",
+    "type": "A->A",
+    "description": "Apply a flanging effect to the audio."
+  },
+  {
+    "name": "haas",
+    "type": "A->A",
+    "description": "Apply Haas Stereo Enhancer."
+  },
+  {
+    "name": "hdcd",
+    "type": "A->A",
+    "description": "Apply High Definition Compatible Digital (HDCD) decoding."
+  },
+  {
+    "name": "headphone",
+    "type": "N->A",
+    "description": "Apply headphone binaural spatialization with HRTFs in additional streams."
+  },
+  {
+    "name": "highpass",
+    "type": "A->A",
+    "description": "Apply a high-pass filter with 3dB point frequency."
+  },
+  {
+    "name": "highshelf",
+    "type": "A->A",
+    "description": "Apply a high shelf filter."
+  },
+  {
+    "name": "join",
+    "type": "N->A",
+    "description": "Join multiple audio streams into multi-channel output."
+  },
+  {
+    "name": "loudnorm",
+    "type": "A->A",
+    "description": "EBU R128 loudness normalization"
+  },
+  {
+    "name": "lowpass",
+    "type": "A->A",
+    "description": "Apply a low-pass filter with 3dB point frequency."
+  },
+  {
+    "name": "lowshelf",
+    "type": "A->A",
+    "description": "Apply a low shelf filter."
+  },
+  {
+    "name": "mcompand",
+    "type": "A->A",
+    "description": "Multiband Compress or expand audio dynamic range."
+  },
+  {
+    "name": "pan",
+    "type": "A->A",
+    "description": "Remix channels with coefficients (panning)."
+  },
+  {
+    "name": "replaygain",
+    "type": "A->A",
+    "description": "ReplayGain scanner."
+  },
+  {
+    "name": "sidechaincompress",
+    "type": "AA->A",
+    "description": "Sidechain compressor."
+  },
+  {
+    "name": "sidechaingate",
+    "type": "AA->A",
+    "description": "Audio sidechain gate."
+  },
+  {
+    "name": "silencedetect",
+    "type": "A->A",
+    "description": "Detect silence."
+  },
+  {
+    "name": "silenceremove",
+    "type": "A->A",
+    "description": "Remove silence."
+  },
+  {
+    "name": "speechnorm",
+    "type": "A->A",
+    "description": "Speech Normalizer."
+  },
+  {
+    "name": "stereotools",
+    "type": "A->A",
+    "description": "Apply various stereo tools."
+  },
+  {
+    "name": "stereowiden",
+    "type": "A->A",
+    "description": "Apply stereo widening effect."
+  },
+  {
+    "name": "superequalizer",
+    "type": "A->A",
+    "description": "Apply 18 band equalization filter."
+  },
+  {
+    "name": "surround",
+    "type": "A->A",
+    "description": "Apply audio surround upmix filter."
+  },
+  {
+    "name": "tiltshelf",
+    "type": "A->A",
+    "description": "Apply a tilt shelf filter."
+  },
+  {
+    "name": "treble",
+    "type": "A->A",
+    "description": "Boost or cut upper frequencies."
+  },
+  {
+    "name": "tremolo",
+    "type": "A->A",
+    "description": "Apply tremolo effect."
+  },
+  {
+    "name": "vibrato",
+    "type": "A->A",
+    "description": "Apply vibrato effect."
+  },
+  {
+    "name": "virtualbass",
+    "type": "A->A",
+    "description": "Audio Virtual Bass."
+  },
+  {
+    "name": "volume",
+    "type": "A->A",
+    "description": "Change input volume."
+  },
+  {
+    "name": "volumedetect",
+    "type": "A->A",
+    "description": "Detect audio volume."
+  },
+  {
+    "name": "aevalsrc",
+    "type": "|->A",
+    "description": "Generate an audio signal generated by an expression."
+  },
+  {
+    "name": "afdelaysrc",
+    "type": "|->A",
+    "description": "Generate a Fractional delay FIR coefficients."
+  },
+  {
+    "name": "afireqsrc",
+    "type": "|->A",
+    "description": "Generate a FIR equalizer coefficients audio stream."
+  },
+  {
+    "name": "afirsrc",
+    "type": "|->A",
+    "description": "Generate a FIR coefficients audio stream."
+  },
+  {
+    "name": "anoisesrc",
+    "type": "|->A",
+    "description": "Generate a noise audio signal."
+  },
+  {
+    "name": "anullsrc",
+    "type": "|->A",
+    "description": "Null audio source, return empty audio frames."
+  },
+  {
+    "name": "hilbert",
+    "type": "|->A",
+    "description": "Generate a Hilbert transform FIR coefficients."
+  },
+  {
+    "name": "sinc",
+    "type": "|->A",
+    "description": "Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients."
+  },
+  {
+    "name": "sine",
+    "type": "|->A",
+    "description": "Generate sine wave audio signal."
+  },
+  {
+    "name": "anullsink",
+    "type": "A->|",
+    "description": "Do absolutely nothing with the input audio."
+  },
+  {
+    "name": "addroi",
+    "type": "V->V",
+    "description": "Add region of interest to frame."
+  },
+  {
+    "name": "alphaextract",
+    "type": "V->V",
+    "description": "Extract an alpha channel as a grayscale image component."
+  },
+  {
+    "name": "alphamerge",
+    "type": "VV->V",
+    "description": "Copy the luma value of the second input into the alpha channel of the first input."
+  },
+  {
+    "name": "amplify",
+    "type": "V->V",
+    "description": "Amplify changes between successive video frames."
+  },
+  {
+    "name": "ass",
+    "type": "V->V",
+    "description": "Render ASS subtitles onto input video using the libass library."
+  },
+  {
+    "name": "atadenoise",
+    "type": "V->V",
+    "description": "Apply an Adaptive Temporal Averaging Denoiser."
+  },
+  {
+    "name": "avgblur",
+    "type": "V->V",
+    "description": "Apply Average Blur filter."
+  },
+  {
+    "name": "backgroundkey",
+    "type": "V->V",
+    "description": "Turns a static background into transparency."
+  },
+  {
+    "name": "bbox",
+    "type": "V->V",
+    "description": "Compute bounding box for each frame."
+  },
+  {
+    "name": "bench",
+    "type": "V->V",
+    "description": "Benchmark part of a filtergraph."
+  },
+  {
+    "name": "bilateral",
+    "type": "V->V",
+    "description": "Apply Bilateral filter."
+  },
+  {
+    "name": "bitplanenoise",
+    "type": "V->V",
+    "description": "Measure bit plane noise."
+  },
+  {
+    "name": "blackdetect",
+    "type": "V->V",
+    "description": "Detect video intervals that are (almost) black."
+  },
+  {
+    "name": "blackframe",
+    "type": "V->V",
+    "description": "Detect frames that are (almost) black."
+  },
+  {
+    "name": "blend",
+    "type": "VV->V",
+    "description": "Blend two video frames into each other."
+  },
+  {
+    "name": "blockdetect",
+    "type": "V->V",
+    "description": "Blockdetect filter."
+  },
+  {
+    "name": "blurdetect",
+    "type": "V->V",
+    "description": "Blurdetect filter."
+  },
+  {
+    "name": "bm3d",
+    "type": "N->V",
+    "description": "Block-Matching 3D denoiser."
+  },
+  {
+    "name": "boxblur",
+    "type": "V->V",
+    "description": "Blur the input."
+  },
+  {
+    "name": "bwdif",
+    "type": "V->V",
+    "description": "Deinterlace the input image."
+  },
+  {
+    "name": "cas",
+    "type": "V->V",
+    "description": "Contrast Adaptive Sharpen."
+  },
+  {
+    "name": "ccrepack",
+    "type": "V->V",
+    "description": "Repack CEA-708 closed caption metadata"
+  },
+  {
+    "name": "chromahold",
+    "type": "V->V",
+    "description": "Turns a certain color range into gray."
+  },
+  {
+    "name": "chromakey",
+    "type": "V->V",
+    "description": "Turns a certain color into transparency. Operates on YUV colors."
+  },
+  {
+    "name": "chromanr",
+    "type": "V->V",
+    "description": "Reduce chrominance noise."
+  },
+  {
+    "name": "chromashift",
+    "type": "V->V",
+    "description": "Shift chroma."
+  },
+  {
+    "name": "ciescope",
+    "type": "V->V",
+    "description": "Video CIE scope."
+  },
+  {
+    "name": "codecview",
+    "type": "V->V",
+    "description": "Visualize information about some codecs."
+  },
+  {
+    "name": "colorbalance",
+    "type": "V->V",
+    "description": "Adjust the color balance."
+  },
+  {
+    "name": "colorchannelmixer",
+    "type": "V->V",
+    "description": "Adjust colors by mixing color channels."
+  },
+  {
+    "name": "colorcontrast",
+    "type": "V->V",
+    "description": "Adjust color contrast between RGB components."
+  },
+  {
+    "name": "colorcorrect",
+    "type": "V->V",
+    "description": "Adjust color white balance selectively for blacks and whites."
+  },
+  {
+    "name": "colordetect",
+    "type": "V->V",
+    "description": "Detect video color properties."
+  },
+  {
+    "name": "colorize",
+    "type": "V->V",
+    "description": "Overlay a solid color on the video stream."
+  },
+  {
+    "name": "colorkey",
+    "type": "V->V",
+    "description": "Turns a certain color into transparency. Operates on RGB colors."
+  },
+  {
+    "name": "colorhold",
+    "type": "V->V",
+    "description": "Turns a certain color range into gray. Operates on RGB colors."
+  },
+  {
+    "name": "colorlevels",
+    "type": "V->V",
+    "description": "Adjust the color levels."
+  },
+  {
+    "name": "colormap",
+    "type": "VVV->V",
+    "description": "Apply custom Color Maps to video stream."
+  },
+  {
+    "name": "colormatrix",
+    "type": "V->V",
+    "description": "Convert color matrix."
+  },
+  {
+    "name": "colorspace",
+    "type": "V->V",
+    "description": "Convert between colorspaces."
+  },
+  {
+    "name": "colortemperature",
+    "type": "V->V",
+    "description": "Adjust color temperature of video."
+  },
+  {
+    "name": "convolution",
+    "type": "V->V",
+    "description": "Apply convolution filter."
+  },
+  {
+    "name": "convolve",
+    "type": "VV->V",
+    "description": "Convolve first video stream with second video stream."
+  },
+  {
+    "name": "copy",
+    "type": "V->V",
+    "description": "Copy the input video unchanged to the output."
+  },
+  {
+    "name": "corr",
+    "type": "VV->V",
+    "description": "Calculate the correlation between two video streams."
+  },
+  {
+    "name": "cover_rect",
+    "type": "V->V",
+    "description": "Find and cover a user specified object."
+  },
+  {
+    "name": "crop",
+    "type": "V->V",
+    "description": "Crop the input video."
+  },
+  {
+    "name": "cropdetect",
+    "type": "V->V",
+    "description": "Auto-detect crop size."
+  },
+  {
+    "name": "cue",
+    "type": "V->V",
+    "description": "Delay filtering to match a cue."
+  },
+  {
+    "name": "curves",
+    "type": "V->V",
+    "description": "Adjust components curves."
+  },
+  {
+    "name": "datascope",
+    "type": "V->V",
+    "description": "Video data analysis."
+  },
+  {
+    "name": "dblur",
+    "type": "V->V",
+    "description": "Apply Directional Blur filter."
+  },
+  {
+    "name": "dctdnoiz",
+    "type": "V->V",
+    "description": "Denoise frames using 2D DCT."
+  },
+  {
+    "name": "deband",
+    "type": "V->V",
+    "description": "Debands video."
+  },
+  {
+    "name": "deblock",
+    "type": "V->V",
+    "description": "Deblock video."
+  },
+  {
+    "name": "decimate",
+    "type": "N->V",
+    "description": "Decimate frames (post field matching filter)."
+  },
+  {
+    "name": "deconvolve",
+    "type": "VV->V",
+    "description": "Deconvolve first video stream with second video stream."
+  },
+  {
+    "name": "dedot",
+    "type": "V->V",
+    "description": "Reduce cross-luminance and cross-color."
+  },
+  {
+    "name": "deflate",
+    "type": "V->V",
+    "description": "Apply deflate effect."
+  },
+  {
+    "name": "deflicker",
+    "type": "V->V",
+    "description": "Remove temporal frame luminance variations."
+  },
+  {
+    "name": "dejudder",
+    "type": "V->V",
+    "description": "Remove judder produced by pullup."
+  },
+  {
+    "name": "delogo",
+    "type": "V->V",
+    "description": "Remove logo from input video."
+  },
+  {
+    "name": "deshake",
+    "type": "V->V",
+    "description": "Stabilize shaky video."
+  },
+  {
+    "name": "despill",
+    "type": "V->V",
+    "description": "Despill video."
+  },
+  {
+    "name": "detelecine",
+    "type": "V->V",
+    "description": "Apply an inverse telecine pattern."
+  },
+  {
+    "name": "dilation",
+    "type": "V->V",
+    "description": "Apply dilation effect."
+  },
+  {
+    "name": "displace",
+    "type": "VVV->V",
+    "description": "Displace pixels."
+  },
+  {
+    "name": "doubleweave",
+    "type": "V->V",
+    "description": "Weave input video fields into double number of frames."
+  },
+  {
+    "name": "drawbox",
+    "type": "V->V",
+    "description": "Draw a colored box on the input video."
+  },
+  {
+    "name": "drawgraph",
+    "type": "V->V",
+    "description": "Draw a graph using input video metadata."
+  },
+  {
+    "name": "drawgrid",
+    "type": "V->V",
+    "description": "Draw a colored grid on the input video."
+  },
+  {
+    "name": "drawtext",
+    "type": "V->V",
+    "description": "Draw text on top of video frames using libfreetype library."
+  },
+  {
+    "name": "edgedetect",
+    "type": "V->V",
+    "description": "Detect and draw edge."
+  },
+  {
+    "name": "elbg",
+    "type": "V->V",
+    "description": "Apply posterize effect, using the ELBG algorithm."
+  },
+  {
+    "name": "entropy",
+    "type": "V->V",
+    "description": "Measure video frames entropy."
+  },
+  {
+    "name": "epx",
+    "type": "V->V",
+    "description": "Scale the input using EPX algorithm."
+  },
+  {
+    "name": "eq",
+    "type": "V->V",
+    "description": "Adjust brightness, contrast, gamma, and saturation."
+  },
+  {
+    "name": "erosion",
+    "type": "V->V",
+    "description": "Apply erosion effect."
+  },
+  {
+    "name": "estdif",
+    "type": "V->V",
+    "description": "Apply Edge Slope Tracing deinterlace."
+  },
+  {
+    "name": "exposure",
+    "type": "V->V",
+    "description": "Adjust exposure of the video stream."
+  },
+  {
+    "name": "extractplanes",
+    "type": "V->N",
+    "description": "Extract planes as grayscale frames."
+  },
+  {
+    "name": "fade",
+    "type": "V->V",
+    "description": "Fade in/out input video."
+  },
+  {
+    "name": "feedback",
+    "type": "VV->VV",
+    "description": "Apply feedback video filter."
+  },
+  {
+    "name": "fftdnoiz",
+    "type": "V->V",
+    "description": "Denoise frames using 3D FFT."
+  },
+  {
+    "name": "fftfilt",
+    "type": "V->V",
+    "description": "Apply arbitrary expressions to pixels in frequency domain."
+  },
+  {
+    "name": "field",
+    "type": "V->V",
+    "description": "Extract a field from the input video."
+  },
+  {
+    "name": "fieldhint",
+    "type": "V->V",
+    "description": "Field matching using hints."
+  },
+  {
+    "name": "fieldmatch",
+    "type": "N->V",
+    "description": "Field matching for inverse telecine."
+  },
+  {
+    "name": "fieldorder",
+    "type": "V->V",
+    "description": "Set the field order."
+  },
+  {
+    "name": "fillborders",
+    "type": "V->V",
+    "description": "Fill borders of the input video."
+  },
+  {
+    "name": "find_rect",
+    "type": "V->V",
+    "description": "Find a user specified object."
+  },
+  {
+    "name": "floodfill",
+    "type": "V->V",
+    "description": "Fill area with same color with another color."
+  },
+  {
+    "name": "format",
+    "type": "V->V",
+    "description": "Convert the input video to one of the specified pixel formats."
+  },
+  {
+    "name": "fps",
+    "type": "V->V",
+    "description": "Force constant framerate."
+  },
+  {
+    "name": "framepack",
+    "type": "VV->V",
+    "description": "Generate a frame packed stereoscopic video."
+  },
+  {
+    "name": "framerate",
+    "type": "V->V",
+    "description": "Upsamples or downsamples progressive source between specified frame rates."
+  },
+  {
+    "name": "framestep",
+    "type": "V->V",
+    "description": "Select one frame every N frames."
+  },
+  {
+    "name": "freezedetect",
+    "type": "V->V",
+    "description": "Detects frozen video input."
+  },
+  {
+    "name": "freezeframes",
+    "type": "VV->V",
+    "description": "Freeze video frames."
+  },
+  {
+    "name": "fspp",
+    "type": "V->V",
+    "description": "Apply Fast Simple Post-processing filter."
+  },
+  {
+    "name": "fsync",
+    "type": "V->V",
+    "description": "Synchronize video frames from external source."
+  },
+  {
+    "name": "gainmap",
+    "type": "VV->V",
+    "description": "Generate a gain map from a base/alternate pair."
+  },
+  {
+    "name": "gblur",
+    "type": "V->V",
+    "description": "Apply Gaussian Blur filter."
+  },
+  {
+    "name": "geq",
+    "type": "V->V",
+    "description": "Apply generic equation to each pixel."
+  },
+  {
+    "name": "gradfun",
+    "type": "V->V",
+    "description": "Debands video quickly using gradients."
+  },
+  {
+    "name": "graphmonitor",
+    "type": "V->V",
+    "description": "Show various filtergraph stats."
+  },
+  {
+    "name": "grayworld",
+    "type": "V->V",
+    "description": "Adjust white balance using LAB gray world algorithm"
+  },
+  {
+    "name": "greyedge",
+    "type": "V->V",
+    "description": "Estimates scene illumination by grey edge assumption."
+  },
+  {
+    "name": "guided",
+    "type": "N->V",
+    "description": "Apply Guided filter."
+  },
+  {
+    "name": "haldclut",
+    "type": "VV->V",
+    "description": "Adjust colors using a Hald CLUT."
+  },
+  {
+    "name": "hflip",
+    "type": "V->V",
+    "description": "Horizontally flip the input video."
+  },
+  {
+    "name": "histeq",
+    "type": "V->V",
+    "description": "Apply global color histogram equalization."
+  },
+  {
+    "name": "histogram",
+    "type": "V->V",
+    "description": "Compute and draw a histogram."
+  },
+  {
+    "name": "hqdn3d",
+    "type": "V->V",
+    "description": "Apply a High Quality 3D Denoiser."
+  },
+  {
+    "name": "hqx",
+    "type": "V->V",
+    "description": "Scale the input by 2, 3 or 4 using the hq*x magnification algorithm."
+  },
+  {
+    "name": "hstack",
+    "type": "N->V",
+    "description": "Stack video inputs horizontally."
+  },
+  {
+    "name": "hsvhold",
+    "type": "V->V",
+    "description": "Turns a certain HSV range into gray."
+  },
+  {
+    "name": "hsvkey",
+    "type": "V->V",
+    "description": "Turns a certain HSV range into transparency. Operates on YUV colors."
+  },
+  {
+    "name": "hue",
+    "type": "V->V",
+    "description": "Adjust the hue and saturation of the input video."
+  },
+  {
+    "name": "huesaturation",
+    "type": "V->V",
+    "description": "Apply hue-saturation-intensity adjustments."
+  },
+  {
+    "name": "hwdownload",
+    "type": "V->V",
+    "description": "Download a hardware frame to a normal frame"
+  },
+  {
+    "name": "hwmap",
+    "type": "V->V",
+    "description": "Map hardware frames"
+  },
+  {
+    "name": "hwupload",
+    "type": "V->V",
+    "description": "Upload a normal frame to a hardware frame"
+  },
+  {
+    "name": "hysteresis",
+    "type": "VV->V",
+    "description": "Grow first stream into second stream by connecting components."
+  },
+  {
+    "name": "identity",
+    "type": "VV->V",
+    "description": "Calculate the Identity between two video streams."
+  },
+  {
+    "name": "idet",
+    "type": "V->V",
+    "description": "Interlace detect Filter."
+  },
+  {
+    "name": "il",
+    "type": "V->V",
+    "description": "Deinterleave or interleave fields."
+  },
+  {
+    "name": "inflate",
+    "type": "V->V",
+    "description": "Apply inflate effect."
+  },
+  {
+    "name": "interlace",
+    "type": "V->V",
+    "description": "Convert progressive video into interlaced."
+  },
+  {
+    "name": "interleave",
+    "type": "N->V",
+    "description": "Temporally interleave video inputs."
+  },
+  {
+    "name": "kerndeint",
+    "type": "V->V",
+    "description": "Apply kernel deinterlacing to the input."
+  },
+  {
+    "name": "kirsch",
+    "type": "V->V",
+    "description": "Apply kirsch operator."
+  },
+  {
+    "name": "lagfun",
+    "type": "V->V",
+    "description": "Slowly update darker pixels."
+  },
+  {
+    "name": "latency",
+    "type": "V->V",
+    "description": "Report video filtering latency."
+  },
+  {
+    "name": "latticepal",
+    "type": "V->V",
+    "description": "Convert RGB to PAL8 using a per-frame FCC lattice palette."
+  },
+  {
+    "name": "lenscorrection",
+    "type": "V->V",
+    "description": "Rectify the image by correcting for lens distortion."
+  },
+  {
+    "name": "libvmaf",
+    "type": "VV->V",
+    "description": "Calculate the VMAF between two video streams."
+  },
+  {
+    "name": "limitdiff",
+    "type": "N->V",
+    "description": "Apply filtering with limiting difference."
+  },
+  {
+    "name": "limiter",
+    "type": "V->V",
+    "description": "Limit pixels components to the specified range."
+  },
+  {
+    "name": "loop",
+    "type": "V->V",
+    "description": "Loop video frames."
+  },
+  {
+    "name": "lumakey",
+    "type": "V->V",
+    "description": "Turns a certain luma into transparency."
+  },
+  {
+    "name": "lut",
+    "type": "V->V",
+    "description": "Compute and apply a lookup table to the RGB/YUV input video."
+  },
+  {
+    "name": "lut1d",
+    "type": "V->V",
+    "description": "Adjust colors using a 1D LUT."
+  },
+  {
+    "name": "lut2",
+    "type": "VV->V",
+    "description": "Compute and apply a lookup table from two video inputs."
+  },
+  {
+    "name": "lut3d",
+    "type": "V->V",
+    "description": "Adjust colors using a 3D LUT."
+  },
+  {
+    "name": "lutrgb",
+    "type": "V->V",
+    "description": "Compute and apply a lookup table to the RGB input video."
+  },
+  {
+    "name": "lutyuv",
+    "type": "V->V",
+    "description": "Compute and apply a lookup table to the YUV input video."
+  },
+  {
+    "name": "maskedclamp",
+    "type": "VVV->V",
+    "description": "Clamp first stream with second stream and third stream."
+  },
+  {
+    "name": "maskedmax",
+    "type": "VVV->V",
+    "description": "Apply filtering with maximum difference of two streams."
+  },
+  {
+    "name": "maskedmerge",
+    "type": "VVV->V",
+    "description": "Merge first stream with second stream using third stream as mask."
+  },
+  {
+    "name": "maskedmin",
+    "type": "VVV->V",
+    "description": "Apply filtering with minimum difference of two streams."
+  },
+  {
+    "name": "maskedthreshold",
+    "type": "VV->V",
+    "description": "Pick pixels comparing absolute difference of two streams with threshold."
+  },
+  {
+    "name": "maskfun",
+    "type": "V->V",
+    "description": "Create Mask."
+  },
+  {
+    "name": "mcdeint",
+    "type": "V->V",
+    "description": "Apply motion compensating deinterlacing."
+  },
+  {
+    "name": "median",
+    "type": "V->V",
+    "description": "Apply Median filter."
+  },
+  {
+    "name": "mergeplanes",
+    "type": "N->V",
+    "description": "Merge planes."
+  },
+  {
+    "name": "mestimate",
+    "type": "V->V",
+    "description": "Generate motion vectors."
+  },
+  {
+    "name": "metadata",
+    "type": "V->V",
+    "description": "Manipulate video frame metadata."
+  },
+  {
+    "name": "midequalizer",
+    "type": "VV->V",
+    "description": "Apply Midway Equalization."
+  },
+  {
+    "name": "minterpolate",
+    "type": "V->V",
+    "description": "Frame rate conversion using Motion Interpolation."
+  },
+  {
+    "name": "mix",
+    "type": "N->V",
+    "description": "Mix video inputs."
+  },
+  {
+    "name": "monochrome",
+    "type": "V->V",
+    "description": "Convert video to gray using custom color filter."
+  },
+  {
+    "name": "morpho",
+    "type": "VV->V",
+    "description": "Apply Morphological filter."
+  },
+  {
+    "name": "mpdecimate",
+    "type": "V->V",
+    "description": "Remove near-duplicate frames."
+  },
+  {
+    "name": "msad",
+    "type": "VV->V",
+    "description": "Calculate the MSAD between two video streams."
+  },
+  {
+    "name": "multiply",
+    "type": "VV->V",
+    "description": "Multiply first video stream with second video stream."
+  },
+  {
+    "name": "negate",
+    "type": "V->V",
+    "description": "Negate input video."
+  },
+  {
+    "name": "nlmeans",
+    "type": "V->V",
+    "description": "Non-local means denoiser."
+  },
+  {
+    "name": "nnedi",
+    "type": "V->V",
+    "description": "Apply neural network edge directed interpolation intra-only deinterlacer."
+  },
+  {
+    "name": "noformat",
+    "type": "V->V",
+    "description": "Force libavfilter not to use any of the specified pixel formats for the input to the next filter."
+  },
+  {
+    "name": "noise",
+    "type": "V->V",
+    "description": "Add noise."
+  },
+  {
+    "name": "normalize",
+    "type": "V->V",
+    "description": "Normalize RGB video."
+  },
+  {
+    "name": "null",
+    "type": "V->V",
+    "description": "Pass the source unchanged to the output."
+  },
+  {
+    "name": "oscilloscope",
+    "type": "V->V",
+    "description": "2D Video Oscilloscope."
+  },
+  {
+    "name": "overlay",
+    "type": "VV->V",
+    "description": "Overlay a video source on top of the input."
+  },
+  {
+    "name": "owdenoise",
+    "type": "V->V",
+    "description": "Denoise using wavelets."
+  },
+  {
+    "name": "pad",
+    "type": "V->V",
+    "description": "Pad the input video."
+  },
+  {
+    "name": "palettegen",
+    "type": "V->V",
+    "description": "Find the optimal palette for a given stream."
+  },
+  {
+    "name": "paletteuse",
+    "type": "VV->V",
+    "description": "Use a palette to downsample an input video stream."
+  },
+  {
+    "name": "perms",
+    "type": "V->V",
+    "description": "Set permissions for the output video frame."
+  },
+  {
+    "name": "perspective",
+    "type": "V->V",
+    "description": "Correct the perspective of video."
+  },
+  {
+    "name": "phase",
+    "type": "V->V",
+    "description": "Phase shift fields."
+  },
+  {
+    "name": "photosensitivity",
+    "type": "V->V",
+    "description": "Filter out photosensitive epilepsy seizure-inducing flashes."
+  },
+  {
+    "name": "pixdesctest",
+    "type": "V->V",
+    "description": "Test pixel format definitions."
+  },
+  {
+    "name": "pixelize",
+    "type": "V->V",
+    "description": "Pixelize video."
+  },
+  {
+    "name": "pixscope",
+    "type": "V->V",
+    "description": "Pixel data analysis."
+  },
+  {
+    "name": "pp7",
+    "type": "V->V",
+    "description": "Apply Postprocessing 7 filter."
+  },
+  {
+    "name": "premultiply",
+    "type": "N->V",
+    "description": "PreMultiply first stream with first plane of second stream."
+  },
+  {
+    "name": "premultiply_dynamic",
+    "type": "V->V",
+    "description": "Premultiply or unpremultiply an image in-place, as needed."
+  },
+  {
+    "name": "prewitt",
+    "type": "V->V",
+    "description": "Apply prewitt operator."
+  },
+  {
+    "name": "pseudocolor",
+    "type": "V->V",
+    "description": "Make pseudocolored video frames."
+  },
+  {
+    "name": "psnr",
+    "type": "VV->V",
+    "description": "Calculate the PSNR between two video streams."
+  },
+  {
+    "name": "pullup",
+    "type": "V->V",
+    "description": "Pullup from field sequence to frames."
+  },
+  {
+    "name": "qp",
+    "type": "V->V",
+    "description": "Change video quantization parameters."
+  },
+  {
+    "name": "random",
+    "type": "V->V",
+    "description": "Return random frames."
+  },
+  {
+    "name": "readeia608",
+    "type": "V->V",
+    "description": "Read EIA-608 Closed Caption codes from input video and write them to frame metadata."
+  },
+  {
+    "name": "readvitc",
+    "type": "V->V",
+    "description": "Read vertical interval timecode and write it to frame metadata."
+  },
+  {
+    "name": "realtime",
+    "type": "V->V",
+    "description": "Slow down filtering to match realtime."
+  },
+  {
+    "name": "remap",
+    "type": "VVV->V",
+    "description": "Remap pixels."
+  },
+  {
+    "name": "removegrain",
+    "type": "V->V",
+    "description": "Remove grain."
+  },
+  {
+    "name": "removelogo",
+    "type": "V->V",
+    "description": "Remove a TV logo based on a mask image."
+  },
+  {
+    "name": "repeatfields",
+    "type": "V->V",
+    "description": "Hard repeat fields based on MPEG repeat field flag."
+  },
+  {
+    "name": "reverse",
+    "type": "V->V",
+    "description": "Reverse a clip."
+  },
+  {
+    "name": "rgbashift",
+    "type": "V->V",
+    "description": "Shift RGBA."
+  },
+  {
+    "name": "roberts",
+    "type": "V->V",
+    "description": "Apply roberts cross operator."
+  },
+  {
+    "name": "rotate",
+    "type": "V->V",
+    "description": "Rotate the input image."
+  },
+  {
+    "name": "sab",
+    "type": "V->V",
+    "description": "Apply shape adaptive blur."
+  },
+  {
+    "name": "scale",
+    "type": "V->V",
+    "description": "Scale the input video size and/or convert the image format."
+  },
+  {
+    "name": "scale2ref",
+    "type": "VV->VV",
+    "description": "Scale the input video size and/or convert the image format to the given reference."
+  },
+  {
+    "name": "scdet",
+    "type": "V->V",
+    "description": "Detect video scene change"
+  },
+  {
+    "name": "scharr",
+    "type": "V->V",
+    "description": "Apply scharr operator."
+  },
+  {
+    "name": "scroll",
+    "type": "V->V",
+    "description": "Scroll input video."
+  },
+  {
+    "name": "segment",
+    "type": "V->N",
+    "description": "Segment video stream."
+  },
+  {
+    "name": "select",
+    "type": "V->N",
+    "description": "Select video frames to pass in output."
+  },
+  {
+    "name": "selectivecolor",
+    "type": "V->V",
+    "description": "Apply CMYK adjustments to specific color ranges."
+  },
+  {
+    "name": "sendcmd",
+    "type": "V->V",
+    "description": "Send commands to filters."
+  },
+  {
+    "name": "separatefields",
+    "type": "V->V",
+    "description": "Split input video frames into fields."
+  },
+  {
+    "name": "setdar",
+    "type": "V->V",
+    "description": "Set the frame display aspect ratio."
+  },
+  {
+    "name": "setfield",
+    "type": "V->V",
+    "description": "Force field for the output video frame."
+  },
+  {
+    "name": "setparams",
+    "type": "V->V",
+    "description": "Force field, or color property for the output video frame."
+  },
+  {
+    "name": "setpts",
+    "type": "V->V",
+    "description": "Set PTS for the output video frame."
+  },
+  {
+    "name": "setrange",
+    "type": "V->V",
+    "description": "Force color range for the output video frame."
+  },
+  {
+    "name": "setsar",
+    "type": "V->V",
+    "description": "Set the pixel sample aspect ratio."
+  },
+  {
+    "name": "settb",
+    "type": "V->V",
+    "description": "Set timebase for the video output link."
+  },
+  {
+    "name": "shear",
+    "type": "V->V",
+    "description": "Shear transform the input image."
+  },
+  {
+    "name": "showinfo",
+    "type": "V->V",
+    "description": "Show textual information for each video frame."
+  },
+  {
+    "name": "showpalette",
+    "type": "V->V",
+    "description": "Display frame palette."
+  },
+  {
+    "name": "shuffleframes",
+    "type": "V->V",
+    "description": "Shuffle video frames."
+  },
+  {
+    "name": "shufflepixels",
+    "type": "V->V",
+    "description": "Shuffle video pixels."
+  },
+  {
+    "name": "shuffleplanes",
+    "type": "V->V",
+    "description": "Shuffle video planes."
+  },
+  {
+    "name": "sidedata",
+    "type": "V->V",
+    "description": "Manipulate video frame side data."
+  },
+  {
+    "name": "signalstats",
+    "type": "V->V",
+    "description": "Generate statistics from video analysis."
+  },
+  {
+    "name": "signature",
+    "type": "N->V",
+    "description": "Calculate the MPEG-7 video signature"
+  },
+  {
+    "name": "siti",
+    "type": "V->V",
+    "description": "Calculate spatial information (SI) and temporal information (TI)."
+  },
+  {
+    "name": "smartblur",
+    "type": "V->V",
+    "description": "Blur the input video without impacting the outlines."
+  },
+  {
+    "name": "sobel",
+    "type": "V->V",
+    "description": "Apply sobel operator."
+  },
+  {
+    "name": "split",
+    "type": "V->N",
+    "description": "Pass on the input to N video outputs."
+  },
+  {
+    "name": "spp",
+    "type": "V->V",
+    "description": "Apply a simple post processing filter."
+  },
+  {
+    "name": "ssim",
+    "type": "VV->V",
+    "description": "Calculate the SSIM between two video streams."
+  },
+  {
+    "name": "ssim360",
+    "type": "VV->V",
+    "description": "Calculate the SSIM between two 360 video streams."
+  },
+  {
+    "name": "stereo3d",
+    "type": "V->V",
+    "description": "Convert video stereoscopic 3D view."
+  },
+  {
+    "name": "streamselect",
+    "type": "N->N",
+    "description": "Select video streams"
+  },
+  {
+    "name": "subtitles",
+    "type": "V->V",
+    "description": "Render text subtitles onto input video using the libass library."
+  },
+  {
+    "name": "super2xsai",
+    "type": "V->V",
+    "description": "Scale the input by 2x using the Super2xSaI pixel art algorithm."
+  },
+  {
+    "name": "swaprect",
+    "type": "V->V",
+    "description": "Swap 2 rectangular objects in video."
+  },
+  {
+    "name": "swapuv",
+    "type": "V->V",
+    "description": "Swap U and V components."
+  },
+  {
+    "name": "tblend",
+    "type": "V->V",
+    "description": "Blend successive frames."
+  },
+  {
+    "name": "telecine",
+    "type": "V->V",
+    "description": "Apply a telecine pattern."
+  },
+  {
+    "name": "thistogram",
+    "type": "V->V",
+    "description": "Compute and draw a temporal histogram."
+  },
+  {
+    "name": "threshold",
+    "type": "VVVV->V",
+    "description": "Threshold first video stream using other video streams."
+  },
+  {
+    "name": "thumbnail",
+    "type": "V->V",
+    "description": "Select the most representative frame in a given sequence of consecutive frames."
+  },
+  {
+    "name": "tile",
+    "type": "V->V",
+    "description": "Tile several successive frames together."
+  },
+  {
+    "name": "tiltandshift",
+    "type": "V->V",
+    "description": "Generate a tilt-and-shift'd video."
+  },
+  {
+    "name": "tinterlace",
+    "type": "V->V",
+    "description": "Perform temporal field interlacing."
+  },
+  {
+    "name": "tlut2",
+    "type": "V->V",
+    "description": "Compute and apply a lookup table from two successive frames."
+  },
+  {
+    "name": "tmedian",
+    "type": "V->V",
+    "description": "Pick median pixels from successive frames."
+  },
+  {
+    "name": "tmidequalizer",
+    "type": "V->V",
+    "description": "Apply Temporal Midway Equalization."
+  },
+  {
+    "name": "tmix",
+    "type": "V->V",
+    "description": "Mix successive video frames."
+  },
+  {
+    "name": "tonemap",
+    "type": "V->V",
+    "description": "Conversion to/from different dynamic ranges."
+  },
+  {
+    "name": "tpad",
+    "type": "V->V",
+    "description": "Temporarily pad video frames."
+  },
+  {
+    "name": "transpose",
+    "type": "V->V",
+    "description": "Transpose input video."
+  },
+  {
+    "name": "trim",
+    "type": "V->V",
+    "description": "Pick one continuous section from the input, drop the rest."
+  },
+  {
+    "name": "unpremultiply",
+    "type": "N->V",
+    "description": "UnPreMultiply first stream with first plane of second stream."
+  },
+  {
+    "name": "unsharp",
+    "type": "V->V",
+    "description": "Sharpen or blur the input video."
+  },
+  {
+    "name": "untile",
+    "type": "V->V",
+    "description": "Untile a frame into a sequence of frames."
+  },
+  {
+    "name": "uspp",
+    "type": "V->V",
+    "description": "Apply Ultra Simple / Slow Post-processing filter."
+  },
+  {
+    "name": "v360",
+    "type": "V->V",
+    "description": "Convert 360 projection of video."
+  },
+  {
+    "name": "vaguedenoiser",
+    "type": "V->V",
+    "description": "Apply a Wavelet based Denoiser."
+  },
+  {
+    "name": "varblur",
+    "type": "VV->V",
+    "description": "Apply Variable Blur filter."
+  },
+  {
+    "name": "vectorscope",
+    "type": "V->V",
+    "description": "Video vectorscope."
+  },
+  {
+    "name": "vflip",
+    "type": "V->V",
+    "description": "Flip the input video vertically."
+  },
+  {
+    "name": "vfrdet",
+    "type": "V->V",
+    "description": "Variable frame rate detect filter."
+  },
+  {
+    "name": "vibrance",
+    "type": "V->V",
+    "description": "Boost or alter saturation."
+  },
+  {
+    "name": "vif",
+    "type": "VV->V",
+    "description": "Calculate the VIF between two video streams."
+  },
+  {
+    "name": "vignette",
+    "type": "V->V",
+    "description": "Make or reverse a vignette effect."
+  },
+  {
+    "name": "vmafmotion",
+    "type": "V->V",
+    "description": "Calculate the VMAF Motion score."
+  },
+  {
+    "name": "vstack",
+    "type": "N->V",
+    "description": "Stack video inputs vertically."
+  },
+  {
+    "name": "w3fdif",
+    "type": "V->V",
+    "description": "Apply Martin Weston three field deinterlace."
+  },
+  {
+    "name": "waveform",
+    "type": "V->V",
+    "description": "Video waveform monitor."
+  },
+  {
+    "name": "weave",
+    "type": "V->V",
+    "description": "Weave input video fields into frames."
+  },
+  {
+    "name": "xbr",
+    "type": "V->V",
+    "description": "Scale the input using xBR algorithm."
+  },
+  {
+    "name": "xcorrelate",
+    "type": "VV->V",
+    "description": "Cross-correlate first video stream with second video stream."
+  },
+  {
+    "name": "xfade",
+    "type": "VV->V",
+    "description": "Cross fade one video with another video."
+  },
+  {
+    "name": "xmedian",
+    "type": "N->V",
+    "description": "Pick median pixels from several video inputs."
+  },
+  {
+    "name": "xpsnr",
+    "type": "VV->V",
+    "description": "Calculate the extended perceptually weighted peak signal-to-noise ratio (XPSNR) between two video streams."
+  },
+  {
+    "name": "xstack",
+    "type": "N->V",
+    "description": "Stack video inputs into custom layout."
+  },
+  {
+    "name": "yadif",
+    "type": "V->V",
+    "description": "Deinterlace the input image."
+  },
+  {
+    "name": "yaepblur",
+    "type": "V->V",
+    "description": "Yet another edge preserving blur filter."
+  },
+  {
+    "name": "zoompan",
+    "type": "V->V",
+    "description": "Apply Zoom & Pan effect."
+  },
+  {
+    "name": "zscale",
+    "type": "V->V",
+    "description": "Apply resizing, colorspace and bit depth conversion."
+  },
+  {
+    "name": "allrgb",
+    "type": "|->V",
+    "description": "Generate all RGB colors."
+  },
+  {
+    "name": "allyuv",
+    "type": "|->V",
+    "description": "Generate all yuv colors."
+  },
+  {
+    "name": "cellauto",
+    "type": "|->V",
+    "description": "Create pattern generated by an elementary cellular automaton."
+  },
+  {
+    "name": "color",
+    "type": "|->V",
+    "description": "Provide an uniformly colored input."
+  },
+  {
+    "name": "colorchart",
+    "type": "|->V",
+    "description": "Generate color checker chart."
+  },
+  {
+    "name": "colorspectrum",
+    "type": "|->V",
+    "description": "Generate colors spectrum."
+  },
+  {
+    "name": "gradients",
+    "type": "|->V",
+    "description": "Draw a gradients."
+  },
+  {
+    "name": "haldclutsrc",
+    "type": "|->V",
+    "description": "Provide an identity Hald CLUT."
+  },
+  {
+    "name": "life",
+    "type": "|->V",
+    "description": "Create life."
+  },
+  {
+    "name": "mandelbrot",
+    "type": "|->V",
+    "description": "Render a Mandelbrot fractal."
+  },
+  {
+    "name": "mptestsrc",
+    "type": "|->V",
+    "description": "Generate various test pattern."
+  },
+  {
+    "name": "nullsrc",
+    "type": "|->V",
+    "description": "Null video source, return unprocessed video frames."
+  },
+  {
+    "name": "pal75bars",
+    "type": "|->V",
+    "description": "Generate PAL 75% color bars."
+  },
+  {
+    "name": "pal100bars",
+    "type": "|->V",
+    "description": "Generate PAL 100% color bars."
+  },
+  {
+    "name": "perlin",
+    "type": "|->V",
+    "description": "Generate Perlin noise"
+  },
+  {
+    "name": "rgbtestsrc",
+    "type": "|->V",
+    "description": "Generate RGB test pattern."
+  },
+  {
+    "name": "sierpinski",
+    "type": "|->V",
+    "description": "Render a Sierpinski fractal."
+  },
+  {
+    "name": "smptebars",
+    "type": "|->V",
+    "description": "Generate SMPTE color bars."
+  },
+  {
+    "name": "smptehdbars",
+    "type": "|->V",
+    "description": "Generate SMPTE HD color bars."
+  },
+  {
+    "name": "testsrc",
+    "type": "|->V",
+    "description": "Generate test pattern."
+  },
+  {
+    "name": "testsrc2",
+    "type": "|->V",
+    "description": "Generate another test pattern."
+  },
+  {
+    "name": "yuvtestsrc",
+    "type": "|->V",
+    "description": "Generate YUV test pattern."
+  },
+  {
+    "name": "zoneplate",
+    "type": "|->V",
+    "description": "Generate zone-plate."
+  },
+  {
+    "name": "nullsink",
+    "type": "V->|",
+    "description": "Do absolutely nothing with the input video."
+  },
+  {
+    "name": "a3dscope",
+    "type": "A->V",
+    "description": "Convert input audio to 3d scope video output."
+  },
+  {
+    "name": "abitscope",
+    "type": "A->V",
+    "description": "Convert input audio to audio bit scope video output."
+  },
+  {
+    "name": "adrawgraph",
+    "type": "A->V",
+    "description": "Draw a graph using input audio metadata."
+  },
+  {
+    "name": "agraphmonitor",
+    "type": "A->V",
+    "description": "Show various filtergraph stats."
+  },
+  {
+    "name": "ahistogram",
+    "type": "A->V",
+    "description": "Convert input audio to histogram video output."
+  },
+  {
+    "name": "aphasemeter",
+    "type": "A->N",
+    "description": "Convert input audio to phase meter video output."
+  },
+  {
+    "name": "avectorscope",
+    "type": "A->V",
+    "description": "Convert input audio to vectorscope video output."
+  },
+  {
+    "name": "concat",
+    "type": "N->N",
+    "description": "Concatenate audio and video streams."
+  },
+  {
+    "name": "showcqt",
+    "type": "A->V",
+    "description": "Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output."
+  },
+  {
+    "name": "showcwt",
+    "type": "A->V",
+    "description": "Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output."
+  },
+  {
+    "name": "showfreqs",
+    "type": "A->V",
+    "description": "Convert input audio to a frequencies video output."
+  },
+  {
+    "name": "showspatial",
+    "type": "A->V",
+    "description": "Convert input audio to a spatial video output."
+  },
+  {
+    "name": "showspectrum",
+    "type": "A->V",
+    "description": "Convert input audio to a spectrum video output."
+  },
+  {
+    "name": "showspectrumpic",
+    "type": "A->V",
+    "description": "Convert input audio to a spectrum video output single picture."
+  },
+  {
+    "name": "showvolume",
+    "type": "A->V",
+    "description": "Convert input audio volume to video output."
+  },
+  {
+    "name": "showwaves",
+    "type": "A->V",
+    "description": "Convert input audio to a video output."
+  },
+  {
+    "name": "showwavespic",
+    "type": "A->V",
+    "description": "Convert input audio to a video output single picture."
+  },
+  {
+    "name": "spectrumsynth",
+    "type": "VV->A",
+    "description": "Convert input spectrum videos to audio output."
+  },
+  {
+    "name": "avsynctest",
+    "type": "|->AV",
+    "description": "Generate an Audio Video Sync Test."
+  },
+  {
+    "name": "amovie",
+    "type": "|->N",
+    "description": "Read audio from a movie source."
+  },
+  {
+    "name": "movie",
+    "type": "|->N",
+    "description": "Read from a movie source."
+  },
+  {
+    "name": "abuffer",
+    "type": "|->A",
+    "description": "Buffer audio frames, and make them accessible to the filterchain."
+  },
+  {
+    "name": "buffer",
+    "type": "|->V",
+    "description": "Buffer video frames, and make them accessible to the filterchain."
+  },
+  {
+    "name": "abuffersink",
+    "type": "A->|",
+    "description": "Buffer audio frames, and make them available to the end of the filter graph."
+  },
+  {
+    "name": "buffersink",
+    "type": "V->|",
+    "description": "Buffer video frames, and make them available to the end of the filter graph."
+  }
+]

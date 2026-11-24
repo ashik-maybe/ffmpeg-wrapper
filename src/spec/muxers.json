@@ -1,0 +1,957 @@
+[
+  {
+    "name": "3g2",
+    "type": "E",
+    "description": "3GP2 (3GPP2 file format)"
+  },
+  {
+    "name": "3gp",
+    "type": "E",
+    "description": "3GP (3GPP file format)"
+  },
+  {
+    "name": "a64",
+    "type": "E",
+    "description": "a64 - video for Commodore 64"
+  },
+  {
+    "name": "ac3",
+    "type": "E",
+    "description": "raw AC-3"
+  },
+  {
+    "name": "ac4",
+    "type": "E",
+    "description": "raw AC-4"
+  },
+  {
+    "name": "adts",
+    "type": "E",
+    "description": "ADTS AAC (Advanced Audio Coding)"
+  },
+  {
+    "name": "adx",
+    "type": "E",
+    "description": "CRI ADX"
+  },
+  {
+    "name": "aea",
+    "type": "E",
+    "description": "MD STUDIO audio"
+  },
+  {
+    "name": "aiff",
+    "type": "E",
+    "description": "Audio IFF"
+  },
+  {
+    "name": "alaw",
+    "type": "E",
+    "description": "PCM A-law"
+  },
+  {
+    "name": "alp",
+    "type": "E",
+    "description": "LEGO Racers ALP"
+  },
+  {
+    "name": "amr",
+    "type": "E",
+    "description": "3GPP AMR"
+  },
+  {
+    "name": "amv",
+    "type": "E",
+    "description": "AMV"
+  },
+  {
+    "name": "apm",
+    "type": "E",
+    "description": "Ubisoft Rayman 2 APM"
+  },
+  {
+    "name": "apng",
+    "type": "E",
+    "description": "Animated Portable Network Graphics"
+  },
+  {
+    "name": "aptx",
+    "type": "E",
+    "description": "raw aptX (Audio Processing Technology for Bluetooth)"
+  },
+  {
+    "name": "aptx_hd",
+    "type": "E",
+    "description": "raw aptX HD (Audio Processing Technology for Bluetooth)"
+  },
+  {
+    "name": "apv",
+    "type": "E",
+    "description": "APV raw bitstream"
+  },
+  {
+    "name": "argo_asf",
+    "type": "E",
+    "description": "Argonaut Games ASF"
+  },
+  {
+    "name": "argo_cvg",
+    "type": "E",
+    "description": "Argonaut Games CVG"
+  },
+  {
+    "name": "asf",
+    "type": "E",
+    "description": "ASF (Advanced / Active Streaming Format)"
+  },
+  {
+    "name": "asf_stream",
+    "type": "E",
+    "description": "ASF (Advanced / Active Streaming Format)"
+  },
+  {
+    "name": "ass",
+    "type": "E",
+    "description": "SSA (SubStation Alpha) subtitle"
+  },
+  {
+    "name": "ast",
+    "type": "E",
+    "description": "AST (Audio Stream)"
+  },
+  {
+    "name": "astc",
+    "type": "E",
+    "description": "ASTC (Adaptive Scalable Texture Compression)"
+  },
+  {
+    "name": "au",
+    "type": "E",
+    "description": "Sun AU"
+  },
+  {
+    "name": "avi",
+    "type": "E",
+    "description": "AVI (Audio Video Interleaved)"
+  },
+  {
+    "name": "avif",
+    "type": "E",
+    "description": "AVIF"
+  },
+  {
+    "name": "avm2",
+    "type": "E",
+    "description": "SWF (ShockWave Flash) (AVM2)"
+  },
+  {
+    "name": "avs2",
+    "type": "E",
+    "description": "raw AVS2-P2/IEEE1857.4 video"
+  },
+  {
+    "name": "avs3",
+    "type": "E",
+    "description": "AVS3-P2/IEEE1857.10"
+  },
+  {
+    "name": "bit",
+    "type": "E",
+    "description": "G.729 BIT file format"
+  },
+  {
+    "name": "caf",
+    "type": "E",
+    "description": "Apple CAF (Core Audio Format)"
+  },
+  {
+    "name": "cavsvideo",
+    "type": "E",
+    "description": "raw Chinese AVS (Audio Video Standard) video"
+  },
+  {
+    "name": "codec2",
+    "type": "E",
+    "description": "codec2 .c2 muxer"
+  },
+  {
+    "name": "codec2raw",
+    "type": "E",
+    "description": "raw codec2 muxer"
+  },
+  {
+    "name": "crc",
+    "type": "E",
+    "description": "CRC testing"
+  },
+  {
+    "name": "dash",
+    "type": "E",
+    "description": "DASH Muxer"
+  },
+  {
+    "name": "data",
+    "type": "E",
+    "description": "raw data"
+  },
+  {
+    "name": "daud",
+    "type": "E",
+    "description": "D-Cinema audio"
+  },
+  {
+    "name": "decklink",
+    "type": "Ed",
+    "description": "Blackmagic DeckLink output"
+  },
+  {
+    "name": "dfpwm",
+    "type": "E",
+    "description": "raw DFPWM1a"
+  },
+  {
+    "name": "dirac",
+    "type": "E",
+    "description": "raw Dirac"
+  },
+  {
+    "name": "dnxhd",
+    "type": "E",
+    "description": "raw DNxHD (SMPTE VC-3)"
+  },
+  {
+    "name": "dts",
+    "type": "E",
+    "description": "raw DTS"
+  },
+  {
+    "name": "dv",
+    "type": "E",
+    "description": "DV (Digital Video)"
+  },
+  {
+    "name": "dvd",
+    "type": "E",
+    "description": "MPEG-2 PS (DVD VOB)"
+  },
+  {
+    "name": "eac3",
+    "type": "E",
+    "description": "raw E-AC-3"
+  },
+  {
+    "name": "evc",
+    "type": "E",
+    "description": "raw EVC video"
+  },
+  {
+    "name": "f32be",
+    "type": "E",
+    "description": "PCM 32-bit floating-point big-endian"
+  },
+  {
+    "name": "f32le",
+    "type": "E",
+    "description": "PCM 32-bit floating-point little-endian"
+  },
+  {
+    "name": "f4v",
+    "type": "E",
+    "description": "F4V Adobe Flash Video"
+  },
+  {
+    "name": "f64be",
+    "type": "E",
+    "description": "PCM 64-bit floating-point big-endian"
+  },
+  {
+    "name": "f64le",
+    "type": "E",
+    "description": "PCM 64-bit floating-point little-endian"
+  },
+  {
+    "name": "fbdev",
+    "type": "Ed",
+    "description": "Linux framebuffer"
+  },
+  {
+    "name": "ffmetadata",
+    "type": "E",
+    "description": "FFmpeg metadata in text"
+  },
+  {
+    "name": "fifo",
+    "type": "E",
+    "description": "FIFO queue pseudo-muxer"
+  },
+  {
+    "name": "film_cpk",
+    "type": "E",
+    "description": "Sega FILM / CPK"
+  },
+  {
+    "name": "filmstrip",
+    "type": "E",
+    "description": "Adobe Filmstrip"
+  },
+  {
+    "name": "fits",
+    "type": "E",
+    "description": "Flexible Image Transport System"
+  },
+  {
+    "name": "flac",
+    "type": "E",
+    "description": "raw FLAC"
+  },
+  {
+    "name": "flv",
+    "type": "E",
+    "description": "FLV (Flash Video)"
+  },
+  {
+    "name": "framecrc",
+    "type": "E",
+    "description": "framecrc testing"
+  },
+  {
+    "name": "framehash",
+    "type": "E",
+    "description": "Per-frame hash testing"
+  },
+  {
+    "name": "framemd5",
+    "type": "E",
+    "description": "Per-frame MD5 testing"
+  },
+  {
+    "name": "g722",
+    "type": "E",
+    "description": "raw G.722"
+  },
+  {
+    "name": "g723_1",
+    "type": "E",
+    "description": "raw G.723.1"
+  },
+  {
+    "name": "g726",
+    "type": "E",
+    "description": "raw big-endian G.726 (\"left-justified\")"
+  },
+  {
+    "name": "g726le",
+    "type": "E",
+    "description": "raw little-endian G.726 (\"right-justified\")"
+  },
+  {
+    "name": "gif",
+    "type": "E",
+    "description": "CompuServe Graphics Interchange Format (GIF)"
+  },
+  {
+    "name": "gsm",
+    "type": "E",
+    "description": "raw GSM"
+  },
+  {
+    "name": "gxf",
+    "type": "E",
+    "description": "GXF (General eXchange Format)"
+  },
+  {
+    "name": "h261",
+    "type": "E",
+    "description": "raw H.261"
+  },
+  {
+    "name": "h263",
+    "type": "E",
+    "description": "raw H.263"
+  },
+  {
+    "name": "h264",
+    "type": "E",
+    "description": "raw H.264 video"
+  },
+  {
+    "name": "hash",
+    "type": "E",
+    "description": "Hash testing"
+  },
+  {
+    "name": "hds",
+    "type": "E",
+    "description": "HDS Muxer"
+  },
+  {
+    "name": "hevc",
+    "type": "E",
+    "description": "raw HEVC video"
+  },
+  {
+    "name": "hls",
+    "type": "E",
+    "description": "Apple HTTP Live Streaming"
+  },
+  {
+    "name": "iamf",
+    "type": "E",
+    "description": "Raw Immersive Audio Model and Formats"
+  },
+  {
+    "name": "ico",
+    "type": "E",
+    "description": "Microsoft Windows ICO"
+  },
+  {
+    "name": "ilbc",
+    "type": "E",
+    "description": "iLBC storage"
+  },
+  {
+    "name": "image2",
+    "type": "E",
+    "description": "image2 sequence"
+  },
+  {
+    "name": "image2pipe",
+    "type": "E",
+    "description": "piped image2 sequence"
+  },
+  {
+    "name": "ipod",
+    "type": "E",
+    "description": "iPod H.264 MP4 (MPEG-4 Part 14)"
+  },
+  {
+    "name": "ircam",
+    "type": "E",
+    "description": "Berkeley/IRCAM/CARL Sound Format"
+  },
+  {
+    "name": "ismv",
+    "type": "E",
+    "description": "ISMV/ISMA (Smooth Streaming)"
+  },
+  {
+    "name": "iterm2",
+    "type": "E",
+    "description": "iTerm2 inline image protocol"
+  },
+  {
+    "name": "ivf",
+    "type": "E",
+    "description": "On2 IVF"
+  },
+  {
+    "name": "jacosub",
+    "type": "E",
+    "description": "JACOsub subtitle format"
+  },
+  {
+    "name": "jpeg_mpf",
+    "type": "E",
+    "description": "JPEG Multi-Picture Format"
+  },
+  {
+    "name": "ktx",
+    "type": "E",
+    "description": "KTX 1.0 (Khronos Texture) for ASTC"
+  },
+  {
+    "name": "kvag",
+    "type": "E",
+    "description": "Simon & Schuster Interactive VAG"
+  },
+  {
+    "name": "latm",
+    "type": "E",
+    "description": "LOAS/LATM"
+  },
+  {
+    "name": "lc3",
+    "type": "E",
+    "description": "LC3 (Low Complexity Communication Codec)"
+  },
+  {
+    "name": "lrc",
+    "type": "E",
+    "description": "LRC lyrics"
+  },
+  {
+    "name": "m4v",
+    "type": "E",
+    "description": "raw MPEG-4 video"
+  },
+  {
+    "name": "matroska",
+    "type": "E",
+    "description": "Matroska"
+  },
+  {
+    "name": "mcc",
+    "type": "E",
+    "description": "MacCaption"
+  },
+  {
+    "name": "md5",
+    "type": "E",
+    "description": "MD5 testing"
+  },
+  {
+    "name": "microdvd",
+    "type": "E",
+    "description": "MicroDVD subtitle format"
+  },
+  {
+    "name": "mjpeg",
+    "type": "E",
+    "description": "raw MJPEG video"
+  },
+  {
+    "name": "mkvtimestamp_v2",
+    "type": "E",
+    "description": "extract pts as timecode v2 format, as defined by mkvtoolnix"
+  },
+  {
+    "name": "mlp",
+    "type": "E",
+    "description": "raw MLP"
+  },
+  {
+    "name": "mmf",
+    "type": "E",
+    "description": "Yamaha SMAF"
+  },
+  {
+    "name": "mov",
+    "type": "E",
+    "description": "QuickTime / MOV"
+  },
+  {
+    "name": "mp2",
+    "type": "E",
+    "description": "MP2 (MPEG audio layer 2)"
+  },
+  {
+    "name": "mp3",
+    "type": "E",
+    "description": "MP3 (MPEG audio layer 3)"
+  },
+  {
+    "name": "mp4",
+    "type": "E",
+    "description": "MP4 (MPEG-4 Part 14)"
+  },
+  {
+    "name": "mpeg",
+    "type": "E",
+    "description": "MPEG-1 Systems / MPEG program stream"
+  },
+  {
+    "name": "mpeg1video",
+    "type": "E",
+    "description": "raw MPEG-1 video"
+  },
+  {
+    "name": "mpeg2video",
+    "type": "E",
+    "description": "raw MPEG-2 video"
+  },
+  {
+    "name": "mpegts",
+    "type": "E",
+    "description": "MPEG-TS (MPEG-2 Transport Stream)"
+  },
+  {
+    "name": "mpjpeg",
+    "type": "E",
+    "description": "MIME multipart JPEG"
+  },
+  {
+    "name": "mulaw",
+    "type": "E",
+    "description": "PCM mu-law"
+  },
+  {
+    "name": "mxf",
+    "type": "E",
+    "description": "MXF (Material eXchange Format)"
+  },
+  {
+    "name": "mxf_d10",
+    "type": "E",
+    "description": "MXF (Material eXchange Format) D-10 Mapping"
+  },
+  {
+    "name": "mxf_opatom",
+    "type": "E",
+    "description": "MXF (Material eXchange Format) Operational Pattern Atom"
+  },
+  {
+    "name": "null",
+    "type": "E",
+    "description": "raw null video"
+  },
+  {
+    "name": "nut",
+    "type": "E",
+    "description": "NUT"
+  },
+  {
+    "name": "obu",
+    "type": "E",
+    "description": "AV1 low overhead OBU"
+  },
+  {
+    "name": "oga",
+    "type": "E",
+    "description": "Ogg Audio"
+  },
+  {
+    "name": "ogg",
+    "type": "E",
+    "description": "Ogg"
+  },
+  {
+    "name": "ogv",
+    "type": "E",
+    "description": "Ogg Video"
+  },
+  {
+    "name": "oma",
+    "type": "E",
+    "description": "Sony OpenMG audio"
+  },
+  {
+    "name": "opus",
+    "type": "E",
+    "description": "Ogg Opus"
+  },
+  {
+    "name": "oss",
+    "type": "Ed",
+    "description": "OSS (Open Sound System) playback"
+  },
+  {
+    "name": "pdv",
+    "type": "E",
+    "description": "PlayDate Video"
+  },
+  {
+    "name": "psp",
+    "type": "E",
+    "description": "PSP MP4 (MPEG-4 Part 14)"
+  },
+  {
+    "name": "rawvideo",
+    "type": "E",
+    "description": "raw video"
+  },
+  {
+    "name": "rcwt",
+    "type": "E",
+    "description": "RCWT (Raw Captions With Time)"
+  },
+  {
+    "name": "rm",
+    "type": "E",
+    "description": "RealMedia"
+  },
+  {
+    "name": "roq",
+    "type": "E",
+    "description": "raw id RoQ"
+  },
+  {
+    "name": "rso",
+    "type": "E",
+    "description": "Lego Mindstorms RSO"
+  },
+  {
+    "name": "rtp",
+    "type": "E",
+    "description": "RTP output"
+  },
+  {
+    "name": "rtp_mpegts",
+    "type": "E",
+    "description": "RTP/mpegts output format"
+  },
+  {
+    "name": "rtsp",
+    "type": "E",
+    "description": "RTSP output"
+  },
+  {
+    "name": "s16be",
+    "type": "E",
+    "description": "PCM signed 16-bit big-endian"
+  },
+  {
+    "name": "s16le",
+    "type": "E",
+    "description": "PCM signed 16-bit little-endian"
+  },
+  {
+    "name": "s24be",
+    "type": "E",
+    "description": "PCM signed 24-bit big-endian"
+  },
+  {
+    "name": "s24le",
+    "type": "E",
+    "description": "PCM signed 24-bit little-endian"
+  },
+  {
+    "name": "s32be",
+    "type": "E",
+    "description": "PCM signed 32-bit big-endian"
+  },
+  {
+    "name": "s32le",
+    "type": "E",
+    "description": "PCM signed 32-bit little-endian"
+  },
+  {
+    "name": "s8",
+    "type": "E",
+    "description": "PCM signed 8-bit"
+  },
+  {
+    "name": "sap",
+    "type": "E",
+    "description": "SAP output"
+  },
+  {
+    "name": "sbc",
+    "type": "E",
+    "description": "raw SBC"
+  },
+  {
+    "name": "scc",
+    "type": "E",
+    "description": "Scenarist Closed Captions"
+  },
+  {
+    "name": "segment",
+    "type": "E",
+    "description": "segment"
+  },
+  {
+    "name": "smjpeg",
+    "type": "E",
+    "description": "Loki SDL MJPEG"
+  },
+  {
+    "name": "smoothstreaming",
+    "type": "E",
+    "description": "Smooth Streaming Muxer"
+  },
+  {
+    "name": "sox",
+    "type": "E",
+    "description": "SoX (Sound eXchange) native"
+  },
+  {
+    "name": "spdif",
+    "type": "E",
+    "description": "IEC 61937 (used on S/PDIF - IEC958)"
+  },
+  {
+    "name": "spx",
+    "type": "E",
+    "description": "Ogg Speex"
+  },
+  {
+    "name": "srt",
+    "type": "E",
+    "description": "SubRip subtitle"
+  },
+  {
+    "name": "stream_segment,ssegment",
+    "type": "E",
+    "description": "streaming segment muxer"
+  },
+  {
+    "name": "streamhash",
+    "type": "E",
+    "description": "Per-stream hash testing"
+  },
+  {
+    "name": "sup",
+    "type": "E",
+    "description": "raw HDMV Presentation Graphic Stream subtitles"
+  },
+  {
+    "name": "svcd",
+    "type": "E",
+    "description": "MPEG-2 PS (SVCD)"
+  },
+  {
+    "name": "swf",
+    "type": "E",
+    "description": "SWF (ShockWave Flash)"
+  },
+  {
+    "name": "tee",
+    "type": "E",
+    "description": "Multiple muxer tee"
+  },
+  {
+    "name": "truehd",
+    "type": "E",
+    "description": "raw TrueHD"
+  },
+  {
+    "name": "tta",
+    "type": "E",
+    "description": "TTA (True Audio)"
+  },
+  {
+    "name": "ttml",
+    "type": "E",
+    "description": "TTML subtitle"
+  },
+  {
+    "name": "u16be",
+    "type": "E",
+    "description": "PCM unsigned 16-bit big-endian"
+  },
+  {
+    "name": "u16le",
+    "type": "E",
+    "description": "PCM unsigned 16-bit little-endian"
+  },
+  {
+    "name": "u24be",
+    "type": "E",
+    "description": "PCM unsigned 24-bit big-endian"
+  },
+  {
+    "name": "u24le",
+    "type": "E",
+    "description": "PCM unsigned 24-bit little-endian"
+  },
+  {
+    "name": "u32be",
+    "type": "E",
+    "description": "PCM unsigned 32-bit big-endian"
+  },
+  {
+    "name": "u32le",
+    "type": "E",
+    "description": "PCM unsigned 32-bit little-endian"
+  },
+  {
+    "name": "u8",
+    "type": "E",
+    "description": "PCM unsigned 8-bit"
+  },
+  {
+    "name": "uncodedframecrc",
+    "type": "E",
+    "description": "uncoded framecrc testing"
+  },
+  {
+    "name": "vc1",
+    "type": "E",
+    "description": "raw VC-1 video"
+  },
+  {
+    "name": "vc1test",
+    "type": "E",
+    "description": "VC-1 test bitstream"
+  },
+  {
+    "name": "vcd",
+    "type": "E",
+    "description": "MPEG-1 Systems / MPEG program stream (VCD)"
+  },
+  {
+    "name": "vidc",
+    "type": "E",
+    "description": "PCM Archimedes VIDC"
+  },
+  {
+    "name": "video4linux2,v4l2",
+    "type": "Ed",
+    "description": "Video4Linux2 output device"
+  },
+  {
+    "name": "vob",
+    "type": "E",
+    "description": "MPEG-2 PS (VOB)"
+  },
+  {
+    "name": "voc",
+    "type": "E",
+    "description": "Creative Voice"
+  },
+  {
+    "name": "vvc",
+    "type": "E",
+    "description": "raw H.266/VVC video"
+  },
+  {
+    "name": "w64",
+    "type": "E",
+    "description": "Sony Wave64"
+  },
+  {
+    "name": "wav",
+    "type": "E",
+    "description": "WAV / WAVE (Waveform Audio)"
+  },
+  {
+    "name": "webm",
+    "type": "E",
+    "description": "WebM"
+  },
+  {
+    "name": "webm_chunk",
+    "type": "E",
+    "description": "WebM Chunk Muxer"
+  },
+  {
+    "name": "webm_dash_manifest",
+    "type": "E",
+    "description": "WebM DASH Manifest"
+  },
+  {
+    "name": "webp",
+    "type": "E",
+    "description": "WebP"
+  },
+  {
+    "name": "webvtt",
+    "type": "E",
+    "description": "WebVTT subtitle"
+  },
+  {
+    "name": "whip",
+    "type": "E",
+    "description": "WHIP(WebRTC-HTTP ingestion protocol) muxer"
+  },
+  {
+    "name": "wsaud",
+    "type": "E",
+    "description": "Westwood Studios audio"
+  },
+  {
+    "name": "wtv",
+    "type": "E",
+    "description": "Windows Television (WTV)"
+  },
+  {
+    "name": "wv",
+    "type": "E",
+    "description": "raw WavPack"
+  },
+  {
+    "name": "yuv4mpegpipe",
+    "type": "E",
+    "description": "YUV4MPEG pipe"
+  }
+]
