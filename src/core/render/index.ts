@@ -11,12 +11,15 @@ import { quote } from './quote.ts'
 export function render(command: Command, shell: Shell): string {
   const parts: string[] = [command.tool]
   for (const arg of command.args) {
+    // The spec stores bare flag names. FFmpeg writes every flag with one dash.
+    const name = arg.alias ?? arg.name
+    const flag = name.startsWith('-') ? name : `-${name}`
     if (arg.kind === 'option' && arg.value !== undefined) {
-      parts.push(arg.name, quote(arg.value, shell))
+      parts.push(flag, quote(arg.value, shell))
     } else if (arg.kind === 'value') {
       parts.push(quote(arg.value ?? arg.name, shell))
     } else {
-      parts.push(arg.name)
+      parts.push(flag)
     }
   }
   return parts.join(' ')

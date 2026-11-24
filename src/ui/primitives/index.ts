@@ -1,4 +1,4 @@
-import './primitives.css'
+import '../../styles/primitives.css'
 
 export { Button } from './Button'
 export type { ButtonProps } from './Button'
