@@ -64,7 +64,7 @@ export function CommandReceipt({ command, confidence, version, sentences }: Comm
         </Button>
         {note && <output className="ui-receipt__note">{note}</output>}
       </div>
-      <pre className="ui-receipt__code">
+      <pre className="ui-receipt__code" aria-live="polite" aria-label="Generated command">
         <code>{shown}</code>
       </pre>
       <p className="ui-receipt__footer">

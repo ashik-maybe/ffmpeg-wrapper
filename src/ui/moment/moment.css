@@ -76,8 +76,8 @@
 .trim-ruler__thumb {
   z-index: 1;
   top: 50%;
-  width: var(--space-4);
-  height: var(--space-4);
+  width: var(--space-11);
+  height: var(--space-11);
   border: 1px solid var(--film);
   background: var(--panel);
   cursor: col-resize;
