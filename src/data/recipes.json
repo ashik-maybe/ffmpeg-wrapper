@@ -1,0 +1,265 @@
+{
+  "recipes": [
+    {
+      "id": "web-h264",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "option", "name": "preset", "value": "medium" },
+        { "kind": "option", "name": "crf", "value": "23" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "web-av1",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libaom-av1", "alias": "c:v" },
+        { "kind": "option", "name": "crf", "value": "30" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "web-vp9",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libvpx-vp9", "alias": "c:v" },
+        { "kind": "option", "name": "speed", "value": "4" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "web-hevc",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx265", "alias": "c:v" },
+        { "kind": "option", "name": "preset", "value": "medium" },
+        { "kind": "option", "name": "crf", "value": "28" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "nvenc",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "h264_nvenc", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "trim-copy",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "ss", "value": "{{start}}" },
+        { "kind": "option", "name": "t", "value": "{{duration}}" },
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "c", "value": "copy" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "trim-re-encode",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "ss", "value": "{{start}}" },
+        { "kind": "option", "name": "t", "value": "{{duration}}" },
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "concat-same-codec",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "f", "value": "concat" },
+        { "kind": "value", "name": "input", "value": "{{list}}" },
+        { "kind": "option", "name": "c", "value": "copy" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "concat-re-encode",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "f", "value": "concat" },
+        { "kind": "value", "name": "input", "value": "{{list}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "extract-audio",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "flag", "name": "vn" },
+        { "kind": "option", "name": "acodec", "value": "aac", "alias": "c:a" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "loudnorm",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "af", "value": "loudnorm" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "burn-subtitles",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "subtitles" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "embed-subtitles",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "value", "name": "i", "value": "{{subs}}" },
+        { "kind": "option", "name": "c", "value": "copy" },
+        { "kind": "option", "name": "c:s", "value": "mov_text" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "watermark",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "value", "name": "i", "value": "{{logo}}" },
+        { "kind": "option", "name": "vf", "value": "overlay=0:0" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "drawtext",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "drawtext=text='{{text}}':x=100:y=50" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "chromakey",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "chromakey=color=0x00ff00:similarity=0.3" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "gif",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "fps={{fps}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "thumbnails",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "fps=1/60" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "scale",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "scale=iw/2:ih/2" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "crop",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "crop=iw:ih/2:0:0" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "rotate",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "rotate=PI/2" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "replace-audio",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "value", "name": "i", "value": "{{audio}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" },
+        { "kind": "option", "name": "map", "value": "0:v" },
+        { "kind": "option", "name": "map", "value": "1:a" },
+        { "kind": "option", "name": "c", "value": "copy" }
+      ]
+    },
+    {
+      "id": "hdr-to-sdr",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "zscale=range=limited" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "hls",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" },
+        { "kind": "option", "name": "f", "value": "hls" },
+        { "kind": "option", "name": "hls_time", "value": "{{segment_time}}" },
+        { "kind": "option", "name": "hls_list_size", "value": "0" }
+      ]
+    }
+  ]
+}
