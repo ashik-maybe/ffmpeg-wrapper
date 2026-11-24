@@ -1,7 +1,8 @@
 export default function App() {
   return (
-    <main className="mx-auto max-w-xl p-8">
-      <h1 className="text-2xl font-semibold">Describe the edit. Get a command that runs.</h1>
+    <main className="app">
+      <h1 className="app-heading">Describe the edit. Get a command that runs.</h1>
+      <p className="app-note">Construction in progress. The builder is not ready yet.</p>
     </main>
   )
 }
