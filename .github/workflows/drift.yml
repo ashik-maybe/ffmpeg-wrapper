@@ -1,0 +1,68 @@
+name: Drift
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.5
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Download latest FFmpeg release
+        run: |
+          set -euo pipefail
+          base="https://ffmpeg.martin-riedl.de/redirect/latest/linux/amd64/release"
+          mkdir -p tools/bin .cache
+          for name in ffmpeg ffprobe; do
+            curl -fsSL "$base/$name.zip" -o "tools/bin/$name.zip"
+            unzip -oq "tools/bin/$name.zip" -d tools/bin
+            chmod +x "tools/bin/$name"
+            rm -f "tools/bin/$name.zip"
+          done
+          (cd tools/bin && sha256sum ffmpeg ffprobe > CHECKSUMS)
+
+      - name: Regenerate cache and spec
+        run: |
+          set -euo pipefail
+          ./tools/bin/ffmpeg -h long > .cache/ffmpeg-help.txt
+          ./tools/bin/ffmpeg -filters > .cache/ffmpeg-filters.txt
+          ./tools/bin/ffmpeg -encoders > .cache/ffmpeg-encoders.txt
+          ./tools/bin/ffmpeg -decoders > .cache/ffmpeg-decoders.txt
+          ./tools/bin/ffmpeg -muxers > .cache/ffmpeg-muxers.txt
+          ./tools/bin/ffmpeg -demuxers > .cache/ffmpeg-demuxers.txt
+          ./tools/bin/ffmpeg -protocols > .cache/ffmpeg-protocols.txt
+          ./tools/bin/ffmpeg -hwaccels > .cache/ffmpeg-hwaccels.txt
+          ./tools/bin/ffmpeg -pix_fmts > .cache/ffmpeg-pix_fmts.txt
+          ./tools/bin/ffmpeg -sample_fmts > .cache/ffmpeg-sample_fmts.txt
+          ./tools/bin/ffmpeg -version > .cache/ffmpeg-version.txt
+          node tools/spec-compiler/generate.mjs
+
+      - name: Run gate
+        run: bun run ci
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/ffmpeg-spec-drift
+          delete-branch: true
+          title: "chore(spec): update ffmpeg spec"
+          commit-message: "chore(spec): update ffmpeg spec"
+          body: |
+            Automated weekly FFmpeg drift check.
+
+            This PR downloads the latest FFmpeg release, regenerates the spec, and runs the gate.
+            Review the spec and cache changes before merging.
