@@ -1,0 +1,1134 @@
+{
+  "tool": "ffmpeg",
+  "version": "9.1",
+  "options": [
+    {
+      "name": "-h",
+      "kind": "flag",
+      "description": "-- print basic options"
+    },
+    {
+      "name": "-h",
+      "kind": "flag",
+      "description": "long -- print more options"
+    },
+    {
+      "name": "-h",
+      "kind": "flag",
+      "description": "full -- print all options (including all format and codec specific options, very long)"
+    },
+    {
+      "name": "-h",
+      "kind": "flag",
+      "description": "type=name -- print all options for the named decoder/encoder/demuxer/muxer/filter/bsf/protocol"
+    },
+    {
+      "name": "-L",
+      "kind": "flag",
+      "description": "show license"
+    },
+    {
+      "name": "-license",
+      "kind": "flag",
+      "description": "show license"
+    },
+    {
+      "name": "-h",
+      "kind": "option",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "-version",
+      "kind": "flag",
+      "description": "show version"
+    },
+    {
+      "name": "-muxers",
+      "kind": "flag",
+      "description": "show available muxers"
+    },
+    {
+      "name": "-demuxers",
+      "kind": "flag",
+      "description": "show available demuxers"
+    },
+    {
+      "name": "-devices",
+      "kind": "flag",
+      "description": "show available devices"
+    },
+    {
+      "name": "-decoders",
+      "kind": "flag",
+      "description": "show available decoders"
+    },
+    {
+      "name": "-encoders",
+      "kind": "flag",
+      "description": "show available encoders"
+    },
+    {
+      "name": "-filters",
+      "kind": "flag",
+      "description": "show available filters"
+    },
+    {
+      "name": "-pix_fmts",
+      "kind": "flag",
+      "description": "show available pixel formats"
+    },
+    {
+      "name": "-layouts",
+      "kind": "flag",
+      "description": "show standard channel layouts"
+    },
+    {
+      "name": "-sample_fmts",
+      "kind": "flag",
+      "description": "show available audio sample formats"
+    },
+    {
+      "name": "-?",
+      "kind": "option",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "-help",
+      "kind": "option",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "--help",
+      "kind": "option",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "-buildconf",
+      "kind": "flag",
+      "description": "show build configuration"
+    },
+    {
+      "name": "-formats",
+      "kind": "flag",
+      "description": "show available formats"
+    },
+    {
+      "name": "-codecs",
+      "kind": "flag",
+      "description": "show available codecs"
+    },
+    {
+      "name": "-bsfs",
+      "kind": "flag",
+      "description": "show available bit stream filters"
+    },
+    {
+      "name": "-protocols",
+      "kind": "flag",
+      "description": "show available protocols"
+    },
+    {
+      "name": "-dispositions",
+      "kind": "flag",
+      "description": "show available stream dispositions"
+    },
+    {
+      "name": "-colors",
+      "kind": "flag",
+      "description": "show available color names"
+    },
+    {
+      "name": "-sources",
+      "kind": "option",
+      "metavar": "device",
+      "description": "list sources of the input device"
+    },
+    {
+      "name": "-sinks",
+      "kind": "option",
+      "metavar": "device",
+      "description": "list sinks of the output device"
+    },
+    {
+      "name": "-hwaccels",
+      "kind": "flag",
+      "description": "show available HW acceleration methods"
+    },
+    {
+      "name": "-v",
+      "kind": "option",
+      "metavar": "loglevel",
+      "description": "set logging level"
+    },
+    {
+      "name": "-y",
+      "kind": "flag",
+      "description": "overwrite output files"
+    },
+    {
+      "name": "-n",
+      "kind": "flag",
+      "description": "never overwrite output files"
+    },
+    {
+      "name": "-print_graphs",
+      "kind": "flag",
+      "description": "print execution graph data to stderr"
+    },
+    {
+      "name": "-print_graphs_file",
+      "kind": "option",
+      "metavar": "filename",
+      "description": "write execution graph data to the specified file"
+    },
+    {
+      "name": "-print_graphs_format",
+      "kind": "option",
+      "metavar": "format",
+      "description": "set the output printing format (available formats are: default, compact, csv, flat, ini, json, xml, mermaid, mermaidhtml)"
+    },
+    {
+      "name": "-stats",
+      "kind": "flag",
+      "description": "print progress report during encoding"
+    },
+    {
+      "name": "-loglevel",
+      "kind": "option",
+      "metavar": "loglevel",
+      "description": "set logging level"
+    },
+    {
+      "name": "-report",
+      "kind": "flag",
+      "description": "generate a report"
+    },
+    {
+      "name": "-max_alloc",
+      "kind": "option",
+      "metavar": "bytes",
+      "description": "set maximum size of a single allocated block"
+    },
+    {
+      "name": "-cpuflags",
+      "kind": "option",
+      "metavar": "flags",
+      "description": "force specific cpu flags"
+    },
+    {
+      "name": "-cpucount",
+      "kind": "option",
+      "metavar": "count",
+      "description": "force specific cpu count"
+    },
+    {
+      "name": "-hide_banner",
+      "kind": "option",
+      "metavar": "hide_banner",
+      "description": "do not show program banner"
+    },
+    {
+      "name": "-ignore_unknown",
+      "kind": "flag",
+      "description": "Ignore unknown stream types"
+    },
+    {
+      "name": "-copy_unknown",
+      "kind": "flag",
+      "description": "Copy unknown stream types"
+    },
+    {
+      "name": "-recast_media",
+      "kind": "flag",
+      "description": "allow recasting stream type in order to force a decoder of different media type"
+    },
+    {
+      "name": "-benchmark",
+      "kind": "flag",
+      "description": "add timings for benchmarking"
+    },
+    {
+      "name": "-benchmark_all",
+      "kind": "flag",
+      "description": "add timings for each task"
+    },
+    {
+      "name": "-progress",
+      "kind": "option",
+      "metavar": "url",
+      "description": "write program-readable progress information"
+    },
+    {
+      "name": "-stdin",
+      "kind": "flag",
+      "description": "enable or disable interaction on standard input"
+    },
+    {
+      "name": "-timelimit",
+      "kind": "option",
+      "metavar": "limit",
+      "description": "set max runtime in seconds in CPU user time"
+    },
+    {
+      "name": "-dump",
+      "kind": "flag",
+      "description": "dump each input packet"
+    },
+    {
+      "name": "-hex",
+      "kind": "flag",
+      "description": "when dumping packets, also dump the payload"
+    },
+    {
+      "name": "-frame_drop_threshold",
+      "kind": "option",
+      "description": "frame drop threshold"
+    },
+    {
+      "name": "-copyts",
+      "kind": "flag",
+      "description": "copy timestamps"
+    },
+    {
+      "name": "-start_at_zero",
+      "kind": "flag",
+      "description": "shift input timestamps to start at 0 when using copyts"
+    },
+    {
+      "name": "-copytb",
+      "kind": "option",
+      "metavar": "mode",
+      "description": "copy input stream time base when stream copying"
+    },
+    {
+      "name": "-dts_delta_threshold",
+      "kind": "option",
+      "metavar": "threshold",
+      "description": "timestamp discontinuity delta threshold"
+    },
+    {
+      "name": "-dts_error_threshold",
+      "kind": "option",
+      "metavar": "threshold",
+      "description": "timestamp error delta threshold"
+    },
+    {
+      "name": "-xerror",
+      "kind": "option",
+      "metavar": "error",
+      "description": "exit on error"
+    },
+    {
+      "name": "-abort_on",
+      "kind": "option",
+      "metavar": "flags",
+      "description": "abort on the specified condition flags"
+    },
+    {
+      "name": "-filter_threads",
+      "kind": "flag",
+      "description": "number of non-complex filter threads"
+    },
+    {
+      "name": "-filter_buffered_frames",
+      "kind": "flag",
+      "description": "maximum number of buffered frames in a filter graph"
+    },
+    {
+      "name": "-filter_complex",
+      "kind": "option",
+      "metavar": "graph_description",
+      "description": "create a complex filtergraph"
+    },
+    {
+      "name": "-filter_complex_threads",
+      "kind": "flag",
+      "description": "number of threads for -filter_complex"
+    },
+    {
+      "name": "-lavfi",
+      "kind": "option",
+      "metavar": "graph_description",
+      "description": "create a complex filtergraph"
+    },
+    {
+      "name": "-auto_conversion_filters",
+      "kind": "flag",
+      "description": "enable automatic conversion filters globally"
+    },
+    {
+      "name": "-stats_period",
+      "kind": "option",
+      "metavar": "time",
+      "description": "set the period at which ffmpeg updates stats and -progress output"
+    },
+    {
+      "name": "-debug_ts",
+      "kind": "flag",
+      "description": "print timestamp debugging info"
+    },
+    {
+      "name": "-max_error_rate",
+      "kind": "option",
+      "metavar": "maximum error rate",
+      "description": "ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success."
+    },
+    {
+      "name": "-vstats",
+      "kind": "flag",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "-vstats_file",
+      "kind": "option",
+      "metavar": "file",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "-vstats_version",
+      "kind": "flag",
+      "description": "Version of the vstats format to use."
+    },
+    {
+      "name": "-sdp_file",
+      "kind": "option",
+      "metavar": "file",
+      "description": "specify a file in which to print sdp information"
+    },
+    {
+      "name": "-init_hw_device",
+      "kind": "option",
+      "metavar": "args",
+      "description": "initialise hardware device"
+    },
+    {
+      "name": "-filter_hw_device",
+      "kind": "option",
+      "metavar": "device",
+      "description": "set hardware device used when filtering"
+    },
+    {
+      "name": "-f",
+      "kind": "option",
+      "metavar": "fmt",
+      "description": "force container format (auto-detected otherwise)"
+    },
+    {
+      "name": "-t",
+      "kind": "option",
+      "metavar": "duration",
+      "description": "stop transcoding after specified duration"
+    },
+    {
+      "name": "-to",
+      "kind": "option",
+      "metavar": "time_stop",
+      "description": "stop transcoding after specified time is reached"
+    },
+    {
+      "name": "-ss",
+      "kind": "option",
+      "metavar": "time_off",
+      "description": "start transcoding at specified time"
+    },
+    {
+      "name": "-bitexact",
+      "kind": "flag",
+      "description": "bitexact mode"
+    },
+    {
+      "name": "-sseof",
+      "kind": "option",
+      "metavar": "time_off",
+      "description": "set the start time offset relative to EOF"
+    },
+    {
+      "name": "-seek_timestamp",
+      "kind": "flag",
+      "description": "enable/disable seeking by timestamp with -ss"
+    },
+    {
+      "name": "-accurate_seek",
+      "kind": "flag",
+      "description": "enable/disable accurate seeking with -ss"
+    },
+    {
+      "name": "-isync",
+      "kind": "option",
+      "metavar": "sync ref",
+      "description": "Indicate the input index for sync reference"
+    },
+    {
+      "name": "-itsoffset",
+      "kind": "option",
+      "metavar": "time_off",
+      "description": "set the input ts offset"
+    },
+    {
+      "name": "-re",
+      "kind": "option",
+      "description": "read input at native frame rate; equivalent to -readrate 1"
+    },
+    {
+      "name": "-readrate",
+      "kind": "option",
+      "metavar": "speed",
+      "description": "read input at specified rate"
+    },
+    {
+      "name": "-readrate_initial_burst",
+      "kind": "option",
+      "metavar": "seconds",
+      "description": "The initial amount of input to burst read before imposing any readrate"
+    },
+    {
+      "name": "-readrate_catchup",
+      "kind": "option",
+      "metavar": "speed",
+      "description": "Temporary readrate used to catch up if an input lags behind the specified readrate"
+    },
+    {
+      "name": "-dump_attachment",
+      "kind": "option",
+      "metavar": "filename",
+      "description": "extract an attachment into a file"
+    },
+    {
+      "name": "-stream_loop",
+      "kind": "option",
+      "metavar": "loop count",
+      "description": "set number of times input stream shall be looped"
+    },
+    {
+      "name": "-find_stream_info",
+      "kind": "flag",
+      "description": "read and decode the streams to fill missing information with heuristics"
+    },
+    {
+      "name": "-metadata",
+      "kind": "option",
+      "metavar": "key=value",
+      "description": "add metadata"
+    },
+    {
+      "name": "-keep_metadata",
+      "kind": "option",
+      "metavar": "key",
+      "description": "keep metadata key from input when re-encoding"
+    },
+    {
+      "name": "-map",
+      "kind": "option",
+      "metavar": "[-]input_file_id[:stream_specifier][,sync_file_id[:stream_specifier]]",
+      "description": "set input stream mapping"
+    },
+    {
+      "name": "-map_metadata",
+      "kind": "option",
+      "metavar": "outfile[,metadata]:infile[,metadata]",
+      "description": "set metadata information of outfile from infile"
+    },
+    {
+      "name": "-map_chapters",
+      "kind": "option",
+      "metavar": "input_file_index",
+      "description": "set chapters mapping"
+    },
+    {
+      "name": "-fs",
+      "kind": "option",
+      "metavar": "limit_size",
+      "description": "set the limit file size in bytes"
+    },
+    {
+      "name": "-timestamp",
+      "kind": "option",
+      "metavar": "time",
+      "description": "set the recording timestamp ('now' to set the current time)"
+    },
+    {
+      "name": "-program",
+      "kind": "option",
+      "metavar": "title=string:st=number...",
+      "description": "add program with specified streams"
+    },
+    {
+      "name": "-stream_group",
+      "kind": "option",
+      "metavar": "id=number:st=number...",
+      "description": "add stream group with specified streams and group type-specific arguments"
+    },
+    {
+      "name": "-dframes",
+      "kind": "option",
+      "metavar": "number",
+      "description": "set the number of data frames to output"
+    },
+    {
+      "name": "-target",
+      "kind": "option",
+      "metavar": "type",
+      "description": "specify target file type (\"vcd\", \"svcd\", \"dvd\", \"dv\" or \"dv50\" with optional prefixes \"pal-\", \"ntsc-\" or \"film-\")"
+    },
+    {
+      "name": "-shortest",
+      "kind": "flag",
+      "description": "finish encoding within shortest input"
+    },
+    {
+      "name": "-shortest_buf_duration",
+      "kind": "flag",
+      "description": "maximum buffering duration (in seconds) for the -shortest option"
+    },
+    {
+      "name": "-qscale",
+      "kind": "option",
+      "metavar": "q",
+      "description": "use fixed quality scale (VBR)"
+    },
+    {
+      "name": "-profile",
+      "kind": "option",
+      "metavar": "profile",
+      "description": "set profile"
+    },
+    {
+      "name": "-attach",
+      "kind": "option",
+      "metavar": "filename",
+      "description": "add an attachment to the output file"
+    },
+    {
+      "name": "-thread_queue_size",
+      "kind": "flag",
+      "description": "set the maximum number of queued packets per stream on the muxer"
+    },
+    {
+      "name": "-muxdelay",
+      "kind": "option",
+      "metavar": "seconds",
+      "description": "set the maximum demux-decode delay"
+    },
+    {
+      "name": "-muxpreload",
+      "kind": "option",
+      "metavar": "seconds",
+      "description": "set the initial demux-decode delay"
+    },
+    {
+      "name": "-fpre",
+      "kind": "option",
+      "metavar": "filename",
+      "description": "set options from indicated preset file"
+    },
+    {
+      "name": "-c",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "select encoder/decoder ('copy' to copy stream without reencoding)"
+    },
+    {
+      "name": "-filter",
+      "kind": "option",
+      "metavar": "filter_graph",
+      "description": "apply specified filters to audio/video"
+    },
+    {
+      "name": "-codec",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "alias for -c (select encoder/decoder)"
+    },
+    {
+      "name": "-pre",
+      "kind": "option",
+      "metavar": "preset",
+      "description": "preset name"
+    },
+    {
+      "name": "-itsscale",
+      "kind": "option",
+      "metavar": "scale",
+      "description": "set the input ts scale"
+    },
+    {
+      "name": "-copyinkf",
+      "kind": "flag",
+      "description": "copy initial non-keyframes"
+    },
+    {
+      "name": "-copypriorss",
+      "kind": "flag",
+      "description": "copy or discard frames before start time"
+    },
+    {
+      "name": "-frames",
+      "kind": "option",
+      "metavar": "number",
+      "description": "set the number of frames to output"
+    },
+    {
+      "name": "-tag",
+      "kind": "option",
+      "metavar": "fourcc/tag",
+      "description": "force codec tag/fourcc"
+    },
+    {
+      "name": "-q",
+      "kind": "option",
+      "metavar": "q",
+      "description": "use fixed quality scale (VBR)"
+    },
+    {
+      "name": "-reinit_filter",
+      "kind": "option",
+      "description": "reinit filtergraph on input parameter changes"
+    },
+    {
+      "name": "-drop_changed",
+      "kind": "option",
+      "description": "drop frame instead of reiniting filtergraph on input parameter changes"
+    },
+    {
+      "name": "-discard",
+      "kind": "option",
+      "description": "discard"
+    },
+    {
+      "name": "-disposition",
+      "kind": "option",
+      "description": "disposition"
+    },
+    {
+      "name": "-bits_per_raw_sample",
+      "kind": "option",
+      "metavar": "number",
+      "description": "set the number of bits per raw sample"
+    },
+    {
+      "name": "-stats_enc_pre",
+      "kind": "flag",
+      "description": "write encoding stats before encoding"
+    },
+    {
+      "name": "-stats_enc_post",
+      "kind": "flag",
+      "description": "write encoding stats after encoding"
+    },
+    {
+      "name": "-stats_mux_pre",
+      "kind": "flag",
+      "description": "write packets stats before muxing"
+    },
+    {
+      "name": "-stats_enc_pre_fmt",
+      "kind": "flag",
+      "description": "format of the stats written with -stats_enc_pre"
+    },
+    {
+      "name": "-stats_enc_post_fmt",
+      "kind": "flag",
+      "description": "format of the stats written with -stats_enc_post"
+    },
+    {
+      "name": "-stats_mux_pre_fmt",
+      "kind": "flag",
+      "description": "format of the stats written with -stats_mux_pre"
+    },
+    {
+      "name": "-reinit_opts",
+      "kind": "option",
+      "metavar": "pts1|video_size=size:g=12,pts2|video_size=size...",
+      "description": "List of encoder options to use to reinitialize the encoder at given timestamps"
+    },
+    {
+      "name": "-time_base",
+      "kind": "option",
+      "metavar": "ratio",
+      "description": "set the desired time base hint for output stream (1:24, 1:48000 or 0.04166, 2.0833e-5)"
+    },
+    {
+      "name": "-enc_time_base",
+      "kind": "option",
+      "metavar": "ratio",
+      "description": "set the desired time base for the encoder (1:24, 1:48000 or 0.04166, 2.0833e-5). two special values are defined - 0 = use frame rate (video) or sample rate (audio),-1 = match source time base"
+    },
+    {
+      "name": "-bsf",
+      "kind": "option",
+      "metavar": "bitstream_filters",
+      "description": "A comma-separated list of bitstream filters"
+    },
+    {
+      "name": "-max_muxing_queue_size",
+      "kind": "option",
+      "metavar": "packets",
+      "description": "maximum number of packets that can be buffered while waiting for all streams to initialize"
+    },
+    {
+      "name": "-muxing_queue_data_threshold",
+      "kind": "option",
+      "metavar": "bytes",
+      "description": "set the threshold after which max_muxing_queue_size is taken into account"
+    },
+    {
+      "name": "-r",
+      "kind": "option",
+      "metavar": "rate",
+      "description": "override input framerate/convert to given output framerate (Hz value, fraction or abbreviation)"
+    },
+    {
+      "name": "-aspect",
+      "kind": "option",
+      "metavar": "aspect",
+      "description": "set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)"
+    },
+    {
+      "name": "-stereo3d",
+      "kind": "option",
+      "metavar": "layout",
+      "description": "set stereoscopic 3D layout metadata (does not rearrange pixels)"
+    },
+    {
+      "name": "-vn",
+      "kind": "flag",
+      "description": "disable video"
+    },
+    {
+      "name": "-vcodec",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "alias for -c:v (select encoder/decoder for video streams)"
+    },
+    {
+      "name": "-vf",
+      "kind": "option",
+      "metavar": "filter_graph",
+      "description": "alias for -filter:v (apply filters to video streams)"
+    },
+    {
+      "name": "-b",
+      "kind": "option",
+      "metavar": "bitrate",
+      "description": "video bitrate (please use -b:v)"
+    },
+    {
+      "name": "-vframes",
+      "kind": "option",
+      "metavar": "number",
+      "description": "set the number of video frames to output"
+    },
+    {
+      "name": "-fpsmax",
+      "kind": "option",
+      "metavar": "rate",
+      "description": "set max frame rate (Hz value, fraction or abbreviation)"
+    },
+    {
+      "name": "-pix_fmt",
+      "kind": "option",
+      "metavar": "format",
+      "description": "set pixel format"
+    },
+    {
+      "name": "-display_rotation",
+      "kind": "option",
+      "metavar": "angle",
+      "description": "set pure counter-clockwise rotation in degrees for stream(s)"
+    },
+    {
+      "name": "-display_hflip",
+      "kind": "flag",
+      "description": "set display horizontal flip for stream(s) (overrides any display rotation if it is not set)"
+    },
+    {
+      "name": "-display_vflip",
+      "kind": "flag",
+      "description": "set display vertical flip for stream(s) (overrides any display rotation if it is not set)"
+    },
+    {
+      "name": "-mastering_display",
+      "kind": "flag",
+      "description": "set SMPTE2084 mastering display color volume info"
+    },
+    {
+      "name": "-content_light",
+      "kind": "flag",
+      "description": "set SMPTE2084 Max CLL and Max FALL values"
+    },
+    {
+      "name": "-rc_override",
+      "kind": "option",
+      "metavar": "override",
+      "description": "rate control override for specific intervals"
+    },
+    {
+      "name": "-timecode",
+      "kind": "option",
+      "metavar": "hh:mm:ss[:;.]ff",
+      "description": "set initial TimeCode value."
+    },
+    {
+      "name": "-pass",
+      "kind": "option",
+      "metavar": "n",
+      "description": "select the pass number (1 to 3)"
+    },
+    {
+      "name": "-passlogfile",
+      "kind": "option",
+      "metavar": "prefix",
+      "description": "select two pass log file name prefix"
+    },
+    {
+      "name": "-vstats",
+      "kind": "flag",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "-vstats_file",
+      "kind": "option",
+      "metavar": "file",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "-vstats_version",
+      "kind": "flag",
+      "description": "Version of the vstats format to use."
+    },
+    {
+      "name": "-intra_matrix",
+      "kind": "option",
+      "metavar": "matrix",
+      "description": "specify intra matrix coeffs"
+    },
+    {
+      "name": "-inter_matrix",
+      "kind": "option",
+      "metavar": "matrix",
+      "description": "specify inter matrix coeffs"
+    },
+    {
+      "name": "-chroma_intra_matrix",
+      "kind": "option",
+      "metavar": "matrix",
+      "description": "specify intra matrix coeffs"
+    },
+    {
+      "name": "-vtag",
+      "kind": "option",
+      "metavar": "fourcc/tag",
+      "description": "force video tag/fourcc"
+    },
+    {
+      "name": "-fps_mode",
+      "kind": "flag",
+      "description": "set framerate mode for matching video streams"
+    },
+    {
+      "name": "-force_fps",
+      "kind": "flag",
+      "description": "force the selected framerate, disable the best supported framerate selection"
+    },
+    {
+      "name": "-streamid",
+      "kind": "option",
+      "metavar": "streamIndex:value",
+      "description": "set the value of an outfile streamid"
+    },
+    {
+      "name": "-force_key_frames",
+      "kind": "option",
+      "metavar": "timestamps",
+      "description": "force key frames at specified timestamps"
+    },
+    {
+      "name": "-hwaccel",
+      "kind": "option",
+      "metavar": "hwaccel name",
+      "description": "use HW accelerated decoding"
+    },
+    {
+      "name": "-hwaccel_device",
+      "kind": "option",
+      "metavar": "devicename",
+      "description": "select a device for HW acceleration"
+    },
+    {
+      "name": "-hwaccel_output_format",
+      "kind": "option",
+      "metavar": "format",
+      "description": "select output format used with HW accelerated decoding"
+    },
+    {
+      "name": "-autorotate",
+      "kind": "flag",
+      "description": "automatically insert correct rotate filters"
+    },
+    {
+      "name": "-autoscale",
+      "kind": "flag",
+      "description": "automatically insert a scale filter at the end of the filter graph"
+    },
+    {
+      "name": "-apply_cropping",
+      "kind": "flag",
+      "description": "select the cropping to apply"
+    },
+    {
+      "name": "-fix_sub_duration_heartbeat",
+      "kind": "flag",
+      "description": "set this video output stream to be a heartbeat stream for fix_sub_duration, according to which subtitles should be split at random access points"
+    },
+    {
+      "name": "-vpre",
+      "kind": "option",
+      "metavar": "preset",
+      "description": "set the video options to the indicated preset"
+    },
+    {
+      "name": "-aq",
+      "kind": "option",
+      "metavar": "quality",
+      "description": "set audio quality (codec-specific)"
+    },
+    {
+      "name": "-ar",
+      "kind": "option",
+      "metavar": "rate",
+      "description": "set audio sampling rate (in Hz)"
+    },
+    {
+      "name": "-ac",
+      "kind": "option",
+      "metavar": "channels",
+      "description": "set number of audio channels"
+    },
+    {
+      "name": "-an",
+      "kind": "flag",
+      "description": "disable audio"
+    },
+    {
+      "name": "-acodec",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "alias for -c:a (select encoder/decoder for audio streams)"
+    },
+    {
+      "name": "-ab",
+      "kind": "option",
+      "metavar": "bitrate",
+      "description": "alias for -b:a (select bitrate for audio streams)"
+    },
+    {
+      "name": "-af",
+      "kind": "option",
+      "metavar": "filter_graph",
+      "description": "alias for -filter:a (apply filters to audio streams)"
+    },
+    {
+      "name": "-aframes",
+      "kind": "option",
+      "metavar": "number",
+      "description": "set the number of audio frames to output"
+    },
+    {
+      "name": "-apad",
+      "kind": "option",
+      "description": "audio pad"
+    },
+    {
+      "name": "-atag",
+      "kind": "option",
+      "metavar": "fourcc/tag",
+      "description": "force audio tag/fourcc"
+    },
+    {
+      "name": "-sample_fmt",
+      "kind": "option",
+      "metavar": "format",
+      "description": "set sample format"
+    },
+    {
+      "name": "-channel_layout",
+      "kind": "option",
+      "metavar": "layout",
+      "description": "set channel layout"
+    },
+    {
+      "name": "-ch_layout",
+      "kind": "option",
+      "metavar": "layout",
+      "description": "set channel layout"
+    },
+    {
+      "name": "-guess_layout_max",
+      "kind": "flag",
+      "description": "set the maximum number of channels to try to guess the channel layout"
+    },
+    {
+      "name": "-apre",
+      "kind": "option",
+      "metavar": "preset",
+      "description": "set the audio options to the indicated preset"
+    },
+    {
+      "name": "-sn",
+      "kind": "flag",
+      "description": "disable subtitle"
+    },
+    {
+      "name": "-scodec",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "alias for -c:s (select encoder/decoder for subtitle streams)"
+    },
+    {
+      "name": "-stag",
+      "kind": "option",
+      "metavar": "fourcc/tag",
+      "description": "force subtitle tag/fourcc"
+    },
+    {
+      "name": "-fix_sub_duration",
+      "kind": "flag",
+      "description": "fix subtitles duration"
+    },
+    {
+      "name": "-canvas_size",
+      "kind": "option",
+      "metavar": "size",
+      "description": "set canvas size (WxH or abbreviation)"
+    },
+    {
+      "name": "-spre",
+      "kind": "option",
+      "metavar": "preset",
+      "description": "set the subtitle options to the indicated preset"
+    },
+    {
+      "name": "-dcodec",
+      "kind": "option",
+      "metavar": "codec",
+      "description": "alias for -c:d (select encoder/decoder for data streams)"
+    },
+    {
+      "name": "-dn",
+      "kind": "flag",
+      "description": "disable data"
+    }
+  ],
+  "provenance": {
+    "version": "9.1",
+    "codename": "Gauss",
+    "releaseDate": "2026-11-20",
+    "source": "https://ffmpeg.org/download.html",
+    "generatedAt": "2026-11-24T16:45:02.729Z",
+    "helpCacheSha256": "7fcf42ea0c0dec6ac87af1222339aabc8ef7c2348904b29779276556e4272132"
+  }
+}
