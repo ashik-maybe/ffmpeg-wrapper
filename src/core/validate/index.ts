@@ -30,8 +30,15 @@ interface ValueConstraint {
 const rules = (rulesData as { rules: Rule[] }).rules
 const findingFile = 'src/core/validate/index.ts'
 
+function normalize(name: string): string {
+  return name.replace(/^-+/, '')
+}
+
 function matchesFlag(arg: Arg, flag: string): boolean {
-  return arg.name === flag || arg.alias === flag
+  const wanted = normalize(flag)
+  return (
+    normalize(arg.name) === wanted || (arg.alias !== undefined && normalize(arg.alias) === wanted)
+  )
 }
 
 function findArg(args: readonly Arg[], flag: string): Arg | undefined {
