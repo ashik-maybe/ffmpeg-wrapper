@@ -1,0 +1,84 @@
+{
+  "rules": [
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "crf conflicts with b:v for the same output",
+      "fix": "use only one rate limiter: drop -crf or -b:v",
+      "requireAny": ["-crf"],
+      "forbidAny": ["-b:v"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "-c copy conflicts with filters",
+      "fix": "drop -vf, -filter_complex or -af, or drop -c copy",
+      "requireAny": ["-c"],
+      "valueConstraint": { "oneOf": ["copy"] },
+      "forbidAny": ["-vf", "-filter_complex", "-af"]
+    },
+    {
+      "code": "E_REQUIRES",
+      "severity": "warning",
+      "message": "mov_text requires an mp4 or mov container",
+      "fix": "add -f mp4 or -f mov to the output",
+      "requireAny": ["-c:s", "-c"],
+      "valueConstraint": { "oneOf": ["mov_text"] }
+    },
+    {
+      "code": "E_REQUIRES",
+      "severity": "warning",
+      "message": "prores requires an mov or mkv container",
+      "fix": "add -f mkv or -f mov to the output",
+      "requireAny": ["-c"],
+      "valueConstraint": { "oneOf": ["prores"] }
+    },
+    {
+      "code": "E_INVALID_CHOICE",
+      "severity": "error",
+      "message": "atempo must be between 0.5 and 100",
+      "fix": "set the atempo value in the 0.5-100 range",
+      "requireAny": ["atempo"],
+      "valueConstraint": { "min": 0.5, "max": 100 }
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "warning",
+      "message": "preset only applies to libx264 and libx265",
+      "fix": "drop -preset or switch the codec to libx264/libx265",
+      "requireAny": ["-vcodec", "-c:v"],
+      "valueConstraint": { "notOneOf": ["libx264", "libx265"] }
+    },
+    {
+      "code": "E_UNVERIFIED",
+      "severity": "info",
+      "message": "-ss before -i changes seek semantics; use -to instead",
+      "fix": "move -ss after -i or replace it with -to",
+      "order": { "flag": "-ss", "before": "-i" }
+    },
+    {
+      "code": "E_REQUIRES",
+      "severity": "warning",
+      "message": "audio extraction needs -vn",
+      "fix": "add -vn to drop the video stream",
+      "requireAny": ["-map"],
+      "requireAll": ["-vn"]
+    },
+    {
+      "code": "E_REQUIRES",
+      "severity": "warning",
+      "message": "merging inputs needs -map and -shortest",
+      "fix": "add -map and -shortest",
+      "requireAny": ["-i"],
+      "requireAll": ["-map", "-shortest"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "warning",
+      "message": "-vf and -filter_complex are mutually exclusive",
+      "fix": "use only one of -vf or -filter_complex",
+      "requireAny": ["-vf"],
+      "forbidAny": ["-filter_complex"]
+    }
+  ]
+}
