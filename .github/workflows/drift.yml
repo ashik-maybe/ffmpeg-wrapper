@@ -2,7 +2,7 @@ name: Drift
 
 on:
   schedule:
-    - cron: "0 9 * * 1"
+    - cron: '0 9 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -59,8 +59,8 @@ jobs:
         with:
           branch: chore/ffmpeg-spec-drift
           delete-branch: true
-          title: "chore(spec): update ffmpeg spec"
-          commit-message: "chore(spec): update ffmpeg spec"
+          title: 'chore(spec): update ffmpeg spec'
+          commit-message: 'chore(spec): update ffmpeg spec'
           body: |
             Automated weekly FFmpeg drift check.
 

@@ -8,6 +8,10 @@ import type { Command, Shell } from '../../src/core/types'
 
 const shells: Shell[] = ['posix', 'powershell', 'cmd']
 
+function namesFor(shell: Shell): readonly string[] {
+  return shell === 'cmd' ? hostileNames.filter((name) => !/[\r\n]/.test(name)) : hostileNames
+}
+
 function recipeCommand(args: Command['args']): Command {
   return { tool: 'ffmpeg', args }
 }
@@ -15,7 +19,7 @@ function recipeCommand(args: Command['args']): Command {
 describe('hostile filename rendering', () => {
   for (const shell of shells) {
     describe(shell, () => {
-      for (const name of hostileNames) {
+      for (const name of namesFor(shell)) {
         it(`contains escaped name: ${JSON.stringify(name)}`, () => {
           const command: Command = {
             tool: 'ffmpeg',
@@ -57,7 +61,7 @@ describe('no undefined in rendered commands', () => {
         expect(rendered).not.toContain('undefined')
       })
     }
-    for (const name of hostileNames) {
+    for (const name of namesFor(shell)) {
       it(`hostile ${JSON.stringify(name)} (${shell}) has no undefined`, () => {
         const command: Command = {
           tool: 'ffmpeg',

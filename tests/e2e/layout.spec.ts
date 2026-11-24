@@ -14,7 +14,9 @@ test.describe('layout', () => {
     test(`no horizontal page scroll at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 })
       await page.goto('/')
-      await expect(page.getByRole('heading', { name: 'Describe the edit. Get a command that runs.' })).toBeVisible()
+      await expect(
+        page.getByRole('heading', { name: 'Describe the edit. Get a command that runs.' }),
+      ).toBeVisible()
 
       await page.screenshot({ path: join(screenshotsDir, `width-${width}.png`), fullPage: true })
 
