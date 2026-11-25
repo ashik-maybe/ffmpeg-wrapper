@@ -5,6 +5,8 @@ export interface TuiArgs {
   help?: boolean
   run?: boolean
   yes?: boolean
+  unsafe?: boolean
+  force?: boolean
 }
 
 export interface PlanView {

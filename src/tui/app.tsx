@@ -21,6 +21,7 @@ export interface AppProps {
   readonly runEnabled?: boolean
   readonly yes?: boolean
   readonly force?: boolean
+  readonly unsafe?: boolean
   readonly version?: string
   readonly spec?: RuntimeSpec
   readonly ffprobePath?: string
@@ -38,6 +39,32 @@ const OPTION_FIELDS: readonly (keyof OptionsValues)[] = [
   'mode',
   'rawArgs',
 ]
+
+const NETWORK_RECIPE_IDS = new Set(['hls', 'dash', 'rtmp', 'srt'])
+const FILTER_SCRIPT_RECIPE_IDS = new Set(['filter-script'])
+const HARDWARE_RECIPE_IDS = new Set(['nvenc', 'qsv', 'vaapi', 'videotoolbox', 'hevc-vulkan'])
+
+function isNetworkRecipe(recipe: Recipe): boolean {
+  return NETWORK_RECIPE_IDS.has(recipe.id)
+}
+
+function isFilterScriptRecipe(recipe: Recipe): boolean {
+  return FILTER_SCRIPT_RECIPE_IDS.has(recipe.id)
+}
+
+function isHardwareRecipe(recipe: Recipe): boolean {
+  return HARDWARE_RECIPE_IDS.has(recipe.id)
+}
+
+function unsafeBlockReason(recipe: Recipe, unsafe: boolean): string | undefined {
+  if (isNetworkRecipe(recipe) && !unsafe) {
+    return 'Network recipes require --unsafe'
+  }
+  if (isFilterScriptRecipe(recipe) && !unsafe) {
+    return 'Filter-script recipes require --unsafe'
+  }
+  return undefined
+}
 
 function defaultOutput(filePath: string): string {
   if (filePath.trim() === '') return 'output.mp4'
@@ -136,6 +163,7 @@ export function App({
   runEnabled = false,
   yes = false,
   force = false,
+  unsafe = false,
   version = 'unknown',
   spec,
   ffprobePath = 'tools/bin/ffprobe',
@@ -178,6 +206,7 @@ export function App({
     null,
   )
   const [rawLog, setRawLog] = useState('')
+  const [confirmedRecipe, setConfirmedRecipe] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
   const ranRef = useRef(false)
   const stdoutBufferRef = useRef('')
@@ -186,6 +215,13 @@ export function App({
     () => allRecipes.find((r) => r.id === recipeId) ?? allRecipes[0],
     [allRecipes, recipeId],
   )
+
+  const guardBlockReason = useMemo(
+    () => (selectedRecipe ? unsafeBlockReason(selectedRecipe, unsafe) : undefined),
+    [selectedRecipe, unsafe],
+  )
+  const hardwareUnverified = selectedRecipe ? isHardwareRecipe(selectedRecipe) : false
+  const hardwareNeedsConfirm = hardwareUnverified && confirmedRecipe !== recipeId
 
   const { plan, argv, command } = useMemo(() => {
     if (!selectedRecipe) {
@@ -213,6 +249,20 @@ export function App({
 
   const doRun = useCallback(async () => {
     if (running || ranRef.current) return
+
+    if (guardBlockReason) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus(`Blocked: ${guardBlockReason}`)
+      return
+    }
+
+    if (hardwareNeedsConfirm) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus('Blocked: unconfirmed hardware recipe')
+      return
+    }
 
     const blocked = findings.some((f) => f.severity === 'error' || f.code === 'UNBOUND_PLACEHOLDER')
     if (blocked) {
@@ -311,6 +361,8 @@ export function App({
     ffprobePath,
     findings,
     force,
+    guardBlockReason,
+    hardwareNeedsConfirm,
     onProbe,
     onRun,
     opts,
@@ -384,6 +436,11 @@ export function App({
         return
       }
       if (key.return && runEnabled && !running && !ranRef.current) {
+        if (hardwareNeedsConfirm) {
+          setConfirmedRecipe(recipeId)
+          setRunStatus('Hardware recipe confirmed. Press Enter to run')
+          return
+        }
         void doRun()
       }
     }
@@ -442,6 +499,10 @@ export function App({
         progress={progress}
         rawLog={rawLog}
         verification={verification === '' ? undefined : verification}
+        blockedReason={
+          guardBlockReason ?? (hardwareNeedsConfirm ? 'Unconfirmed hardware recipe' : undefined)
+        }
+        unverified={hardwareUnverified}
       />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}

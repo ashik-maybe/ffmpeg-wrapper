@@ -24,6 +24,8 @@ export function parseArgs(argv: readonly string[]): TuiArgs {
     if (arg === '--help') args.help = true
     if (arg === '--run') args.run = true
     if (arg === '--yes') args.yes = true
+    if (arg === '--unsafe') args.unsafe = true
+    if (arg === '--force') args.force = true
   }
   return args
 }
@@ -39,7 +41,7 @@ export async function run(argv: string[], deps: RunDeps = {}): Promise<void> {
   }
 
   if (args.help) {
-    log('Usage: ffmpeg-tui [--version] [--help] [--run] [--yes]')
+    log('Usage: ffmpeg-tui [--version] [--help] [--run] [--yes] [--unsafe] [--force]')
     return
   }
 
@@ -56,6 +58,8 @@ export async function run(argv: string[], deps: RunDeps = {}): Promise<void> {
   const props: AppProps = {
     runEnabled: args.run === true,
     yes: args.yes === true,
+    unsafe: args.unsafe === true,
+    force: args.force === true,
     version: detection.ffmpeg.version,
     spec: compiled.spec,
   }
