@@ -2,7 +2,7 @@
  * Parsing for pasted tool output: ffmpeg -version, -encoders, and -filters.
  */
 
-import { spec } from '../../spec'
+import { spec } from '../../spec/light'
 import encoders from '../../spec/encoders.json'
 import filters from '../../spec/filters.json'
 

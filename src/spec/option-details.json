@@ -1,0 +1,936 @@
+{
+  "options": [
+    {
+      "name": "h",
+      "description": "-- print basic options"
+    },
+    {
+      "name": "h",
+      "description": "long -- print more options"
+    },
+    {
+      "name": "h",
+      "description": "full -- print all options (including all format and codec specific options, very long)"
+    },
+    {
+      "name": "h",
+      "description": "type=name -- print all options for the named decoder/encoder/demuxer/muxer/filter/bsf/protocol"
+    },
+    {
+      "name": "L",
+      "description": "show license"
+    },
+    {
+      "name": "license",
+      "description": "show license"
+    },
+    {
+      "name": "h",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "version",
+      "description": "show version"
+    },
+    {
+      "name": "muxers",
+      "description": "show available muxers"
+    },
+    {
+      "name": "demuxers",
+      "description": "show available demuxers"
+    },
+    {
+      "name": "devices",
+      "description": "show available devices"
+    },
+    {
+      "name": "decoders",
+      "description": "show available decoders"
+    },
+    {
+      "name": "encoders",
+      "description": "show available encoders"
+    },
+    {
+      "name": "filters",
+      "description": "show available filters"
+    },
+    {
+      "name": "pix_fmts",
+      "description": "show available pixel formats"
+    },
+    {
+      "name": "layouts",
+      "description": "show standard channel layouts"
+    },
+    {
+      "name": "sample_fmts",
+      "description": "show available audio sample formats"
+    },
+    {
+      "name": "?",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "help",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "help",
+      "metavar": "topic",
+      "description": "show help"
+    },
+    {
+      "name": "buildconf",
+      "description": "show build configuration"
+    },
+    {
+      "name": "formats",
+      "description": "show available formats"
+    },
+    {
+      "name": "codecs",
+      "description": "show available codecs"
+    },
+    {
+      "name": "bsfs",
+      "description": "show available bit stream filters"
+    },
+    {
+      "name": "protocols",
+      "description": "show available protocols"
+    },
+    {
+      "name": "dispositions",
+      "description": "show available stream dispositions"
+    },
+    {
+      "name": "colors",
+      "description": "show available color names"
+    },
+    {
+      "name": "sources",
+      "metavar": "device",
+      "description": "list sources of the input device"
+    },
+    {
+      "name": "sinks",
+      "metavar": "device",
+      "description": "list sinks of the output device"
+    },
+    {
+      "name": "hwaccels",
+      "description": "show available HW acceleration methods"
+    },
+    {
+      "name": "v",
+      "metavar": "loglevel",
+      "description": "set logging level"
+    },
+    {
+      "name": "y",
+      "description": "overwrite output files"
+    },
+    {
+      "name": "n",
+      "description": "never overwrite output files"
+    },
+    {
+      "name": "print_graphs",
+      "description": "print execution graph data to stderr"
+    },
+    {
+      "name": "print_graphs_file",
+      "metavar": "filename",
+      "description": "write execution graph data to the specified file"
+    },
+    {
+      "name": "print_graphs_format",
+      "metavar": "format",
+      "description": "set the output printing format (available formats are: default, compact, csv, flat, ini, json, xml, mermaid, mermaidhtml)"
+    },
+    {
+      "name": "stats",
+      "description": "print progress report during encoding"
+    },
+    {
+      "name": "loglevel",
+      "metavar": "loglevel",
+      "description": "set logging level"
+    },
+    {
+      "name": "report",
+      "description": "generate a report"
+    },
+    {
+      "name": "max_alloc",
+      "metavar": "bytes",
+      "description": "set maximum size of a single allocated block"
+    },
+    {
+      "name": "cpuflags",
+      "metavar": "flags",
+      "description": "force specific cpu flags"
+    },
+    {
+      "name": "cpucount",
+      "metavar": "count",
+      "description": "force specific cpu count"
+    },
+    {
+      "name": "hide_banner",
+      "metavar": "hide_banner",
+      "description": "do not show program banner"
+    },
+    {
+      "name": "ignore_unknown",
+      "description": "Ignore unknown stream types"
+    },
+    {
+      "name": "copy_unknown",
+      "description": "Copy unknown stream types"
+    },
+    {
+      "name": "recast_media",
+      "description": "allow recasting stream type in order to force a decoder of different media type"
+    },
+    {
+      "name": "benchmark",
+      "description": "add timings for benchmarking"
+    },
+    {
+      "name": "benchmark_all",
+      "description": "add timings for each task"
+    },
+    {
+      "name": "progress",
+      "metavar": "url",
+      "description": "write program-readable progress information"
+    },
+    {
+      "name": "stdin",
+      "description": "enable or disable interaction on standard input"
+    },
+    {
+      "name": "timelimit",
+      "metavar": "limit",
+      "description": "set max runtime in seconds in CPU user time"
+    },
+    {
+      "name": "dump",
+      "description": "dump each input packet"
+    },
+    {
+      "name": "hex",
+      "description": "when dumping packets, also dump the payload"
+    },
+    {
+      "name": "frame_drop_threshold",
+      "description": "frame drop threshold"
+    },
+    {
+      "name": "copyts",
+      "description": "copy timestamps"
+    },
+    {
+      "name": "start_at_zero",
+      "description": "shift input timestamps to start at 0 when using copyts"
+    },
+    {
+      "name": "copytb",
+      "metavar": "mode",
+      "description": "copy input stream time base when stream copying"
+    },
+    {
+      "name": "dts_delta_threshold",
+      "metavar": "threshold",
+      "description": "timestamp discontinuity delta threshold"
+    },
+    {
+      "name": "dts_error_threshold",
+      "metavar": "threshold",
+      "description": "timestamp error delta threshold"
+    },
+    {
+      "name": "xerror",
+      "metavar": "error",
+      "description": "exit on error"
+    },
+    {
+      "name": "abort_on",
+      "metavar": "flags",
+      "description": "abort on the specified condition flags"
+    },
+    {
+      "name": "filter_threads",
+      "description": "number of non-complex filter threads"
+    },
+    {
+      "name": "filter_buffered_frames",
+      "description": "maximum number of buffered frames in a filter graph"
+    },
+    {
+      "name": "filter_complex",
+      "metavar": "graph_description",
+      "description": "create a complex filtergraph"
+    },
+    {
+      "name": "filter_complex_threads",
+      "description": "number of threads for -filter_complex"
+    },
+    {
+      "name": "lavfi",
+      "metavar": "graph_description",
+      "description": "create a complex filtergraph"
+    },
+    {
+      "name": "auto_conversion_filters",
+      "description": "enable automatic conversion filters globally"
+    },
+    {
+      "name": "stats_period",
+      "metavar": "time",
+      "description": "set the period at which ffmpeg updates stats and -progress output"
+    },
+    {
+      "name": "debug_ts",
+      "description": "print timestamp debugging info"
+    },
+    {
+      "name": "max_error_rate",
+      "metavar": "maximum error rate",
+      "description": "ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success."
+    },
+    {
+      "name": "vstats",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "vstats_file",
+      "metavar": "file",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "vstats_version",
+      "description": "Version of the vstats format to use."
+    },
+    {
+      "name": "sdp_file",
+      "metavar": "file",
+      "description": "specify a file in which to print sdp information"
+    },
+    {
+      "name": "init_hw_device",
+      "metavar": "args",
+      "description": "initialise hardware device"
+    },
+    {
+      "name": "filter_hw_device",
+      "metavar": "device",
+      "description": "set hardware device used when filtering"
+    },
+    {
+      "name": "f",
+      "metavar": "fmt",
+      "description": "force container format (auto-detected otherwise)"
+    },
+    {
+      "name": "t",
+      "metavar": "duration",
+      "description": "stop transcoding after specified duration"
+    },
+    {
+      "name": "to",
+      "metavar": "time_stop",
+      "description": "stop transcoding after specified time is reached"
+    },
+    {
+      "name": "ss",
+      "metavar": "time_off",
+      "description": "start transcoding at specified time"
+    },
+    {
+      "name": "bitexact",
+      "description": "bitexact mode"
+    },
+    {
+      "name": "sseof",
+      "metavar": "time_off",
+      "description": "set the start time offset relative to EOF"
+    },
+    {
+      "name": "seek_timestamp",
+      "description": "enable/disable seeking by timestamp with -ss"
+    },
+    {
+      "name": "accurate_seek",
+      "description": "enable/disable accurate seeking with -ss"
+    },
+    {
+      "name": "isync",
+      "metavar": "sync ref",
+      "description": "Indicate the input index for sync reference"
+    },
+    {
+      "name": "itsoffset",
+      "metavar": "time_off",
+      "description": "set the input ts offset"
+    },
+    {
+      "name": "re",
+      "description": "read input at native frame rate; equivalent to -readrate 1"
+    },
+    {
+      "name": "readrate",
+      "metavar": "speed",
+      "description": "read input at specified rate"
+    },
+    {
+      "name": "readrate_initial_burst",
+      "metavar": "seconds",
+      "description": "The initial amount of input to burst read before imposing any readrate"
+    },
+    {
+      "name": "readrate_catchup",
+      "metavar": "speed",
+      "description": "Temporary readrate used to catch up if an input lags behind the specified readrate"
+    },
+    {
+      "name": "dump_attachment",
+      "metavar": "filename",
+      "description": "extract an attachment into a file"
+    },
+    {
+      "name": "stream_loop",
+      "metavar": "loop count",
+      "description": "set number of times input stream shall be looped"
+    },
+    {
+      "name": "find_stream_info",
+      "description": "read and decode the streams to fill missing information with heuristics"
+    },
+    {
+      "name": "metadata",
+      "metavar": "key=value",
+      "description": "add metadata"
+    },
+    {
+      "name": "keep_metadata",
+      "metavar": "key",
+      "description": "keep metadata key from input when re-encoding"
+    },
+    {
+      "name": "map",
+      "metavar": "[-]input_file_id[:stream_specifier][,sync_file_id[:stream_specifier]]",
+      "description": "set input stream mapping"
+    },
+    {
+      "name": "map_metadata",
+      "metavar": "outfile[,metadata]:infile[,metadata]",
+      "description": "set metadata information of outfile from infile"
+    },
+    {
+      "name": "map_chapters",
+      "metavar": "input_file_index",
+      "description": "set chapters mapping"
+    },
+    {
+      "name": "fs",
+      "metavar": "limit_size",
+      "description": "set the limit file size in bytes"
+    },
+    {
+      "name": "timestamp",
+      "metavar": "time",
+      "description": "set the recording timestamp ('now' to set the current time)"
+    },
+    {
+      "name": "program",
+      "metavar": "title=string:st=number...",
+      "description": "add program with specified streams"
+    },
+    {
+      "name": "stream_group",
+      "metavar": "id=number:st=number...",
+      "description": "add stream group with specified streams and group type-specific arguments"
+    },
+    {
+      "name": "dframes",
+      "metavar": "number",
+      "description": "set the number of data frames to output"
+    },
+    {
+      "name": "target",
+      "metavar": "type",
+      "description": "specify target file type (\"vcd\", \"svcd\", \"dvd\", \"dv\" or \"dv50\" with optional prefixes \"pal-\", \"ntsc-\" or \"film-\")"
+    },
+    {
+      "name": "shortest",
+      "description": "finish encoding within shortest input"
+    },
+    {
+      "name": "shortest_buf_duration",
+      "description": "maximum buffering duration (in seconds) for the -shortest option"
+    },
+    {
+      "name": "qscale",
+      "metavar": "q",
+      "description": "use fixed quality scale (VBR)"
+    },
+    {
+      "name": "profile",
+      "metavar": "profile",
+      "description": "set profile"
+    },
+    {
+      "name": "attach",
+      "metavar": "filename",
+      "description": "add an attachment to the output file"
+    },
+    {
+      "name": "thread_queue_size",
+      "description": "set the maximum number of queued packets per stream on the muxer"
+    },
+    {
+      "name": "muxdelay",
+      "metavar": "seconds",
+      "description": "set the maximum demux-decode delay"
+    },
+    {
+      "name": "muxpreload",
+      "metavar": "seconds",
+      "description": "set the initial demux-decode delay"
+    },
+    {
+      "name": "fpre",
+      "metavar": "filename",
+      "description": "set options from indicated preset file"
+    },
+    {
+      "name": "c",
+      "metavar": "codec",
+      "description": "select encoder/decoder ('copy' to copy stream without reencoding)"
+    },
+    {
+      "name": "filter",
+      "metavar": "filter_graph",
+      "description": "apply specified filters to audio/video"
+    },
+    {
+      "name": "codec",
+      "metavar": "codec",
+      "aliases": ["c"],
+      "description": "alias for -c (select encoder/decoder)"
+    },
+    {
+      "name": "pre",
+      "metavar": "preset",
+      "description": "preset name"
+    },
+    {
+      "name": "itsscale",
+      "metavar": "scale",
+      "description": "set the input ts scale"
+    },
+    {
+      "name": "copyinkf",
+      "description": "copy initial non-keyframes"
+    },
+    {
+      "name": "copypriorss",
+      "description": "copy or discard frames before start time"
+    },
+    {
+      "name": "frames",
+      "metavar": "number",
+      "description": "set the number of frames to output"
+    },
+    {
+      "name": "tag",
+      "metavar": "fourcc/tag",
+      "description": "force codec tag/fourcc"
+    },
+    {
+      "name": "q",
+      "metavar": "q",
+      "description": "use fixed quality scale (VBR)"
+    },
+    {
+      "name": "reinit_filter",
+      "description": "reinit filtergraph on input parameter changes"
+    },
+    {
+      "name": "drop_changed",
+      "description": "drop frame instead of reiniting filtergraph on input parameter changes"
+    },
+    {
+      "name": "discard",
+      "description": "discard"
+    },
+    {
+      "name": "disposition",
+      "description": "disposition"
+    },
+    {
+      "name": "bits_per_raw_sample",
+      "metavar": "number",
+      "description": "set the number of bits per raw sample"
+    },
+    {
+      "name": "stats_enc_pre",
+      "description": "write encoding stats before encoding"
+    },
+    {
+      "name": "stats_enc_post",
+      "description": "write encoding stats after encoding"
+    },
+    {
+      "name": "stats_mux_pre",
+      "description": "write packets stats before muxing"
+    },
+    {
+      "name": "stats_enc_pre_fmt",
+      "description": "format of the stats written with -stats_enc_pre"
+    },
+    {
+      "name": "stats_enc_post_fmt",
+      "description": "format of the stats written with -stats_enc_post"
+    },
+    {
+      "name": "stats_mux_pre_fmt",
+      "description": "format of the stats written with -stats_mux_pre"
+    },
+    {
+      "name": "reinit_opts",
+      "metavar": "pts1|video_size=size:g=12,pts2|video_size=size...",
+      "description": "List of encoder options to use to reinitialize the encoder at given timestamps"
+    },
+    {
+      "name": "time_base",
+      "metavar": "ratio",
+      "description": "set the desired time base hint for output stream (1:24, 1:48000 or 0.04166, 2.0833e-5)"
+    },
+    {
+      "name": "enc_time_base",
+      "metavar": "ratio",
+      "description": "set the desired time base for the encoder (1:24, 1:48000 or 0.04166, 2.0833e-5). two special values are defined - 0 = use frame rate (video) or sample rate (audio),-1 = match source time base"
+    },
+    {
+      "name": "bsf",
+      "metavar": "bitstream_filters",
+      "description": "A comma-separated list of bitstream filters"
+    },
+    {
+      "name": "max_muxing_queue_size",
+      "metavar": "packets",
+      "description": "maximum number of packets that can be buffered while waiting for all streams to initialize"
+    },
+    {
+      "name": "muxing_queue_data_threshold",
+      "metavar": "bytes",
+      "description": "set the threshold after which max_muxing_queue_size is taken into account"
+    },
+    {
+      "name": "r",
+      "metavar": "rate",
+      "description": "override input framerate/convert to given output framerate (Hz value, fraction or abbreviation)"
+    },
+    {
+      "name": "aspect",
+      "metavar": "aspect",
+      "description": "set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)"
+    },
+    {
+      "name": "stereo3d",
+      "metavar": "layout",
+      "description": "set stereoscopic 3D layout metadata (does not rearrange pixels)"
+    },
+    {
+      "name": "vn",
+      "description": "disable video"
+    },
+    {
+      "name": "vcodec",
+      "metavar": "codec",
+      "aliases": ["c:v"],
+      "description": "alias for -c:v (select encoder/decoder for video streams)"
+    },
+    {
+      "name": "vf",
+      "metavar": "filter_graph",
+      "aliases": ["filter:v"],
+      "description": "alias for -filter:v (apply filters to video streams)"
+    },
+    {
+      "name": "b",
+      "metavar": "bitrate",
+      "description": "video bitrate (please use -b:v)"
+    },
+    {
+      "name": "vframes",
+      "metavar": "number",
+      "description": "set the number of video frames to output"
+    },
+    {
+      "name": "fpsmax",
+      "metavar": "rate",
+      "description": "set max frame rate (Hz value, fraction or abbreviation)"
+    },
+    {
+      "name": "pix_fmt",
+      "metavar": "format",
+      "description": "set pixel format"
+    },
+    {
+      "name": "display_rotation",
+      "metavar": "angle",
+      "description": "set pure counter-clockwise rotation in degrees for stream(s)"
+    },
+    {
+      "name": "display_hflip",
+      "description": "set display horizontal flip for stream(s) (overrides any display rotation if it is not set)"
+    },
+    {
+      "name": "display_vflip",
+      "description": "set display vertical flip for stream(s) (overrides any display rotation if it is not set)"
+    },
+    {
+      "name": "mastering_display",
+      "description": "set SMPTE2084 mastering display color volume info"
+    },
+    {
+      "name": "content_light",
+      "description": "set SMPTE2084 Max CLL and Max FALL values"
+    },
+    {
+      "name": "rc_override",
+      "metavar": "override",
+      "description": "rate control override for specific intervals"
+    },
+    {
+      "name": "timecode",
+      "metavar": "hh:mm:ss[:;.]ff",
+      "description": "set initial TimeCode value."
+    },
+    {
+      "name": "pass",
+      "metavar": "n",
+      "description": "select the pass number (1 to 3)"
+    },
+    {
+      "name": "passlogfile",
+      "metavar": "prefix",
+      "description": "select two pass log file name prefix"
+    },
+    {
+      "name": "vstats",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "vstats_file",
+      "metavar": "file",
+      "description": "dump video coding statistics to file"
+    },
+    {
+      "name": "vstats_version",
+      "description": "Version of the vstats format to use."
+    },
+    {
+      "name": "intra_matrix",
+      "metavar": "matrix",
+      "description": "specify intra matrix coeffs"
+    },
+    {
+      "name": "inter_matrix",
+      "metavar": "matrix",
+      "description": "specify inter matrix coeffs"
+    },
+    {
+      "name": "chroma_intra_matrix",
+      "metavar": "matrix",
+      "description": "specify intra matrix coeffs"
+    },
+    {
+      "name": "vtag",
+      "metavar": "fourcc/tag",
+      "description": "force video tag/fourcc"
+    },
+    {
+      "name": "fps_mode",
+      "description": "set framerate mode for matching video streams"
+    },
+    {
+      "name": "force_fps",
+      "description": "force the selected framerate, disable the best supported framerate selection"
+    },
+    {
+      "name": "streamid",
+      "metavar": "streamIndex:value",
+      "description": "set the value of an outfile streamid"
+    },
+    {
+      "name": "force_key_frames",
+      "metavar": "timestamps",
+      "description": "force key frames at specified timestamps"
+    },
+    {
+      "name": "hwaccel",
+      "metavar": "hwaccel name",
+      "description": "use HW accelerated decoding"
+    },
+    {
+      "name": "hwaccel_device",
+      "metavar": "devicename",
+      "description": "select a device for HW acceleration"
+    },
+    {
+      "name": "hwaccel_output_format",
+      "metavar": "format",
+      "description": "select output format used with HW accelerated decoding"
+    },
+    {
+      "name": "autorotate",
+      "description": "automatically insert correct rotate filters"
+    },
+    {
+      "name": "autoscale",
+      "description": "automatically insert a scale filter at the end of the filter graph"
+    },
+    {
+      "name": "apply_cropping",
+      "description": "select the cropping to apply"
+    },
+    {
+      "name": "fix_sub_duration_heartbeat",
+      "description": "set this video output stream to be a heartbeat stream for fix_sub_duration, according to which subtitles should be split at random access points"
+    },
+    {
+      "name": "vpre",
+      "metavar": "preset",
+      "description": "set the video options to the indicated preset"
+    },
+    {
+      "name": "aq",
+      "metavar": "quality",
+      "description": "set audio quality (codec-specific)"
+    },
+    {
+      "name": "ar",
+      "metavar": "rate",
+      "description": "set audio sampling rate (in Hz)"
+    },
+    {
+      "name": "ac",
+      "metavar": "channels",
+      "description": "set number of audio channels"
+    },
+    {
+      "name": "an",
+      "description": "disable audio"
+    },
+    {
+      "name": "acodec",
+      "metavar": "codec",
+      "aliases": ["c:a"],
+      "description": "alias for -c:a (select encoder/decoder for audio streams)"
+    },
+    {
+      "name": "ab",
+      "metavar": "bitrate",
+      "aliases": ["b:a"],
+      "description": "alias for -b:a (select bitrate for audio streams)"
+    },
+    {
+      "name": "af",
+      "metavar": "filter_graph",
+      "aliases": ["filter:a"],
+      "description": "alias for -filter:a (apply filters to audio streams)"
+    },
+    {
+      "name": "aframes",
+      "metavar": "number",
+      "description": "set the number of audio frames to output"
+    },
+    {
+      "name": "apad",
+      "description": "audio pad"
+    },
+    {
+      "name": "atag",
+      "metavar": "fourcc/tag",
+      "description": "force audio tag/fourcc"
+    },
+    {
+      "name": "sample_fmt",
+      "metavar": "format",
+      "description": "set sample format"
+    },
+    {
+      "name": "channel_layout",
+      "metavar": "layout",
+      "description": "set channel layout"
+    },
+    {
+      "name": "ch_layout",
+      "metavar": "layout",
+      "description": "set channel layout"
+    },
+    {
+      "name": "guess_layout_max",
+      "description": "set the maximum number of channels to try to guess the channel layout"
+    },
+    {
+      "name": "apre",
+      "metavar": "preset",
+      "description": "set the audio options to the indicated preset"
+    },
+    {
+      "name": "sn",
+      "description": "disable subtitle"
+    },
+    {
+      "name": "scodec",
+      "metavar": "codec",
+      "aliases": ["c:s"],
+      "description": "alias for -c:s (select encoder/decoder for subtitle streams)"
+    },
+    {
+      "name": "stag",
+      "metavar": "fourcc/tag",
+      "description": "force subtitle tag/fourcc"
+    },
+    {
+      "name": "fix_sub_duration",
+      "description": "fix subtitles duration"
+    },
+    {
+      "name": "canvas_size",
+      "metavar": "size",
+      "description": "set canvas size (WxH or abbreviation)"
+    },
+    {
+      "name": "spre",
+      "metavar": "preset",
+      "description": "set the subtitle options to the indicated preset"
+    },
+    {
+      "name": "dcodec",
+      "metavar": "codec",
+      "aliases": ["c:d"],
+      "description": "alias for -c:d (select encoder/decoder for data streams)"
+    },
+    {
+      "name": "dn",
+      "description": "disable data"
+    }
+  ],
+  "provenance": {
+    "version": "9.1",
+    "helpCacheSha256": "7fcf42ea0c0dec6ac87af1222339aabc8ef7c2348904b29779276556e4272132",
+    "generatedAt": "2026-11-25T10:56:28.993Z"
+  }
+}

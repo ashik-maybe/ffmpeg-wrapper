@@ -1,0 +1,6212 @@
+{
+  "tool": "ffmpeg",
+  "version": "9.1",
+  "provenance": {
+    "version": "9.1",
+    "sources": [
+      "ffmpeg-decoders.txt",
+      "ffmpeg-demuxers.txt",
+      "ffmpeg-protocols.txt",
+      "ffmpeg-pix_fmts.txt",
+      "ffmpeg-sample_fmts.txt"
+    ],
+    "decodersCacheSha256": "de60bfe0f622e4535ef32a8f70d2e253020e4bdbafbb6e253b4d11f5262bec3c",
+    "demuxersCacheSha256": "b5f7a0933758b12f22f119982be45d193ade78d425e068834f246e070510cb1d",
+    "protocolsCacheSha256": "28d210133eaf3a9b1b880e71544d52a9e470b8f1f6c80c74ac538d547c8d4885",
+    "pixelFormatsCacheSha256": "e735d806fe5f6127b4907e2f5b8fa78a3fc17783328a3708c56dc51b868bc146",
+    "sampleFormatsCacheSha256": "b6e27122cb9e81c802634d6f93e5bb8611249a44f7831eebdc1cd367c9661ab0",
+    "generatedAt": "2026-11-25T10:55:45.777Z"
+  },
+  "decoders": [
+    {
+      "name": "012v",
+      "type": "V....D",
+      "description": "Uncompressed 4:2:2 10-bit"
+    },
+    {
+      "name": "4xm",
+      "type": "V....D",
+      "description": "4X Movie"
+    },
+    {
+      "name": "8bps",
+      "type": "V....D",
+      "description": "QuickTime 8BPS video"
+    },
+    {
+      "name": "aasc",
+      "type": "V....D",
+      "description": "Autodesk RLE"
+    },
+    {
+      "name": "agm",
+      "type": "V....D",
+      "description": "Amuse Graphics Movie"
+    },
+    {
+      "name": "aic",
+      "type": "VF...D",
+      "description": "Apple Intermediate Codec"
+    },
+    {
+      "name": "alias_pix",
+      "type": "V....D",
+      "description": "Alias/Wavefront PIX image"
+    },
+    {
+      "name": "amv",
+      "type": "V....D",
+      "description": "AMV Video"
+    },
+    {
+      "name": "anm",
+      "type": "V....D",
+      "description": "Deluxe Paint Animation"
+    },
+    {
+      "name": "ansi",
+      "type": "V....D",
+      "description": "ASCII/ANSI art"
+    },
+    {
+      "name": "apng",
+      "type": "VF...D",
+      "description": "APNG (Animated Portable Network Graphics) image"
+    },
+    {
+      "name": "apv",
+      "type": "VFS..D",
+      "description": "Advanced Professional Video"
+    },
+    {
+      "name": "arbc",
+      "type": "V....D",
+      "description": "Gryphon's Anim Compressor"
+    },
+    {
+      "name": "argo",
+      "type": "V....D",
+      "description": "Argonaut Games Video"
+    },
+    {
+      "name": "asv1",
+      "type": "V....D",
+      "description": "ASUS V1"
+    },
+    {
+      "name": "asv2",
+      "type": "V....D",
+      "description": "ASUS V2"
+    },
+    {
+      "name": "aura",
+      "type": "V....D",
+      "description": "Auravision AURA"
+    },
+    {
+      "name": "aura2",
+      "type": "V....D",
+      "description": "Auravision Aura 2"
+    },
+    {
+      "name": "libdav1d",
+      "type": "V.....",
+      "description": "dav1d AV1 decoder by VideoLAN (codec av1)"
+    },
+    {
+      "name": "libaom-av1",
+      "type": "V....D",
+      "description": "libaom AV1 (codec av1)"
+    },
+    {
+      "name": "av1",
+      "type": "V....D",
+      "description": "Alliance for Open Media AV1"
+    },
+    {
+      "name": "avrn",
+      "type": "V....D",
+      "description": "Avid AVI Codec"
+    },
+    {
+      "name": "avrp",
+      "type": "V....D",
+      "description": "Avid 1:1 10-bit RGB Packer"
+    },
+    {
+      "name": "avs",
+      "type": "V....D",
+      "description": "AVS (Audio Video Standard) video"
+    },
+    {
+      "name": "avui",
+      "type": "V....D",
+      "description": "Avid Meridien Uncompressed"
+    },
+    {
+      "name": "bethsoftvid",
+      "type": "V....D",
+      "description": "Bethesda VID video"
+    },
+    {
+      "name": "bfi",
+      "type": "V....D",
+      "description": "Brute Force & Ignorance"
+    },
+    {
+      "name": "binkvideo",
+      "type": "V....D",
+      "description": "Bink video"
+    },
+    {
+      "name": "bintext",
+      "type": "V....D",
+      "description": "Binary text"
+    },
+    {
+      "name": "bitpacked",
+      "type": "VF....",
+      "description": "Bitpacked"
+    },
+    {
+      "name": "bmp",
+      "type": "V....D",
+      "description": "BMP (Windows and OS/2 bitmap)"
+    },
+    {
+      "name": "bmv_video",
+      "type": "V....D",
+      "description": "Discworld II BMV video"
+    },
+    {
+      "name": "brender_pix",
+      "type": "V....D",
+      "description": "BRender PIX image"
+    },
+    {
+      "name": "c93",
+      "type": "V....D",
+      "description": "Interplay C93"
+    },
+    {
+      "name": "cavs",
+      "type": "V....D",
+      "description": "Chinese AVS (Audio Video Standard) (AVS1-P2, JiZhun profile)"
+    },
+    {
+      "name": "cdgraphics",
+      "type": "V....D",
+      "description": "CD Graphics video"
+    },
+    {
+      "name": "cdtoons",
+      "type": "V....D",
+      "description": "CDToons video"
+    },
+    {
+      "name": "cdxl",
+      "type": "V....D",
+      "description": "Commodore CDXL video"
+    },
+    {
+      "name": "cfhd",
+      "type": "VF...D",
+      "description": "GoPro CineForm HD"
+    },
+    {
+      "name": "cinepak",
+      "type": "V....D",
+      "description": "Cinepak"
+    },
+    {
+      "name": "clearvideo",
+      "type": "V....D",
+      "description": "Iterated Systems ClearVideo"
+    },
+    {
+      "name": "cljr",
+      "type": "V....D",
+      "description": "Cirrus Logic AccuPak"
+    },
+    {
+      "name": "cllc",
+      "type": "VF...D",
+      "description": "Canopus Lossless Codec"
+    },
+    {
+      "name": "eacmv",
+      "type": "V....D",
+      "description": "Electronic Arts CMV video (codec cmv)"
+    },
+    {
+      "name": "cpia",
+      "type": "V....D",
+      "description": "CPiA video format"
+    },
+    {
+      "name": "cri",
+      "type": "VF...D",
+      "description": "Cintel RAW"
+    },
+    {
+      "name": "camstudio",
+      "type": "V....D",
+      "description": "CamStudio (codec cscd)"
+    },
+    {
+      "name": "cyuv",
+      "type": "V....D",
+      "description": "Creative YUV (CYUV)"
+    },
+    {
+      "name": "dds",
+      "type": "V.S..D",
+      "description": "DirectDraw Surface image decoder"
+    },
+    {
+      "name": "dfa",
+      "type": "V....D",
+      "description": "Chronomaster DFA"
+    },
+    {
+      "name": "dirac",
+      "type": "V.S..D",
+      "description": "BBC Dirac VC-2"
+    },
+    {
+      "name": "dnxhd",
+      "type": "VFS..D",
+      "description": "VC3/DNxHD"
+    },
+    {
+      "name": "dpx",
+      "type": "VF...D",
+      "description": "DPX (Digital Picture Exchange) image"
+    },
+    {
+      "name": "dsicinvideo",
+      "type": "V....D",
+      "description": "Delphine Software International CIN video"
+    },
+    {
+      "name": "dvvideo",
+      "type": "VFS..D",
+      "description": "DV (Digital Video)"
+    },
+    {
+      "name": "dxa",
+      "type": "V....D",
+      "description": "Feeble Files/ScummVM DXA"
+    },
+    {
+      "name": "dxtory",
+      "type": "VF...D",
+      "description": "Dxtory"
+    },
+    {
+      "name": "dxv",
+      "type": "VFS..D",
+      "description": "Resolume DXV"
+    },
+    {
+      "name": "escape124",
+      "type": "V....D",
+      "description": "Escape 124"
+    },
+    {
+      "name": "escape130",
+      "type": "V....D",
+      "description": "Escape 130"
+    },
+    {
+      "name": "exr",
+      "type": "VFS..D",
+      "description": "OpenEXR image"
+    },
+    {
+      "name": "ffv1",
+      "type": "VFS..D",
+      "description": "FFmpeg video codec #1"
+    },
+    {
+      "name": "ffvhuff",
+      "type": "VF..BD",
+      "description": "Huffyuv FFmpeg variant"
+    },
+    {
+      "name": "fic",
+      "type": "V.S..D",
+      "description": "Mirillis FIC"
+    },
+    {
+      "name": "fits",
+      "type": "V....D",
+      "description": "Flexible Image Transport System"
+    },
+    {
+      "name": "flashsv",
+      "type": "V....D",
+      "description": "Flash Screen Video v1"
+    },
+    {
+      "name": "flashsv2",
+      "type": "V....D",
+      "description": "Flash Screen Video v2"
+    },
+    {
+      "name": "flic",
+      "type": "V....D",
+      "description": "Autodesk Animator Flic video"
+    },
+    {
+      "name": "flv",
+      "type": "V...BD",
+      "description": "FLV / Sorenson Spark / Sorenson H.263 (Flash Video) (codec flv1)"
+    },
+    {
+      "name": "fmvc",
+      "type": "V....D",
+      "description": "FM Screen Capture Codec"
+    },
+    {
+      "name": "fraps",
+      "type": "VF...D",
+      "description": "Fraps"
+    },
+    {
+      "name": "frwu",
+      "type": "V....D",
+      "description": "Forward Uncompressed"
+    },
+    {
+      "name": "g2m",
+      "type": "V....D",
+      "description": "Go2Meeting"
+    },
+    {
+      "name": "gdv",
+      "type": "V....D",
+      "description": "Gremlin Digital Video"
+    },
+    {
+      "name": "gem",
+      "type": "V....D",
+      "description": "GEM Raster image"
+    },
+    {
+      "name": "gif",
+      "type": "V....D",
+      "description": "GIF (Graphics Interchange Format)"
+    },
+    {
+      "name": "h261",
+      "type": "V....D",
+      "description": "H.261"
+    },
+    {
+      "name": "h263",
+      "type": "V...BD",
+      "description": "H.263 / H.263-1996, H.263+ / H.263-1998 / H.263 version 2"
+    },
+    {
+      "name": "h263_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem H.263 decoder wrapper (codec h263)"
+    },
+    {
+      "name": "h263i",
+      "type": "V...BD",
+      "description": "Intel H.263"
+    },
+    {
+      "name": "h263p",
+      "type": "V...BD",
+      "description": "H.263 / H.263-1996, H.263+ / H.263-1998 / H.263 version 2"
+    },
+    {
+      "name": "h264",
+      "type": "VFS..D",
+      "description": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"
+    },
+    {
+      "name": "h264_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem H.264 decoder wrapper (codec h264)"
+    },
+    {
+      "name": "libopenh264",
+      "type": "V....D",
+      "description": "OpenH264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (codec h264)"
+    },
+    {
+      "name": "hap",
+      "type": "VFS..D",
+      "description": "Vidvox Hap"
+    },
+    {
+      "name": "hdr",
+      "type": "VF...D",
+      "description": "HDR (Radiance RGBE format) image"
+    },
+    {
+      "name": "hevc",
+      "type": "VFS..D",
+      "description": "HEVC (High Efficiency Video Coding)"
+    },
+    {
+      "name": "hevc_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem HEVC decoder wrapper (codec hevc)"
+    },
+    {
+      "name": "hnm4video",
+      "type": "V....D",
+      "description": "HNM 4 video"
+    },
+    {
+      "name": "hq_hqa",
+      "type": "V....D",
+      "description": "Canopus HQ/HQA"
+    },
+    {
+      "name": "hqx",
+      "type": "VFS..D",
+      "description": "Canopus HQX"
+    },
+    {
+      "name": "huffyuv",
+      "type": "VF..BD",
+      "description": "Huffyuv / HuffYUV"
+    },
+    {
+      "name": "hymt",
+      "type": "VF..BD",
+      "description": "HuffYUV MT"
+    },
+    {
+      "name": "idcinvideo",
+      "type": "V....D",
+      "description": "id Quake II CIN video (codec idcin)"
+    },
+    {
+      "name": "idf",
+      "type": "V....D",
+      "description": "iCEDraw text"
+    },
+    {
+      "name": "iff",
+      "type": "V....D",
+      "description": "IFF ACBM/ANIM/DEEP/ILBM/PBM/RGB8/RGBN (codec iff_ilbm)"
+    },
+    {
+      "name": "imm4",
+      "type": "V....D",
+      "description": "Infinity IMM4"
+    },
+    {
+      "name": "imm5",
+      "type": "V.....",
+      "description": "Infinity IMM5"
+    },
+    {
+      "name": "imm6",
+      "type": "V.....",
+      "description": "Infinity IMM6"
+    },
+    {
+      "name": "indeo2",
+      "type": "V....D",
+      "description": "Intel Indeo 2"
+    },
+    {
+      "name": "indeo3",
+      "type": "V....D",
+      "description": "Intel Indeo 3"
+    },
+    {
+      "name": "indeo4",
+      "type": "V....D",
+      "description": "Intel Indeo Video Interactive 4"
+    },
+    {
+      "name": "indeo5",
+      "type": "V....D",
+      "description": "Intel Indeo Video Interactive 5"
+    },
+    {
+      "name": "interplayvideo",
+      "type": "V....D",
+      "description": "Interplay MVE video"
+    },
+    {
+      "name": "ipu",
+      "type": "V....D",
+      "description": "IPU Video"
+    },
+    {
+      "name": "jpeg2000",
+      "type": "VFS..D",
+      "description": "JPEG 2000"
+    },
+    {
+      "name": "jpegls",
+      "type": "V....D",
+      "description": "JPEG-LS"
+    },
+    {
+      "name": "jv",
+      "type": "V....D",
+      "description": "Bitmap Brothers JV video"
+    },
+    {
+      "name": "kgv1",
+      "type": "V....D",
+      "description": "Kega Game Video"
+    },
+    {
+      "name": "kmvc",
+      "type": "V....D",
+      "description": "Karl Morton's video codec"
+    },
+    {
+      "name": "lagarith",
+      "type": "VF...D",
+      "description": "Lagarith lossless"
+    },
+    {
+      "name": "lead",
+      "type": "V....D",
+      "description": "LEAD MCMP"
+    },
+    {
+      "name": "loco",
+      "type": "V....D",
+      "description": "LOCO"
+    },
+    {
+      "name": "lscr",
+      "type": "V....D",
+      "description": "LEAD Screen Capture"
+    },
+    {
+      "name": "m101",
+      "type": "V....D",
+      "description": "Matrox Uncompressed SD"
+    },
+    {
+      "name": "eamad",
+      "type": "V....D",
+      "description": "Electronic Arts Madcow Video (codec mad)"
+    },
+    {
+      "name": "magicyuv",
+      "type": "VFS..D",
+      "description": "MagicYUV video"
+    },
+    {
+      "name": "mdec",
+      "type": "VF...D",
+      "description": "Sony PlayStation MDEC (Motion DECoder)"
+    },
+    {
+      "name": "media100",
+      "type": "V....D",
+      "description": "Media 100"
+    },
+    {
+      "name": "mimic",
+      "type": "VF...D",
+      "description": "Mimic"
+    },
+    {
+      "name": "mjpeg",
+      "type": "V....D",
+      "description": "MJPEG (Motion JPEG)"
+    },
+    {
+      "name": "mjpegb",
+      "type": "V....D",
+      "description": "Apple MJPEG-B"
+    },
+    {
+      "name": "mmvideo",
+      "type": "V....D",
+      "description": "American Laser Games MM Video"
+    },
+    {
+      "name": "mobiclip",
+      "type": "V....D",
+      "description": "MobiClip Video"
+    },
+    {
+      "name": "motionpixels",
+      "type": "V....D",
+      "description": "Motion Pixels video"
+    },
+    {
+      "name": "mpeg1video",
+      "type": "V.S.BD",
+      "description": "MPEG-1 video"
+    },
+    {
+      "name": "mpeg1_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem MPEG1 decoder wrapper (codec mpeg1video)"
+    },
+    {
+      "name": "mpeg2video",
+      "type": "V.S.BD",
+      "description": "MPEG-2 video"
+    },
+    {
+      "name": "mpegvideo",
+      "type": "V.S.BD",
+      "description": "MPEG-1 video (codec mpeg2video)"
+    },
+    {
+      "name": "mpeg2_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem MPEG2 decoder wrapper (codec mpeg2video)"
+    },
+    {
+      "name": "mpeg4",
+      "type": "VF..BD",
+      "description": "MPEG-4 part 2"
+    },
+    {
+      "name": "mpeg4_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem MPEG4 decoder wrapper (codec mpeg4)"
+    },
+    {
+      "name": "msa1",
+      "type": "V....D",
+      "description": "MS ATC Screen"
+    },
+    {
+      "name": "mscc",
+      "type": "V....D",
+      "description": "Mandsoft Screen Capture Codec"
+    },
+    {
+      "name": "msmpeg4v1",
+      "type": "V...BD",
+      "description": "MPEG-4 part 2 Microsoft variant version 1"
+    },
+    {
+      "name": "msmpeg4v2",
+      "type": "V...BD",
+      "description": "MPEG-4 part 2 Microsoft variant version 2"
+    },
+    {
+      "name": "msmpeg4",
+      "type": "V...BD",
+      "description": "MPEG-4 part 2 Microsoft variant version 3 (codec msmpeg4v3)"
+    },
+    {
+      "name": "msp2",
+      "type": "V....D",
+      "description": "Microsoft Paint (MSP) version 2"
+    },
+    {
+      "name": "msrle",
+      "type": "V....D",
+      "description": "Microsoft RLE"
+    },
+    {
+      "name": "mss1",
+      "type": "V....D",
+      "description": "MS Screen 1"
+    },
+    {
+      "name": "mss2",
+      "type": "V....D",
+      "description": "MS Windows Media Video V9 Screen"
+    },
+    {
+      "name": "msvideo1",
+      "type": "V....D",
+      "description": "Microsoft Video 1"
+    },
+    {
+      "name": "mszh",
+      "type": "VF...D",
+      "description": "LCL (LossLess Codec Library) MSZH"
+    },
+    {
+      "name": "mts2",
+      "type": "V....D",
+      "description": "MS Expression Encoder Screen"
+    },
+    {
+      "name": "mv30",
+      "type": "V....D",
+      "description": "MidiVid 3.0"
+    },
+    {
+      "name": "mvc1",
+      "type": "V....D",
+      "description": "Silicon Graphics Motion Video Compressor 1"
+    },
+    {
+      "name": "mvc2",
+      "type": "V....D",
+      "description": "Silicon Graphics Motion Video Compressor 2"
+    },
+    {
+      "name": "mvdv",
+      "type": "V....D",
+      "description": "MidiVid VQ"
+    },
+    {
+      "name": "mvha",
+      "type": "V....D",
+      "description": "MidiVid Archive Codec"
+    },
+    {
+      "name": "mwsc",
+      "type": "V....D",
+      "description": "MatchWare Screen Capture Codec"
+    },
+    {
+      "name": "mxpeg",
+      "type": "V....D",
+      "description": "Mobotix MxPEG video"
+    },
+    {
+      "name": "notchlc",
+      "type": "VF...D",
+      "description": "NotchLC"
+    },
+    {
+      "name": "nuv",
+      "type": "V....D",
+      "description": "NuppelVideo/RTJPEG"
+    },
+    {
+      "name": "paf_video",
+      "type": "V....D",
+      "description": "Amazing Studio Packed Animation File Video"
+    },
+    {
+      "name": "pam",
+      "type": "V....D",
+      "description": "PAM (Portable AnyMap) image"
+    },
+    {
+      "name": "pbm",
+      "type": "V....D",
+      "description": "PBM (Portable BitMap) image"
+    },
+    {
+      "name": "pcx",
+      "type": "V....D",
+      "description": "PC Paintbrush PCX image"
+    },
+    {
+      "name": "pdv",
+      "type": "V....D",
+      "description": "PDV (PlayDate Video)"
+    },
+    {
+      "name": "pfm",
+      "type": "V....D",
+      "description": "PFM (Portable FloatMap) image"
+    },
+    {
+      "name": "pgm",
+      "type": "V....D",
+      "description": "PGM (Portable GrayMap) image"
+    },
+    {
+      "name": "pgmyuv",
+      "type": "V....D",
+      "description": "PGMYUV (Portable GrayMap YUV) image"
+    },
+    {
+      "name": "pgx",
+      "type": "V....D",
+      "description": "PGX (JPEG2000 Test Format)"
+    },
+    {
+      "name": "phm",
+      "type": "V....D",
+      "description": "PHM (Portable HalfFloatMap) image"
+    },
+    {
+      "name": "photocd",
+      "type": "VF...D",
+      "description": "Kodak Photo CD"
+    },
+    {
+      "name": "pictor",
+      "type": "V....D",
+      "description": "Pictor/PC Paint"
+    },
+    {
+      "name": "pixlet",
+      "type": "VF...D",
+      "description": "Apple Pixlet"
+    },
+    {
+      "name": "png",
+      "type": "VF...D",
+      "description": "PNG (Portable Network Graphics) image"
+    },
+    {
+      "name": "ppm",
+      "type": "V....D",
+      "description": "PPM (Portable PixelMap) image"
+    },
+    {
+      "name": "prores",
+      "type": "VFS..D",
+      "description": "Apple ProRes (iCodec Pro)"
+    },
+    {
+      "name": "prores_raw",
+      "type": "VFS..D",
+      "description": "Apple ProRes RAW"
+    },
+    {
+      "name": "prosumer",
+      "type": "V....D",
+      "description": "Brooktree ProSumer Video"
+    },
+    {
+      "name": "psd",
+      "type": "VF...D",
+      "description": "Photoshop PSD file"
+    },
+    {
+      "name": "ptx",
+      "type": "V....D",
+      "description": "V.Flash PTX image"
+    },
+    {
+      "name": "qdraw",
+      "type": "V....D",
+      "description": "Apple QuickDraw"
+    },
+    {
+      "name": "qoi",
+      "type": "VF...D",
+      "description": "QOI (Quite OK Image format) image"
+    },
+    {
+      "name": "qpeg",
+      "type": "V....D",
+      "description": "Q-team QPEG"
+    },
+    {
+      "name": "qtrle",
+      "type": "V....D",
+      "description": "QuickTime Animation (RLE) video"
+    },
+    {
+      "name": "r10k",
+      "type": "V....D",
+      "description": "AJA Kona 10-bit RGB Codec"
+    },
+    {
+      "name": "r210",
+      "type": "V....D",
+      "description": "Uncompressed RGB 10-bit"
+    },
+    {
+      "name": "rasc",
+      "type": "V....D",
+      "description": "RemotelyAnywhere Screen Capture"
+    },
+    {
+      "name": "rawvideo",
+      "type": "V.....",
+      "description": "raw video"
+    },
+    {
+      "name": "rl2",
+      "type": "V....D",
+      "description": "RL2 video"
+    },
+    {
+      "name": "roqvideo",
+      "type": "V....D",
+      "description": "id RoQ video (codec roq)"
+    },
+    {
+      "name": "rpza",
+      "type": "V....D",
+      "description": "QuickTime video (RPZA)"
+    },
+    {
+      "name": "rscc",
+      "type": "V....D",
+      "description": "innoHeim/Rsupport Screen Capture Codec"
+    },
+    {
+      "name": "rtv1",
+      "type": "VF...D",
+      "description": "RTV1 (RivaTuner Video)"
+    },
+    {
+      "name": "rv10",
+      "type": "V....D",
+      "description": "RealVideo 1.0"
+    },
+    {
+      "name": "rv20",
+      "type": "V....D",
+      "description": "RealVideo 2.0"
+    },
+    {
+      "name": "rv30",
+      "type": "VF...D",
+      "description": "RealVideo 3.0"
+    },
+    {
+      "name": "rv40",
+      "type": "VF...D",
+      "description": "RealVideo 4.0"
+    },
+    {
+      "name": "rv60",
+      "type": "V.S..D",
+      "description": "RealVideo 6.0"
+    },
+    {
+      "name": "rw2",
+      "type": "VFS..D",
+      "description": "Panasonic RW2"
+    },
+    {
+      "name": "sanm",
+      "type": "V....D",
+      "description": "LucasArts SANM/Smush video"
+    },
+    {
+      "name": "scpr",
+      "type": "V....D",
+      "description": "ScreenPressor"
+    },
+    {
+      "name": "screenpresso",
+      "type": "V....D",
+      "description": "Screenpresso"
+    },
+    {
+      "name": "sga",
+      "type": "V....D",
+      "description": "Digital Pictures SGA Video"
+    },
+    {
+      "name": "sgi",
+      "type": "V....D",
+      "description": "SGI image"
+    },
+    {
+      "name": "sgirle",
+      "type": "V....D",
+      "description": "Silicon Graphics RLE 8-bit video"
+    },
+    {
+      "name": "sheervideo",
+      "type": "VF...D",
+      "description": "BitJazz SheerVideo"
+    },
+    {
+      "name": "simbiosis_imx",
+      "type": "V....D",
+      "description": "Simbiosis Interactive IMX Video"
+    },
+    {
+      "name": "smackvid",
+      "type": "V....D",
+      "description": "Smacker video (codec smackvideo)"
+    },
+    {
+      "name": "smc",
+      "type": "V....D",
+      "description": "QuickTime Graphics (SMC)"
+    },
+    {
+      "name": "smvjpeg",
+      "type": "V....D",
+      "description": "SMV JPEG"
+    },
+    {
+      "name": "snow",
+      "type": "V....D",
+      "description": "Snow"
+    },
+    {
+      "name": "sp5x",
+      "type": "V....D",
+      "description": "Sunplus JPEG (SP5X)"
+    },
+    {
+      "name": "speedhq",
+      "type": "VFS..D",
+      "description": "NewTek SpeedHQ"
+    },
+    {
+      "name": "srgc",
+      "type": "V....D",
+      "description": "Screen Recorder Gold Codec"
+    },
+    {
+      "name": "sunrast",
+      "type": "V....D",
+      "description": "Sun Rasterfile image"
+    },
+    {
+      "name": "svq1",
+      "type": "V....D",
+      "description": "Sorenson Vector Quantizer 1 / Sorenson Video 1 / SVQ1"
+    },
+    {
+      "name": "svq3",
+      "type": "V...BD",
+      "description": "Sorenson Vector Quantizer 3 / Sorenson Video 3 / SVQ3"
+    },
+    {
+      "name": "targa",
+      "type": "V....D",
+      "description": "Truevision Targa image"
+    },
+    {
+      "name": "targa_y216",
+      "type": "V....D",
+      "description": "Pinnacle TARGA CineWave YUV16"
+    },
+    {
+      "name": "tdsc",
+      "type": "V....D",
+      "description": "TDSC"
+    },
+    {
+      "name": "eatgq",
+      "type": "V....D",
+      "description": "Electronic Arts TGQ video (codec tgq)"
+    },
+    {
+      "name": "eatgv",
+      "type": "V....D",
+      "description": "Electronic Arts TGV video (codec tgv)"
+    },
+    {
+      "name": "theora",
+      "type": "VF..BD",
+      "description": "Theora"
+    },
+    {
+      "name": "thp",
+      "type": "V....D",
+      "description": "Nintendo Gamecube THP video"
+    },
+    {
+      "name": "tiertexseqvideo",
+      "type": "V....D",
+      "description": "Tiertex Limited SEQ video"
+    },
+    {
+      "name": "tiff",
+      "type": "VF...D",
+      "description": "TIFF image"
+    },
+    {
+      "name": "tmv",
+      "type": "V....D",
+      "description": "8088flex TMV"
+    },
+    {
+      "name": "eatqi",
+      "type": "V....D",
+      "description": "Electronic Arts TQI Video (codec tqi)"
+    },
+    {
+      "name": "truemotion1",
+      "type": "V....D",
+      "description": "Duck TrueMotion 1.0"
+    },
+    {
+      "name": "truemotion2",
+      "type": "V....D",
+      "description": "Duck TrueMotion 2.0"
+    },
+    {
+      "name": "truemotion2rt",
+      "type": "V....D",
+      "description": "Duck TrueMotion 2.0 Real Time"
+    },
+    {
+      "name": "camtasia",
+      "type": "V....D",
+      "description": "TechSmith Screen Capture Codec (codec tscc)"
+    },
+    {
+      "name": "tscc2",
+      "type": "V....D",
+      "description": "TechSmith Screen Codec 2"
+    },
+    {
+      "name": "txd",
+      "type": "V....D",
+      "description": "Renderware TXD (TeXture Dictionary) image"
+    },
+    {
+      "name": "ultimotion",
+      "type": "V....D",
+      "description": "IBM UltiMotion (codec ulti)"
+    },
+    {
+      "name": "utvideo",
+      "type": "VF...D",
+      "description": "Ut Video"
+    },
+    {
+      "name": "v210",
+      "type": "VFS..D",
+      "description": "Uncompressed 4:2:2 10-bit"
+    },
+    {
+      "name": "v210x",
+      "type": "V....D",
+      "description": "Uncompressed 4:2:2 10-bit"
+    },
+    {
+      "name": "vb",
+      "type": "V....D",
+      "description": "Beam Software VB"
+    },
+    {
+      "name": "vble",
+      "type": "VF...D",
+      "description": "VBLE Lossless Codec"
+    },
+    {
+      "name": "vbn",
+      "type": "V.S..D",
+      "description": "Vizrt Binary Image"
+    },
+    {
+      "name": "vc1",
+      "type": "V....D",
+      "description": "SMPTE VC-1"
+    },
+    {
+      "name": "vc1_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem VC1 decoder wrapper (codec vc1)"
+    },
+    {
+      "name": "vc1image",
+      "type": "V....D",
+      "description": "Windows Media Video 9 Image v2"
+    },
+    {
+      "name": "vcr1",
+      "type": "V....D",
+      "description": "ATI VCR1"
+    },
+    {
+      "name": "xl",
+      "type": "V....D",
+      "description": "Miro VideoXL (codec vixl)"
+    },
+    {
+      "name": "vmdvideo",
+      "type": "V....D",
+      "description": "Sierra VMD video"
+    },
+    {
+      "name": "vmix",
+      "type": "VFS..D",
+      "description": "vMix Video"
+    },
+    {
+      "name": "vmnc",
+      "type": "V....D",
+      "description": "VMware Screen Codec / VMware Video"
+    },
+    {
+      "name": "vnull",
+      "type": "V....D",
+      "description": "null video"
+    },
+    {
+      "name": "vp3",
+      "type": "VF..BD",
+      "description": "On2 VP3"
+    },
+    {
+      "name": "vp4",
+      "type": "VF..BD",
+      "description": "On2 VP4"
+    },
+    {
+      "name": "vp5",
+      "type": "V....D",
+      "description": "On2 VP5"
+    },
+    {
+      "name": "vp6",
+      "type": "V....D",
+      "description": "On2 VP6"
+    },
+    {
+      "name": "vp6a",
+      "type": "V.S..D",
+      "description": "On2 VP6 (Flash version, with alpha channel)"
+    },
+    {
+      "name": "vp6f",
+      "type": "V....D",
+      "description": "On2 VP6 (Flash version)"
+    },
+    {
+      "name": "vp7",
+      "type": "V....D",
+      "description": "On2 VP7"
+    },
+    {
+      "name": "vp8",
+      "type": "VFS..D",
+      "description": "On2 VP8"
+    },
+    {
+      "name": "vp8_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem VP8 decoder wrapper (codec vp8)"
+    },
+    {
+      "name": "libvpx",
+      "type": "V....D",
+      "description": "libvpx VP8 (codec vp8)"
+    },
+    {
+      "name": "vp9",
+      "type": "VFS..D",
+      "description": "Google VP9"
+    },
+    {
+      "name": "vp9_v4l2m2m",
+      "type": "V.....",
+      "description": "V4L2 mem2mem VP9 decoder wrapper (codec vp9)"
+    },
+    {
+      "name": "libvpx-vp9",
+      "type": "V.....",
+      "description": "libvpx VP9 (codec vp9)"
+    },
+    {
+      "name": "vqc",
+      "type": "V....D",
+      "description": "ViewQuest VQC"
+    },
+    {
+      "name": "vvc",
+      "type": "V....D",
+      "description": "VVC (Versatile Video Coding)"
+    },
+    {
+      "name": "wbmp",
+      "type": "VF...D",
+      "description": "WBMP (Wireless Application Protocol Bitmap) image"
+    },
+    {
+      "name": "wcmv",
+      "type": "V....D",
+      "description": "WinCAM Motion Video"
+    },
+    {
+      "name": "webp",
+      "type": "VF...D",
+      "description": "WebP image"
+    },
+    {
+      "name": "webp_anim",
+      "type": "V.S..D",
+      "description": "Animated WebP image"
+    },
+    {
+      "name": "wmv1",
+      "type": "V...BD",
+      "description": "Windows Media Video 7"
+    },
+    {
+      "name": "wmv2",
+      "type": "V...BD",
+      "description": "Windows Media Video 8"
+    },
+    {
+      "name": "wmv3",
+      "type": "V....D",
+      "description": "Windows Media Video 9"
+    },
+    {
+      "name": "wmv3image",
+      "type": "V....D",
+      "description": "Windows Media Video 9 Image"
+    },
+    {
+      "name": "wnv1",
+      "type": "V....D",
+      "description": "Winnov WNV1"
+    },
+    {
+      "name": "wrapped_avframe",
+      "type": "V.....",
+      "description": "AVPacket to AVFrame passthrough"
+    },
+    {
+      "name": "vqavideo",
+      "type": "V....D",
+      "description": "Westwood Studios VQA (Vector Quantized Animation) video (codec ws_vqa)"
+    },
+    {
+      "name": "xan_wc3",
+      "type": "V....D",
+      "description": "Wing Commander III / Xan"
+    },
+    {
+      "name": "xan_wc4",
+      "type": "V....D",
+      "description": "Wing Commander IV / Xxan"
+    },
+    {
+      "name": "xbin",
+      "type": "V....D",
+      "description": "eXtended BINary text"
+    },
+    {
+      "name": "xbm",
+      "type": "V....D",
+      "description": "XBM (X BitMap) image"
+    },
+    {
+      "name": "xface",
+      "type": "V....D",
+      "description": "X-face image"
+    },
+    {
+      "name": "xpm",
+      "type": "V....D",
+      "description": "XPM (X PixMap) image"
+    },
+    {
+      "name": "xwd",
+      "type": "V....D",
+      "description": "XWD (X Window Dump) image"
+    },
+    {
+      "name": "y41p",
+      "type": "V....D",
+      "description": "Uncompressed YUV 4:1:1 12-bit"
+    },
+    {
+      "name": "ylc",
+      "type": "VF...D",
+      "description": "YUY2 Lossless Codec"
+    },
+    {
+      "name": "yop",
+      "type": "V....D",
+      "description": "Psygnosis YOP Video"
+    },
+    {
+      "name": "yuv4",
+      "type": "V....D",
+      "description": "Uncompressed packed 4:2:0"
+    },
+    {
+      "name": "zerocodec",
+      "type": "V....D",
+      "description": "ZeroCodec Lossless Video"
+    },
+    {
+      "name": "zlib",
+      "type": "VF...D",
+      "description": "LCL (LossLess Codec Library) ZLIB"
+    },
+    {
+      "name": "zmbv",
+      "type": "V....D",
+      "description": "Zip Motion Blocks Video"
+    },
+    {
+      "name": "8svx_exp",
+      "type": "A....D",
+      "description": "8SVX exponential"
+    },
+    {
+      "name": "8svx_fib",
+      "type": "A....D",
+      "description": "8SVX fibonacci"
+    },
+    {
+      "name": "aac",
+      "type": "A....D",
+      "description": "AAC (Advanced Audio Coding)"
+    },
+    {
+      "name": "aac_fixed",
+      "type": "A....D",
+      "description": "AAC (Advanced Audio Coding) (codec aac)"
+    },
+    {
+      "name": "aac_latm",
+      "type": "A....D",
+      "description": "AAC LATM (Advanced Audio Coding LATM syntax)"
+    },
+    {
+      "name": "ac3",
+      "type": "A....D",
+      "description": "ATSC A/52A (AC-3)"
+    },
+    {
+      "name": "ac3_fixed",
+      "type": "A....D",
+      "description": "ATSC A/52A (AC-3) (codec ac3)"
+    },
+    {
+      "name": "acelp.kelvin",
+      "type": "A....D",
+      "description": "Sipro ACELP.KELVIN"
+    },
+    {
+      "name": "adpcm_4xm",
+      "type": "A....D",
+      "description": "ADPCM 4X Movie"
+    },
+    {
+      "name": "adpcm_adx",
+      "type": "A....D",
+      "description": "SEGA CRI ADX ADPCM"
+    },
+    {
+      "name": "adpcm_afc",
+      "type": "A....D",
+      "description": "ADPCM Nintendo Gamecube AFC"
+    },
+    {
+      "name": "adpcm_agm",
+      "type": "A....D",
+      "description": "ADPCM AmuseGraphics Movie"
+    },
+    {
+      "name": "adpcm_aica",
+      "type": "A....D",
+      "description": "ADPCM Yamaha AICA"
+    },
+    {
+      "name": "adpcm_argo",
+      "type": "A....D",
+      "description": "ADPCM Argonaut Games"
+    },
+    {
+      "name": "adpcm_circus",
+      "type": "A....D",
+      "description": "ADPCM Circus"
+    },
+    {
+      "name": "adpcm_ima_citrix",
+      "type": "A....D",
+      "description": "ADPCM IMA Citrix (codec adpcm_citrix)"
+    },
+    {
+      "name": "adpcm_ct",
+      "type": "A....D",
+      "description": "ADPCM Creative Technology"
+    },
+    {
+      "name": "adpcm_dtk",
+      "type": "A....D",
+      "description": "ADPCM Nintendo Gamecube DTK"
+    },
+    {
+      "name": "adpcm_ea",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts"
+    },
+    {
+      "name": "adpcm_ea_maxis_xa",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts Maxis CDROM XA"
+    },
+    {
+      "name": "adpcm_ea_r1",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts R1"
+    },
+    {
+      "name": "adpcm_ea_r2",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts R2"
+    },
+    {
+      "name": "adpcm_ea_r3",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts R3"
+    },
+    {
+      "name": "adpcm_ea_xas",
+      "type": "A....D",
+      "description": "ADPCM Electronic Arts XAS"
+    },
+    {
+      "name": "g722",
+      "type": "A....D",
+      "description": "G.722 ADPCM (codec adpcm_g722)"
+    },
+    {
+      "name": "g726",
+      "type": "A....D",
+      "description": "G.726 ADPCM (codec adpcm_g726)"
+    },
+    {
+      "name": "g726le",
+      "type": "A....D",
+      "description": "G.726 ADPCM little-endian (codec adpcm_g726le)"
+    },
+    {
+      "name": "adpcm_ima_acorn",
+      "type": "A....D",
+      "description": "ADPCM IMA Acorn Replay"
+    },
+    {
+      "name": "adpcm_ima_alp",
+      "type": "A....D",
+      "description": "ADPCM IMA High Voltage Software ALP"
+    },
+    {
+      "name": "adpcm_ima_amv",
+      "type": "A....D",
+      "description": "ADPCM IMA AMV"
+    },
+    {
+      "name": "adpcm_ima_apc",
+      "type": "A....D",
+      "description": "ADPCM IMA CRYO APC"
+    },
+    {
+      "name": "adpcm_ima_apm",
+      "type": "A....D",
+      "description": "ADPCM IMA Ubisoft APM"
+    },
+    {
+      "name": "adpcm_ima_cunning",
+      "type": "A....D",
+      "description": "ADPCM IMA Cunning Developments"
+    },
+    {
+      "name": "adpcm_ima_dat4",
+      "type": "A....D",
+      "description": "ADPCM IMA Eurocom DAT4"
+    },
+    {
+      "name": "adpcm_ima_dk3",
+      "type": "A....D",
+      "description": "ADPCM IMA Duck DK3"
+    },
+    {
+      "name": "adpcm_ima_dk4",
+      "type": "A....D",
+      "description": "ADPCM IMA Duck DK4"
+    },
+    {
+      "name": "adpcm_ima_ea_eacs",
+      "type": "A....D",
+      "description": "ADPCM IMA Electronic Arts EACS"
+    },
+    {
+      "name": "adpcm_ima_ea_sead",
+      "type": "A....D",
+      "description": "ADPCM IMA Electronic Arts SEAD"
+    },
+    {
+      "name": "adpcm_ima_escape",
+      "type": "A....D",
+      "description": "ADPCM IMA Acorn Escape"
+    },
+    {
+      "name": "adpcm_ima_hvqm2",
+      "type": "A....D",
+      "description": "ADPCM IMA HVQM2"
+    },
+    {
+      "name": "adpcm_ima_hvqm4",
+      "type": "A....D",
+      "description": "ADPCM IMA HVQM4"
+    },
+    {
+      "name": "adpcm_ima_iss",
+      "type": "A....D",
+      "description": "ADPCM IMA Funcom ISS"
+    },
+    {
+      "name": "adpcm_ima_magix",
+      "type": "A....D",
+      "description": "ADPCM IMA Magix"
+    },
+    {
+      "name": "adpcm_ima_moflex",
+      "type": "A....D",
+      "description": "ADPCM IMA MobiClip MOFLEX"
+    },
+    {
+      "name": "adpcm_ima_mtf",
+      "type": "A....D",
+      "description": "ADPCM IMA Capcom's MT Framework"
+    },
+    {
+      "name": "adpcm_ima_oki",
+      "type": "A....D",
+      "description": "ADPCM IMA Dialogic OKI"
+    },
+    {
+      "name": "adpcm_ima_pda",
+      "type": "A....D",
+      "description": "ADPCM IMA PlayDate"
+    },
+    {
+      "name": "adpcm_ima_qt",
+      "type": "A....D",
+      "description": "ADPCM IMA QuickTime"
+    },
+    {
+      "name": "adpcm_ima_rad",
+      "type": "A....D",
+      "description": "ADPCM IMA Radical"
+    },
+    {
+      "name": "adpcm_ima_smjpeg",
+      "type": "A....D",
+      "description": "ADPCM IMA Loki SDL MJPEG"
+    },
+    {
+      "name": "adpcm_ima_ssi",
+      "type": "A....D",
+      "description": "ADPCM IMA Simon & Schuster Interactive"
+    },
+    {
+      "name": "adpcm_ima_wav",
+      "type": "A....D",
+      "description": "ADPCM IMA WAV"
+    },
+    {
+      "name": "adpcm_ima_ws",
+      "type": "A....D",
+      "description": "ADPCM IMA Westwood"
+    },
+    {
+      "name": "adpcm_ima_xbox",
+      "type": "A....D",
+      "description": "ADPCM IMA Xbox"
+    },
+    {
+      "name": "adpcm_ms",
+      "type": "A....D",
+      "description": "ADPCM Microsoft"
+    },
+    {
+      "name": "adpcm_mtaf",
+      "type": "A....D",
+      "description": "ADPCM MTAF"
+    },
+    {
+      "name": "adpcm_n64",
+      "type": "A....D",
+      "description": "ADPCM Silicon Graphics N64"
+    },
+    {
+      "name": "adpcm_psx",
+      "type": "A....D",
+      "description": "ADPCM Playstation"
+    },
+    {
+      "name": "adpcm_psxc",
+      "type": "A....D",
+      "description": "ADPCM Playstation C"
+    },
+    {
+      "name": "adpcm_rhetorex",
+      "type": "A....D",
+      "description": "ADPCM Rhetorex"
+    },
+    {
+      "name": "adpcm_sanyo",
+      "type": "A....D",
+      "description": "ADPCM Sanyo"
+    },
+    {
+      "name": "adpcm_sbpro_2",
+      "type": "A....D",
+      "description": "ADPCM Sound Blaster Pro 2-bit"
+    },
+    {
+      "name": "adpcm_sbpro_3",
+      "type": "A....D",
+      "description": "ADPCM Sound Blaster Pro 2.6-bit"
+    },
+    {
+      "name": "adpcm_sbpro_4",
+      "type": "A....D",
+      "description": "ADPCM Sound Blaster Pro 4-bit"
+    },
+    {
+      "name": "adpcm_swf",
+      "type": "A....D",
+      "description": "ADPCM Shockwave Flash"
+    },
+    {
+      "name": "adpcm_thp",
+      "type": "A....D",
+      "description": "ADPCM Nintendo THP"
+    },
+    {
+      "name": "adpcm_thp_le",
+      "type": "A....D",
+      "description": "ADPCM Nintendo THP (little-endian)"
+    },
+    {
+      "name": "adpcm_vima",
+      "type": "A....D",
+      "description": "LucasArts VIMA audio"
+    },
+    {
+      "name": "adpcm_xa",
+      "type": "A....D",
+      "description": "ADPCM CDROM XA"
+    },
+    {
+      "name": "adpcm_xmd",
+      "type": "A....D",
+      "description": "ADPCM Konami XMD"
+    },
+    {
+      "name": "adpcm_yamaha",
+      "type": "A....D",
+      "description": "ADPCM Yamaha"
+    },
+    {
+      "name": "adpcm_zork",
+      "type": "A....D",
+      "description": "ADPCM Zork"
+    },
+    {
+      "name": "ahx",
+      "type": "A....D",
+      "description": "CRI AHX"
+    },
+    {
+      "name": "alac",
+      "type": "AF...D",
+      "description": "ALAC (Apple Lossless Audio Codec)"
+    },
+    {
+      "name": "amrnb",
+      "type": "A....D",
+      "description": "AMR-NB (Adaptive Multi-Rate NarrowBand) (codec amr_nb)"
+    },
+    {
+      "name": "amrwb",
+      "type": "A....D",
+      "description": "AMR-WB (Adaptive Multi-Rate WideBand) (codec amr_wb)"
+    },
+    {
+      "name": "anull",
+      "type": "A....D",
+      "description": "null audio"
+    },
+    {
+      "name": "apac",
+      "type": "A....D",
+      "description": "Marian's A-pac audio"
+    },
+    {
+      "name": "ape",
+      "type": "A....D",
+      "description": "Monkey's Audio"
+    },
+    {
+      "name": "aptx",
+      "type": "A....D",
+      "description": "aptX (Audio Processing Technology for Bluetooth)"
+    },
+    {
+      "name": "aptx_hd",
+      "type": "A....D",
+      "description": "aptX HD (Audio Processing Technology for Bluetooth)"
+    },
+    {
+      "name": "atrac1",
+      "type": "A....D",
+      "description": "ATRAC1 (Adaptive TRansform Acoustic Coding)"
+    },
+    {
+      "name": "atrac3",
+      "type": "A....D",
+      "description": "ATRAC3 (Adaptive TRansform Acoustic Coding 3)"
+    },
+    {
+      "name": "atrac3al",
+      "type": "A....D",
+      "description": "ATRAC3 AL (Adaptive TRansform Acoustic Coding 3 Advanced Lossless)"
+    },
+    {
+      "name": "atrac3plus",
+      "type": "A....D",
+      "description": "ATRAC3+ (Adaptive TRansform Acoustic Coding 3+) (codec atrac3p)"
+    },
+    {
+      "name": "atrac3plusal",
+      "type": "A....D",
+      "description": "ATRAC3+ AL (Adaptive TRansform Acoustic Coding 3+ Advanced Lossless) (codec atrac3pal)"
+    },
+    {
+      "name": "atrac9",
+      "type": "A....D",
+      "description": "ATRAC9 (Adaptive TRansform Acoustic Coding 9)"
+    },
+    {
+      "name": "on2avc",
+      "type": "A....D",
+      "description": "On2 Audio for Video Codec (codec avc)"
+    },
+    {
+      "name": "binkaudio_dct",
+      "type": "A....D",
+      "description": "Bink Audio (DCT)"
+    },
+    {
+      "name": "binkaudio_rdft",
+      "type": "A....D",
+      "description": "Bink Audio (RDFT)"
+    },
+    {
+      "name": "bmv_audio",
+      "type": "A....D",
+      "description": "Discworld II BMV audio"
+    },
+    {
+      "name": "bonk",
+      "type": "A....D",
+      "description": "Bonk audio"
+    },
+    {
+      "name": "cbd2_dpcm",
+      "type": "A....D",
+      "description": "DPCM Cuberoot-Delta-Exact"
+    },
+    {
+      "name": "comfortnoise",
+      "type": "A....D",
+      "description": "RFC 3389 comfort noise generator"
+    },
+    {
+      "name": "cook",
+      "type": "A....D",
+      "description": "Cook / Cooker / Gecko (RealAudio G2)"
+    },
+    {
+      "name": "derf_dpcm",
+      "type": "A....D",
+      "description": "DPCM Xilam DERF"
+    },
+    {
+      "name": "dfpwm",
+      "type": "A....D",
+      "description": "DFPWM1a audio"
+    },
+    {
+      "name": "dolby_e",
+      "type": "A....D",
+      "description": "Dolby E"
+    },
+    {
+      "name": "dsd_lsbf",
+      "type": "A....D",
+      "description": "DSD (Direct Stream Digital), least significant bit first"
+    },
+    {
+      "name": "dsd_lsbf_planar",
+      "type": "A....D",
+      "description": "DSD (Direct Stream Digital), least significant bit first, planar"
+    },
+    {
+      "name": "dsd_msbf",
+      "type": "A....D",
+      "description": "DSD (Direct Stream Digital), most significant bit first"
+    },
+    {
+      "name": "dsd_msbf_planar",
+      "type": "A....D",
+      "description": "DSD (Direct Stream Digital), most significant bit first, planar"
+    },
+    {
+      "name": "dsicinaudio",
+      "type": "A....D",
+      "description": "Delphine Software International CIN audio"
+    },
+    {
+      "name": "dss_sp",
+      "type": "A....D",
+      "description": "Digital Speech Standard - Standard Play mode (DSS SP)"
+    },
+    {
+      "name": "dst",
+      "type": "A....D",
+      "description": "DST (Digital Stream Transfer)"
+    },
+    {
+      "name": "dca",
+      "type": "A....D",
+      "description": "DCA (DTS Coherent Acoustics) (codec dts)"
+    },
+    {
+      "name": "dvaudio",
+      "type": "A....D",
+      "description": "Ulead DV Audio"
+    },
+    {
+      "name": "eac3",
+      "type": "A....D",
+      "description": "ATSC A/52B (AC-3, E-AC-3)"
+    },
+    {
+      "name": "evrc",
+      "type": "A....D",
+      "description": "EVRC (Enhanced Variable Rate Codec)"
+    },
+    {
+      "name": "fastaudio",
+      "type": "A....D",
+      "description": "MobiClip FastAudio"
+    },
+    {
+      "name": "flac",
+      "type": "AF...D",
+      "description": "FLAC (Free Lossless Audio Codec)"
+    },
+    {
+      "name": "ftr",
+      "type": "A....D",
+      "description": "FTR Voice"
+    },
+    {
+      "name": "g723_1",
+      "type": "A....D",
+      "description": "G.723.1"
+    },
+    {
+      "name": "g728",
+      "type": "A....D",
+      "description": "G.728)"
+    },
+    {
+      "name": "g729",
+      "type": "A....D",
+      "description": "G.729"
+    },
+    {
+      "name": "gremlin_dpcm",
+      "type": "A....D",
+      "description": "DPCM Gremlin"
+    },
+    {
+      "name": "gsm",
+      "type": "A....D",
+      "description": "GSM"
+    },
+    {
+      "name": "gsm_ms",
+      "type": "A....D",
+      "description": "GSM Microsoft variant"
+    },
+    {
+      "name": "hca",
+      "type": "A....D",
+      "description": "CRI HCA"
+    },
+    {
+      "name": "hcom",
+      "type": "A....D",
+      "description": "HCOM Audio"
+    },
+    {
+      "name": "iac",
+      "type": "A....D",
+      "description": "IAC (Indeo Audio Coder)"
+    },
+    {
+      "name": "ilbc",
+      "type": "A....D",
+      "description": "iLBC (Internet Low Bitrate Codec)"
+    },
+    {
+      "name": "imc",
+      "type": "A....D",
+      "description": "IMC (Intel Music Coder)"
+    },
+    {
+      "name": "interplay_dpcm",
+      "type": "A....D",
+      "description": "DPCM Interplay"
+    },
+    {
+      "name": "interplayacm",
+      "type": "A....D",
+      "description": "Interplay ACM"
+    },
+    {
+      "name": "mace3",
+      "type": "A....D",
+      "description": "MACE (Macintosh Audio Compression/Expansion) 3:1"
+    },
+    {
+      "name": "mace6",
+      "type": "A....D",
+      "description": "MACE (Macintosh Audio Compression/Expansion) 6:1"
+    },
+    {
+      "name": "metasound",
+      "type": "A....D",
+      "description": "Voxware MetaSound"
+    },
+    {
+      "name": "misc4",
+      "type": "A....D",
+      "description": "Micronas SC-4 Audio"
+    },
+    {
+      "name": "mlp",
+      "type": "A....D",
+      "description": "MLP (Meridian Lossless Packing)"
+    },
+    {
+      "name": "mp1",
+      "type": "A....D",
+      "description": "MP1 (MPEG audio layer 1)"
+    },
+    {
+      "name": "mp1float",
+      "type": "A....D",
+      "description": "MP1 (MPEG audio layer 1) (codec mp1)"
+    },
+    {
+      "name": "mp2",
+      "type": "A....D",
+      "description": "MP2 (MPEG audio layer 2)"
+    },
+    {
+      "name": "mp2float",
+      "type": "A....D",
+      "description": "MP2 (MPEG audio layer 2) (codec mp2)"
+    },
+    {
+      "name": "mp3float",
+      "type": "A....D",
+      "description": "MP3 (MPEG audio layer 3) (codec mp3)"
+    },
+    {
+      "name": "mp3",
+      "type": "A....D",
+      "description": "MP3 (MPEG audio layer 3)"
+    },
+    {
+      "name": "mp3adufloat",
+      "type": "A....D",
+      "description": "ADU (Application Data Unit) MP3 (MPEG audio layer 3) (codec mp3adu)"
+    },
+    {
+      "name": "mp3adu",
+      "type": "A....D",
+      "description": "ADU (Application Data Unit) MP3 (MPEG audio layer 3)"
+    },
+    {
+      "name": "mp3on4float",
+      "type": "A....D",
+      "description": "MP3onMP4 (codec mp3on4)"
+    },
+    {
+      "name": "mp3on4",
+      "type": "A....D",
+      "description": "MP3onMP4"
+    },
+    {
+      "name": "als",
+      "type": "A....D",
+      "description": "MPEG-4 Audio Lossless Coding (ALS) (codec mp4als)"
+    },
+    {
+      "name": "msnsiren",
+      "type": "A....D",
+      "description": "MSN Siren"
+    },
+    {
+      "name": "mpc7",
+      "type": "A....D",
+      "description": "Musepack SV7 (codec musepack7)"
+    },
+    {
+      "name": "mpc8",
+      "type": "A....D",
+      "description": "Musepack SV8 (codec musepack8)"
+    },
+    {
+      "name": "nellymoser",
+      "type": "A....D",
+      "description": "Nellymoser Asao"
+    },
+    {
+      "name": "opus",
+      "type": "A....D",
+      "description": "Opus"
+    },
+    {
+      "name": "libopus",
+      "type": "A....D",
+      "description": "libopus Opus (codec opus)"
+    },
+    {
+      "name": "osq",
+      "type": "A....D",
+      "description": "OSQ (Original Sound Quality)"
+    },
+    {
+      "name": "paf_audio",
+      "type": "A....D",
+      "description": "Amazing Studio Packed Animation File Audio"
+    },
+    {
+      "name": "pcm_alaw",
+      "type": "A....D",
+      "description": "PCM A-law / G.711 A-law"
+    },
+    {
+      "name": "pcm_bluray",
+      "type": "A....D",
+      "description": "PCM signed 16|20|24-bit big-endian for Blu-ray media"
+    },
+    {
+      "name": "pcm_dvd",
+      "type": "A....D",
+      "description": "PCM signed 16|20|24-bit big-endian for DVD-Video media"
+    },
+    {
+      "name": "pcm_dvda",
+      "type": "A....D",
+      "description": "PCM signed 16|20|24-bit big-endian for DVD-Audio media"
+    },
+    {
+      "name": "pcm_f16le",
+      "type": "A....D",
+      "description": "PCM 16.8 floating point little-endian"
+    },
+    {
+      "name": "pcm_f24le",
+      "type": "A....D",
+      "description": "PCM 24.0 floating point little-endian"
+    },
+    {
+      "name": "pcm_f32be",
+      "type": "A....D",
+      "description": "PCM 32-bit floating point big-endian"
+    },
+    {
+      "name": "pcm_f32le",
+      "type": "A....D",
+      "description": "PCM 32-bit floating point little-endian"
+    },
+    {
+      "name": "pcm_f64be",
+      "type": "A....D",
+      "description": "PCM 64-bit floating point big-endian"
+    },
+    {
+      "name": "pcm_f64le",
+      "type": "A....D",
+      "description": "PCM 64-bit floating point little-endian"
+    },
+    {
+      "name": "pcm_lxf",
+      "type": "A....D",
+      "description": "PCM signed 20-bit little-endian planar"
+    },
+    {
+      "name": "pcm_mulaw",
+      "type": "A....D",
+      "description": "PCM mu-law / G.711 mu-law"
+    },
+    {
+      "name": "pcm_s16be",
+      "type": "A....D",
+      "description": "PCM signed 16-bit big-endian"
+    },
+    {
+      "name": "pcm_s16be_planar",
+      "type": "A....D",
+      "description": "PCM signed 16-bit big-endian planar"
+    },
+    {
+      "name": "pcm_s16le",
+      "type": "A....D",
+      "description": "PCM signed 16-bit little-endian"
+    },
+    {
+      "name": "pcm_s16le_planar",
+      "type": "A....D",
+      "description": "PCM signed 16-bit little-endian planar"
+    },
+    {
+      "name": "pcm_s24be",
+      "type": "A....D",
+      "description": "PCM signed 24-bit big-endian"
+    },
+    {
+      "name": "pcm_s24daud",
+      "type": "A....D",
+      "description": "PCM D-Cinema audio signed 24-bit"
+    },
+    {
+      "name": "pcm_s24le",
+      "type": "A....D",
+      "description": "PCM signed 24-bit little-endian"
+    },
+    {
+      "name": "pcm_s24le_planar",
+      "type": "A....D",
+      "description": "PCM signed 24-bit little-endian planar"
+    },
+    {
+      "name": "pcm_s32be",
+      "type": "A....D",
+      "description": "PCM signed 32-bit big-endian"
+    },
+    {
+      "name": "pcm_s32le",
+      "type": "A....D",
+      "description": "PCM signed 32-bit little-endian"
+    },
+    {
+      "name": "pcm_s32le_planar",
+      "type": "A....D",
+      "description": "PCM signed 32-bit little-endian planar"
+    },
+    {
+      "name": "pcm_s64be",
+      "type": "A....D",
+      "description": "PCM signed 64-bit big-endian"
+    },
+    {
+      "name": "pcm_s64le",
+      "type": "A....D",
+      "description": "PCM signed 64-bit little-endian"
+    },
+    {
+      "name": "pcm_s8",
+      "type": "A....D",
+      "description": "PCM signed 8-bit"
+    },
+    {
+      "name": "pcm_s8_planar",
+      "type": "A....D",
+      "description": "PCM signed 8-bit planar"
+    },
+    {
+      "name": "pcm_sga",
+      "type": "A....D",
+      "description": "PCM SGA"
+    },
+    {
+      "name": "pcm_u16be",
+      "type": "A....D",
+      "description": "PCM unsigned 16-bit big-endian"
+    },
+    {
+      "name": "pcm_u16le",
+      "type": "A....D",
+      "description": "PCM unsigned 16-bit little-endian"
+    },
+    {
+      "name": "pcm_u24be",
+      "type": "A....D",
+      "description": "PCM unsigned 24-bit big-endian"
+    },
+    {
+      "name": "pcm_u24le",
+      "type": "A....D",
+      "description": "PCM unsigned 24-bit little-endian"
+    },
+    {
+      "name": "pcm_u32be",
+      "type": "A....D",
+      "description": "PCM unsigned 32-bit big-endian"
+    },
+    {
+      "name": "pcm_u32le",
+      "type": "A....D",
+      "description": "PCM unsigned 32-bit little-endian"
+    },
+    {
+      "name": "pcm_u8",
+      "type": "A....D",
+      "description": "PCM unsigned 8-bit"
+    },
+    {
+      "name": "pcm_vidc",
+      "type": "A....D",
+      "description": "PCM Archimedes VIDC"
+    },
+    {
+      "name": "qcelp",
+      "type": "A....D",
+      "description": "QCELP / PureVoice"
+    },
+    {
+      "name": "qdm2",
+      "type": "A....D",
+      "description": "QDesign Music Codec 2"
+    },
+    {
+      "name": "qdmc",
+      "type": "A....D",
+      "description": "QDesign Music Codec 1"
+    },
+    {
+      "name": "qoa",
+      "type": "A....D",
+      "description": "QOA (Quite OK Audio)"
+    },
+    {
+      "name": "real_144",
+      "type": "A....D",
+      "description": "RealAudio 1.0 (14.4K) (codec ra_144)"
+    },
+    {
+      "name": "real_288",
+      "type": "A....D",
+      "description": "RealAudio 2.0 (28.8K) (codec ra_288)"
+    },
+    {
+      "name": "ralf",
+      "type": "A....D",
+      "description": "RealAudio Lossless"
+    },
+    {
+      "name": "rka",
+      "type": "A....D",
+      "description": "RKA (RK Audio)"
+    },
+    {
+      "name": "roq_dpcm",
+      "type": "A....D",
+      "description": "DPCM id RoQ"
+    },
+    {
+      "name": "s302m",
+      "type": "A....D",
+      "description": "SMPTE 302M"
+    },
+    {
+      "name": "sbc",
+      "type": "A....D",
+      "description": "SBC (low-complexity subband codec)"
+    },
+    {
+      "name": "sdx2_dpcm",
+      "type": "A....D",
+      "description": "DPCM Squareroot-Delta-Exact"
+    },
+    {
+      "name": "shorten",
+      "type": "A....D",
+      "description": "Shorten"
+    },
+    {
+      "name": "sipr",
+      "type": "A....D",
+      "description": "RealAudio SIPR / ACELP.NET"
+    },
+    {
+      "name": "siren",
+      "type": "A....D",
+      "description": "Siren"
+    },
+    {
+      "name": "smackaud",
+      "type": "A....D",
+      "description": "Smacker audio (codec smackaudio)"
+    },
+    {
+      "name": "sol_dpcm",
+      "type": "A....D",
+      "description": "DPCM Sol"
+    },
+    {
+      "name": "speex",
+      "type": "A....D",
+      "description": "Speex"
+    },
+    {
+      "name": "tak",
+      "type": "AF...D",
+      "description": "TAK (Tom's lossless Audio Kompressor)"
+    },
+    {
+      "name": "truehd",
+      "type": "A....D",
+      "description": "TrueHD"
+    },
+    {
+      "name": "truespeech",
+      "type": "A....D",
+      "description": "DSP Group TrueSpeech"
+    },
+    {
+      "name": "tta",
+      "type": "AF...D",
+      "description": "TTA (True Audio)"
+    },
+    {
+      "name": "twinvq",
+      "type": "A....D",
+      "description": "VQF TwinVQ"
+    },
+    {
+      "name": "vmdaudio",
+      "type": "A....D",
+      "description": "Sierra VMD audio"
+    },
+    {
+      "name": "vorbis",
+      "type": "A....D",
+      "description": "Vorbis"
+    },
+    {
+      "name": "libvorbis",
+      "type": "A.....",
+      "description": "libvorbis (codec vorbis)"
+    },
+    {
+      "name": "wady_dpcm",
+      "type": "A....D",
+      "description": "DPCM Marble WADY"
+    },
+    {
+      "name": "wavarc",
+      "type": "A....D",
+      "description": "Waveform Archiver"
+    },
+    {
+      "name": "wavesynth",
+      "type": "A....D",
+      "description": "Wave synthesis pseudo-codec"
+    },
+    {
+      "name": "wavpack",
+      "type": "AF...D",
+      "description": "WavPack"
+    },
+    {
+      "name": "ws_snd1",
+      "type": "A....D",
+      "description": "Westwood Audio (SND1) (codec westwood_snd1)"
+    },
+    {
+      "name": "wmalossless",
+      "type": "A....D",
+      "description": "Windows Media Audio Lossless"
+    },
+    {
+      "name": "wmapro",
+      "type": "A....D",
+      "description": "Windows Media Audio 9 Professional"
+    },
+    {
+      "name": "wmav1",
+      "type": "A....D",
+      "description": "Windows Media Audio 1"
+    },
+    {
+      "name": "wmav2",
+      "type": "A....D",
+      "description": "Windows Media Audio 2"
+    },
+    {
+      "name": "wmavoice",
+      "type": "A....D",
+      "description": "Windows Media Audio Voice"
+    },
+    {
+      "name": "xan_dpcm",
+      "type": "A....D",
+      "description": "DPCM Xan"
+    },
+    {
+      "name": "xma1",
+      "type": "A....D",
+      "description": "Xbox Media Audio 1"
+    },
+    {
+      "name": "xma2",
+      "type": "A....D",
+      "description": "Xbox Media Audio 2"
+    },
+    {
+      "name": "ssa",
+      "type": "S.....",
+      "description": "ASS (Advanced SubStation Alpha) subtitle (codec ass)"
+    },
+    {
+      "name": "ass",
+      "type": "S.....",
+      "description": "ASS (Advanced SubStation Alpha) subtitle"
+    },
+    {
+      "name": "dvbsub",
+      "type": "S.....",
+      "description": "DVB subtitles (codec dvb_subtitle)"
+    },
+    {
+      "name": "libzvbi_teletextdec",
+      "type": "S.....",
+      "description": "Libzvbi DVB teletext decoder (codec dvb_teletext)"
+    },
+    {
+      "name": "dvdsub",
+      "type": "S.....",
+      "description": "DVD subtitles (codec dvd_subtitle)"
+    },
+    {
+      "name": "cc_dec",
+      "type": "S.....",
+      "description": "Closed Captions (EIA-608 / CEA-708) (codec eia_608)"
+    },
+    {
+      "name": "pgssub",
+      "type": "S.....",
+      "description": "HDMV Presentation Graphic Stream subtitles (codec hdmv_pgs_subtitle)"
+    },
+    {
+      "name": "jacosub",
+      "type": "S.....",
+      "description": "JACOsub subtitle"
+    },
+    {
+      "name": "microdvd",
+      "type": "S.....",
+      "description": "MicroDVD subtitle"
+    },
+    {
+      "name": "mov_text",
+      "type": "S.....",
+      "description": "3GPP Timed Text subtitle"
+    },
+    {
+      "name": "mpl2",
+      "type": "S.....",
+      "description": "MPL2 subtitle"
+    },
+    {
+      "name": "pjs",
+      "type": "S.....",
+      "description": "PJS subtitle"
+    },
+    {
+      "name": "realtext",
+      "type": "S.....",
+      "description": "RealText subtitle"
+    },
+    {
+      "name": "sami",
+      "type": "S.....",
+      "description": "SAMI subtitle"
+    },
+    {
+      "name": "stl",
+      "type": "S.....",
+      "description": "Spruce subtitle format"
+    },
+    {
+      "name": "srt",
+      "type": "S.....",
+      "description": "SubRip subtitle (codec subrip)"
+    },
+    {
+      "name": "subrip",
+      "type": "S.....",
+      "description": "SubRip subtitle"
+    },
+    {
+      "name": "subviewer",
+      "type": "S.....",
+      "description": "SubViewer subtitle"
+    },
+    {
+      "name": "subviewer1",
+      "type": "S.....",
+      "description": "SubViewer1 subtitle"
+    },
+    {
+      "name": "text",
+      "type": "S.....",
+      "description": "Raw text subtitle"
+    },
+    {
+      "name": "vplayer",
+      "type": "S.....",
+      "description": "VPlayer subtitle"
+    },
+    {
+      "name": "webvtt",
+      "type": "S.....",
+      "description": "WebVTT subtitle"
+    },
+    {
+      "name": "xsub",
+      "type": "S.....",
+      "description": "XSUB"
+    }
+  ],
+  "demuxers": [
+    {
+      "name": "3dostr",
+      "type": "D",
+      "description": "3DO STR"
+    },
+    {
+      "name": "4xm",
+      "type": "D",
+      "description": "4X Technologies"
+    },
+    {
+      "name": "aa",
+      "type": "D",
+      "description": "Audible AA format files"
+    },
+    {
+      "name": "aac",
+      "type": "D",
+      "description": "raw ADTS AAC (Advanced Audio Coding)"
+    },
+    {
+      "name": "aax",
+      "type": "D",
+      "description": "CRI AAX"
+    },
+    {
+      "name": "ac3",
+      "type": "D",
+      "description": "raw AC-3"
+    },
+    {
+      "name": "ac4",
+      "type": "D",
+      "description": "raw AC-4"
+    },
+    {
+      "name": "ace",
+      "type": "D",
+      "description": "tri-Ace Audio Container"
+    },
+    {
+      "name": "acm",
+      "type": "D",
+      "description": "Interplay ACM"
+    },
+    {
+      "name": "act",
+      "type": "D",
+      "description": "ACT Voice file format"
+    },
+    {
+      "name": "adf",
+      "type": "D",
+      "description": "Artworx Data Format"
+    },
+    {
+      "name": "adp",
+      "type": "D",
+      "description": "ADP"
+    },
+    {
+      "name": "ads",
+      "type": "D",
+      "description": "Sony PS2 ADS"
+    },
+    {
+      "name": "adx",
+      "type": "D",
+      "description": "CRI ADX"
+    },
+    {
+      "name": "aea",
+      "type": "D",
+      "description": "MD STUDIO audio"
+    },
+    {
+      "name": "afc",
+      "type": "D",
+      "description": "AFC"
+    },
+    {
+      "name": "aiff",
+      "type": "D",
+      "description": "Audio IFF"
+    },
+    {
+      "name": "aix",
+      "type": "D",
+      "description": "CRI AIX"
+    },
+    {
+      "name": "alaw",
+      "type": "D",
+      "description": "PCM A-law"
+    },
+    {
+      "name": "alias_pix",
+      "type": "D",
+      "description": "Alias/Wavefront PIX image"
+    },
+    {
+      "name": "alp",
+      "type": "D",
+      "description": "LEGO Racers ALP"
+    },
+    {
+      "name": "amr",
+      "type": "D",
+      "description": "3GPP AMR"
+    },
+    {
+      "name": "amrnb",
+      "type": "D",
+      "description": "raw AMR-NB"
+    },
+    {
+      "name": "amrwb",
+      "type": "D",
+      "description": "raw AMR-WB"
+    },
+    {
+      "name": "anm",
+      "type": "D",
+      "description": "Deluxe Paint Animation"
+    },
+    {
+      "name": "apac",
+      "type": "D",
+      "description": "raw APAC"
+    },
+    {
+      "name": "apc",
+      "type": "D",
+      "description": "CRYO APC"
+    },
+    {
+      "name": "ape",
+      "type": "D",
+      "description": "Monkey's Audio"
+    },
+    {
+      "name": "apm",
+      "type": "D",
+      "description": "Ubisoft Rayman 2 APM"
+    },
+    {
+      "name": "apng",
+      "type": "D",
+      "description": "Animated Portable Network Graphics"
+    },
+    {
+      "name": "aptx",
+      "type": "D",
+      "description": "raw aptX"
+    },
+    {
+      "name": "aptx_hd",
+      "type": "D",
+      "description": "raw aptX HD"
+    },
+    {
+      "name": "apv",
+      "type": "D",
+      "description": "APV raw bitstream"
+    },
+    {
+      "name": "aqtitle",
+      "type": "D",
+      "description": "AQTitle subtitles"
+    },
+    {
+      "name": "argo_asf",
+      "type": "D",
+      "description": "Argonaut Games ASF"
+    },
+    {
+      "name": "argo_brp",
+      "type": "D",
+      "description": "Argonaut Games BRP"
+    },
+    {
+      "name": "argo_cvg",
+      "type": "D",
+      "description": "Argonaut Games CVG"
+    },
+    {
+      "name": "asf",
+      "type": "D",
+      "description": "ASF (Advanced / Active Streaming Format)"
+    },
+    {
+      "name": "ass",
+      "type": "D",
+      "description": "SSA (SubStation Alpha) subtitle"
+    },
+    {
+      "name": "ast",
+      "type": "D",
+      "description": "AST (Audio Stream)"
+    },
+    {
+      "name": "astc",
+      "type": "D",
+      "description": "ASTC (Adaptive Scalable Texture Compression)"
+    },
+    {
+      "name": "au",
+      "type": "D",
+      "description": "Sun AU"
+    },
+    {
+      "name": "av1",
+      "type": "D",
+      "description": "AV1 Annex B"
+    },
+    {
+      "name": "avi",
+      "type": "D",
+      "description": "AVI (Audio Video Interleaved)"
+    },
+    {
+      "name": "avr",
+      "type": "D",
+      "description": "AVR (Audio Visual Research)"
+    },
+    {
+      "name": "avs",
+      "type": "D",
+      "description": "Argonaut Games Creature Shock"
+    },
+    {
+      "name": "avs2",
+      "type": "D",
+      "description": "raw AVS2-P2/IEEE1857.4"
+    },
+    {
+      "name": "avs3",
+      "type": "D",
+      "description": "raw AVS3-P2/IEEE1857.10"
+    },
+    {
+      "name": "bethsoftvid",
+      "type": "D",
+      "description": "Bethesda Softworks VID"
+    },
+    {
+      "name": "bfi",
+      "type": "D",
+      "description": "Brute Force & Ignorance"
+    },
+    {
+      "name": "bfstm",
+      "type": "D",
+      "description": "BFSTM (Binary Cafe Stream)"
+    },
+    {
+      "name": "bin",
+      "type": "D",
+      "description": "Binary text"
+    },
+    {
+      "name": "bink",
+      "type": "D",
+      "description": "Bink"
+    },
+    {
+      "name": "binka",
+      "type": "D",
+      "description": "Bink Audio"
+    },
+    {
+      "name": "bit",
+      "type": "D",
+      "description": "G.729 BIT file format"
+    },
+    {
+      "name": "bitpacked",
+      "type": "D",
+      "description": "Bitpacked"
+    },
+    {
+      "name": "bmp_pipe",
+      "type": "D",
+      "description": "piped bmp sequence"
+    },
+    {
+      "name": "bmv",
+      "type": "D",
+      "description": "Discworld II BMV"
+    },
+    {
+      "name": "boa",
+      "type": "D",
+      "description": "Black Ops Audio"
+    },
+    {
+      "name": "bonk",
+      "type": "D",
+      "description": "raw Bonk"
+    },
+    {
+      "name": "brender_pix",
+      "type": "D",
+      "description": "BRender PIX image"
+    },
+    {
+      "name": "brstm",
+      "type": "D",
+      "description": "BRSTM (Binary Revolution Stream)"
+    },
+    {
+      "name": "c93",
+      "type": "D",
+      "description": "Interplay C93"
+    },
+    {
+      "name": "caf",
+      "type": "D",
+      "description": "Apple CAF (Core Audio Format)"
+    },
+    {
+      "name": "cavsvideo",
+      "type": "D",
+      "description": "raw Chinese AVS (Audio Video Standard)"
+    },
+    {
+      "name": "cdg",
+      "type": "D",
+      "description": "CD Graphics"
+    },
+    {
+      "name": "cdxl",
+      "type": "D",
+      "description": "Commodore CDXL video"
+    },
+    {
+      "name": "cine",
+      "type": "D",
+      "description": "Phantom Cine"
+    },
+    {
+      "name": "codec2",
+      "type": "D",
+      "description": "codec2 .c2 demuxer"
+    },
+    {
+      "name": "codec2raw",
+      "type": "D",
+      "description": "raw codec2 demuxer"
+    },
+    {
+      "name": "concat",
+      "type": "D",
+      "description": "Virtual concatenation script"
+    },
+    {
+      "name": "cri_pipe",
+      "type": "D",
+      "description": "piped cri sequence"
+    },
+    {
+      "name": "dash",
+      "type": "D",
+      "description": "Dynamic Adaptive Streaming over HTTP"
+    },
+    {
+      "name": "data",
+      "type": "D",
+      "description": "raw data"
+    },
+    {
+      "name": "daud",
+      "type": "D",
+      "description": "D-Cinema audio"
+    },
+    {
+      "name": "dcstr",
+      "type": "D",
+      "description": "Sega DC STR"
+    },
+    {
+      "name": "dds_pipe",
+      "type": "D",
+      "description": "piped dds sequence"
+    },
+    {
+      "name": "d",
+      "type": "D",
+      "description": "decklink        Blackmagic DeckLink input"
+    },
+    {
+      "name": "derf",
+      "type": "D",
+      "description": "Xilam DERF"
+    },
+    {
+      "name": "dfa",
+      "type": "D",
+      "description": "Chronomaster DFA"
+    },
+    {
+      "name": "dfpwm",
+      "type": "D",
+      "description": "raw DFPWM1a"
+    },
+    {
+      "name": "dhav",
+      "type": "D",
+      "description": "Video DAV"
+    },
+    {
+      "name": "dirac",
+      "type": "D",
+      "description": "raw Dirac"
+    },
+    {
+      "name": "dnxhd",
+      "type": "D",
+      "description": "raw DNxHD (SMPTE VC-3)"
+    },
+    {
+      "name": "dpx_pipe",
+      "type": "D",
+      "description": "piped dpx sequence"
+    },
+    {
+      "name": "dsf",
+      "type": "D",
+      "description": "DSD Stream File (DSF)"
+    },
+    {
+      "name": "dsicin",
+      "type": "D",
+      "description": "Delphine Software International CIN"
+    },
+    {
+      "name": "dss",
+      "type": "D",
+      "description": "Digital Speech Standard (DSS)"
+    },
+    {
+      "name": "dts",
+      "type": "D",
+      "description": "raw DTS"
+    },
+    {
+      "name": "dtshd",
+      "type": "D",
+      "description": "raw DTS-HD"
+    },
+    {
+      "name": "dv",
+      "type": "D",
+      "description": "DV (Digital Video)"
+    },
+    {
+      "name": "dvbsub",
+      "type": "D",
+      "description": "raw dvbsub"
+    },
+    {
+      "name": "dvbtxt",
+      "type": "D",
+      "description": "dvbtxt"
+    },
+    {
+      "name": "dxa",
+      "type": "D",
+      "description": "DXA"
+    },
+    {
+      "name": "ea",
+      "type": "D",
+      "description": "Electronic Arts Multimedia"
+    },
+    {
+      "name": "ea_cdata",
+      "type": "D",
+      "description": "Electronic Arts cdata"
+    },
+    {
+      "name": "eac3",
+      "type": "D",
+      "description": "raw E-AC-3"
+    },
+    {
+      "name": "epaf",
+      "type": "D",
+      "description": "Ensoniq Paris Audio File"
+    },
+    {
+      "name": "evc",
+      "type": "D",
+      "description": "EVC Annex B"
+    },
+    {
+      "name": "exr_pipe",
+      "type": "D",
+      "description": "piped exr sequence"
+    },
+    {
+      "name": "f32be",
+      "type": "D",
+      "description": "PCM 32-bit floating-point big-endian"
+    },
+    {
+      "name": "f32le",
+      "type": "D",
+      "description": "PCM 32-bit floating-point little-endian"
+    },
+    {
+      "name": "f64be",
+      "type": "D",
+      "description": "PCM 64-bit floating-point big-endian"
+    },
+    {
+      "name": "f64le",
+      "type": "D",
+      "description": "PCM 64-bit floating-point little-endian"
+    },
+    {
+      "name": "d",
+      "type": "D",
+      "description": "fbdev           Linux framebuffer"
+    },
+    {
+      "name": "ffmetadata",
+      "type": "D",
+      "description": "FFmpeg metadata in text"
+    },
+    {
+      "name": "film_cpk",
+      "type": "D",
+      "description": "Sega FILM / CPK"
+    },
+    {
+      "name": "filmstrip",
+      "type": "D",
+      "description": "Adobe Filmstrip"
+    },
+    {
+      "name": "fits",
+      "type": "D",
+      "description": "Flexible Image Transport System"
+    },
+    {
+      "name": "flac",
+      "type": "D",
+      "description": "raw FLAC"
+    },
+    {
+      "name": "flic",
+      "type": "D",
+      "description": "FLI/FLC/FLX animation"
+    },
+    {
+      "name": "flv",
+      "type": "D",
+      "description": "FLV (Flash Video)"
+    },
+    {
+      "name": "frm",
+      "type": "D",
+      "description": "Megalux Frame"
+    },
+    {
+      "name": "fsb",
+      "type": "D",
+      "description": "FMOD Sample Bank"
+    },
+    {
+      "name": "fwse",
+      "type": "D",
+      "description": "Capcom's MT Framework sound"
+    },
+    {
+      "name": "g722",
+      "type": "D",
+      "description": "raw G.722"
+    },
+    {
+      "name": "g723_1",
+      "type": "D",
+      "description": "G.723.1"
+    },
+    {
+      "name": "g726",
+      "type": "D",
+      "description": "raw big-endian G.726 (\"left aligned\")"
+    },
+    {
+      "name": "g726le",
+      "type": "D",
+      "description": "raw little-endian G.726 (\"right aligned\")"
+    },
+    {
+      "name": "g728",
+      "type": "D",
+      "description": "raw G.728"
+    },
+    {
+      "name": "g729",
+      "type": "D",
+      "description": "G.729 raw format demuxer"
+    },
+    {
+      "name": "gdv",
+      "type": "D",
+      "description": "Gremlin Digital Video"
+    },
+    {
+      "name": "gem_pipe",
+      "type": "D",
+      "description": "piped gem sequence"
+    },
+    {
+      "name": "genh",
+      "type": "D",
+      "description": "GENeric Header"
+    },
+    {
+      "name": "gif",
+      "type": "D",
+      "description": "CompuServe Graphics Interchange Format (GIF)"
+    },
+    {
+      "name": "gif_pipe",
+      "type": "D",
+      "description": "piped gif sequence"
+    },
+    {
+      "name": "gsm",
+      "type": "D",
+      "description": "raw GSM"
+    },
+    {
+      "name": "gxf",
+      "type": "D",
+      "description": "GXF (General eXchange Format)"
+    },
+    {
+      "name": "h261",
+      "type": "D",
+      "description": "raw H.261"
+    },
+    {
+      "name": "h263",
+      "type": "D",
+      "description": "raw H.263"
+    },
+    {
+      "name": "h264",
+      "type": "D",
+      "description": "raw H.264 video"
+    },
+    {
+      "name": "hca",
+      "type": "D",
+      "description": "CRI HCA"
+    },
+    {
+      "name": "hcom",
+      "type": "D",
+      "description": "Macintosh HCOM"
+    },
+    {
+      "name": "hdr_pipe",
+      "type": "D",
+      "description": "piped hdr sequence"
+    },
+    {
+      "name": "hevc",
+      "type": "D",
+      "description": "raw HEVC video"
+    },
+    {
+      "name": "hls",
+      "type": "D",
+      "description": "Apple HTTP Live Streaming"
+    },
+    {
+      "name": "hnm",
+      "type": "D",
+      "description": "Cryo HNM v4"
+    },
+    {
+      "name": "hxvs",
+      "type": "D",
+      "description": "HXVF/HXVS IP camera format"
+    },
+    {
+      "name": "iamf",
+      "type": "D",
+      "description": "Raw Immersive Audio Model and Formats"
+    },
+    {
+      "name": "ico",
+      "type": "D",
+      "description": "Microsoft Windows ICO"
+    },
+    {
+      "name": "idcin",
+      "type": "D",
+      "description": "id Cinematic"
+    },
+    {
+      "name": "idf",
+      "type": "D",
+      "description": "iCE Draw File"
+    },
+    {
+      "name": "iff",
+      "type": "D",
+      "description": "IFF (Interchange File Format)"
+    },
+    {
+      "name": "ifv",
+      "type": "D",
+      "description": "IFV CCTV DVR"
+    },
+    {
+      "name": "ilbc",
+      "type": "D",
+      "description": "iLBC storage"
+    },
+    {
+      "name": "image2",
+      "type": "D",
+      "description": "image2 sequence"
+    },
+    {
+      "name": "image2pipe",
+      "type": "D",
+      "description": "piped image2 sequence"
+    },
+    {
+      "name": "imf",
+      "type": "D",
+      "description": "IMF (Interoperable Master Format)"
+    },
+    {
+      "name": "ingenient",
+      "type": "D",
+      "description": "raw Ingenient MJPEG"
+    },
+    {
+      "name": "ipmovie",
+      "type": "D",
+      "description": "Interplay MVE"
+    },
+    {
+      "name": "ipu",
+      "type": "D",
+      "description": "raw IPU Video"
+    },
+    {
+      "name": "ircam",
+      "type": "D",
+      "description": "Berkeley/IRCAM/CARL Sound Format"
+    },
+    {
+      "name": "iss",
+      "type": "D",
+      "description": "Funcom ISS"
+    },
+    {
+      "name": "iv8",
+      "type": "D",
+      "description": "IndigoVision 8000 video"
+    },
+    {
+      "name": "ivf",
+      "type": "D",
+      "description": "On2 IVF"
+    },
+    {
+      "name": "ivr",
+      "type": "D",
+      "description": "IVR (Internet Video Recording)"
+    },
+    {
+      "name": "j2k_pipe",
+      "type": "D",
+      "description": "piped j2k sequence"
+    },
+    {
+      "name": "jacosub",
+      "type": "D",
+      "description": "JACOsub subtitle format"
+    },
+    {
+      "name": "jpeg_mpf",
+      "type": "D",
+      "description": "JPEG Multi-Picture Format"
+    },
+    {
+      "name": "jpeg_pipe",
+      "type": "D",
+      "description": "piped jpeg sequence"
+    },
+    {
+      "name": "jpegls_pipe",
+      "type": "D",
+      "description": "piped jpegls sequence"
+    },
+    {
+      "name": "jpegxl_anim",
+      "type": "D",
+      "description": "Animated JPEG XL"
+    },
+    {
+      "name": "jpegxl_pipe",
+      "type": "D",
+      "description": "piped jpegxl sequence"
+    },
+    {
+      "name": "jpegxs_pipe",
+      "type": "D",
+      "description": "piped jpegxs sequence"
+    },
+    {
+      "name": "jv",
+      "type": "D",
+      "description": "Bitmap Brothers JV"
+    },
+    {
+      "name": "ktx",
+      "type": "D",
+      "description": "KTX 1.0 (Khronos Texture) for ASTC"
+    },
+    {
+      "name": "kux",
+      "type": "D",
+      "description": "KUX (YouKu)"
+    },
+    {
+      "name": "kvag",
+      "type": "D",
+      "description": "Simon & Schuster Interactive VAG"
+    },
+    {
+      "name": "laf",
+      "type": "D",
+      "description": "LAF (Limitless Audio Format)"
+    },
+    {
+      "name": "d",
+      "type": "D",
+      "description": "lavfi           Libavfilter virtual input device"
+    },
+    {
+      "name": "lc3",
+      "type": "D",
+      "description": "LC3 (Low Complexity Communication Codec)"
+    },
+    {
+      "name": "live_flv",
+      "type": "D",
+      "description": "live RTMP FLV (Flash Video)"
+    },
+    {
+      "name": "lmlm4",
+      "type": "D",
+      "description": "raw lmlm4"
+    },
+    {
+      "name": "loas",
+      "type": "D",
+      "description": "LOAS AudioSyncStream"
+    },
+    {
+      "name": "lrc",
+      "type": "D",
+      "description": "LRC lyrics"
+    },
+    {
+      "name": "luodat",
+      "type": "D",
+      "description": "Video CCTV DAT"
+    },
+    {
+      "name": "lvf",
+      "type": "D",
+      "description": "LVF"
+    },
+    {
+      "name": "lxf",
+      "type": "D",
+      "description": "VR native stream (LXF)"
+    },
+    {
+      "name": "m4v",
+      "type": "D",
+      "description": "raw MPEG-4 video"
+    },
+    {
+      "name": "matroska,webm",
+      "type": "D",
+      "description": "Matroska / WebM"
+    },
+    {
+      "name": "mca",
+      "type": "D",
+      "description": "MCA Audio Format"
+    },
+    {
+      "name": "mcc",
+      "type": "D",
+      "description": "MacCaption"
+    },
+    {
+      "name": "mgsts",
+      "type": "D",
+      "description": "Metal Gear Solid: The Twin Snakes"
+    },
+    {
+      "name": "microdvd",
+      "type": "D",
+      "description": "MicroDVD subtitle format"
+    },
+    {
+      "name": "mjpeg",
+      "type": "D",
+      "description": "raw MJPEG video"
+    },
+    {
+      "name": "mjpeg_2000",
+      "type": "D",
+      "description": "raw MJPEG 2000 video"
+    },
+    {
+      "name": "mlp",
+      "type": "D",
+      "description": "raw MLP"
+    },
+    {
+      "name": "mlv",
+      "type": "D",
+      "description": "Magic Lantern Video (MLV)"
+    },
+    {
+      "name": "mm",
+      "type": "D",
+      "description": "American Laser Games MM"
+    },
+    {
+      "name": "mmf",
+      "type": "D",
+      "description": "Yamaha SMAF"
+    },
+    {
+      "name": "mods",
+      "type": "D",
+      "description": "MobiClip MODS"
+    },
+    {
+      "name": "moflex",
+      "type": "D",
+      "description": "MobiClip MOFLEX"
+    },
+    {
+      "name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "type": "D",
+      "description": "QuickTime / MOV"
+    },
+    {
+      "name": "mp3",
+      "type": "D",
+      "description": "MP2/3 (MPEG audio layer 2/3)"
+    },
+    {
+      "name": "mpc",
+      "type": "D",
+      "description": "Musepack"
+    },
+    {
+      "name": "mpc8",
+      "type": "D",
+      "description": "Musepack SV8"
+    },
+    {
+      "name": "mpeg",
+      "type": "D",
+      "description": "MPEG-PS (MPEG-2 Program Stream)"
+    },
+    {
+      "name": "mpegts",
+      "type": "D",
+      "description": "MPEG-TS (MPEG-2 Transport Stream)"
+    },
+    {
+      "name": "mpegtsraw",
+      "type": "D",
+      "description": "raw MPEG-TS (MPEG-2 Transport Stream)"
+    },
+    {
+      "name": "mpegvideo",
+      "type": "D",
+      "description": "raw MPEG video"
+    },
+    {
+      "name": "mpjpeg",
+      "type": "D",
+      "description": "MIME multipart JPEG"
+    },
+    {
+      "name": "mpl2",
+      "type": "D",
+      "description": "MPL2 subtitles"
+    },
+    {
+      "name": "mpsub",
+      "type": "D",
+      "description": "MPlayer subtitles"
+    },
+    {
+      "name": "msf",
+      "type": "D",
+      "description": "Sony PS3 MSF"
+    },
+    {
+      "name": "msnwctcp",
+      "type": "D",
+      "description": "MSN TCP Webcam stream"
+    },
+    {
+      "name": "msp",
+      "type": "D",
+      "description": "Microsoft Paint (MSP))"
+    },
+    {
+      "name": "mtaf",
+      "type": "D",
+      "description": "Konami PS2 MTAF"
+    },
+    {
+      "name": "mtv",
+      "type": "D",
+      "description": "MTV"
+    },
+    {
+      "name": "mulaw",
+      "type": "D",
+      "description": "PCM mu-law"
+    },
+    {
+      "name": "musx",
+      "type": "D",
+      "description": "Eurocom MUSX"
+    },
+    {
+      "name": "mv",
+      "type": "D",
+      "description": "Silicon Graphics Movie"
+    },
+    {
+      "name": "mvi",
+      "type": "D",
+      "description": "Motion Pixels MVI"
+    },
+    {
+      "name": "mvr",
+      "type": "D",
+      "description": "MVR CCTV"
+    },
+    {
+      "name": "mxf",
+      "type": "D",
+      "description": "MXF (Material eXchange Format)"
+    },
+    {
+      "name": "mxg",
+      "type": "D",
+      "description": "MxPEG clip"
+    },
+    {
+      "name": "nc",
+      "type": "D",
+      "description": "NC camera feed"
+    },
+    {
+      "name": "nistsphere",
+      "type": "D",
+      "description": "NIST SPeech HEader REsources"
+    },
+    {
+      "name": "nsp",
+      "type": "D",
+      "description": "Computerized Speech Lab NSP"
+    },
+    {
+      "name": "nsv",
+      "type": "D",
+      "description": "Nullsoft Streaming Video"
+    },
+    {
+      "name": "nut",
+      "type": "D",
+      "description": "NUT"
+    },
+    {
+      "name": "nuv",
+      "type": "D",
+      "description": "NuppelVideo"
+    },
+    {
+      "name": "obu",
+      "type": "D",
+      "description": "AV1 low overhead OBU"
+    },
+    {
+      "name": "ogg",
+      "type": "D",
+      "description": "Ogg"
+    },
+    {
+      "name": "oma",
+      "type": "D",
+      "description": "Sony OpenMG audio"
+    },
+    {
+      "name": "osq",
+      "type": "D",
+      "description": "raw OSQ"
+    },
+    {
+      "name": "d",
+      "type": "D",
+      "description": "oss             OSS (Open Sound System) capture"
+    },
+    {
+      "name": "paf",
+      "type": "D",
+      "description": "Amazing Studio Packed Animation File"
+    },
+    {
+      "name": "pam_pipe",
+      "type": "D",
+      "description": "piped pam sequence"
+    },
+    {
+      "name": "pbm_pipe",
+      "type": "D",
+      "description": "piped pbm sequence"
+    },
+    {
+      "name": "pcx_pipe",
+      "type": "D",
+      "description": "piped pcx sequence"
+    },
+    {
+      "name": "pdv",
+      "type": "D",
+      "description": "PlayDate Video"
+    },
+    {
+      "name": "pfm_pipe",
+      "type": "D",
+      "description": "piped pfm sequence"
+    },
+    {
+      "name": "pgm_pipe",
+      "type": "D",
+      "description": "piped pgm sequence"
+    },
+    {
+      "name": "pgmyuv_pipe",
+      "type": "D",
+      "description": "piped pgmyuv sequence"
+    },
+    {
+      "name": "pgx_pipe",
+      "type": "D",
+      "description": "piped pgx sequence"
+    },
+    {
+      "name": "phm_pipe",
+      "type": "D",
+      "description": "piped phm sequence"
+    },
+    {
+      "name": "photocd_pipe",
+      "type": "D",
+      "description": "piped photocd sequence"
+    },
+    {
+      "name": "pictor_pipe",
+      "type": "D",
+      "description": "piped pictor sequence"
+    },
+    {
+      "name": "pjs",
+      "type": "D",
+      "description": "PJS (Phoenix Japanimation Society) subtitles"
+    },
+    {
+      "name": "pmp",
+      "type": "D",
+      "description": "Playstation Portable PMP"
+    },
+    {
+      "name": "png_pipe",
+      "type": "D",
+      "description": "piped png sequence"
+    },
+    {
+      "name": "pp_bnk",
+      "type": "D",
+      "description": "Pro Pinball Series Soundbank"
+    },
+    {
+      "name": "ppm_pipe",
+      "type": "D",
+      "description": "piped ppm sequence"
+    },
+    {
+      "name": "psd_pipe",
+      "type": "D",
+      "description": "piped psd sequence"
+    },
+    {
+      "name": "psxstr",
+      "type": "D",
+      "description": "Sony Playstation STR"
+    },
+    {
+      "name": "pva",
+      "type": "D",
+      "description": "TechnoTrend PVA"
+    },
+    {
+      "name": "pvf",
+      "type": "D",
+      "description": "PVF (Portable Voice Format)"
+    },
+    {
+      "name": "qcp",
+      "type": "D",
+      "description": "QCP"
+    },
+    {
+      "name": "qdraw_pipe",
+      "type": "D",
+      "description": "piped qdraw sequence"
+    },
+    {
+      "name": "qoa",
+      "type": "D",
+      "description": "QOA"
+    },
+    {
+      "name": "qoi_pipe",
+      "type": "D",
+      "description": "piped qoi sequence"
+    },
+    {
+      "name": "r3d",
+      "type": "D",
+      "description": "REDCODE R3D"
+    },
+    {
+      "name": "rawvideo",
+      "type": "D",
+      "description": "raw video"
+    },
+    {
+      "name": "rcwt",
+      "type": "D",
+      "description": "RCWT (Raw Captions With Time)"
+    },
+    {
+      "name": "realtext",
+      "type": "D",
+      "description": "RealText subtitle format"
+    },
+    {
+      "name": "redspark",
+      "type": "D",
+      "description": "RedSpark"
+    },
+    {
+      "name": "rka",
+      "type": "D",
+      "description": "RKA (RK Audio)"
+    },
+    {
+      "name": "rl2",
+      "type": "D",
+      "description": "RL2"
+    },
+    {
+      "name": "rm",
+      "type": "D",
+      "description": "RealMedia"
+    },
+    {
+      "name": "roq",
+      "type": "D",
+      "description": "id RoQ"
+    },
+    {
+      "name": "rpl",
+      "type": "D",
+      "description": "RPL / ARMovie"
+    },
+    {
+      "name": "rsd",
+      "type": "D",
+      "description": "GameCube RSD"
+    },
+    {
+      "name": "rso",
+      "type": "D",
+      "description": "Lego Mindstorms RSO"
+    },
+    {
+      "name": "rtp",
+      "type": "D",
+      "description": "RTP input"
+    },
+    {
+      "name": "rtsp",
+      "type": "D",
+      "description": "RTSP input"
+    },
+    {
+      "name": "rw2_pipe",
+      "type": "D",
+      "description": "piped rw2 sequence"
+    },
+    {
+      "name": "s16be",
+      "type": "D",
+      "description": "PCM signed 16-bit big-endian"
+    },
+    {
+      "name": "s16le",
+      "type": "D",
+      "description": "PCM signed 16-bit little-endian"
+    },
+    {
+      "name": "s24be",
+      "type": "D",
+      "description": "PCM signed 24-bit big-endian"
+    },
+    {
+      "name": "s24le",
+      "type": "D",
+      "description": "PCM signed 24-bit little-endian"
+    },
+    {
+      "name": "s32be",
+      "type": "D",
+      "description": "PCM signed 32-bit big-endian"
+    },
+    {
+      "name": "s32le",
+      "type": "D",
+      "description": "PCM signed 32-bit little-endian"
+    },
+    {
+      "name": "s337m",
+      "type": "D",
+      "description": "SMPTE 337M"
+    },
+    {
+      "name": "s8",
+      "type": "D",
+      "description": "PCM signed 8-bit"
+    },
+    {
+      "name": "sami",
+      "type": "D",
+      "description": "SAMI subtitle format"
+    },
+    {
+      "name": "sap",
+      "type": "D",
+      "description": "SAP input"
+    },
+    {
+      "name": "sbc",
+      "type": "D",
+      "description": "raw SBC (low-complexity subband codec)"
+    },
+    {
+      "name": "sbg",
+      "type": "D",
+      "description": "SBaGen binaural beats script"
+    },
+    {
+      "name": "scc",
+      "type": "D",
+      "description": "Scenarist Closed Captions"
+    },
+    {
+      "name": "scd",
+      "type": "D",
+      "description": "Square Enix SCD"
+    },
+    {
+      "name": "sdns",
+      "type": "D",
+      "description": "Xbox SDNS"
+    },
+    {
+      "name": "sdp",
+      "type": "D",
+      "description": "SDP"
+    },
+    {
+      "name": "sdr2",
+      "type": "D",
+      "description": "SDR2"
+    },
+    {
+      "name": "sds",
+      "type": "D",
+      "description": "MIDI Sample Dump Standard"
+    },
+    {
+      "name": "sdx",
+      "type": "D",
+      "description": "Sample Dump eXchange"
+    },
+    {
+      "name": "ser",
+      "type": "D",
+      "description": "SER (Simple uncompressed video format for astronomical capturing)"
+    },
+    {
+      "name": "sga",
+      "type": "D",
+      "description": "Digital Pictures SGA"
+    },
+    {
+      "name": "sgi_pipe",
+      "type": "D",
+      "description": "piped sgi sequence"
+    },
+    {
+      "name": "shn",
+      "type": "D",
+      "description": "raw Shorten"
+    },
+    {
+      "name": "siff",
+      "type": "D",
+      "description": "Beam Software SIFF"
+    },
+    {
+      "name": "simbiosis_imx",
+      "type": "D",
+      "description": "Simbiosis Interactive IMX"
+    },
+    {
+      "name": "sln",
+      "type": "D",
+      "description": "Asterisk raw pcm"
+    },
+    {
+      "name": "smjpeg",
+      "type": "D",
+      "description": "Loki SDL MJPEG"
+    },
+    {
+      "name": "smk",
+      "type": "D",
+      "description": "Smacker"
+    },
+    {
+      "name": "smush",
+      "type": "D",
+      "description": "LucasArts Smush"
+    },
+    {
+      "name": "sol",
+      "type": "D",
+      "description": "Sierra SOL"
+    },
+    {
+      "name": "sox",
+      "type": "D",
+      "description": "SoX (Sound eXchange) native"
+    },
+    {
+      "name": "spdif",
+      "type": "D",
+      "description": "IEC 61937 (compressed data in S/PDIF)"
+    },
+    {
+      "name": "srt",
+      "type": "D",
+      "description": "SubRip subtitle"
+    },
+    {
+      "name": "stl",
+      "type": "D",
+      "description": "Spruce subtitle format"
+    },
+    {
+      "name": "subviewer",
+      "type": "D",
+      "description": "SubViewer subtitle format"
+    },
+    {
+      "name": "subviewer1",
+      "type": "D",
+      "description": "SubViewer v1 subtitle format"
+    },
+    {
+      "name": "sunrast_pipe",
+      "type": "D",
+      "description": "piped sunrast sequence"
+    },
+    {
+      "name": "sup",
+      "type": "D",
+      "description": "raw HDMV Presentation Graphic Stream subtitles"
+    },
+    {
+      "name": "svag",
+      "type": "D",
+      "description": "Konami PS2 SVAG"
+    },
+    {
+      "name": "svg_pipe",
+      "type": "D",
+      "description": "piped svg sequence"
+    },
+    {
+      "name": "svs",
+      "type": "D",
+      "description": "Square SVS"
+    },
+    {
+      "name": "swf",
+      "type": "D",
+      "description": "SWF (ShockWave Flash)"
+    },
+    {
+      "name": "tak",
+      "type": "D",
+      "description": "raw TAK"
+    },
+    {
+      "name": "tedcaptions",
+      "type": "D",
+      "description": "TED Talks captions"
+    },
+    {
+      "name": "thp",
+      "type": "D",
+      "description": "THP"
+    },
+    {
+      "name": "tiertexseq",
+      "type": "D",
+      "description": "Tiertex Limited SEQ"
+    },
+    {
+      "name": "tiff_pipe",
+      "type": "D",
+      "description": "piped tiff sequence"
+    },
+    {
+      "name": "tmv",
+      "type": "D",
+      "description": "8088flex TMV"
+    },
+    {
+      "name": "truehd",
+      "type": "D",
+      "description": "raw TrueHD"
+    },
+    {
+      "name": "tta",
+      "type": "D",
+      "description": "TTA (True Audio)"
+    },
+    {
+      "name": "tty",
+      "type": "D",
+      "description": "Tele-typewriter"
+    },
+    {
+      "name": "txd",
+      "type": "D",
+      "description": "Renderware TeXture Dictionary"
+    },
+    {
+      "name": "ty",
+      "type": "D",
+      "description": "TiVo TY Stream"
+    },
+    {
+      "name": "u16be",
+      "type": "D",
+      "description": "PCM unsigned 16-bit big-endian"
+    },
+    {
+      "name": "u16le",
+      "type": "D",
+      "description": "PCM unsigned 16-bit little-endian"
+    },
+    {
+      "name": "u24be",
+      "type": "D",
+      "description": "PCM unsigned 24-bit big-endian"
+    },
+    {
+      "name": "u24le",
+      "type": "D",
+      "description": "PCM unsigned 24-bit little-endian"
+    },
+    {
+      "name": "u32be",
+      "type": "D",
+      "description": "PCM unsigned 32-bit big-endian"
+    },
+    {
+      "name": "u32le",
+      "type": "D",
+      "description": "PCM unsigned 32-bit little-endian"
+    },
+    {
+      "name": "u8",
+      "type": "D",
+      "description": "PCM unsigned 8-bit"
+    },
+    {
+      "name": "usm",
+      "type": "D",
+      "description": "CRI USM"
+    },
+    {
+      "name": "v210",
+      "type": "D",
+      "description": "Uncompressed 4:2:2 10-bit"
+    },
+    {
+      "name": "v210x",
+      "type": "D",
+      "description": "Uncompressed 4:2:2 10-bit"
+    },
+    {
+      "name": "vag",
+      "type": "D",
+      "description": "Sony PS2 VAG"
+    },
+    {
+      "name": "vbn_pipe",
+      "type": "D",
+      "description": "piped vbn sequence"
+    },
+    {
+      "name": "vc1",
+      "type": "D",
+      "description": "raw VC-1"
+    },
+    {
+      "name": "vc1test",
+      "type": "D",
+      "description": "VC-1 test bitstream"
+    },
+    {
+      "name": "vidc",
+      "type": "D",
+      "description": "PCM Archimedes VIDC"
+    },
+    {
+      "name": "d",
+      "type": "D",
+      "description": "video4linux2,v4l2 Video4Linux2 device grab"
+    },
+    {
+      "name": "vividas",
+      "type": "D",
+      "description": "Vividas VIV"
+    },
+    {
+      "name": "vivo",
+      "type": "D",
+      "description": "Vivo"
+    },
+    {
+      "name": "vmd",
+      "type": "D",
+      "description": "Sierra VMD"
+    },
+    {
+      "name": "vobsub",
+      "type": "D",
+      "description": "VobSub subtitle format"
+    },
+    {
+      "name": "voc",
+      "type": "D",
+      "description": "Creative Voice"
+    },
+    {
+      "name": "vpk",
+      "type": "D",
+      "description": "Sony PS2 VPK"
+    },
+    {
+      "name": "vplayer",
+      "type": "D",
+      "description": "VPlayer subtitles"
+    },
+    {
+      "name": "vqf",
+      "type": "D",
+      "description": "Nippon Telegraph and Telephone Corporation (NTT) TwinVQ"
+    },
+    {
+      "name": "vvc",
+      "type": "D",
+      "description": "raw H.266/VVC video"
+    },
+    {
+      "name": "w64",
+      "type": "D",
+      "description": "Sony Wave64"
+    },
+    {
+      "name": "wady",
+      "type": "D",
+      "description": "Marble WADY"
+    },
+    {
+      "name": "wav",
+      "type": "D",
+      "description": "WAV / WAVE (Waveform Audio)"
+    },
+    {
+      "name": "wavarc",
+      "type": "D",
+      "description": "Waveform Archiver"
+    },
+    {
+      "name": "wc3movie",
+      "type": "D",
+      "description": "Wing Commander III movie"
+    },
+    {
+      "name": "webm_dash_manifest",
+      "type": "D",
+      "description": "WebM DASH Manifest"
+    },
+    {
+      "name": "webp_anim",
+      "type": "D",
+      "description": "Animated WebP"
+    },
+    {
+      "name": "webp_pipe",
+      "type": "D",
+      "description": "piped webp sequence"
+    },
+    {
+      "name": "webvtt",
+      "type": "D",
+      "description": "WebVTT subtitle"
+    },
+    {
+      "name": "wsaud",
+      "type": "D",
+      "description": "Westwood Studios audio"
+    },
+    {
+      "name": "wsd",
+      "type": "D",
+      "description": "Wideband Single-bit Data (WSD)"
+    },
+    {
+      "name": "wsvqa",
+      "type": "D",
+      "description": "Westwood Studios VQA"
+    },
+    {
+      "name": "wtv",
+      "type": "D",
+      "description": "Windows Television (WTV)"
+    },
+    {
+      "name": "wv",
+      "type": "D",
+      "description": "WavPack"
+    },
+    {
+      "name": "wve",
+      "type": "D",
+      "description": "Psion 3 audio"
+    },
+    {
+      "name": "xa",
+      "type": "D",
+      "description": "Maxis XA"
+    },
+    {
+      "name": "xbin",
+      "type": "D",
+      "description": "eXtended BINary text (XBIN)"
+    },
+    {
+      "name": "xbm_pipe",
+      "type": "D",
+      "description": "piped xbm sequence"
+    },
+    {
+      "name": "xmd",
+      "type": "D",
+      "description": "Konami XMD"
+    },
+    {
+      "name": "xmv",
+      "type": "D",
+      "description": "Microsoft XMV"
+    },
+    {
+      "name": "xpm_pipe",
+      "type": "D",
+      "description": "piped xpm sequence"
+    },
+    {
+      "name": "xvag",
+      "type": "D",
+      "description": "Sony PS3 XVAG"
+    },
+    {
+      "name": "xwd_pipe",
+      "type": "D",
+      "description": "piped xwd sequence"
+    },
+    {
+      "name": "xwma",
+      "type": "D",
+      "description": "Microsoft xWMA"
+    },
+    {
+      "name": "yop",
+      "type": "D",
+      "description": "Psygnosis YOP"
+    },
+    {
+      "name": "yuv4mpegpipe",
+      "type": "D",
+      "description": "YUV4MPEG pipe"
+    }
+  ],
+  "protocols": [
+    {
+      "type": "Input",
+      "name": "async"
+    },
+    {
+      "type": "Input",
+      "name": "bluray"
+    },
+    {
+      "type": "Input",
+      "name": "cache"
+    },
+    {
+      "type": "Input",
+      "name": "concat"
+    },
+    {
+      "type": "Input",
+      "name": "concatf"
+    },
+    {
+      "type": "Input",
+      "name": "crypto"
+    },
+    {
+      "type": "Input",
+      "name": "data"
+    },
+    {
+      "type": "Input",
+      "name": "fd"
+    },
+    {
+      "type": "Input",
+      "name": "ffrtmpcrypt"
+    },
+    {
+      "type": "Input",
+      "name": "ffrtmphttp"
+    },
+    {
+      "type": "Input",
+      "name": "file"
+    },
+    {
+      "type": "Input",
+      "name": "ftp"
+    },
+    {
+      "type": "Input",
+      "name": "gopher"
+    },
+    {
+      "type": "Input",
+      "name": "gophers"
+    },
+    {
+      "type": "Input",
+      "name": "http"
+    },
+    {
+      "type": "Input",
+      "name": "httpproxy"
+    },
+    {
+      "type": "Input",
+      "name": "https"
+    },
+    {
+      "type": "Input",
+      "name": "mmsh"
+    },
+    {
+      "type": "Input",
+      "name": "mmst"
+    },
+    {
+      "type": "Input",
+      "name": "pipe"
+    },
+    {
+      "type": "Input",
+      "name": "rtmp"
+    },
+    {
+      "type": "Input",
+      "name": "rtmpe"
+    },
+    {
+      "type": "Input",
+      "name": "rtmps"
+    },
+    {
+      "type": "Input",
+      "name": "rtmpt"
+    },
+    {
+      "type": "Input",
+      "name": "rtmpte"
+    },
+    {
+      "type": "Input",
+      "name": "rtmpts"
+    },
+    {
+      "type": "Input",
+      "name": "rtp"
+    },
+    {
+      "type": "Input",
+      "name": "shared"
+    },
+    {
+      "type": "Input",
+      "name": "srtp"
+    },
+    {
+      "type": "Input",
+      "name": "subfile"
+    },
+    {
+      "type": "Input",
+      "name": "tcp"
+    },
+    {
+      "type": "Input",
+      "name": "tls"
+    },
+    {
+      "type": "Input",
+      "name": "dtls"
+    },
+    {
+      "type": "Input",
+      "name": "udp"
+    },
+    {
+      "type": "Input",
+      "name": "udplite"
+    },
+    {
+      "type": "Input",
+      "name": "unix"
+    },
+    {
+      "type": "Input",
+      "name": "srt"
+    },
+    {
+      "type": "Input",
+      "name": "ipfs"
+    },
+    {
+      "type": "Input",
+      "name": "ipns"
+    },
+    {
+      "type": "Output",
+      "name": "crypto"
+    },
+    {
+      "type": "Output",
+      "name": "fd"
+    },
+    {
+      "type": "Output",
+      "name": "ffrtmpcrypt"
+    },
+    {
+      "type": "Output",
+      "name": "ffrtmphttp"
+    },
+    {
+      "type": "Output",
+      "name": "file"
+    },
+    {
+      "type": "Output",
+      "name": "ftp"
+    },
+    {
+      "type": "Output",
+      "name": "gopher"
+    },
+    {
+      "type": "Output",
+      "name": "gophers"
+    },
+    {
+      "type": "Output",
+      "name": "http"
+    },
+    {
+      "type": "Output",
+      "name": "httpproxy"
+    },
+    {
+      "type": "Output",
+      "name": "https"
+    },
+    {
+      "type": "Output",
+      "name": "icecast"
+    },
+    {
+      "type": "Output",
+      "name": "md5"
+    },
+    {
+      "type": "Output",
+      "name": "pipe"
+    },
+    {
+      "type": "Output",
+      "name": "prompeg"
+    },
+    {
+      "type": "Output",
+      "name": "rtmp"
+    },
+    {
+      "type": "Output",
+      "name": "rtmpe"
+    },
+    {
+      "type": "Output",
+      "name": "rtmps"
+    },
+    {
+      "type": "Output",
+      "name": "rtmpt"
+    },
+    {
+      "type": "Output",
+      "name": "rtmpte"
+    },
+    {
+      "type": "Output",
+      "name": "rtmpts"
+    },
+    {
+      "type": "Output",
+      "name": "rtp"
+    },
+    {
+      "type": "Output",
+      "name": "srtp"
+    },
+    {
+      "type": "Output",
+      "name": "tee"
+    },
+    {
+      "type": "Output",
+      "name": "tcp"
+    },
+    {
+      "type": "Output",
+      "name": "tls"
+    },
+    {
+      "type": "Output",
+      "name": "dtls"
+    },
+    {
+      "type": "Output",
+      "name": "udp"
+    },
+    {
+      "type": "Output",
+      "name": "udplite"
+    },
+    {
+      "type": "Output",
+      "name": "unix"
+    },
+    {
+      "type": "Output",
+      "name": "srt"
+    }
+  ],
+  "pixelFormats": [
+    {
+      "name": "yuv420p",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "yuyv422",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "rgb24",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "bgr24",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "yuv422p",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "yuv444p",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "yuv410p",
+      "type": "IO...",
+      "description": "3              9      8-8-8"
+    },
+    {
+      "name": "yuv411p",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "gray",
+      "type": "IO...",
+      "description": "1              8      8"
+    },
+    {
+      "name": "monow",
+      "type": "IO..B",
+      "description": "1              1      1"
+    },
+    {
+      "name": "monob",
+      "type": "IO..B",
+      "description": "1              1      1"
+    },
+    {
+      "name": "pal8",
+      "type": "I..P.",
+      "description": "1              8      8"
+    },
+    {
+      "name": "yuvj420p",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "yuvj422p",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "yuvj444p",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "uyvy422",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "uyyvyy411",
+      "type": "I....",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "bgr8",
+      "type": "IO...",
+      "description": "3              8      3-3-2"
+    },
+    {
+      "name": "bgr4",
+      "type": ".O..B",
+      "description": "3              4      1-2-1"
+    },
+    {
+      "name": "bgr4_byte",
+      "type": "IO...",
+      "description": "3              4      1-2-1"
+    },
+    {
+      "name": "rgb8",
+      "type": "IO...",
+      "description": "3              8      3-3-2"
+    },
+    {
+      "name": "rgb4",
+      "type": ".O..B",
+      "description": "3              4      1-2-1"
+    },
+    {
+      "name": "rgb4_byte",
+      "type": "IO...",
+      "description": "3              4      1-2-1"
+    },
+    {
+      "name": "nv12",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "nv21",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "argb",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "rgba",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "abgr",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "bgra",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "gray16be",
+      "type": "IO...",
+      "description": "1             16      16"
+    },
+    {
+      "name": "gray16le",
+      "type": "IO...",
+      "description": "1             16      16"
+    },
+    {
+      "name": "yuv440p",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "yuvj440p",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "yuva420p",
+      "type": "IO...",
+      "description": "4             20      8-8-8-8"
+    },
+    {
+      "name": "rgb48be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "rgb48le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "rgb565be",
+      "type": "IO...",
+      "description": "3             16      5-6-5"
+    },
+    {
+      "name": "rgb565le",
+      "type": "IO...",
+      "description": "3             16      5-6-5"
+    },
+    {
+      "name": "rgb555be",
+      "type": "IO...",
+      "description": "3             15      5-5-5"
+    },
+    {
+      "name": "rgb555le",
+      "type": "IO...",
+      "description": "3             15      5-5-5"
+    },
+    {
+      "name": "bgr565be",
+      "type": "IO...",
+      "description": "3             16      5-6-5"
+    },
+    {
+      "name": "bgr565le",
+      "type": "IO...",
+      "description": "3             16      5-6-5"
+    },
+    {
+      "name": "bgr555be",
+      "type": "IO...",
+      "description": "3             15      5-5-5"
+    },
+    {
+      "name": "bgr555le",
+      "type": "IO...",
+      "description": "3             15      5-5-5"
+    },
+    {
+      "name": "vaapi",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "yuv420p16le",
+      "type": "IO...",
+      "description": "3             24      16-16-16"
+    },
+    {
+      "name": "yuv420p16be",
+      "type": "IO...",
+      "description": "3             24      16-16-16"
+    },
+    {
+      "name": "yuv422p16le",
+      "type": "IO...",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "yuv422p16be",
+      "type": "IO...",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "yuv444p16le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "yuv444p16be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "dxva2_vld",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "rgb444le",
+      "type": "IO...",
+      "description": "3             12      4-4-4"
+    },
+    {
+      "name": "rgb444be",
+      "type": "IO...",
+      "description": "3             12      4-4-4"
+    },
+    {
+      "name": "bgr444le",
+      "type": "IO...",
+      "description": "3             12      4-4-4"
+    },
+    {
+      "name": "bgr444be",
+      "type": "IO...",
+      "description": "3             12      4-4-4"
+    },
+    {
+      "name": "ya8",
+      "type": "IO...",
+      "description": "2             16      8-8"
+    },
+    {
+      "name": "bgr48be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "bgr48le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "yuv420p9be",
+      "type": "IO...",
+      "description": "3             13      9-9-9"
+    },
+    {
+      "name": "yuv420p9le",
+      "type": "IO...",
+      "description": "3             13      9-9-9"
+    },
+    {
+      "name": "yuv420p10be",
+      "type": "IO...",
+      "description": "3             15      10-10-10"
+    },
+    {
+      "name": "yuv420p10le",
+      "type": "IO...",
+      "description": "3             15      10-10-10"
+    },
+    {
+      "name": "yuv422p10be",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "yuv422p10le",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "yuv444p9be",
+      "type": "IO...",
+      "description": "3             27      9-9-9"
+    },
+    {
+      "name": "yuv444p9le",
+      "type": "IO...",
+      "description": "3             27      9-9-9"
+    },
+    {
+      "name": "yuv444p10be",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "yuv444p10le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "yuv422p9be",
+      "type": "IO...",
+      "description": "3             18      9-9-9"
+    },
+    {
+      "name": "yuv422p9le",
+      "type": "IO...",
+      "description": "3             18      9-9-9"
+    },
+    {
+      "name": "gbrp",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "gbrp9be",
+      "type": "IO...",
+      "description": "3             27      9-9-9"
+    },
+    {
+      "name": "gbrp9le",
+      "type": "IO...",
+      "description": "3             27      9-9-9"
+    },
+    {
+      "name": "gbrp10be",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "gbrp10le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "gbrp16be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "gbrp16le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "yuva422p",
+      "type": "IO...",
+      "description": "4             24      8-8-8-8"
+    },
+    {
+      "name": "yuva444p",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "yuva420p9be",
+      "type": "IO...",
+      "description": "4             22      9-9-9-9"
+    },
+    {
+      "name": "yuva420p9le",
+      "type": "IO...",
+      "description": "4             22      9-9-9-9"
+    },
+    {
+      "name": "yuva422p9be",
+      "type": "IO...",
+      "description": "4             27      9-9-9-9"
+    },
+    {
+      "name": "yuva422p9le",
+      "type": "IO...",
+      "description": "4             27      9-9-9-9"
+    },
+    {
+      "name": "yuva444p9be",
+      "type": "IO...",
+      "description": "4             36      9-9-9-9"
+    },
+    {
+      "name": "yuva444p9le",
+      "type": "IO...",
+      "description": "4             36      9-9-9-9"
+    },
+    {
+      "name": "yuva420p10be",
+      "type": "IO...",
+      "description": "4             25      10-10-10-10"
+    },
+    {
+      "name": "yuva420p10le",
+      "type": "IO...",
+      "description": "4             25      10-10-10-10"
+    },
+    {
+      "name": "yuva422p10be",
+      "type": "IO...",
+      "description": "4             30      10-10-10-10"
+    },
+    {
+      "name": "yuva422p10le",
+      "type": "IO...",
+      "description": "4             30      10-10-10-10"
+    },
+    {
+      "name": "yuva444p10be",
+      "type": "IO...",
+      "description": "4             40      10-10-10-10"
+    },
+    {
+      "name": "yuva444p10le",
+      "type": "IO...",
+      "description": "4             40      10-10-10-10"
+    },
+    {
+      "name": "yuva420p16be",
+      "type": "IO...",
+      "description": "4             40      16-16-16-16"
+    },
+    {
+      "name": "yuva420p16le",
+      "type": "IO...",
+      "description": "4             40      16-16-16-16"
+    },
+    {
+      "name": "yuva422p16be",
+      "type": "IO...",
+      "description": "4             48      16-16-16-16"
+    },
+    {
+      "name": "yuva422p16le",
+      "type": "IO...",
+      "description": "4             48      16-16-16-16"
+    },
+    {
+      "name": "yuva444p16be",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "yuva444p16le",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "vdpau",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "xyz12le",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "xyz12be",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "nv16",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "nv20le",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "nv20be",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "rgba64be",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "rgba64le",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "bgra64be",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "bgra64le",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "yvyu422",
+      "type": "IO...",
+      "description": "3             16      8-8-8"
+    },
+    {
+      "name": "ya16be",
+      "type": "IO...",
+      "description": "2             32      16-16"
+    },
+    {
+      "name": "ya16le",
+      "type": "IO...",
+      "description": "2             32      16-16"
+    },
+    {
+      "name": "gbrap",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "gbrap16be",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "gbrap16le",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "qsv",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "mmal",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "d3d11va_vld",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "cuda",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "0rgb",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "rgb0",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "0bgr",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "bgr0",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "yuv420p12be",
+      "type": "IO...",
+      "description": "3             18      12-12-12"
+    },
+    {
+      "name": "yuv420p12le",
+      "type": "IO...",
+      "description": "3             18      12-12-12"
+    },
+    {
+      "name": "yuv420p14be",
+      "type": "IO...",
+      "description": "3             21      14-14-14"
+    },
+    {
+      "name": "yuv420p14le",
+      "type": "IO...",
+      "description": "3             21      14-14-14"
+    },
+    {
+      "name": "yuv422p12be",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "yuv422p12le",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "yuv422p14be",
+      "type": "IO...",
+      "description": "3             28      14-14-14"
+    },
+    {
+      "name": "yuv422p14le",
+      "type": "IO...",
+      "description": "3             28      14-14-14"
+    },
+    {
+      "name": "yuv444p12be",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "yuv444p12le",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "yuv444p14be",
+      "type": "IO...",
+      "description": "3             42      14-14-14"
+    },
+    {
+      "name": "yuv444p14le",
+      "type": "IO...",
+      "description": "3             42      14-14-14"
+    },
+    {
+      "name": "gbrp12be",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "gbrp12le",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "gbrp14be",
+      "type": "IO...",
+      "description": "3             42      14-14-14"
+    },
+    {
+      "name": "gbrp14le",
+      "type": "IO...",
+      "description": "3             42      14-14-14"
+    },
+    {
+      "name": "yuvj411p",
+      "type": "IO...",
+      "description": "3             12      8-8-8"
+    },
+    {
+      "name": "bayer_bggr8",
+      "type": "I....",
+      "description": "3              8      2-4-2"
+    },
+    {
+      "name": "bayer_rggb8",
+      "type": "I....",
+      "description": "3              8      2-4-2"
+    },
+    {
+      "name": "bayer_gbrg8",
+      "type": "I....",
+      "description": "3              8      2-4-2"
+    },
+    {
+      "name": "bayer_grbg8",
+      "type": "I....",
+      "description": "3              8      2-4-2"
+    },
+    {
+      "name": "bayer_bggr16le",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_bggr16be",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_rggb16le",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_rggb16be",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_gbrg16le",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_gbrg16be",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_grbg16le",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "bayer_grbg16be",
+      "type": "I....",
+      "description": "3             16      4-8-4"
+    },
+    {
+      "name": "yuv440p10le",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "yuv440p10be",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "yuv440p12le",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "yuv440p12be",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "ayuv64le",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "ayuv64be",
+      "type": "IO...",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "videotoolbox_vld",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "p010le",
+      "type": "IO...",
+      "description": "3             15      10-10-10"
+    },
+    {
+      "name": "p010be",
+      "type": "IO...",
+      "description": "3             15      10-10-10"
+    },
+    {
+      "name": "gbrap12be",
+      "type": "IO...",
+      "description": "4             48      12-12-12-12"
+    },
+    {
+      "name": "gbrap12le",
+      "type": "IO...",
+      "description": "4             48      12-12-12-12"
+    },
+    {
+      "name": "gbrap10be",
+      "type": "IO...",
+      "description": "4             40      10-10-10-10"
+    },
+    {
+      "name": "gbrap10le",
+      "type": "IO...",
+      "description": "4             40      10-10-10-10"
+    },
+    {
+      "name": "mediacodec",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "gray12be",
+      "type": "IO...",
+      "description": "1             12      12"
+    },
+    {
+      "name": "gray12le",
+      "type": "IO...",
+      "description": "1             12      12"
+    },
+    {
+      "name": "gray10be",
+      "type": "IO...",
+      "description": "1             10      10"
+    },
+    {
+      "name": "gray10le",
+      "type": "IO...",
+      "description": "1             10      10"
+    },
+    {
+      "name": "p016le",
+      "type": "IO...",
+      "description": "3             24      16-16-16"
+    },
+    {
+      "name": "p016be",
+      "type": "IO...",
+      "description": "3             24      16-16-16"
+    },
+    {
+      "name": "d3d11",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "gray9be",
+      "type": "IO...",
+      "description": "1              9      9"
+    },
+    {
+      "name": "gray9le",
+      "type": "IO...",
+      "description": "1              9      9"
+    },
+    {
+      "name": "gbrpf32be",
+      "type": "IO...",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "gbrpf32le",
+      "type": "IO...",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "gbrapf32be",
+      "type": "IO...",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "gbrapf32le",
+      "type": "IO...",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "drm_prime",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "opencl",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "gray14be",
+      "type": "IO...",
+      "description": "1             14      14"
+    },
+    {
+      "name": "gray14le",
+      "type": "IO...",
+      "description": "1             14      14"
+    },
+    {
+      "name": "grayf32be",
+      "type": "IO...",
+      "description": "1             32      32"
+    },
+    {
+      "name": "grayf32le",
+      "type": "IO...",
+      "description": "1             32      32"
+    },
+    {
+      "name": "yuva422p12be",
+      "type": "IO...",
+      "description": "4             36      12-12-12-12"
+    },
+    {
+      "name": "yuva422p12le",
+      "type": "IO...",
+      "description": "4             36      12-12-12-12"
+    },
+    {
+      "name": "yuva444p12be",
+      "type": "IO...",
+      "description": "4             48      12-12-12-12"
+    },
+    {
+      "name": "yuva444p12le",
+      "type": "IO...",
+      "description": "4             48      12-12-12-12"
+    },
+    {
+      "name": "nv24",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "nv42",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "vulkan",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "y210be",
+      "type": ".....",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "y210le",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "x2rgb10le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "x2rgb10be",
+      "type": ".....",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "x2bgr10le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "x2bgr10be",
+      "type": ".....",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "p210be",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "p210le",
+      "type": "IO...",
+      "description": "3             20      10-10-10"
+    },
+    {
+      "name": "p410be",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "p410le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "p216be",
+      "type": "IO...",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "p216le",
+      "type": "IO...",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "p416be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "p416le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "vuya",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "rgbaf16be",
+      "type": "I....",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "rgbaf16le",
+      "type": "I....",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "vuyx",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "p012le",
+      "type": "IO...",
+      "description": "3             18      12-12-12"
+    },
+    {
+      "name": "p012be",
+      "type": "IO...",
+      "description": "3             18      12-12-12"
+    },
+    {
+      "name": "y212be",
+      "type": ".....",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "y212le",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "xv30be",
+      "type": "....B",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "xv30le",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "xv36be",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "xv36le",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "rgbf32be",
+      "type": "I....",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "rgbf32le",
+      "type": "I....",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "rgbaf32be",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "rgbaf32le",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "p212be",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "p212le",
+      "type": "IO...",
+      "description": "3             24      12-12-12"
+    },
+    {
+      "name": "p412be",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "p412le",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "gbrap14be",
+      "type": "IO...",
+      "description": "4             56      14-14-14-14"
+    },
+    {
+      "name": "gbrap14le",
+      "type": "IO...",
+      "description": "4             56      14-14-14-14"
+    },
+    {
+      "name": "d3d12",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "ayuv",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "uyva",
+      "type": "IO...",
+      "description": "4             32      8-8-8-8"
+    },
+    {
+      "name": "vyu444",
+      "type": "IO...",
+      "description": "3             24      8-8-8"
+    },
+    {
+      "name": "v30xbe",
+      "type": "....B",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "v30xle",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "rgbf16be",
+      "type": "I....",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "rgbf16le",
+      "type": "I....",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "rgba128be",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "rgba128le",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "rgb96be",
+      "type": ".....",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "rgb96le",
+      "type": ".....",
+      "description": "3             96      32-32-32"
+    },
+    {
+      "name": "y216be",
+      "type": ".....",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "y216le",
+      "type": "IO...",
+      "description": "3             32      16-16-16"
+    },
+    {
+      "name": "xv48be",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "xv48le",
+      "type": "IO...",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "gbrpf16be",
+      "type": "I....",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "gbrpf16le",
+      "type": "I....",
+      "description": "3             48      16-16-16"
+    },
+    {
+      "name": "gbrapf16be",
+      "type": "I....",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "gbrapf16le",
+      "type": "I....",
+      "description": "4             64      16-16-16-16"
+    },
+    {
+      "name": "grayf16be",
+      "type": "I....",
+      "description": "1             16      16"
+    },
+    {
+      "name": "grayf16le",
+      "type": "I....",
+      "description": "1             16      16"
+    },
+    {
+      "name": "amf",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "gray32be",
+      "type": ".....",
+      "description": "1             32      32"
+    },
+    {
+      "name": "gray32le",
+      "type": ".....",
+      "description": "1             32      32"
+    },
+    {
+      "name": "yaf32be",
+      "type": "I....",
+      "description": "2             64      32-32"
+    },
+    {
+      "name": "yaf32le",
+      "type": "I....",
+      "description": "2             64      32-32"
+    },
+    {
+      "name": "yaf16be",
+      "type": "I....",
+      "description": "2             32      16-16"
+    },
+    {
+      "name": "yaf16le",
+      "type": "I....",
+      "description": "2             32      16-16"
+    },
+    {
+      "name": "gbrap32be",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "gbrap32le",
+      "type": ".....",
+      "description": "4            128      32-32-32-32"
+    },
+    {
+      "name": "yuv444p10msbbe",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "yuv444p10msble",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "yuv444p12msbbe",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "yuv444p12msble",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "gbrp10msbbe",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "gbrp10msble",
+      "type": "IO...",
+      "description": "3             30      10-10-10"
+    },
+    {
+      "name": "gbrp12msbbe",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "gbrp12msble",
+      "type": "IO...",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "ohcodec",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "cuarray",
+      "type": "..H..",
+      "description": "0              0      0"
+    },
+    {
+      "name": "xyzp12le",
+      "type": ".....",
+      "description": "3             36      12-12-12"
+    },
+    {
+      "name": "xyzp12be",
+      "type": ".....",
+      "description": "3             36      12-12-12"
+    }
+  ],
+  "sampleFormats": [
+    {
+      "name": "u8",
+      "depth": "8"
+    },
+    {
+      "name": "s16",
+      "depth": "16"
+    },
+    {
+      "name": "s32",
+      "depth": "32"
+    },
+    {
+      "name": "flt",
+      "depth": "32"
+    },
+    {
+      "name": "dbl",
+      "depth": "64"
+    },
+    {
+      "name": "u8p",
+      "depth": "8"
+    },
+    {
+      "name": "s16p",
+      "depth": "16"
+    },
+    {
+      "name": "s32p",
+      "depth": "32"
+    },
+    {
+      "name": "fltp",
+      "depth": "32"
+    },
+    {
+      "name": "dblp",
+      "depth": "64"
+    },
+    {
+      "name": "s64",
+      "depth": "64"
+    },
+    {
+      "name": "s64p",
+      "depth": "64"
+    },
+    {
+      "name": "dsd",
+      "depth": "8"
+    }
+  ]
+}

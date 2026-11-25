@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import type { ChangeEvent, CSSProperties } from 'react'
 import { buildHash, parseHash } from './core/router'
 import { planFromRecipe } from './core/plan'
 import { render } from './core/render'
 import { validate } from './core/validate'
 import type { CalibrationValues } from './ui/calibration/parse'
-import type { Shell } from './core/types'
+import type { Shell, ToolSpec } from './core/types'
 import type { TrimRulerMode } from './ui/moment/TrimRuler'
 import { content } from './content'
 import filters from './spec/filters.json'
+import optionsSpec from './spec/options.json'
 import { recipes } from './recipes'
-import { spec } from './spec'
 import { AdvancedDrawer } from './ui/advanced/AdvancedDrawer'
 import { UserBuildCheck } from './ui/buildcheck'
 import { FilterGraphEditor } from './ui/graph'
@@ -24,6 +24,14 @@ import { Panel } from './ui/primitives/Panel'
 import { Segmented } from './ui/primitives/Segmented'
 import { CommandReceipt } from './ui/receipt/CommandReceipt'
 import { TrimRuler } from './ui/moment/TrimRuler'
+
+const CoveragePanel = lazy(() =>
+  import('./ui/coverage').then((module) => ({ default: module.CoveragePanel })),
+)
+
+const spec = optionsSpec as unknown as ToolSpec & {
+  readonly provenance: { readonly version: string }
+}
 
 const SHELLS: readonly Shell[] = ['posix', 'powershell', 'cmd']
 
@@ -44,6 +52,32 @@ export default function App() {
   const [rawArgs, setRawArgs] = useState('')
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [graphValue, setGraphValue] = useState('')
+  const [showCoverage, setShowCoverage] = useState(() => !('IntersectionObserver' in window))
+  const coverageRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    if (showCoverage) return
+    const onFirstScroll = () => setShowCoverage(true)
+    window.addEventListener('scroll', onFirstScroll, { once: true, passive: true })
+    const node = coverageRef.current
+    if (node === null || !('IntersectionObserver' in window)) {
+      return () => window.removeEventListener('scroll', onFirstScroll)
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowCoverage(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' },
+    )
+    observer.observe(node)
+    return () => {
+      window.removeEventListener('scroll', onFirstScroll)
+      observer.disconnect()
+    }
+  }, [showCoverage])
 
   useEffect(() => {
     history.replaceState(
@@ -209,8 +243,14 @@ export default function App() {
         />
       </section>
 
-      <section className="app-section" style={sectionStyle}>
-        <Panel label="Coverage">{content.coverage}</Panel>
+      <section className="app-section" style={sectionStyle} ref={coverageRef}>
+        <Panel label="Coverage">
+          {showCoverage ? (
+            <Suspense fallback={<p className="app-note">Loading coverage…</p>}>
+              <CoveragePanel />
+            </Suspense>
+          ) : null}
+        </Panel>
       </section>
 
       <p className="app-note">{content.emptyState}</p>
