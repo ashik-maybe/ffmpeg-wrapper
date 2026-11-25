@@ -11,6 +11,7 @@ body {
   font-family: var(--font-ui);
   font-size: var(--type-body);
   line-height: var(--line-height-body);
+  font-variant-numeric: tabular-nums;
 }
 
 .app {
