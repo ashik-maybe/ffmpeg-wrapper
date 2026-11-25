@@ -1,0 +1,145 @@
+{
+  "recipes": [
+    {
+      "id": "hls",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "option", "name": "acodec", "value": "aac" },
+        { "kind": "option", "name": "f", "value": "hls" },
+        { "kind": "option", "name": "hls_time", "value": "6" },
+        { "kind": "option", "name": "hls_list_size", "value": "0" },
+        { "kind": "option", "name": "hls_flags", "value": "delete_segments" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "dash",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "option", "name": "f", "value": "dash" },
+        { "kind": "option", "name": "init_seg_name", "value": "init.mp4" },
+        { "kind": "option", "name": "index_correction", "value": "1" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "rtmp",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "option", "name": "acodec", "value": "aac" },
+        { "kind": "option", "name": "f", "value": "rtmp" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "srt",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "flag", "name": "vn" },
+        { "kind": "flag", "name": "an" },
+        { "kind": "option", "name": "vcodec", "value": "srt", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "screen-capture",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "f", "value": "avfoundation" },
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "image-sequence",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "framerate", "value": "30" },
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "concat-demuxer",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "f", "value": "concat" },
+        { "kind": "option", "name": "safe", "value": "0" },
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "loudnorm-target",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "af", "value": "loudnorm=I=-16:LRA=11:TP=-1.5" },
+        { "kind": "option", "name": "acodec", "value": "aac" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "audio-mix",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "ac", "value": "2" },
+        { "kind": "option", "name": "acodec", "value": "aac" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "fade",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "fade=t=in:st=0:d=2" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "rotate",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "rotate=90" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "crop-detect",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "cropdetect=limit=24" },
+        { "kind": "option", "name": "f", "value": "null" },
+        { "kind": "value", "name": "output", "value": "-" }
+      ]
+    }
+  ]
+}
