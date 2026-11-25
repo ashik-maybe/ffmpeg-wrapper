@@ -33,10 +33,16 @@ describe('CoveragePanel', () => {
     }
   })
 
-  it('states that raw arguments are unverified', () => {
+  it('states browser limits and TUI execution', () => {
     render(<CoveragePanel />)
-    expect(
-      screen.getByText(/Raw arguments are unverified and combinations are not executed/),
-    ).toBeTruthy()
+    expect(screen.getByText(/Raw arguments are unverified/)).toBeTruthy()
+    expect(screen.getByText(/browser does not run FFmpeg/)).toBeTruthy()
+    expect(screen.getByText(/TUI does the execution/)).toBeTruthy()
+    expect(screen.getByText(/Linux only/)).toBeTruthy()
+    expect(screen.getByText(/--run/)).toBeTruthy()
+    expect(screen.getByText(/--yes/)).toBeTruthy()
+    expect(screen.getByText(/--force/)).toBeTruthy()
+    expect(screen.getByText(/--unsafe/)).toBeTruthy()
+    expect(screen.getByText(/Ctrl\+C/)).toBeTruthy()
   })
 })

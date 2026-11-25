@@ -44,7 +44,11 @@ export function CoveragePanel({ className }: CoveragePanelProps) {
         </tbody>
       </table>
       <p className="ui-coverage__note">
-        Raw arguments are unverified and combinations are not executed in the browser.
+        Raw arguments are unverified. The browser does not run FFmpeg.
+      </p>
+      <p className="ui-coverage__note">
+        The TUI does the execution. Linux only. Flags: --run, --yes, --force, --unsafe. Stop with
+        Ctrl+C.
       </p>
     </section>
   )

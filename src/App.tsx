@@ -140,6 +140,9 @@ export default function App() {
       <section className="hero" aria-label="Hero" style={heroStyle}>
         <h1 className="app-heading">{content.heroHeading}</h1>
         <p className="app-note hero-stamp">CHECKED {spec.provenance.version}</p>
+        <p className="app-note">
+          This web app builds commands only. The browser does not run FFmpeg.
+        </p>
       </section>
 
       <section className="app-section" style={sectionStyle}>
