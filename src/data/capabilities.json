@@ -1,12 +1,7 @@
 {
   "version": "9.1",
   "generatedAt": "2026-11-25",
-  "sources": [
-    "ffmpeg-encoders.txt",
-    "ffmpeg-muxers.txt",
-    "ffmpeg-filters.txt",
-    "ffmpeg-help.txt"
-  ],
+  "sources": ["ffmpeg-encoders.txt", "ffmpeg-muxers.txt", "ffmpeg-filters.txt", "ffmpeg-help.txt"],
   "sha256": {
     "ffmpeg-encoders.txt": "0ab94c495f7c8bc84096f052ec06adc0467468e1d6223e715a14da4867217e08",
     "ffmpeg-muxers.txt": "d8180450dbed6d7a79ae3bbe7e6179ac6eed854df2b6caf6efb31b347fc1bc0d",
@@ -44,25 +39,16 @@
     {
       "name": "amv",
       "mediaType": "video",
-      "containers": [
-        "amv"
-      ],
+      "containers": ["amv"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "apng",
       "mediaType": "video",
-      "containers": [
-        "apng"
-      ],
+      "containers": ["apng"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -91,22 +77,16 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "crf"
-      ],
+      "rateControl": ["crf"],
       "presets": [],
-      "profiles": [
-        "level"
-      ]
+      "profiles": ["level"]
     },
     {
       "name": "librav1e",
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp"
-      ],
+      "rateControl": ["qp"],
       "presets": [],
       "profiles": []
     },
@@ -115,13 +95,8 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "crf",
-        "qp"
-      ],
-      "presets": [
-        "preset"
-      ],
+      "rateControl": ["crf", "qp"],
+      "presets": ["preset"],
       "profiles": []
     },
     {
@@ -199,15 +174,11 @@
     {
       "name": "dnxhd",
       "mediaType": "video",
-      "containers": [
-        "dnxhd"
-      ],
+      "containers": ["dnxhd"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
-      "profiles": [
-        "profile"
-      ]
+      "profiles": ["profile"]
     },
     {
       "name": "dpx",
@@ -259,21 +230,14 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "fits",
       "mediaType": "video",
-      "containers": [
-        "fits"
-      ],
+      "containers": ["fits"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -300,9 +264,7 @@
     {
       "name": "flv",
       "mediaType": "video",
-      "containers": [
-        "flv"
-      ],
+      "containers": ["flv"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -311,25 +273,16 @@
     {
       "name": "gif",
       "mediaType": "video",
-      "containers": [
-        "gif"
-      ],
+      "containers": ["gif"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "h261",
       "mediaType": "video",
-      "containers": [
-        "h261"
-      ],
+      "containers": ["h261"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -338,16 +291,9 @@
     {
       "name": "h263",
       "mediaType": "video",
-      "containers": [
-        "h263"
-      ],
+      "containers": ["h263"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
@@ -365,63 +311,27 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "libx264",
       "mediaType": "video",
-      "containers": [
-        "mp4",
-        "mov",
-        "avi",
-        "flv",
-        "mpegts",
-        "h264"
-      ],
+      "containers": ["mp4", "mov", "avi", "flv", "mpegts", "h264"],
       "pix_fmts": [],
-      "rateControl": [
-        "crf",
-        "qp",
-        "vbr",
-        "cbr"
-      ],
-      "presets": [
-        "preset"
-      ],
-      "profiles": [
-        "profile",
-        "level"
-      ]
+      "rateControl": ["crf", "qp", "vbr", "cbr"],
+      "presets": ["preset"],
+      "profiles": ["profile", "level"]
     },
     {
       "name": "libx264rgb",
       "mediaType": "video",
-      "containers": [
-        "mp4",
-        "mov",
-        "avi"
-      ],
+      "containers": ["mp4", "mov", "avi"],
       "pix_fmts": [],
-      "rateControl": [
-        "crf",
-        "qp",
-        "vbr",
-        "cbr"
-      ],
-      "presets": [
-        "preset"
-      ],
-      "profiles": [
-        "profile",
-        "level"
-      ]
+      "rateControl": ["crf", "qp", "vbr", "cbr"],
+      "presets": ["preset"],
+      "profiles": ["profile", "level"]
     },
     {
       "name": "libopenh264",
@@ -462,21 +372,11 @@
     {
       "name": "libx265",
       "mediaType": "video",
-      "containers": [
-        "mp4",
-        "mov"
-      ],
+      "containers": ["mp4", "mov"],
       "pix_fmts": [],
-      "rateControl": [
-        "crf",
-        "qp"
-      ],
-      "presets": [
-        "preset"
-      ],
-      "profiles": [
-        "profile"
-      ]
+      "rateControl": ["crf", "qp"],
+      "presets": ["preset"],
+      "profiles": ["profile"]
     },
     {
       "name": "hevc_v4l2m2m",
@@ -512,9 +412,7 @@
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
-      "profiles": [
-        "profile"
-      ]
+      "profiles": ["profile"]
     },
     {
       "name": "jpegls",
@@ -546,75 +444,36 @@
     {
       "name": "mjpeg",
       "mediaType": "video",
-      "containers": [
-        "avi",
-        "mp4",
-        "mpeg1video",
-        "mpeg2video",
-        "mjpeg"
-      ],
+      "containers": ["avi", "mp4", "mpeg1video", "mpeg2video", "mjpeg"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "mpeg1video",
       "mediaType": "video",
-      "containers": [
-        "mpeg1video",
-        "mpeg"
-      ],
+      "containers": ["mpeg1video", "mpeg"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "mpeg2video",
       "mediaType": "video",
-      "containers": [
-        "mpeg2video",
-        "mpegts",
-        "mpeg"
-      ],
+      "containers": ["mpeg2video", "mpegts", "mpeg"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "mpeg4",
       "mediaType": "video",
-      "containers": [
-        "mp4",
-        "mov",
-        "avi",
-        "mpegts",
-        "mpeg"
-      ],
+      "containers": ["mp4", "mov", "avi", "mpegts", "mpeg"],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
@@ -693,9 +552,7 @@
     {
       "name": "pdv",
       "mediaType": "video",
-      "containers": [
-        "pdv"
-      ],
+      "containers": ["pdv"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -740,9 +597,7 @@
     {
       "name": "png",
       "mediaType": "video",
-      "containers": [
-        "apng"
-      ],
+      "containers": ["apng"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -760,15 +615,11 @@
     {
       "name": "prores",
       "mediaType": "video",
-      "containers": [
-        "mov"
-      ],
+      "containers": ["mov"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
-      "profiles": [
-        "profile"
-      ]
+      "profiles": ["profile"]
     },
     {
       "name": "prores_aw",
@@ -827,10 +678,7 @@
     {
       "name": "rawvideo",
       "mediaType": "video",
-      "containers": [
-        "rawvideo",
-        "yuv4mpegpipe"
-      ],
+      "containers": ["rawvideo", "yuv4mpegpipe"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -850,12 +698,7 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
@@ -900,12 +743,7 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
@@ -986,12 +824,7 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp",
-        "vbr",
-        "qmin",
-        "qmax"
-      ],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
       "presets": [],
       "profiles": []
     },
@@ -1007,10 +840,7 @@
     {
       "name": "libvpx",
       "mediaType": "video",
-      "containers": [
-        "webm",
-        "avi"
-      ],
+      "containers": ["webm", "avi"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1030,29 +860,18 @@
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "crf",
-        "vbr"
-      ],
+      "rateControl": ["crf", "vbr"],
       "presets": [],
-      "profiles": [
-        "level"
-      ]
+      "profiles": ["level"]
     },
     {
       "name": "libvvenc",
       "mediaType": "video",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "qp"
-      ],
-      "presets": [
-        "preset"
-      ],
-      "profiles": [
-        "level"
-      ]
+      "rateControl": ["qp"],
+      "presets": ["preset"],
+      "profiles": ["level"]
     },
     {
       "name": "wbmp",
@@ -1078,9 +897,7 @@
       "containers": [],
       "pix_fmts": [],
       "rateControl": [],
-      "presets": [
-        "preset"
-      ],
+      "presets": ["preset"],
       "profiles": []
     },
     {
@@ -1176,25 +993,16 @@
     {
       "name": "aac",
       "mediaType": "audio",
-      "containers": [
-        "adts",
-        "mp4"
-      ],
+      "containers": ["adts", "mp4"],
       "pix_fmts": [],
-      "rateControl": [
-        "cbr"
-      ],
+      "rateControl": ["cbr"],
       "presets": [],
       "profiles": []
     },
     {
       "name": "ac3",
       "mediaType": "audio",
-      "containers": [
-        "ac3",
-        "adts",
-        "mp4"
-      ],
+      "containers": ["ac3", "adts", "mp4"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1230,9 +1038,7 @@
     {
       "name": "g722",
       "mediaType": "audio",
-      "containers": [
-        "g722"
-      ],
+      "containers": ["g722"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1241,9 +1047,7 @@
     {
       "name": "g726",
       "mediaType": "audio",
-      "containers": [
-        "g726"
-      ],
+      "containers": ["g726"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1252,9 +1056,7 @@
     {
       "name": "g726le",
       "mediaType": "audio",
-      "containers": [
-        "g726le"
-      ],
+      "containers": ["g726le"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1353,9 +1155,7 @@
     {
       "name": "alac",
       "mediaType": "audio",
-      "containers": [
-        "mp4"
-      ],
+      "containers": ["mp4"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1373,9 +1173,7 @@
     {
       "name": "aptx",
       "mediaType": "audio",
-      "containers": [
-        "aptx"
-      ],
+      "containers": ["aptx"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1384,9 +1182,7 @@
     {
       "name": "aptx_hd",
       "mediaType": "audio",
-      "containers": [
-        "aptx_hd"
-      ],
+      "containers": ["aptx_hd"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1404,9 +1200,7 @@
     {
       "name": "dfpwm",
       "mediaType": "audio",
-      "containers": [
-        "dfpwm"
-      ],
+      "containers": ["dfpwm"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1433,9 +1227,7 @@
     {
       "name": "eac3",
       "mediaType": "audio",
-      "containers": [
-        "eac3"
-      ],
+      "containers": ["eac3"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1444,9 +1236,7 @@
     {
       "name": "flac",
       "mediaType": "audio",
-      "containers": [
-        "flac"
-      ],
+      "containers": ["flac"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1455,9 +1245,7 @@
     {
       "name": "g723_1",
       "mediaType": "audio",
-      "containers": [
-        "g723_1"
-      ],
+      "containers": ["g723_1"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1466,9 +1254,7 @@
     {
       "name": "mlp",
       "mediaType": "audio",
-      "containers": [
-        "mlp"
-      ],
+      "containers": ["mlp"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1477,10 +1263,7 @@
     {
       "name": "mp2",
       "mediaType": "audio",
-      "containers": [
-        "mp3",
-        "mp2"
-      ],
+      "containers": ["mp3", "mp2"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1516,12 +1299,7 @@
     {
       "name": "opus",
       "mediaType": "audio",
-      "containers": [
-        "ogg",
-        "oga",
-        "webm",
-        "opus"
-      ],
+      "containers": ["ogg", "oga", "webm", "opus"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1532,9 +1310,7 @@
       "mediaType": "audio",
       "containers": [],
       "pix_fmts": [],
-      "rateControl": [
-        "vbr"
-      ],
+      "rateControl": ["vbr"],
       "presets": [],
       "profiles": []
     },
@@ -1847,9 +1623,7 @@
     {
       "name": "sbc",
       "mediaType": "audio",
-      "containers": [
-        "sbc"
-      ],
+      "containers": ["sbc"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1858,9 +1632,7 @@
     {
       "name": "truehd",
       "mediaType": "audio",
-      "containers": [
-        "truehd"
-      ],
+      "containers": ["truehd"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1869,9 +1641,7 @@
     {
       "name": "tta",
       "mediaType": "audio",
-      "containers": [
-        "tta"
-      ],
+      "containers": ["tta"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1880,11 +1650,7 @@
     {
       "name": "vorbis",
       "mediaType": "audio",
-      "containers": [
-        "ogg",
-        "oga",
-        "webm"
-      ],
+      "containers": ["ogg", "oga", "webm"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1938,9 +1704,7 @@
     {
       "name": "ass",
       "mediaType": "subtitle",
-      "containers": [
-        "ass"
-      ],
+      "containers": ["ass"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -1976,9 +1740,7 @@
     {
       "name": "srt",
       "mediaType": "subtitle",
-      "containers": [
-        "srt"
-      ],
+      "containers": ["srt"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -2005,9 +1767,7 @@
     {
       "name": "ttml",
       "mediaType": "subtitle",
-      "containers": [
-        "ttml"
-      ],
+      "containers": ["ttml"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
@@ -2016,9 +1776,7 @@
     {
       "name": "webvtt",
       "mediaType": "subtitle",
-      "containers": [
-        "webvtt"
-      ],
+      "containers": ["webvtt"],
       "pix_fmts": [],
       "rateControl": [],
       "presets": [],
