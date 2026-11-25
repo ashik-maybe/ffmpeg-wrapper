@@ -27,7 +27,7 @@
       "args": [
         { "kind": "value", "name": "input", "value": "{{input}}" },
         { "kind": "option", "name": "metadata", "value": "title={{title}}" },
-        { "kind": "option", "name": "metadata", "value": "language={{language}}" },
+        { "kind": "option", "name": "metadata:s:a:0", "value": "language={{language}}" },
         { "kind": "value", "name": "output", "value": "{{output}}" }
       ]
     },
