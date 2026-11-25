@@ -40,11 +40,22 @@ export default function App() {
   const [advancedOpen, setAdvancedOpen] = useState(false)
 
   useEffect(() => {
-    window.location.hash = buildHash({
-      page: 'home',
-      params: { recipeId, file: filePath },
-    })
+    history.replaceState(
+      null,
+      '',
+      buildHash({ page: 'home', params: { recipeId, file: filePath } }),
+    )
   }, [recipeId, filePath])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const { params } = parseHash(window.location.hash)
+      if (params.recipeId !== undefined) setRecipeId(params.recipeId)
+      if (params.file !== undefined) setFilePath(params.file)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
   const recipe = recipes.find((item) => item.id === recipeId) ?? recipes[0]
   if (recipe === undefined) return <main className="app">{content.errorState}</main>
@@ -133,13 +144,15 @@ export default function App() {
         </Panel>
       ) : null}
 
-      <HandoffPanel defaultShell={shell} />
+      <HandoffPanel value={shell} onValueChange={setShell} />
       <CalibrationPanel onParsed={handleCalibration} />
 
-      <Button variant="quiet" onClick={() => setAdvancedOpen(true)}>
-        Advanced
-      </Button>
-      <AdvancedDrawer open={advancedOpen} onOpenChange={setAdvancedOpen} onSubmit={setRawArgs} />
+      <AdvancedDrawer
+        open={advancedOpen}
+        onOpenChange={setAdvancedOpen}
+        onSubmit={setRawArgs}
+        trigger={<Button variant="quiet">Advanced</Button>}
+      />
 
       <Panel label="Coverage">{content.coverage}</Panel>
       <p className="app-note">{content.emptyState}</p>

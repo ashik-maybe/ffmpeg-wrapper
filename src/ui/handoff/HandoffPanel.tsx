@@ -18,11 +18,11 @@ const installLines: Record<Shell, string> = {
 }
 
 export type HandoffPanelProps = {
-  defaultShell?: Shell
+  value: Shell
+  onValueChange: (value: Shell) => void
 }
 
-export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
-  const [shell, setShell] = useState<Shell>(defaultShell)
+export function HandoffPanel({ value, onValueChange }: HandoffPanelProps) {
   const [path, setPath] = useState('')
   const [version, setVersion] = useState('')
 
@@ -48,8 +48,8 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
     <Panel label="Handoff">
       <Field label="Shell">
         <Segmented
-          value={shell}
-          onValueChange={(value) => setShell(value as Shell)}
+          value={value}
+          onValueChange={(next) => onValueChange(next as Shell)}
           segments={[
             { value: 'posix', label: 'Posix' },
             { value: 'powershell', label: 'PowerShell' },
@@ -60,7 +60,7 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
       </Field>
 
       <Field label="Install line">
-        <p className="handoff__install">{installLines[shell]}</p>
+        <p className="handoff__install">{installLines[value]}</p>
       </Field>
 
       <Field label="Keystrokes">
