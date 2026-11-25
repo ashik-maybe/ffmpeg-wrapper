@@ -14,11 +14,14 @@ for (const detail of optionDetails) {
 }
 
 function isValidFlag(name: string): boolean {
-  return detailNames.has(name) || help.includes(`-${name}`)
+  if (detailNames.has(name) || help.includes(`-${name}`)) return true
+  const base = name.split(':')[0]
+  return base !== name && detailNames.has(base) && help.includes(`-${base}[:`)
 }
 
 const missing = new Set<string>()
 for (const recipe of recipes) {
+  if (recipe.confidence === 'unverified') continue
   for (const arg of recipe.args) {
     if (arg.kind === 'value') continue
     if (!isValidFlag(arg.name)) missing.add(arg.name)

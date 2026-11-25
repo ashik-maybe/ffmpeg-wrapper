@@ -1,0 +1,45 @@
+{
+  "recipes": [
+    {
+      "id": "faststart",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "movflags", "value": "+faststart" },
+        { "kind": "value", "name": "output", "value": "{{output}}.mp4" }
+      ]
+    },
+    {
+      "id": "strip-metadata",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "map_metadata", "value": "-1" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "set-metadata",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "metadata", "value": "title={{title}}" },
+        { "kind": "option", "name": "metadata:s:a:0", "value": "language={{language}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "disposition",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "disposition", "value": "default" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    }
+  ]
+}

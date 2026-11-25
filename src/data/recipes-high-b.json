@@ -1,0 +1,46 @@
+{
+  "recipes": [
+    {
+      "id": "force-keyframes",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "force_key_frames", "value": "expr:gte(t,n_forced*5)" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "copyts",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "flag", "name": "copyts" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "avoid-negative-ts",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "avoid_negative_ts", "value": "make_zero" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "explicit-map",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "map", "value": "0:v" },
+        { "kind": "option", "name": "map", "value": "0:a" },
+        { "kind": "option", "name": "c", "value": "copy" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    }
+  ]
+}

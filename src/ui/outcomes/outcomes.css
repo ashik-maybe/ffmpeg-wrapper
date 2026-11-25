@@ -1,6 +1,24 @@
 /* Outcome cards, built from design tokens. Grid on the 4px spacing scale,
  * sharp shape. */
 
+.outcome-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.outcome-grid__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.outcome-grid__group-label {
+  margin: 0;
+  color: var(--film-2);
+  font: 500 var(--type-ui) var(--font-ui);
+}
+
 .outcome-grid__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));

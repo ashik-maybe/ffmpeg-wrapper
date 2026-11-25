@@ -12,17 +12,24 @@ interface Rule {
   readonly requireAny?: readonly string[]
   readonly requireAll?: readonly string[]
   readonly forbidAny?: readonly string[]
+  readonly forbidFlagValues?: readonly {
+    readonly flag: string
+    readonly values: readonly string[]
+  }[]
+  readonly outputExtensions?: readonly string[]
   readonly valueConstraint?: ValueConstraint
   readonly order?: { readonly flag: string; readonly before: string }
 }
 
 /**
  * Value constraint of a rule: a forbidden value set, a required value
- * set, or a numeric range.
+ * set, a numeric range, a substring, or a real file path.
  */
 interface ValueConstraint {
   readonly oneOf?: readonly string[]
   readonly notOneOf?: readonly string[]
+  readonly includes?: string
+  readonly realFile?: boolean
   readonly min?: number
   readonly max?: number
 }
@@ -50,17 +57,25 @@ function hasFlag(args: readonly Arg[], flag: string): boolean {
 }
 
 function violates(value: string, constraint: ValueConstraint): boolean {
-  const oneOf = constraint.oneOf
-  const notOneOf = constraint.notOneOf
+  const { oneOf, notOneOf, includes, realFile, min, max } = constraint
+  if (realFile) {
+    if (value.trim().length === 0) return true
+  }
   if (oneOf !== undefined || notOneOf !== undefined) {
     if (oneOf !== undefined && !oneOf.includes(value)) return true
     if (notOneOf !== undefined && notOneOf.includes(value)) return true
     return false
   }
+  if (includes !== undefined) {
+    return !value.includes(includes)
+  }
+  if (realFile) {
+    return false
+  }
   const number = Number(value)
   if (Number.isNaN(number)) return true
-  if (constraint.min !== undefined && number < constraint.min) return true
-  if (constraint.max !== undefined && number > constraint.max) return true
+  if (min !== undefined && number < min) return true
+  if (max !== undefined && number > max) return true
   return false
 }
 
@@ -71,6 +86,17 @@ function finding(rule: Rule): Finding {
     message: rule.message,
     file: findingFile,
   }
+}
+
+function outputExtensionsOf(args: readonly Arg[]): string[] {
+  return args
+    .filter((arg) => arg.kind === 'value' && arg.value !== undefined)
+    .map((arg) => {
+      const value = arg.value ?? ''
+      const dot = value.lastIndexOf('.')
+      return dot >= 0 ? value.slice(dot + 1).toLowerCase() : ''
+    })
+    .filter((ext) => ext.length > 0)
 }
 
 /**
@@ -92,7 +118,13 @@ export function validate(plan: Plan, spec: ToolSpec): Finding[] {
         return value !== undefined && !violates(value, rule.valueConstraint!)
       })
     if (rule.valueConstraint && !gatePassed) {
-      if (rule.forbidAny === undefined) findings.push(finding(rule))
+      if (
+        rule.forbidAny === undefined &&
+        rule.forbidFlagValues === undefined &&
+        rule.outputExtensions === undefined
+      ) {
+        findings.push(finding(rule))
+      }
       continue
     }
     for (const flag of rule.requireAll ?? []) {
@@ -100,6 +132,19 @@ export function validate(plan: Plan, spec: ToolSpec): Finding[] {
     }
     for (const flag of rule.forbidAny ?? []) {
       if (hasFlag(args, flag)) findings.push(finding(rule))
+    }
+    for (const entry of rule.forbidFlagValues ?? []) {
+      if (
+        args.some((arg) => matchesFlag(arg, entry.flag) && entry.values.includes(arg.value ?? ''))
+      ) {
+        findings.push(finding(rule))
+      }
+    }
+    if (rule.outputExtensions) {
+      const exts = outputExtensionsOf(args)
+      if (exts.length > 0 && !exts.some((ext) => rule.outputExtensions!.includes(ext))) {
+        findings.push(finding(rule))
+      }
     }
     const order = rule.order
     if (order) {

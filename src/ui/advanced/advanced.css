@@ -18,6 +18,7 @@
   padding: var(--space-5);
   background: var(--room);
   border: 1px solid var(--rule);
+  overflow-y: auto;
 }
 
 .ui-advanced__title {

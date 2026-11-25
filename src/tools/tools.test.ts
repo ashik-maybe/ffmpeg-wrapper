@@ -271,4 +271,118 @@ describe('validateAgainstRuntime', () => {
     }
     expect(validateAgainstRuntime(spec, recipe)).toEqual([])
   })
+
+  it('flags faststart when movflags missing from spec', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      options: spec.options.filter((o) => o !== 'movflags'),
+    }
+    const recipe: Recipe = {
+      id: 'faststart',
+      tool: 'ffmpeg',
+      args: [
+        { kind: 'value', name: 'input', value: '{{input}}' },
+        { kind: 'option', name: 'movflags', value: '+faststart' },
+        { kind: 'value', name: 'output', value: '{{output}}.mp4' },
+      ],
+    }
+    const findings = validateAgainstRuntime(runtimeSpec, recipe)
+    expect(findings.some((f) => /movflags|faststart/i.test(f.message))).toBe(true)
+  })
+
+  it('flags force-keyframes when force_key_frames missing from spec', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      options: spec.options.filter((o) => o !== 'force_key_frames'),
+    }
+    const recipe: Recipe = {
+      id: 'force-keyframes',
+      tool: 'ffmpeg',
+      args: [
+        { kind: 'value', name: 'input', value: '{{input}}' },
+        { kind: 'option', name: 'force_key_frames', value: 'expr:gte(t,n_forced*5)' },
+        { kind: 'value', name: 'output', value: '{{output}}' },
+      ],
+    }
+    const findings = validateAgainstRuntime(runtimeSpec, recipe)
+    expect(findings.some((f) => /force_key_frames/i.test(f.message))).toBe(true)
+  })
+
+  it('flags web-h264 as unverified when libx264 missing from spec', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      encoders: spec.encoders.filter((e) => e !== 'libx264'),
+    }
+    const recipe: Recipe = {
+      id: 'web-h264',
+      tool: 'ffmpeg',
+      args: [
+        { kind: 'value', name: 'input', value: '{{input}}' },
+        { kind: 'option', name: 'vcodec', value: 'libx264', alias: 'c:v' },
+        { kind: 'option', name: 'preset', value: 'medium' },
+        { kind: 'option', name: 'crf', value: '23' },
+        { kind: 'value', name: 'output', value: '{{output}}' },
+      ],
+    }
+    const findings = validateAgainstRuntime(runtimeSpec, recipe)
+    expect(findings.some((f) => f.code === 'E_UNVERIFIED')).toBe(true)
+  })
+
+  it('backstop flags faststart even when the recipe omits movflags', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      options: spec.options.filter((o) => o !== 'movflags'),
+    }
+    const recipe: Recipe = {
+      id: 'faststart',
+      tool: 'ffmpeg',
+      args: [{ kind: 'value', name: 'input', value: '{{input}}' }],
+    }
+    expect(validateAgainstRuntime(runtimeSpec, recipe)).toEqual([
+      {
+        severity: 'error',
+        code: 'E_UNKNOWN_OPTION',
+        message: 'Unknown option: -movflags',
+        file: 'recipe:faststart',
+      },
+    ])
+  })
+
+  it('backstop flags missing libx264 even when the recipe has no encoder arg', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      encoders: spec.encoders.filter((e) => e !== 'libx264'),
+    }
+    const recipe: Recipe = {
+      id: 'web-h264',
+      tool: 'ffmpeg',
+      args: [{ kind: 'value', name: 'input', value: '{{input}}' }],
+    }
+    expect(validateAgainstRuntime(runtimeSpec, recipe)).toEqual([
+      {
+        severity: 'error',
+        code: 'E_UNVERIFIED',
+        message: 'Missing encoder: libx264',
+        file: 'recipe:web-h264',
+      },
+    ])
+  })
+
+  it('flags disposition when disposition missing from spec', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      options: spec.options.filter((o) => o !== 'disposition'),
+    }
+    const recipe: Recipe = {
+      id: 'disposition',
+      tool: 'ffmpeg',
+      args: [
+        { kind: 'value', name: 'input', value: '{{input}}' },
+        { kind: 'option', name: 'disposition', value: 'default' },
+        { kind: 'value', name: 'output', value: '{{output}}' },
+      ],
+    }
+    const findings = validateAgainstRuntime(runtimeSpec, recipe)
+    expect(findings.some((f) => /disposition/i.test(f.message))).toBe(true)
+  })
 })

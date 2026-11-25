@@ -3,12 +3,20 @@ import type { Recipe } from '../core/types'
 import recipesData from '../data/recipes.json'
 import recipesExtraData from '../data/recipes-extra.json'
 import recipesAdvancedData from '../data/recipes-advanced.json'
+import highA from '../data/recipes-high-a.json'
+import highB from '../data/recipes-high-b.json'
+import highC from '../data/recipes-high-c.json'
+import highD from '../data/recipes-high-d.json'
 import { recipes } from './index'
 
 const sets = [
   (recipesData as { recipes: Recipe[] }).recipes,
   (recipesExtraData as { recipes: Recipe[] }).recipes,
   (recipesAdvancedData as { recipes: Recipe[] }).recipes,
+  (highA as { recipes: Recipe[] }).recipes,
+  (highB as { recipes: Recipe[] }).recipes,
+  (highC as { recipes: Recipe[] }).recipes,
+  (highD as { recipes: Recipe[] }).recipes,
 ]
 
 describe('recipes loader', () => {
