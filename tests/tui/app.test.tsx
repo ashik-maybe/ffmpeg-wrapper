@@ -9,7 +9,7 @@ const baseSpec: RuntimeSpec = {
   version: '7.0-test',
   options: ['i', 'c', 'c:v', 'c:a', 'ss', 't', 'vn', 'preset', 'crf'],
   filters: [],
-  encoders: ['libx264', 'aac'],
+  encoders: ['libx264', 'aac', 'copy'],
   muxers: ['mp4'],
   demuxers: ['mov,mp4,m4a,3gp,3g2,mj2'],
   protocols: ['file'],

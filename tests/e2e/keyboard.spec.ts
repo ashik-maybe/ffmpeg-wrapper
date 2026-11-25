@@ -2,9 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test('keyboard-only flow selects an outcome and shows command', async ({ page }) => {
   await page.goto('/')
-  await expect(
-    page.getByRole('heading', { name: 'FFmpeg command generator for video edits' }),
-  ).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'ffmpeg-wrapper for video edits' })).toBeVisible()
 
   const outcome = page.getByRole('button', { name: /Trim/ })
   for (let i = 0; i < 50; i += 1) {

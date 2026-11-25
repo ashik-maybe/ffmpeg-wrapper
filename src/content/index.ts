@@ -54,7 +54,7 @@ export interface Content {
 }
 
 export const content: Content = {
-  heroHeading: 'FFmpeg command generator for video edits',
+  heroHeading: 'ffmpeg-wrapper for video edits',
   heroSupport: 'For ffmpeg 9.1',
   heroBody: 'Type the edit you want and the command is ready',
   outcomes: [

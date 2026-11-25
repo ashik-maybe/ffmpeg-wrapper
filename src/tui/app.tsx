@@ -1,16 +1,18 @@
+import { stat } from 'node:fs/promises'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Box, Text, useApp, useInput } from 'ink'
 import { OutcomeScreen, OptionsScreen, ResultScreen } from './screens/index.ts'
 import type { OptionsValues, ResultFinding } from './screens/index.ts'
 import { recipes } from '../recipes/index.ts'
 import { content } from '../content/index.ts'
-import { planFromRecipe, render, validate } from '../core/index.ts'
+import { render, validate } from '../core/index.ts'
 import type { Plan, Recipe } from '../core/index.ts'
 import { validateAgainstRuntime } from '../tools/index.ts'
 import type { RuntimeSpec } from '../tools/index.ts'
 import { runProcess } from '../runner/index.ts'
 import type { RunResult } from '../runner/index.ts'
 import { parseProgressLine } from '../progress/index.ts'
+import { bindRecipeValues } from './binding.ts'
 
 export type Screen = 'outcome' | 'options' | 'result'
 
@@ -18,18 +20,51 @@ export interface AppProps {
   readonly recipes?: readonly Recipe[]
   readonly runEnabled?: boolean
   readonly yes?: boolean
+  readonly force?: boolean
+  readonly unsafe?: boolean
   readonly version?: string
   readonly spec?: RuntimeSpec
+  readonly ffprobePath?: string
   readonly onRun?: (argv: readonly string[]) => Promise<RunResult>
+  readonly onProbe?: (argv: readonly string[]) => Promise<RunResult>
+  readonly outputExists?: (path: string) => Promise<boolean>
+  readonly outputNonEmpty?: (path: string) => Promise<boolean>
 }
 
 const OPTION_FIELDS: readonly (keyof OptionsValues)[] = [
-  'filePath',
+  'inputPath',
+  'outputPath',
   'inPoint',
   'outPoint',
   'mode',
   'rawArgs',
 ]
+
+const NETWORK_RECIPE_IDS = new Set(['hls', 'dash', 'rtmp', 'srt'])
+const FILTER_SCRIPT_RECIPE_IDS = new Set(['filter-script'])
+const HARDWARE_RECIPE_IDS = new Set(['nvenc', 'qsv', 'vaapi', 'videotoolbox', 'hevc-vulkan'])
+
+function isNetworkRecipe(recipe: Recipe): boolean {
+  return NETWORK_RECIPE_IDS.has(recipe.id)
+}
+
+function isFilterScriptRecipe(recipe: Recipe): boolean {
+  return FILTER_SCRIPT_RECIPE_IDS.has(recipe.id)
+}
+
+function isHardwareRecipe(recipe: Recipe): boolean {
+  return HARDWARE_RECIPE_IDS.has(recipe.id)
+}
+
+function unsafeBlockReason(recipe: Recipe, unsafe: boolean): string | undefined {
+  if (isNetworkRecipe(recipe) && !unsafe) {
+    return 'Network recipes require --unsafe'
+  }
+  if (isFilterScriptRecipe(recipe) && !unsafe) {
+    return 'Filter-script recipes require --unsafe'
+  }
+  return undefined
+}
 
 function defaultOutput(filePath: string): string {
   if (filePath.trim() === '') return 'output.mp4'
@@ -39,11 +74,11 @@ function defaultOutput(filePath: string): string {
 }
 
 function buildValues(opts: OptionsValues): Record<string, string> {
-  const out = defaultOutput(opts.filePath)
+  const output = opts.outputPath.trim() !== '' ? opts.outputPath : defaultOutput(opts.inputPath)
   return {
-    input: opts.filePath,
-    output: out,
-    list: opts.filePath,
+    input: opts.inputPath,
+    output,
+    list: opts.inputPath,
     start: opts.inPoint,
     ss: opts.inPoint,
     end: opts.outPoint,
@@ -114,7 +149,8 @@ function buildPlan(
   opts: OptionsValues,
 ): { plan: Plan; argv: string[]; command: string } {
   const values = buildValues(opts)
-  const plan = planFromRecipe(recipe, values)
+  const bound = bindRecipeValues(recipe, values)
+  const plan: Plan = { recipe: { ...recipe, args: bound.args }, args: bound.args }
   const argv = toArgv(plan, opts.rawArgs)
   const base = render({ tool: plan.recipe.tool, args: plan.args }, 'posix')
   const extra = parseRawArgs(opts.rawArgs)
@@ -126,9 +162,15 @@ export function App({
   recipes: recipesProp,
   runEnabled = false,
   yes = false,
+  force = false,
+  unsafe = false,
   version = 'unknown',
   spec,
+  ffprobePath = 'tools/bin/ffprobe',
   onRun,
+  onProbe,
+  outputExists,
+  outputNonEmpty,
 }: AppProps) {
   const { exit } = useApp()
   const allRecipes = recipesProp ?? recipes
@@ -149,7 +191,8 @@ export function App({
   const [recipeId, setRecipeId] = useState<string>(outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '')
   const [activeField, setActiveField] = useState(0)
   const [opts, setOpts] = useState<OptionsValues>({
-    filePath: 'input.mp4',
+    inputPath: '',
+    outputPath: '',
     inPoint: '',
     outPoint: '',
     mode: 'copy',
@@ -158,10 +201,12 @@ export function App({
   const [runStatus, setRunStatus] = useState<string>('')
   const [running, setRunning] = useState(false)
   const [hasRun, setHasRun] = useState(false)
+  const [verification, setVerification] = useState('')
   const [progress, setProgress] = useState<{ time?: string; fps?: number; speed?: string } | null>(
     null,
   )
   const [rawLog, setRawLog] = useState('')
+  const [confirmedRecipe, setConfirmedRecipe] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
   const ranRef = useRef(false)
   const stdoutBufferRef = useRef('')
@@ -170,6 +215,13 @@ export function App({
     () => allRecipes.find((r) => r.id === recipeId) ?? allRecipes[0],
     [allRecipes, recipeId],
   )
+
+  const guardBlockReason = useMemo(
+    () => (selectedRecipe ? unsafeBlockReason(selectedRecipe, unsafe) : undefined),
+    [selectedRecipe, unsafe],
+  )
+  const hardwareUnverified = selectedRecipe ? isHardwareRecipe(selectedRecipe) : false
+  const hardwareNeedsConfirm = hardwareUnverified && confirmedRecipe !== recipeId
 
   const { plan, argv, command } = useMemo(() => {
     if (!selectedRecipe) {
@@ -180,25 +232,69 @@ export function App({
 
   const findings = useMemo(() => {
     if (!plan || !selectedRecipe) return [] as ResultFinding[]
+    const values = buildValues(opts)
+    const binding = bindRecipeValues(selectedRecipe, values)
     const core = validate(plan, { tool: selectedRecipe.tool, version: 'unknown', options: [] })
     const runtime = spec ? validateAgainstRuntime(spec, selectedRecipe) : []
     const seen = new Set<string>()
     const merged: ResultFinding[] = []
-    for (const f of [...runtime, ...core]) {
+    for (const f of [...binding.findings, ...runtime, ...core]) {
       const key = `${f.code}:${f.message}`
       if (seen.has(key)) continue
       seen.add(key)
       merged.push({ severity: f.severity, message: f.message, code: f.code })
     }
     return merged
-  }, [plan, selectedRecipe, spec])
+  }, [plan, selectedRecipe, spec, opts])
 
   const doRun = useCallback(async () => {
     if (running || ranRef.current) return
+
+    if (guardBlockReason) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus(`Blocked: ${guardBlockReason}`)
+      return
+    }
+
+    if (hardwareNeedsConfirm) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus('Blocked: unconfirmed hardware recipe')
+      return
+    }
+
+    const blocked = findings.some((f) => f.severity === 'error' || f.code === 'UNBOUND_PLACEHOLDER')
+    if (blocked) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus('Blocked: resolve findings before execution')
+      return
+    }
+
+    const outputPath = buildValues(opts).output
+    const exists =
+      outputExists ??
+      (async (path: string) => {
+        try {
+          const s = await stat(path)
+          return s.isFile()
+        } catch {
+          return false
+        }
+      })
+    if (!force && (await exists(outputPath))) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus(`Blocked: output file exists: ${outputPath}`)
+      return
+    }
+
     ranRef.current = true
     setHasRun(true)
     setRunning(true)
     setRunStatus('Running...')
+    setVerification('')
     setProgress(null)
     setRawLog('')
     stdoutBufferRef.current = ''
@@ -232,6 +328,24 @@ export function App({
       }
       if (result.exitCode === 0) {
         setRunStatus(`Exit 0 (${result.durationMs}ms)`)
+        const probe = onProbe ?? ((args: readonly string[]) => runProcess([...args]))
+        const probeResult = await probe([ffprobePath, '-hide_banner', outputPath])
+        const nonEmpty = await (
+          outputNonEmpty ??
+          (async (path: string) => {
+            try {
+              const s = await stat(path)
+              return s.isFile() && s.size > 0
+            } catch {
+              return false
+            }
+          })
+        )(outputPath)
+        if (probeResult.exitCode === 0 && nonEmpty) {
+          setVerification('verified')
+        } else {
+          setVerification('failed')
+        }
       } else {
         const err = result.error ? `: ${result.error}` : ''
         setRunStatus(`Exit ${result.exitCode}${err}`)
@@ -242,13 +356,26 @@ export function App({
       setRunning(false)
       abortRef.current = null
     }
-  }, [argv, onRun, running])
+  }, [
+    argv,
+    ffprobePath,
+    findings,
+    force,
+    guardBlockReason,
+    hardwareNeedsConfirm,
+    onProbe,
+    onRun,
+    opts,
+    outputExists,
+    outputNonEmpty,
+    running,
+  ])
 
   useEffect(() => {
-    if (screen === 'result' && runEnabled && yes && !ranRef.current) {
+    if (screen === 'result' && runEnabled && yes && !ranRef.current && !hardwareNeedsConfirm) {
       void doRun()
     }
-  }, [screen, runEnabled, yes, doRun])
+  }, [screen, runEnabled, yes, doRun, hardwareNeedsConfirm])
 
   useInput((input, key) => {
     if (key.ctrl && input === 'c') {
@@ -301,6 +428,7 @@ export function App({
         ranRef.current = false
         setHasRun(false)
         setRunStatus('')
+        setVerification('')
         setProgress(null)
         setRawLog('')
         stdoutBufferRef.current = ''
@@ -308,6 +436,12 @@ export function App({
         return
       }
       if (key.return && runEnabled && !running && !ranRef.current) {
+        if (hardwareNeedsConfirm) {
+          setConfirmedRecipe(recipeId)
+          ranRef.current = false
+          setRunStatus('Hardware recipe confirmed. Press Enter to run')
+          return
+        }
         void doRun()
       }
     }
@@ -339,12 +473,15 @@ export function App({
     return (
       <Box flexDirection="column">
         <OptionsScreen
-          filePath={opts.filePath}
+          inputPath={opts.inputPath}
+          outputPath={opts.outputPath}
           inPoint={opts.inPoint}
           outPoint={opts.outPoint}
           mode={opts.mode}
           rawArgs={opts.rawArgs}
           onChange={setOpts}
+          onInputPathChange={(value) => setOpts((prev) => ({ ...prev, inputPath: value }))}
+          onOutputPathChange={(value) => setOpts((prev) => ({ ...prev, outputPath: value }))}
         />
         <Box marginTop={1}>
           <Text>Editing: {field} (Tab/Arrows move, Enter result, Esc back)</Text>
@@ -362,6 +499,11 @@ export function App({
         running={running}
         progress={progress}
         rawLog={rawLog}
+        verification={verification === '' ? undefined : verification}
+        blockedReason={
+          guardBlockReason ?? (hardwareNeedsConfirm ? 'Unconfirmed hardware recipe' : undefined)
+        }
+        unverified={hardwareUnverified}
       />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}

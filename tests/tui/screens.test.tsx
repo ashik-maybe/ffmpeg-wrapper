@@ -52,7 +52,8 @@ describe('OptionsScreen', () => {
   it('renders option fields', () => {
     const { lastFrame } = render(
       <OptionsScreen
-        filePath="input.mp4"
+        inputPath="input.mp4"
+        outputPath="output.mp4"
         inPoint="00:00:01"
         outPoint="00:00:05"
         mode="copy"
@@ -64,6 +65,7 @@ describe('OptionsScreen', () => {
     const frame = lastFrame() ?? ''
     expect(frame).toContain('Options (POSIX)')
     expect(frame).toContain('input.mp4')
+    expect(frame).toContain('output.mp4')
     expect(frame).toContain('00:00:01')
     expect(frame).toContain('00:00:05')
     expect(frame).toContain('copy')

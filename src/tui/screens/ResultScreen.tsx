@@ -20,6 +20,9 @@ export interface ResultScreenProps {
   readonly running: boolean
   readonly progress?: ProgressView | null
   readonly rawLog?: string
+  readonly verification?: string
+  readonly blockedReason?: string
+  readonly unverified?: boolean
 }
 
 export function ResultScreen({
@@ -29,13 +32,21 @@ export function ResultScreen({
   running,
   progress,
   rawLog = '',
+  verification,
+  blockedReason,
+  unverified = false,
 }: ResultScreenProps) {
+  const status = running ? 'Running' : blockedReason ? 'Blocked' : 'Ready'
   return (
     <Box flexDirection="column">
-      <StatusBar left="FFmpeg TUI" right={running ? 'Running' : 'Result'} />
+      <StatusBar left="FFmpeg TUI" right={status} />
       <Box flexDirection="column" marginTop={1}>
         <Text>Version: {version}</Text>
-        <Text>Status: {running ? 'Running' : 'Ready'}</Text>
+        <Text>Status: {status}</Text>
+        {blockedReason ? <Text color="red">Blocked: {blockedReason}</Text> : null}
+        {unverified ? (
+          <Text color="yellow">Unverified hardware recipe - confirmation required</Text>
+        ) : null}
         <Box marginTop={1} flexDirection="column">
           <Text>Command:</Text>
           <Text>{command === '' ? '-' : command}</Text>
@@ -62,6 +73,11 @@ export function ResultScreen({
           <Text>Raw log:</Text>
           <Text>{rawLog === '' ? '-' : rawLog}</Text>
         </Box>
+        {verification !== undefined ? (
+          <Box marginTop={1} flexDirection="column">
+            <Text>Verification: {verification}</Text>
+          </Box>
+        ) : null}
       </Box>
     </Box>
   )
