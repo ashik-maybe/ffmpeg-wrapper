@@ -328,6 +328,46 @@ describe('validateAgainstRuntime', () => {
     expect(findings.some((f) => f.code === 'E_UNVERIFIED')).toBe(true)
   })
 
+  it('backstop flags faststart even when the recipe omits movflags', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      options: spec.options.filter((o) => o !== 'movflags'),
+    }
+    const recipe: Recipe = {
+      id: 'faststart',
+      tool: 'ffmpeg',
+      args: [{ kind: 'value', name: 'input', value: '{{input}}' }],
+    }
+    expect(validateAgainstRuntime(runtimeSpec, recipe)).toEqual([
+      {
+        severity: 'error',
+        code: 'E_UNKNOWN_OPTION',
+        message: 'Unknown option: -movflags',
+        file: 'recipe:faststart',
+      },
+    ])
+  })
+
+  it('backstop flags missing libx264 even when the recipe has no encoder arg', () => {
+    const runtimeSpec: RuntimeSpec = {
+      ...spec,
+      encoders: spec.encoders.filter((e) => e !== 'libx264'),
+    }
+    const recipe: Recipe = {
+      id: 'web-h264',
+      tool: 'ffmpeg',
+      args: [{ kind: 'value', name: 'input', value: '{{input}}' }],
+    }
+    expect(validateAgainstRuntime(runtimeSpec, recipe)).toEqual([
+      {
+        severity: 'error',
+        code: 'E_UNVERIFIED',
+        message: 'Missing encoder: libx264',
+        file: 'recipe:web-h264',
+      },
+    ])
+  })
+
   it('flags disposition when disposition missing from spec', () => {
     const runtimeSpec: RuntimeSpec = {
       ...spec,
