@@ -1,3 +1,59 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "palette-gif",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        {
+          "kind": "option",
+          "name": "filter_complex",
+          "value": "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse"
+        },
+        { "kind": "value", "name": "output", "value": "{{output}}.gif" }
+      ]
+    },
+    {
+      "id": "loudnorm-two-pass",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        {
+          "kind": "option",
+          "name": "af",
+          "value": "loudnorm=I={{I}}:TP={{TP}}:LRA={{LRA}}:measured_I={{measured_I}}:measured_TP={{measured_TP}}:measured_LRA={{measured_LRA}}:measured_thresh={{measured_thresh}}:linear=true:print_format=summary"
+        },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "crf-tuning",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libx264", "alias": "c:v" },
+        { "kind": "option", "name": "crf", "value": "{{crf}}" },
+        { "kind": "option", "name": "preset", "value": "{{preset}}" },
+        { "kind": "option", "name": "tune", "value": "{{tune}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "thumbnail-sheet",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        {
+          "kind": "option",
+          "name": "vf",
+          "value": "fps={{fps}},tile={{tile}}"
+        },
+        { "kind": "value", "name": "output", "value": "{{output}}.jpg" }
+      ]
+    }
+  ]
 }
