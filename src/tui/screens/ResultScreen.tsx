@@ -20,6 +20,7 @@ export interface ResultScreenProps {
   readonly running: boolean
   readonly progress?: ProgressView | null
   readonly rawLog?: string
+  readonly verification?: string
 }
 
 export function ResultScreen({
@@ -29,6 +30,7 @@ export function ResultScreen({
   running,
   progress,
   rawLog = '',
+  verification,
 }: ResultScreenProps) {
   return (
     <Box flexDirection="column">
@@ -62,6 +64,11 @@ export function ResultScreen({
           <Text>Raw log:</Text>
           <Text>{rawLog === '' ? '-' : rawLog}</Text>
         </Box>
+        {verification !== undefined ? (
+          <Box marginTop={1} flexDirection="column">
+            <Text>Verification: {verification}</Text>
+          </Box>
+        ) : null}
       </Box>
     </Box>
   )

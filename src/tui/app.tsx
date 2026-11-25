@@ -1,10 +1,11 @@
+import { stat } from 'node:fs/promises'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Box, Text, useApp, useInput } from 'ink'
 import { OutcomeScreen, OptionsScreen, ResultScreen } from './screens/index.ts'
 import type { OptionsValues, ResultFinding } from './screens/index.ts'
 import { recipes } from '../recipes/index.ts'
 import { content } from '../content/index.ts'
-import { planFromRecipe, render, validate } from '../core/index.ts'
+import { render, validate } from '../core/index.ts'
 import type { Plan, Recipe } from '../core/index.ts'
 import { validateAgainstRuntime } from '../tools/index.ts'
 import type { RuntimeSpec } from '../tools/index.ts'
@@ -19,9 +20,14 @@ export interface AppProps {
   readonly recipes?: readonly Recipe[]
   readonly runEnabled?: boolean
   readonly yes?: boolean
+  readonly force?: boolean
   readonly version?: string
   readonly spec?: RuntimeSpec
+  readonly ffprobePath?: string
   readonly onRun?: (argv: readonly string[]) => Promise<RunResult>
+  readonly onProbe?: (argv: readonly string[]) => Promise<RunResult>
+  readonly outputExists?: (path: string) => Promise<boolean>
+  readonly outputNonEmpty?: (path: string) => Promise<boolean>
 }
 
 const OPTION_FIELDS: readonly (keyof OptionsValues)[] = [
@@ -116,7 +122,8 @@ function buildPlan(
   opts: OptionsValues,
 ): { plan: Plan; argv: string[]; command: string } {
   const values = buildValues(opts)
-  const plan = planFromRecipe(recipe, values)
+  const bound = bindRecipeValues(recipe, values)
+  const plan: Plan = { recipe: { ...recipe, args: bound.args }, args: bound.args }
   const argv = toArgv(plan, opts.rawArgs)
   const base = render({ tool: plan.recipe.tool, args: plan.args }, 'posix')
   const extra = parseRawArgs(opts.rawArgs)
@@ -128,9 +135,14 @@ export function App({
   recipes: recipesProp,
   runEnabled = false,
   yes = false,
+  force = false,
   version = 'unknown',
   spec,
+  ffprobePath = 'tools/bin/ffprobe',
   onRun,
+  onProbe,
+  outputExists,
+  outputNonEmpty,
 }: AppProps) {
   const { exit } = useApp()
   const allRecipes = recipesProp ?? recipes
@@ -161,6 +173,7 @@ export function App({
   const [runStatus, setRunStatus] = useState<string>('')
   const [running, setRunning] = useState(false)
   const [hasRun, setHasRun] = useState(false)
+  const [verification, setVerification] = useState('')
   const [progress, setProgress] = useState<{ time?: string; fps?: number; speed?: string } | null>(
     null,
   )
@@ -200,10 +213,38 @@ export function App({
 
   const doRun = useCallback(async () => {
     if (running || ranRef.current) return
+
+    const blocked = findings.some((f) => f.severity === 'error' || f.code === 'UNBOUND_PLACEHOLDER')
+    if (blocked) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus('Blocked: resolve findings before execution')
+      return
+    }
+
+    const outputPath = buildValues(opts).output
+    const exists =
+      outputExists ??
+      (async (path: string) => {
+        try {
+          const s = await stat(path)
+          return s.isFile()
+        } catch {
+          return false
+        }
+      })
+    if (!force && (await exists(outputPath))) {
+      ranRef.current = true
+      setHasRun(true)
+      setRunStatus(`Blocked: output file exists: ${outputPath}`)
+      return
+    }
+
     ranRef.current = true
     setHasRun(true)
     setRunning(true)
     setRunStatus('Running...')
+    setVerification('')
     setProgress(null)
     setRawLog('')
     stdoutBufferRef.current = ''
@@ -237,6 +278,24 @@ export function App({
       }
       if (result.exitCode === 0) {
         setRunStatus(`Exit 0 (${result.durationMs}ms)`)
+        const probe = onProbe ?? ((args: readonly string[]) => runProcess([...args]))
+        const probeResult = await probe([ffprobePath, '-hide_banner', outputPath])
+        const nonEmpty = await (
+          outputNonEmpty ??
+          (async (path: string) => {
+            try {
+              const s = await stat(path)
+              return s.isFile() && s.size > 0
+            } catch {
+              return false
+            }
+          })
+        )(outputPath)
+        if (probeResult.exitCode === 0 && nonEmpty) {
+          setVerification('verified')
+        } else {
+          setVerification('failed')
+        }
       } else {
         const err = result.error ? `: ${result.error}` : ''
         setRunStatus(`Exit ${result.exitCode}${err}`)
@@ -247,7 +306,18 @@ export function App({
       setRunning(false)
       abortRef.current = null
     }
-  }, [argv, onRun, running])
+  }, [
+    argv,
+    ffprobePath,
+    findings,
+    force,
+    onProbe,
+    onRun,
+    opts,
+    outputExists,
+    outputNonEmpty,
+    running,
+  ])
 
   useEffect(() => {
     if (screen === 'result' && runEnabled && yes && !ranRef.current) {
@@ -306,6 +376,7 @@ export function App({
         ranRef.current = false
         setHasRun(false)
         setRunStatus('')
+        setVerification('')
         setProgress(null)
         setRawLog('')
         stdoutBufferRef.current = ''
@@ -370,6 +441,7 @@ export function App({
         running={running}
         progress={progress}
         rawLog={rawLog}
+        verification={verification === '' ? undefined : verification}
       />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}
