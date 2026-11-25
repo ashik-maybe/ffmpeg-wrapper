@@ -11,6 +11,7 @@ import type { RuntimeSpec } from '../tools/index.ts'
 import { runProcess } from '../runner/index.ts'
 import type { RunResult } from '../runner/index.ts'
 import { parseProgressLine } from '../progress/index.ts'
+import { bindRecipeValues } from './binding.ts'
 
 export type Screen = 'outcome' | 'options' | 'result'
 
@@ -24,7 +25,8 @@ export interface AppProps {
 }
 
 const OPTION_FIELDS: readonly (keyof OptionsValues)[] = [
-  'filePath',
+  'inputPath',
+  'outputPath',
   'inPoint',
   'outPoint',
   'mode',
@@ -39,11 +41,11 @@ function defaultOutput(filePath: string): string {
 }
 
 function buildValues(opts: OptionsValues): Record<string, string> {
-  const out = defaultOutput(opts.filePath)
+  const output = opts.outputPath.trim() !== '' ? opts.outputPath : defaultOutput(opts.inputPath)
   return {
-    input: opts.filePath,
-    output: out,
-    list: opts.filePath,
+    input: opts.inputPath,
+    output,
+    list: opts.inputPath,
     start: opts.inPoint,
     ss: opts.inPoint,
     end: opts.outPoint,
@@ -149,7 +151,8 @@ export function App({
   const [recipeId, setRecipeId] = useState<string>(outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '')
   const [activeField, setActiveField] = useState(0)
   const [opts, setOpts] = useState<OptionsValues>({
-    filePath: 'input.mp4',
+    inputPath: '',
+    outputPath: '',
     inPoint: '',
     outPoint: '',
     mode: 'copy',
@@ -180,18 +183,20 @@ export function App({
 
   const findings = useMemo(() => {
     if (!plan || !selectedRecipe) return [] as ResultFinding[]
+    const values = buildValues(opts)
+    const binding = bindRecipeValues(selectedRecipe, values)
     const core = validate(plan, { tool: selectedRecipe.tool, version: 'unknown', options: [] })
     const runtime = spec ? validateAgainstRuntime(spec, selectedRecipe) : []
     const seen = new Set<string>()
     const merged: ResultFinding[] = []
-    for (const f of [...runtime, ...core]) {
+    for (const f of [...binding.findings, ...runtime, ...core]) {
       const key = `${f.code}:${f.message}`
       if (seen.has(key)) continue
       seen.add(key)
       merged.push({ severity: f.severity, message: f.message, code: f.code })
     }
     return merged
-  }, [plan, selectedRecipe, spec])
+  }, [plan, selectedRecipe, spec, opts])
 
   const doRun = useCallback(async () => {
     if (running || ranRef.current) return
@@ -339,12 +344,15 @@ export function App({
     return (
       <Box flexDirection="column">
         <OptionsScreen
-          filePath={opts.filePath}
+          inputPath={opts.inputPath}
+          outputPath={opts.outputPath}
           inPoint={opts.inPoint}
           outPoint={opts.outPoint}
           mode={opts.mode}
           rawArgs={opts.rawArgs}
           onChange={setOpts}
+          onInputPathChange={(value) => setOpts((prev) => ({ ...prev, inputPath: value }))}
+          onOutputPathChange={(value) => setOpts((prev) => ({ ...prev, outputPath: value }))}
         />
         <Box marginTop={1}>
           <Text>Editing: {field} (Tab/Arrows move, Enter result, Esc back)</Text>
