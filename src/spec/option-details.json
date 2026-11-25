@@ -523,9 +523,7 @@
     {
       "name": "codec",
       "metavar": "codec",
-      "aliases": [
-        "c"
-      ],
+      "aliases": ["c"],
       "description": "alias for -c (select encoder/decoder)"
     },
     {
@@ -658,17 +656,13 @@
     {
       "name": "vcodec",
       "metavar": "codec",
-      "aliases": [
-        "c:v"
-      ],
+      "aliases": ["c:v"],
       "description": "alias for -c:v (select encoder/decoder for video streams)"
     },
     {
       "name": "vf",
       "metavar": "filter_graph",
-      "aliases": [
-        "filter:v"
-      ],
+      "aliases": ["filter:v"],
       "description": "alias for -filter:v (apply filters to video streams)"
     },
     {
@@ -841,25 +835,19 @@
     {
       "name": "acodec",
       "metavar": "codec",
-      "aliases": [
-        "c:a"
-      ],
+      "aliases": ["c:a"],
       "description": "alias for -c:a (select encoder/decoder for audio streams)"
     },
     {
       "name": "ab",
       "metavar": "bitrate",
-      "aliases": [
-        "b:a"
-      ],
+      "aliases": ["b:a"],
       "description": "alias for -b:a (select bitrate for audio streams)"
     },
     {
       "name": "af",
       "metavar": "filter_graph",
-      "aliases": [
-        "filter:a"
-      ],
+      "aliases": ["filter:a"],
       "description": "alias for -filter:a (apply filters to audio streams)"
     },
     {
@@ -907,9 +895,7 @@
     {
       "name": "scodec",
       "metavar": "codec",
-      "aliases": [
-        "c:s"
-      ],
+      "aliases": ["c:s"],
       "description": "alias for -c:s (select encoder/decoder for subtitle streams)"
     },
     {
@@ -934,9 +920,7 @@
     {
       "name": "dcodec",
       "metavar": "codec",
-      "aliases": [
-        "c:d"
-      ],
+      "aliases": ["c:d"],
       "description": "alias for -c:d (select encoder/decoder for data streams)"
     },
     {
