@@ -1,8 +1,9 @@
 import { stat } from 'node:fs/promises'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Box, Text, useApp, useInput } from 'ink'
+import { Box, Text, useApp, useInput, useStdout } from 'ink'
 import { OutcomeScreen, OptionsScreen, ResultScreen } from './screens/index.ts'
 import type { OptionsValues, ResultFinding } from './screens/index.ts'
+import { Chrome, HelpOverlay } from './components/index.ts'
 import { recipes } from '../recipes/index.ts'
 import { content } from '../content/index.ts'
 import { render, validate } from '../core/index.ts'
@@ -29,6 +30,7 @@ export interface AppProps {
   readonly onProbe?: (argv: readonly string[]) => Promise<RunResult>
   readonly outputExists?: (path: string) => Promise<boolean>
   readonly outputNonEmpty?: (path: string) => Promise<boolean>
+  readonly columns?: number
 }
 
 const OPTION_FIELDS: readonly (keyof OptionsValues)[] = [
@@ -171,8 +173,14 @@ export function App({
   onProbe,
   outputExists,
   outputNonEmpty,
+  columns: columnsProp,
 }: AppProps) {
   const { exit } = useApp()
+  const { stdout } = useStdout()
+  const detectedColumns = (stdout as { columns?: number } | undefined)?.columns
+  const detected = typeof detectedColumns === 'number' ? detectedColumns : 80
+  const columns = columnsProp ?? (detected > 0 ? detected : 80)
+  const narrow = columns < 60
   const allRecipes = recipesProp ?? recipes
   const outcomeItems = useMemo(() => {
     if (recipesProp) {
@@ -188,6 +196,7 @@ export function App({
       }))
   }, [allRecipes, recipesProp])
   const [screen, setScreen] = useState<Screen>('outcome')
+  const [helpOpen, setHelpOpen] = useState(false)
   const [recipeId, setRecipeId] = useState<string>(outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '')
   const [activeField, setActiveField] = useState(0)
   const [opts, setOpts] = useState<OptionsValues>({
@@ -386,6 +395,23 @@ export function App({
       return
     }
 
+    if (helpOpen) {
+      if (input === '?' || key.escape) {
+        setHelpOpen(false)
+      }
+      return
+    }
+
+    if (input === '?') {
+      setHelpOpen(true)
+      return
+    }
+
+    if (input === 'q' && screen !== 'options') {
+      exit()
+      return
+    }
+
     if (screen === 'outcome') {
       if (key.return) {
         // OutcomeScreen also handles Enter; we confirm here.
@@ -462,35 +488,77 @@ export function App({
     return <Text>No recipes available.</Text>
   }
 
-  if (screen === 'outcome') {
-    return (
-      <OutcomeScreen outcomes={outcomeItems} selectedId={recipeId} onSelect={onOutcomeSelect} />
-    )
-  }
+  const step = screen === 'outcome' ? 1 : screen === 'options' ? 2 : 3
+  const stepLabel = screen === 'outcome' ? 'Outcomes' : screen === 'options' ? 'Options' : 'Result'
+  const hints =
+    screen === 'outcome'
+      ? narrow
+        ? [
+            { keys: 'Up/Down', label: 'move' },
+            { keys: 'Enter', label: 'select' },
+            { keys: '?', label: 'help' },
+            { keys: 'q', label: 'quit' },
+          ]
+        : [
+            { keys: 'Up/Down', label: 'move' },
+            { keys: 'Enter', label: 'select' },
+            { keys: '?', label: 'help' },
+            { keys: 'q', label: 'quit' },
+          ]
+      : screen === 'options'
+        ? narrow
+          ? [
+              { keys: 'Tab', label: 'next' },
+              { keys: 'Enter', label: 'go' },
+              { keys: 'Esc', label: 'back' },
+              { keys: '?', label: 'help' },
+            ]
+          : [
+              { keys: 'Tab/Arrows', label: 'move' },
+              { keys: 'Enter', label: 'result' },
+              { keys: 'Esc', label: 'back' },
+              { keys: '?', label: 'help' },
+            ]
+        : narrow
+          ? [
+              { keys: 'Enter', label: 'run' },
+              { keys: 'Esc', label: 'back' },
+              { keys: '?', label: 'help' },
+              { keys: 'q', label: 'quit' },
+            ]
+          : [
+              { keys: 'Enter', label: 'run' },
+              { keys: 'Esc', label: 'edit' },
+              { keys: '?', label: 'help' },
+              { keys: 'q', label: 'quit' },
+            ]
 
-  if (screen === 'options') {
-    const field = OPTION_FIELDS[activeField]!
-    return (
-      <Box flexDirection="column">
-        <OptionsScreen
-          inputPath={opts.inputPath}
-          outputPath={opts.outputPath}
-          inPoint={opts.inPoint}
-          outPoint={opts.outPoint}
-          mode={opts.mode}
-          rawArgs={opts.rawArgs}
-          onChange={setOpts}
-          onInputPathChange={(value) => setOpts((prev) => ({ ...prev, inputPath: value }))}
-          onOutputPathChange={(value) => setOpts((prev) => ({ ...prev, outputPath: value }))}
-        />
-        <Box marginTop={1}>
-          <Text>Editing: {field} (Tab/Arrows move, Enter result, Esc back)</Text>
-        </Box>
-      </Box>
-    )
-  }
-
-  return (
+  const screenContent = helpOpen ? (
+    <HelpOverlay />
+  ) : screen === 'outcome' ? (
+    <OutcomeScreen
+      outcomes={outcomeItems}
+      selectedId={recipeId}
+      onSelect={onOutcomeSelect}
+      embedded
+    />
+  ) : screen === 'options' ? (
+    <Box flexDirection="column">
+      <OptionsScreen
+        inputPath={opts.inputPath}
+        outputPath={opts.outputPath}
+        inPoint={opts.inPoint}
+        outPoint={opts.outPoint}
+        mode={opts.mode}
+        rawArgs={opts.rawArgs}
+        onChange={setOpts}
+        onInputPathChange={(value) => setOpts((prev) => ({ ...prev, inputPath: value }))}
+        onOutputPathChange={(value) => setOpts((prev) => ({ ...prev, outputPath: value }))}
+        activeField={OPTION_FIELDS[activeField]}
+        embedded
+      />
+    </Box>
+  ) : (
     <Box flexDirection="column">
       <ResultScreen
         command={command}
@@ -504,6 +572,8 @@ export function App({
           guardBlockReason ?? (hardwareNeedsConfirm ? 'Unconfirmed hardware recipe' : undefined)
         }
         unverified={hardwareUnverified}
+        embedded
+        showRawLog={!narrow}
       />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}
@@ -511,6 +581,12 @@ export function App({
         {!runEnabled ? <Text>Run disabled. Esc to edit.</Text> : null}
       </Box>
     </Box>
+  )
+
+  return (
+    <Chrome version={version} step={step} total={3} right={stepLabel} hints={hints}>
+      {screenContent}
+    </Chrome>
   )
 }
 
