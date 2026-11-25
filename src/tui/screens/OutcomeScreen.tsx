@@ -4,6 +4,7 @@ import { KeyHint, StatusBar } from '../components/index.ts'
 export interface OutcomeItem {
   readonly id: string
   readonly label: string
+  readonly group?: string
 }
 
 export interface OutcomeScreenProps {
@@ -38,6 +39,8 @@ export function OutcomeScreen({ outcomes, selectedId, onSelect }: OutcomeScreenP
     }
   })
 
+  const hasGroups = outcomes.some((outcome) => outcome.group !== undefined)
+
   return (
     <Box flexDirection="column">
       <StatusBar left="FFmpeg TUI" right="Outcomes" />
@@ -45,10 +48,15 @@ export function OutcomeScreen({ outcomes, selectedId, onSelect }: OutcomeScreenP
         {outcomes.map((outcome, i) => {
           const selected = outcome.id === outcomes[index]?.id
           const marker = selected ? '>' : ' '
+          const prevGroup = i > 0 ? outcomes[i - 1]?.group : undefined
+          const showGroup = hasGroups && outcome.group !== prevGroup
           return (
-            <Text key={outcome.id}>
-              {marker} {i + 1}. {outcome.label}
-            </Text>
+            <Box key={outcome.id} flexDirection="column">
+              {showGroup ? <Text>{outcome.group}</Text> : null}
+              <Text>
+                {marker} {i + 1}. {outcome.label}
+              </Text>
+            </Box>
           )
         })}
       </Box>

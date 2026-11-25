@@ -3,6 +3,7 @@ import { Box, Text, useApp, useInput } from 'ink'
 import { OutcomeScreen, OptionsScreen, ResultScreen } from './screens/index.ts'
 import type { OptionsValues, ResultFinding } from './screens/index.ts'
 import { recipes } from '../recipes/index.ts'
+import { content } from '../content/index.ts'
 import { planFromRecipe, render, validate } from '../core/index.ts'
 import type { Plan, Recipe } from '../core/index.ts'
 import { validateAgainstRuntime } from '../tools/index.ts'
@@ -131,8 +132,21 @@ export function App({
 }: AppProps) {
   const { exit } = useApp()
   const allRecipes = recipesProp ?? recipes
+  const outcomeItems = useMemo(() => {
+    if (recipesProp) {
+      return allRecipes.map((r) => ({ id: r.id, label: r.id }))
+    }
+    const available = new Set(allRecipes.map((r) => r.id))
+    return content.outcomes
+      .filter((outcome) => outcome.recipeId && available.has(outcome.recipeId))
+      .map((outcome) => ({
+        id: outcome.recipeId as string,
+        label: outcome.label,
+        group: outcome.group,
+      }))
+  }, [allRecipes, recipesProp])
   const [screen, setScreen] = useState<Screen>('outcome')
-  const [recipeId, setRecipeId] = useState<string>(allRecipes[0]?.id ?? '')
+  const [recipeId, setRecipeId] = useState<string>(outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '')
   const [activeField, setActiveField] = useState(0)
   const [opts, setOpts] = useState<OptionsValues>({
     filePath: 'input.mp4',
@@ -316,11 +330,7 @@ export function App({
 
   if (screen === 'outcome') {
     return (
-      <OutcomeScreen
-        outcomes={allRecipes.map((r) => ({ id: r.id, label: r.id }))}
-        selectedId={recipeId}
-        onSelect={onOutcomeSelect}
-      />
+      <OutcomeScreen outcomes={outcomeItems} selectedId={recipeId} onSelect={onOutcomeSelect} />
     )
   }
 
