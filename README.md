@@ -1,43 +1,27 @@
 # ffmpeg-wrapper
 
 This app builds FFmpeg commands from typed recipes and user input.
-The web app runs in a browser.
 The TUI runs in a terminal on Linux.
 The app does not upload media files.
 
-The web spec targets FFmpeg 9.1 "Gauss".
+The spec targets FFmpeg 9.1 "Gauss".
 Tool data comes from pinned binaries and cached help output.
-
-## Web app
-
-Install dependencies, then start the local server:
-
-```sh
-bun install --frozen-lockfile
-bun run dev
-```
-
-Build the static site with `bun run build`.
-Preview the build with `bun run preview`.
-
-Select an outcome, type input values, and copy the command.
-The web app builds commands.
-It never executes them.
-It never sends files or values to a network service.
 
 ## TUI
 
 The TUI runs on Linux only.
 Prebuilt binaries target Linux x64 and Linux arm64.
 
-Start the TUI from source:
+Install dependencies, then start the TUI from source:
 
 ```sh
+bun install --frozen-lockfile
 bun run tui
 ```
 
-Build a standalone binary with `bun run tui:build`.
+Build a standalone x64 binary with `bun run tui:build`.
 Build an arm64 binary with `bun run tui:arm`.
+Package release binaries with `bash scripts/package-tui.sh`.
 
 ### TUI flags
 
@@ -121,7 +105,6 @@ The TUI detects local `ffmpeg` and `ffprobe` binaries at runtime.
 It reads the FFmpeg version from `ffmpeg -version`.
 It compiles a runtime spec from the local binary.
 The result screen shows the detected version.
-The web app uses the pinned spec instead.
 
 ## Coverage
 
@@ -302,17 +285,15 @@ Build a contact sheet with the `thumbnail-sheet` recipe.
 
 ## Raw arguments
 
-The advanced drawer browses filters and encoders from the spec.
-It also accepts raw FFmpeg arguments.
-The drawer marks raw arguments unverified.
 Raw arguments bypass recipe checks.
+The TUI marks raw arguments unverified.
 The command stays unverified until someone checks it.
 
 ## Confidence labels
 
 The command receipt shows `Confidence: High confidence` for recipe commands.
 Recipe data uses `verified` and `unverified` values.
-The advanced drawer shows an `Unverified` warning for raw arguments.
+Raw arguments show an `Unverified` warning.
 Runtime checks can report `E_UNVERIFIED` when an encoder is unavailable.
 
 ## Verification
@@ -324,25 +305,19 @@ bun run ci
 ```
 
 The gate runs lint, format check, typecheck, design lint, spec check,
-readme check, unit tests, and build.
+readme check, tests, and TUI tests.
 
-Run the TUI tests:
+Run the TUI tests alone:
 
 ```sh
 bun run tui:test
-```
-
-Run the browser tests:
-
-```sh
-bunx playwright test
 ```
 
 Check the generated spec counts alone with `bun run spec:check`.
 
 ## Known limits
 
-The web app does not execute commands.
+The TUI does not execute commands unless `--run` is set.
 The app does not use an external network at runtime.
 The app does not guarantee that tool combinations work together.
 It does not execute recipe combinations during checks.

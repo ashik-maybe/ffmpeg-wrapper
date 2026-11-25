@@ -31,4 +31,3 @@ tools/bin/*.zip
 
 # Test artifacts
 test-results/
-playwright-report/

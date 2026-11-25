@@ -62,7 +62,7 @@ if (optionDetails.length < 201) {
   throw new Error(`optionDetails count is below 201: ${optionDetails.length}`)
 }
 
-const counts = JSON.parse(readFileSync(resolve(root, 'src/ui/coverage/counts.json'), 'utf8'))
+const counts = JSON.parse(readFileSync(resolve(root, 'src/data/counts.json'), 'utf8'))
 const computed = {
   options: options.options.length,
   filters: filters.length,
