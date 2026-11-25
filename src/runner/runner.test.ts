@@ -86,9 +86,16 @@ setInterval(() => { console.log('running'); }, 50);
     )
 
     const controller = new AbortController()
-    const promise = runProcess([bin], { signal: controller.signal })
+    let sawRunning = false
+    const onStdout = (chunk: string) => {
+      if (chunk.includes('running')) sawRunning = true
+    }
+    const promise = runProcess([bin], { signal: controller.signal, onStdout })
 
-    await new Promise((r) => setTimeout(r, 150))
+    const deadline = Date.now() + 2000
+    while (!sawRunning && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 5))
+    }
     controller.abort()
 
     const result = await promise
