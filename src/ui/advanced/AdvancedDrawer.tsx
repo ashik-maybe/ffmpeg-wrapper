@@ -5,6 +5,7 @@ import encoders from '../../spec/encoders.json'
 import filters from '../../spec/filters.json'
 import { Button, Callout, Field, Icon } from '../primitives'
 import { Search } from 'lucide-react'
+import { rawArgSnippets } from './snippets'
 
 import './advanced.css'
 
@@ -114,6 +115,23 @@ export function AdvancedDrawer({ open, onOpenChange, trigger, onSubmit }: Advanc
               spellCheck={false}
             />
           </Field>
+          <section className="ui-advanced__browser" aria-label="Raw argument snippets">
+            <h3 className="ui-advanced__browser-title">Snippets</h3>
+            <ul className="ui-advanced__list">
+              {rawArgSnippets.map((snippet) => (
+                <li key={snippet.id}>
+                  <button
+                    type="button"
+                    className="ui-advanced__row"
+                    onClick={() => addToArgs(snippet.flag)}
+                  >
+                    <span className="ui-advanced__row-name">{snippet.label}</span>
+                    <span className="ui-advanced__row-type">{snippet.flag}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
           <OptionBrowser
             title="Filters"
             items={filterItems}
