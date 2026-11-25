@@ -1,4 +1,4 @@
-# FFmpeg command generator
+# ffmpeg-wrapper
 
 This app builds FFmpeg commands from typed recipes and user input.
 The web app runs in a browser. The TUI runs in a terminal on Linux.
