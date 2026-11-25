@@ -44,7 +44,10 @@ export interface DetailsProvenance {
 
 export const spec: Spec = optionsSpec as Spec
 
-export const filterDetails: readonly FilterDetail[] = filterDetailsSpec as readonly FilterDetail[]
+export const detailsProvenance = filterDetailsSpec.provenance as DetailsProvenance
+
+export const filterDetails: readonly FilterDetail[] =
+  filterDetailsSpec.filters as readonly FilterDetail[]
 
 export const encoderDetails: readonly EncoderDetail[] =
-  encoderDetailsSpec as readonly EncoderDetail[]
+  encoderDetailsSpec.encoders as readonly EncoderDetail[]
