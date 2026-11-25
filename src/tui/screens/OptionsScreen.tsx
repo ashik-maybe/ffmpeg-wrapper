@@ -17,6 +17,7 @@ export interface OptionsScreenProps extends OptionsValues {
   readonly onOutputPathChange?: (value: string) => void
   readonly activeField?: keyof OptionsValues
   readonly embedded?: boolean
+  readonly advanced?: boolean
 }
 
 const FIELDS: readonly { key: keyof OptionsValues; label: string; hint: string }[] = [
@@ -27,6 +28,8 @@ const FIELDS: readonly { key: keyof OptionsValues; label: string; hint: string }
   { key: 'mode', label: 'Copy mode', hint: 'copy or reencode' },
   { key: 'rawArgs', label: 'Raw args', hint: 'extra ffmpeg args' },
 ]
+
+const ADVANCED_KEYS: readonly (keyof OptionsValues)[] = ['inPoint', 'outPoint', 'mode', 'rawArgs']
 
 export function OptionsScreen({
   inputPath,
@@ -40,6 +43,7 @@ export function OptionsScreen({
   onOutputPathChange: _onOutputPathChange,
   activeField,
   embedded = false,
+  advanced = true,
 }: OptionsScreenProps) {
   const values: OptionsValues = { inputPath, outputPath, inPoint, outPoint, mode, rawArgs }
 
@@ -48,15 +52,20 @@ export function OptionsScreen({
       {!embedded ? <StatusBar left="FFmpeg TUI" right="Options (POSIX)" /> : null}
       <Box flexDirection="column" marginTop={embedded ? 0 : 1}>
         {FIELDS.map((field) => {
+          const isAdvancedField = ADVANCED_KEYS.includes(field.key)
+          if (isAdvancedField && !advanced) return null
           const active = field.key === activeField
           const value = values[field.key]
+          const prominent = field.key === 'inputPath' || field.key === 'outputPath'
           return (
             <Box key={field.key}>
               <Box width={2}>
                 <Text color={active ? theme.accent : undefined}>{active ? '>' : ' '}</Text>
               </Box>
               <Box width={14}>
-                <Text color={active ? theme.accent : undefined}>{field.label}:</Text>
+                <Text color={active ? theme.accent : prominent ? theme.accent : undefined}>
+                  {field.label}:
+                </Text>
               </Box>
               <Box minWidth={16}>
                 <Text>{value === '' ? '-' : value}</Text>
@@ -65,6 +74,11 @@ export function OptionsScreen({
             </Box>
           )
         })}
+        {!advanced ? (
+          <Box marginTop={1}>
+            <Text color={theme.muted}>press a to edit advanced options</Text>
+          </Box>
+        ) : null}
       </Box>
       {!embedded ? (
         <Box marginTop={1}>

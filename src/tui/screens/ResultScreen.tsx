@@ -26,6 +26,7 @@ export interface ResultScreenProps {
   readonly unverified?: boolean
   readonly embedded?: boolean
   readonly showRawLog?: boolean
+  readonly taskLabel?: string
 }
 
 function parseTimeSeconds(time: string | undefined): number {
@@ -61,6 +62,7 @@ export function ResultScreen({
   unverified = false,
   embedded = false,
   showRawLog = true,
+  taskLabel,
 }: ResultScreenProps) {
   const status = running ? 'Running' : blockedReason ? 'Blocked' : 'Ready'
   const bar = progressBar(progress, running)
@@ -78,12 +80,17 @@ export function ResultScreen({
         {unverified ? (
           <Text color={theme.accent}>Unverified hardware recipe - confirmation required</Text>
         ) : null}
+        {taskLabel ? (
+          <Box marginTop={1} flexDirection="column">
+            <Text>Task: {taskLabel}</Text>
+          </Box>
+        ) : null}
         <Box marginTop={1} flexDirection="column">
           <Text>Command:</Text>
           <Text wrap="wrap">{command === '' ? '-' : command}</Text>
         </Box>
         <Box marginTop={1} flexDirection="column">
-          <Text>Validation findings:</Text>
+          <Text>Checks: Validation findings:</Text>
           {findings.length === 0 ? (
             <Text color={theme.muted}>None</Text>
           ) : (

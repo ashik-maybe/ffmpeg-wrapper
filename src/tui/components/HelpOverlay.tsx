@@ -2,12 +2,14 @@ import { Box, Text } from 'ink'
 import { theme } from '../theme.ts'
 
 const KEYS: readonly { keys: string; label: string }[] = [
-  { keys: 'Up/Down', label: 'move selection' },
-  { keys: 'Tab', label: 'next field' },
+  { keys: 'Arrows', label: 'move selection' },
   { keys: 'Enter', label: 'select / confirm / run' },
-  { keys: 'Esc', label: 'back / close' },
+  { keys: 'm', label: 'more tasks' },
+  { keys: 'a', label: 'advanced options' },
   { keys: '?', label: 'toggle help' },
+  { keys: 'Esc', label: 'back / close' },
   { keys: 'q', label: 'quit' },
+  { keys: 'r', label: 'run' },
   { keys: 'Ctrl+C', label: 'quit' },
 ]
 
