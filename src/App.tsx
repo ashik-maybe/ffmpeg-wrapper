@@ -113,7 +113,9 @@ export default function App() {
   const findings = validate(plan, spec)
 
   const handleOutcome = (id: string) => {
-    const match = recipes.find((item) => item.id.includes(id) || id.includes(item.id))
+    const outcome = content.outcomes.find((item) => item.id === id)
+    const nextRecipeId = outcome?.recipeId ?? id
+    const match = recipes.find((item) => item.id === nextRecipeId)
     if (match !== undefined) setRecipeId(match.id)
   }
 
