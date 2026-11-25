@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 
-const widths = [1440, 1024, 820, 768, 390]
+const widths = [1440, 1024, 820, 768, 390, 320]
 const screenshotsDir = join(process.cwd(), 'tests/e2e/screenshots')
 
 test.describe('layout', () => {
