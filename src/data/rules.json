@@ -39,6 +39,49 @@
       "fix": "Use only one of -vf or -filter_complex",
       "requireAny": ["vf"],
       "forbidAny": ["filter_complex"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "-movflags +faststart is only valid for mp4, mov, or m4a output",
+      "fix": "Use an mp4, mov, or m4a output, or remove +faststart",
+      "requireAny": ["movflags"],
+      "valueConstraint": { "includes": "faststart" },
+      "outputExtensions": ["mp4", "mov", "m4a"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "-map_metadata -1 conflicts with -map_metadata 0",
+      "fix": "Use only one of -map_metadata -1 or -map_metadata 0",
+      "requireAny": ["map_metadata"],
+      "valueConstraint": { "oneOf": ["-1"] },
+      "forbidFlagValues": [{ "flag": "map_metadata", "values": ["0"] }]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "error",
+      "message": "-force_key_frames conflicts with -c copy",
+      "fix": "Drop -force_key_frames, or re-encode instead of -c copy",
+      "requireAny": ["c"],
+      "valueConstraint": { "oneOf": ["copy"] },
+      "forbidAny": ["force_key_frames"]
+    },
+    {
+      "code": "E_CONFLICT",
+      "severity": "warning",
+      "message": "-copyts with -avoid_negative_ts may produce unexpected timestamps",
+      "fix": "Drop -avoid_negative_ts, or drop -copyts",
+      "requireAny": ["copyts"],
+      "forbidAny": ["avoid_negative_ts"]
+    },
+    {
+      "code": "E_MISSING_VALUE",
+      "severity": "error",
+      "message": "-filter_complex_script requires a real file value",
+      "fix": "Provide a path to a filter script file",
+      "requireAny": ["filter_complex_script"],
+      "valueConstraint": { "realFile": true }
     }
   ]
 }
