@@ -1,8 +1,8 @@
 # ffmpeg-wrapper
 
 This app builds FFmpeg commands from typed recipes and user input.
-The web app runs in a browser. The TUI runs in a terminal on Linux.
-The app helps editors, developers, and students who need repeatable commands.
+The web app runs in a browser.
+The TUI runs in a terminal on Linux.
 The app does not upload media files.
 
 The web spec targets FFmpeg 9.1 "Gauss".
@@ -20,8 +20,9 @@ bun run dev
 Build the static site with `bun run build`.
 Preview the build with `bun run preview`.
 
-Select an outcome, type the input values, and copy the command.
-The web app builds commands. It never executes them.
+Select an outcome, type input values, and copy the command.
+The web app builds commands.
+It never executes them.
 It never sends files or values to a network service.
 
 ## TUI
@@ -38,15 +39,86 @@ bun run tui
 Build a standalone binary with `bun run tui:build`.
 Build an arm64 binary with `bun run tui:arm`.
 
+### TUI flags
+
+| Flag        | Effect                                               |
+| ----------- | ---------------------------------------------------- |
+| `--version` | Print the TUI version and exit.                      |
+| `--help`    | Print usage and exit.                                |
+| `--run`     | Enable command execution on the result screen.       |
+| `--yes`     | Run without manual confirmation when `--run` is set. |
+| `--unsafe`  | Allow guarded network and filter-script recipes.     |
+| `--force`   | Allow overwrite of an existing output file.          |
+
+### TUI fields
+
+The options screen shows these fields:
+
+- Input path
+- Output path
+- In point
+- Out point
+- Mode
+- Raw arguments
+
+### Placeholder binding and blocked execution
+
+The TUI binds recipe placeholders from field values.
+An unbound placeholder creates an error finding.
+The TUI blocks execution when findings contain an error.
+The TUI also blocks execution when findings contain an unbound placeholder.
+
+### Overwrite blocking and --force
+
+Before execution, the TUI checks the output path.
+If the output file exists and `--force` is not set, the TUI blocks execution.
+Set `--force` to allow overwrite of that output file.
+
+### Unsafe guard and --unsafe
+
+A network recipe requires `--unsafe`.
+The network recipe ids are `hls`, `dash`, `rtmp`, and `srt`.
+A filter-script recipe requires `--unsafe`.
+The filter-script recipe id is `filter-script`.
+Without `--unsafe`, the TUI blocks these recipes.
+
+### Hardware confirmation
+
+Hardware recipes need hardware confirmation before execution.
+The hardware recipe ids are `nvenc`, `qsv`, `vaapi`, `videotoolbox`, and `hevc-vulkan`.
+The result screen marks these recipes as unverified hardware recipes.
+Press Enter to confirm the hardware recipe, then press Enter to run.
+
+### Network and script guards
+
+The TUI applies guards before execution.
+Network and script guards block guarded recipes unless `--unsafe` is set.
+The result screen shows the blocked reason.
+
+### ffprobe verification
+
+After a successful run, the TUI verifies the output.
+It runs `ffprobe` on the output path.
+It also checks that the output file exists and is not empty.
+The result screen shows `verified` or `failed`.
+
+### Key bindings
+
+| Key          | Action                                               |
+| ------------ | ---------------------------------------------------- |
+| Enter        | Confirm selection, open result, or run when allowed. |
+| Esc          | Return to the previous screen.                       |
+| Tab / Arrows | Move between option fields.                          |
+| Ctrl+C       | Abort a running command and exit.                    |
+
 By default, the TUI does not execute commands.
-Add `--run` to run the generated command.
-Add `--yes` with `--run` to skip confirmation.
-Press Enter on the result screen to run the command when `--run` is set.
-Press Ctrl+C to abort a running command and exit.
-Press Esc to return to the options screen.
+Add `--run` to enable execution.
+Add `--yes` with `--run` to run after checks pass.
+
+### Runtime spec detection
 
 The TUI detects local `ffmpeg` and `ffprobe` binaries at runtime.
-It reads each version from `ffmpeg -version`.
+It reads the FFmpeg version from `ffmpeg -version`.
 It compiles a runtime spec from the local binary.
 The result screen shows the detected version.
 The web app uses the pinned spec instead.
@@ -81,7 +153,6 @@ The app therefore exposes 62 unique recipes.
 The high-value set has 16 outcomes in four groups.
 The groups are Delivery, Metadata, Timing, and Graphs.
 Each group has four outcomes.
-Four high recipe files provide the focused recipes.
 
 ## Recipes
 
@@ -135,38 +206,44 @@ Quality tuning:
 
 ## High-value examples
 
-Prepare a file for web playback. The `faststart` recipe adds the flag below.
+Prepare a file for web playback.
+The `faststart` recipe adds the flag below.
 It moves metadata to the start of an MP4 file.
 
 ```sh
 -movflags +faststart
 ```
 
-Write metadata. The `set-metadata` recipe sets a title and a language.
+Write metadata.
+The `set-metadata` recipe sets a title and a language.
 
 ```sh
 -metadata title=TITLE -metadata:s:a:0 language=LANGUAGE
 ```
 
-Remove metadata. The `strip-metadata` recipe adds the flag below.
+Remove metadata.
+The `strip-metadata` recipe adds the flag below.
 
 ```sh
 -map_metadata -1
 ```
 
-Force keyframes. The `force-keyframes` recipe uses an expression.
+Force keyframes.
+The `force-keyframes` recipe uses an expression.
 
 ```sh
 -force_key_frames expr:gte(t,n_forced*5)
 ```
 
-Map streams explicitly. The `explicit-map` recipe selects video and audio.
+Map streams explicitly.
+The `explicit-map` recipe selects video and audio.
 
 ```sh
 -map 0:v -map 0:a -c copy
 ```
 
-Build filter graphs. The `side-by-side` recipe stacks two inputs.
+Build filter graphs.
+The `side-by-side` recipe stacks two inputs.
 
 ```sh
 -filter_complex hstack -map 0:a?
@@ -178,7 +255,8 @@ Load a graph from a file with the `filter-script` recipe.
 -filter_complex_script SCRIPT
 ```
 
-Make a GIF. The `palette-gif` recipe builds a two-branch graph.
+Make a GIF.
+The `palette-gif` recipe builds a two-branch graph.
 
 ```sh
 -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse"
@@ -190,7 +268,8 @@ Control GIF frame rate with the `gif` recipe.
 -vf fps=FPS
 ```
 
-Normalize loudness. The `loudnorm` recipe adds a simple filter.
+Normalize loudness.
+The `loudnorm` recipe adds a simple filter.
 
 ```sh
 -af loudnorm
@@ -225,7 +304,7 @@ Build a contact sheet with the `thumbnail-sheet` recipe.
 
 The advanced drawer browses filters and encoders from the spec.
 It also accepts raw FFmpeg arguments.
-The drawer marks those arguments as unverified.
+The drawer marks raw arguments unverified.
 Raw arguments bypass recipe checks.
 The command stays unverified until someone checks it.
 
@@ -245,7 +324,7 @@ bun run ci
 ```
 
 The gate runs lint, format check, typecheck, design lint, spec check,
-unit tests, and build.
+readme check, unit tests, and build.
 
 Run the TUI tests:
 
