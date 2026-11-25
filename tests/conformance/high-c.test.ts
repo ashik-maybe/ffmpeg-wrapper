@@ -29,7 +29,7 @@ describe('high-c recipes', () => {
         it(`${recipe.id}: -${arg.name}`, () => {
           const base = arg.name.split(':')[0]
           if (recipe.confidence === 'unverified') {
-            expect(recipe.confidence).toBe('unverified')
+            expect(help).not.toContain(`-${base}`)
             return
           }
           expect(help).toContain(`-${base}`)
