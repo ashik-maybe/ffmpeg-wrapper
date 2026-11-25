@@ -372,10 +372,10 @@ export function App({
   ])
 
   useEffect(() => {
-    if (screen === 'result' && runEnabled && yes && !ranRef.current) {
+    if (screen === 'result' && runEnabled && yes && !ranRef.current && !hardwareNeedsConfirm) {
       void doRun()
     }
-  }, [screen, runEnabled, yes, doRun])
+  }, [screen, runEnabled, yes, doRun, hardwareNeedsConfirm])
 
   useInput((input, key) => {
     if (key.ctrl && input === 'c') {
@@ -438,6 +438,7 @@ export function App({
       if (key.return && runEnabled && !running && !ranRef.current) {
         if (hardwareNeedsConfirm) {
           setConfirmedRecipe(recipeId)
+          ranRef.current = false
           setRunStatus('Hardware recipe confirmed. Press Enter to run')
           return
         }
