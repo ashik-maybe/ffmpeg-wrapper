@@ -1,0 +1,15 @@
+{
+  "options": 201,
+  "filters": 482,
+  "encoders": 198,
+  "muxers": 191,
+  "hwaccels": 0,
+  "filterDetails": 482,
+  "encoderDetails": 198,
+  "decoders": 530,
+  "demuxers": 370,
+  "protocols": 70,
+  "pixelFormats": 270,
+  "sampleFormats": 13,
+  "optionDetails": 201
+}

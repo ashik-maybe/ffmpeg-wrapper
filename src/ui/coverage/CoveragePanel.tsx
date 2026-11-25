@@ -1,5 +1,4 @@
-import { spec, filterDetails, encoderDetails } from '../../spec/index'
-import muxers from '../../spec/muxers.json'
+import counts from './counts.json'
 import { cn } from '../primitives/cn'
 import './coverage.css'
 
@@ -7,21 +6,25 @@ export interface CoveragePanelProps {
   readonly className?: string
 }
 
-interface CoverageRow {
-  readonly label: string
-  readonly count: number
-}
-
-const rows: readonly CoverageRow[] = [
-  { label: 'Options', count: spec.options.length },
-  { label: 'Filters', count: filterDetails.length },
-  { label: 'Encoders', count: encoderDetails.length },
-  { label: 'Muxers', count: muxers.length },
+const rows: ReadonlyArray<readonly [string, number]> = [
+  ['Options', counts.options],
+  ['Filters', counts.filters],
+  ['Encoders', counts.encoders],
+  ['Muxers', counts.muxers],
+  ['Hwaccels', counts.hwaccels],
+  ['Filter details', counts.filterDetails],
+  ['Encoder details', counts.encoderDetails],
+  ['Decoders', counts.decoders],
+  ['Demuxers', counts.demuxers],
+  ['Protocols', counts.protocols],
+  ['Pixel formats', counts.pixelFormats],
+  ['Sample formats', counts.sampleFormats],
+  ['Option details', counts.optionDetails],
 ]
 
 export function CoveragePanel({ className }: CoveragePanelProps) {
   return (
-    <section className={cn('ui-coverage', className)} aria-label="Coverage">
+    <section className={cn('ui-coverage', className)}>
       <table className="ui-coverage__table">
         <thead>
           <tr>
@@ -32,10 +35,10 @@ export function CoveragePanel({ className }: CoveragePanelProps) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.label}>
-              <td>{row.label}</td>
-              <td className="ui-coverage__count">{row.count}</td>
+          {rows.map(([label, count]) => (
+            <tr key={label}>
+              <td>{label}</td>
+              <td className="ui-coverage__count">{count}</td>
             </tr>
           ))}
         </tbody>
