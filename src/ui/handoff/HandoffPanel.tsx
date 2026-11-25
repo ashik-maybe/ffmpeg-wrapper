@@ -18,11 +18,11 @@ const installLines: Record<Shell, string> = {
 }
 
 export type HandoffPanelProps = {
-  defaultShell?: Shell
+  value: Shell
+  onValueChange: (value: Shell) => void
 }
 
-export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
-  const [shell, setShell] = useState<Shell>(defaultShell)
+export function HandoffPanel({ value, onValueChange }: HandoffPanelProps) {
   const [path, setPath] = useState('')
   const [version, setVersion] = useState('')
 
@@ -48,8 +48,8 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
     <Panel label="Handoff">
       <Field label="Shell">
         <Segmented
-          value={shell}
-          onValueChange={(value) => setShell(value as Shell)}
+          value={value}
+          onValueChange={(next) => onValueChange(next as Shell)}
           segments={[
             { value: 'posix', label: 'Posix' },
             { value: 'powershell', label: 'PowerShell' },
@@ -60,7 +60,7 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
       </Field>
 
       <Field label="Install line">
-        <p className="handoff__install">{installLines[shell]}</p>
+        <p className="handoff__install">{installLines[value]}</p>
       </Field>
 
       <Field label="Keystrokes">
@@ -72,9 +72,14 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
         </p>
       </Field>
 
-      <Field label="File path" hint={content.filePathHelper.dragIntoTerminal}>
+      <Field
+        label="File path"
+        htmlFor="handoff-file-path"
+        hint={content.filePathHelper.dragIntoTerminal}
+      >
         <div className="handoff__path">
           <input
+            id="handoff-file-path"
             className="handoff__path-input"
             value={path}
             onChange={(event) => setPath(event.target.value)}
@@ -90,9 +95,11 @@ export function HandoffPanel({ defaultShell = 'posix' }: HandoffPanelProps) {
 
       <Field
         label="Version check"
+        htmlFor="handoff-version"
         hint={`Enter a version to check it against the spec version ${spec.version}`}
       >
         <input
+          id="handoff-version"
           className="handoff__path-input"
           value={version}
           onChange={(event) => setVersion(event.target.value)}

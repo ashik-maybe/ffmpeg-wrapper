@@ -37,6 +37,7 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-11: 44px;
   --space-12: 48px;
   --space-16: 64px;
 
@@ -45,7 +46,13 @@
   --type-ui: 16px;
   --type-body: 17px;
   --type-mono: 13px;
+  --type-h1: 38px;
+  --type-h2: 30px;
+  --type-h3: 20px;
   --line-height-body: 1.55;
+
+  /* Easing */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Shape: sharp */
   --radius: 0px;

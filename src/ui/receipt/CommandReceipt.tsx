@@ -59,7 +59,7 @@ export function CommandReceipt({ command, confidence, version, sentences }: Comm
           value={multiline ? 'multi-line' : 'one-line'}
           onValueChange={(next) => setMultiline(next === 'multi-line')}
         />
-        <Button onClick={copy} variant="quiet">
+        <Button onClick={copy} variant="primary">
           Copy command
         </Button>
         {note && <output className="ui-receipt__note">{note}</output>}
@@ -68,7 +68,7 @@ export function CommandReceipt({ command, confidence, version, sentences }: Comm
         <code>{shown}</code>
       </pre>
       <p className="ui-receipt__footer">
-        <span className="ui-receipt__stamp">CHECKED {version}</span>
+        <span className="ui-receipt__stamp">Checked {version}</span>
         <span className="ui-receipt__confidence">Confidence: {confidence}</span>
       </p>
     </section>

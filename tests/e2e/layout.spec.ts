@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 import { mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 
-const widths = [1440, 1024, 820, 768, 390]
+const widths = [1440, 1024, 820, 768, 390, 320]
 const screenshotsDir = join(process.cwd(), 'tests/e2e/screenshots')
 
 test.describe('layout', () => {
@@ -15,7 +15,7 @@ test.describe('layout', () => {
       await page.setViewportSize({ width, height: 900 })
       await page.goto('/')
       await expect(
-        page.getByRole('heading', { name: 'Describe the edit. Get a command that runs.' }),
+        page.getByRole('heading', { name: 'FFmpeg command generator for video edits' }),
       ).toBeVisible()
 
       await page.screenshot({ path: join(screenshotsDir, `width-${width}.png`), fullPage: true })

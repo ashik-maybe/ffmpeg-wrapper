@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { ChangeEvent } from 'react'
+import type { ChangeEvent, CSSProperties } from 'react'
 import { buildHash, parseHash } from './core/router'
 import { planFromRecipe } from './core/plan'
 import { render } from './core/render'
@@ -40,11 +40,22 @@ export default function App() {
   const [advancedOpen, setAdvancedOpen] = useState(false)
 
   useEffect(() => {
-    window.location.hash = buildHash({
-      page: 'home',
-      params: { recipeId, file: filePath },
-    })
+    history.replaceState(
+      null,
+      '',
+      buildHash({ page: 'home', params: { recipeId, file: filePath } }),
+    )
   }, [recipeId, filePath])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const { params } = parseHash(window.location.hash)
+      if (params.recipeId !== undefined) setRecipeId(params.recipeId)
+      if (params.file !== undefined) setFilePath(params.file)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
   const recipe = recipes.find((item) => item.id === recipeId) ?? recipes[0]
   if (recipe === undefined) return <main className="app">{content.errorState}</main>
@@ -72,76 +83,114 @@ export default function App() {
     if (data.duration !== undefined) setOutPoint(Math.max(0.1, data.duration))
   }
 
+  const heroStyle: CSSProperties = {
+    minHeight: 'calc(100dvh - var(--space-16) * 2)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    gap: 'var(--space-6)',
+  }
+
+  const sectionStyle: CSSProperties = { minHeight: '100dvh' }
+
   return (
-    <main className="app">
-      <h1 className="app-heading">{content.heroHeading}</h1>
-      <p className="app-note">{content.heroBody}</p>
+    <main id="main" className="app">
+      <section className="hero" aria-label="Hero" style={heroStyle}>
+        <h1 className="app-heading">{content.heroHeading}</h1>
+        <p className="app-note hero-stamp">CHECKED {spec.provenance.version}</p>
+      </section>
 
-      <Field label="File" hint={content.filePathHelper.dragIntoTerminal}>
-        <input
-          aria-label="File path"
-          value={filePath}
-          onChange={handleFile}
-          placeholder="video.mp4"
+      <section className="app-section" style={sectionStyle}>
+        <p className="app-note">{content.heroBody}</p>
+
+        <Field label="File" hint={content.filePathHelper.dragIntoTerminal}>
+          <input
+            aria-label="File path"
+            value={filePath}
+            onChange={handleFile}
+            placeholder="video.mp4"
+          />
+        </Field>
+      </section>
+
+      <section className="app-section" style={sectionStyle}>
+        <Segmented
+          label="Shell"
+          value={shell}
+          onValueChange={(value) => {
+            if (isShell(value)) setShell(value)
+          }}
+          segments={SHELLS.map((item) => ({ value: item, label: item }))}
         />
-      </Field>
+      </section>
 
-      <Segmented
-        label="Shell"
-        value={shell}
-        onValueChange={(value) => {
-          if (isShell(value)) setShell(value)
-        }}
-        segments={SHELLS.map((item) => ({ value: item, label: item }))}
-      />
+      <section className="app-section" style={sectionStyle}>
+        <OutcomeGrid onSelect={handleOutcome} />
+      </section>
 
-      <OutcomeGrid onSelect={handleOutcome} />
-
-      <TrimRuler
-        inPoint={inPoint}
-        outPoint={outPoint}
-        onChange={(points) => {
-          setInPoint(points.inPoint)
-          setOutPoint(points.outPoint)
-        }}
-        min={0}
-        max={Math.max(60, outPoint + 10)}
-        mode={mode}
-        onModeChange={setMode}
-      />
-
-      <Panel label="Command">
-        <CommandReceipt
-          command={command}
-          confidence={content.confidence.high}
-          version={spec.provenance.version}
-          sentences={[content.heroBody, content.coverage]}
+      <section className="app-section" style={sectionStyle}>
+        <TrimRuler
+          inPoint={inPoint}
+          outPoint={outPoint}
+          onChange={(points) => {
+            setInPoint(points.inPoint)
+            setOutPoint(points.outPoint)
+          }}
+          min={0}
+          max={Math.max(60, outPoint + 10)}
+          mode={mode}
+          onModeChange={setMode}
         />
-      </Panel>
+      </section>
+
+      <section className="app-section" style={sectionStyle}>
+        <Panel label="Command">
+          <CommandReceipt
+            command={command}
+            confidence={content.confidence.high}
+            version={spec.provenance.version}
+            sentences={[content.heroBody, content.coverage]}
+          />
+        </Panel>
+      </section>
 
       {findings.length > 0 ? (
-        <Panel label="Checks">
-          <ul className="validation-findings">
-            {findings.map((finding) => (
-              <li key={finding.code}>
-                <Callout severity={finding.severity}>
-                  {finding.code} — {finding.message}
-                </Callout>
-              </li>
-            ))}
-          </ul>
-        </Panel>
+        <section className="app-section" style={sectionStyle}>
+          <Panel label="Checks">
+            <ul className="validation-findings">
+              {findings.map((finding) => (
+                <li key={finding.code}>
+                  <Callout severity={finding.severity}>
+                    {finding.code} — {finding.message}
+                  </Callout>
+                </li>
+              ))}
+            </ul>
+          </Panel>
+        </section>
       ) : null}
 
-      <HandoffPanel defaultShell={shell} />
-      <CalibrationPanel onParsed={handleCalibration} />
+      <section className="app-section" style={sectionStyle}>
+        <HandoffPanel value={shell} onValueChange={setShell} />
+      </section>
 
-      <Button variant="quiet" onClick={() => setAdvancedOpen(true)}>
-        Advanced
-      </Button>
-      <AdvancedDrawer open={advancedOpen} onOpenChange={setAdvancedOpen} onSubmit={setRawArgs} />
+      <section className="app-section" style={sectionStyle}>
+        <CalibrationPanel onParsed={handleCalibration} />
+      </section>
 
-      <Panel label="Coverage">{content.coverage}</Panel>
+      <section className="app-section" style={sectionStyle}>
+        <AdvancedDrawer
+          open={advancedOpen}
+          onOpenChange={setAdvancedOpen}
+          onSubmit={setRawArgs}
+          trigger={<Button variant="quiet">Advanced</Button>}
+        />
+      </section>
+
+      <section className="app-section" style={sectionStyle}>
+        <Panel label="Coverage">{content.coverage}</Panel>
+      </section>
+
       <p className="app-note">{content.emptyState}</p>
     </main>
   )

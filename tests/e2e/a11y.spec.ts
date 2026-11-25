@@ -5,7 +5,7 @@ test.describe('accessibility', () => {
   test('axe on empty state', async ({ page }) => {
     await page.goto('/')
     await expect(
-      page.getByRole('heading', { name: 'Describe the edit. Get a command that runs.' }),
+      page.getByRole('heading', { name: 'FFmpeg command generator for video edits' }),
     ).toBeVisible()
 
     const results = await new AxeBuilder({ page }).analyze()
