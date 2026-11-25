@@ -1,0 +1,11 @@
+.ui-buildcheck {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ui-buildcheck__input {
+  min-height: 44px;
+  resize: vertical;
+  font-family: var(--font-mono);
+}

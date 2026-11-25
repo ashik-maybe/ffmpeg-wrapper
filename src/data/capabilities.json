@@ -1,0 +1,1795 @@
+{
+  "version": "9.1",
+  "generatedAt": "2026-11-25",
+  "sources": ["ffmpeg-encoders.txt", "ffmpeg-muxers.txt", "ffmpeg-filters.txt", "ffmpeg-help.txt"],
+  "sha256": {
+    "ffmpeg-encoders.txt": "0ab94c495f7c8bc84096f052ec06adc0467468e1d6223e715a14da4867217e08",
+    "ffmpeg-muxers.txt": "d8180450dbed6d7a79ae3bbe7e6179ac6eed854df2b6caf6efb31b347fc1bc0d",
+    "ffmpeg-filters.txt": "2bd906fa43bfbeab17496323895bcd9b5ea3149ca75022908c9ca69734addf3a",
+    "ffmpeg-help.txt": "7fcf42ea0c0dec6ac87af1222339aabc8ef7c2348904b29779276556e4272132"
+  },
+  "encoders": [
+    {
+      "name": "a64multi",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "a64multi5",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "alias_pix",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "amv",
+      "mediaType": "video",
+      "containers": ["amv"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "apng",
+      "mediaType": "video",
+      "containers": ["apng"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "asv1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "asv2",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libaom-av1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["crf"],
+      "presets": [],
+      "profiles": ["level"]
+    },
+    {
+      "name": "librav1e",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libsvtav1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["crf", "qp"],
+      "presets": ["preset"],
+      "profiles": []
+    },
+    {
+      "name": "avrp",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "avui",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "bitpacked",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "bmp",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "cfhd",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "cinepak",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "cljr",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "vc2",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dnxhd",
+      "mediaType": "video",
+      "containers": ["dnxhd"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": ["profile"]
+    },
+    {
+      "name": "dpx",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dvvideo",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dxv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "exr",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ffv1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ffvhuff",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "fits",
+      "mediaType": "video",
+      "containers": ["fits"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "flashsv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "flashsv2",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "flv",
+      "mediaType": "video",
+      "containers": ["flv"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "gif",
+      "mediaType": "video",
+      "containers": ["gif"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "h261",
+      "mediaType": "video",
+      "containers": ["h261"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "h263",
+      "mediaType": "video",
+      "containers": ["h263"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "h263_v4l2m2m",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "h263p",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libx264",
+      "mediaType": "video",
+      "containers": ["mp4", "mov", "avi", "flv", "mpegts", "h264"],
+      "pix_fmts": [],
+      "rateControl": ["crf", "qp", "vbr", "cbr"],
+      "presets": ["preset"],
+      "profiles": ["profile", "level"]
+    },
+    {
+      "name": "libx264rgb",
+      "mediaType": "video",
+      "containers": ["mp4", "mov", "avi"],
+      "pix_fmts": [],
+      "rateControl": ["crf", "qp", "vbr", "cbr"],
+      "presets": ["preset"],
+      "profiles": ["profile", "level"]
+    },
+    {
+      "name": "libopenh264",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "h264_v4l2m2m",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "hap",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "hdr",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libx265",
+      "mediaType": "video",
+      "containers": ["mp4", "mov"],
+      "pix_fmts": [],
+      "rateControl": ["crf", "qp"],
+      "presets": ["preset"],
+      "profiles": ["profile"]
+    },
+    {
+      "name": "hevc_v4l2m2m",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "huffyuv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "jpeg2000",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libopenjpeg",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": ["profile"]
+    },
+    {
+      "name": "jpegls",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ljpeg",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "magicyuv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mjpeg",
+      "mediaType": "video",
+      "containers": ["avi", "mp4", "mpeg1video", "mpeg2video", "mjpeg"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mpeg1video",
+      "mediaType": "video",
+      "containers": ["mpeg1video", "mpeg"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mpeg2video",
+      "mediaType": "video",
+      "containers": ["mpeg2video", "mpegts", "mpeg"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mpeg4",
+      "mediaType": "video",
+      "containers": ["mp4", "mov", "avi", "mpegts", "mpeg"],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mpeg4_v4l2m2m",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "msmpeg4v2",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "msmpeg4",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "msrle",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "msvideo1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pam",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pbm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcx",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pdv",
+      "mediaType": "video",
+      "containers": ["pdv"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pfm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pgm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pgmyuv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "phm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "png",
+      "mediaType": "video",
+      "containers": ["apng"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ppm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "prores",
+      "mediaType": "video",
+      "containers": ["mov"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": ["profile"]
+    },
+    {
+      "name": "prores_aw",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "prores_ks",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "qoi",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "qtrle",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "r10k",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "r210",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "rawvideo",
+      "mediaType": "video",
+      "containers": ["rawvideo", "yuv4mpegpipe"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "roqvideo",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "rpza",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "rv10",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "rv20",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "sgi",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "smc",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "snow",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "speedhq",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "sunrast",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "svq1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "targa",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libtheora",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "tiff",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "utvideo",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "v210",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "vbn",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp", "vbr", "qmin", "qmax"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "vnull",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libvpx",
+      "mediaType": "video",
+      "containers": ["webm", "avi"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "vp8_v4l2m2m",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libvpx-vp9",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["crf", "vbr"],
+      "presets": [],
+      "profiles": ["level"]
+    },
+    {
+      "name": "libvvenc",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["qp"],
+      "presets": ["preset"],
+      "profiles": ["level"]
+    },
+    {
+      "name": "wbmp",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libwebp_anim",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libwebp",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": ["preset"],
+      "profiles": []
+    },
+    {
+      "name": "wmv1",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "wmv2",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "wrapped_avframe",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "xbm",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "xface",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "xwd",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "y41p",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "yuv4",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "zlib",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "zmbv",
+      "mediaType": "video",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "aac",
+      "mediaType": "audio",
+      "containers": ["adts", "mp4"],
+      "pix_fmts": [],
+      "rateControl": ["cbr"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ac3",
+      "mediaType": "audio",
+      "containers": ["ac3", "adts", "mp4"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ac3_fixed",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_adx",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_argo",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "g722",
+      "mediaType": "audio",
+      "containers": ["g722"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "g726",
+      "mediaType": "audio",
+      "containers": ["g726"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "g726le",
+      "mediaType": "audio",
+      "containers": ["g726le"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_alp",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_amv",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_apm",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_qt",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_ssi",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_wav",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ima_ws",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_ms",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_swf",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "adpcm_yamaha",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "alac",
+      "mediaType": "audio",
+      "containers": ["mp4"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "anull",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "aptx",
+      "mediaType": "audio",
+      "containers": ["aptx"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "aptx_hd",
+      "mediaType": "audio",
+      "containers": ["aptx_hd"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "comfortnoise",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dfpwm",
+      "mediaType": "audio",
+      "containers": ["dfpwm"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dsd_msbf",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dca",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "eac3",
+      "mediaType": "audio",
+      "containers": ["eac3"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "flac",
+      "mediaType": "audio",
+      "containers": ["flac"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "g723_1",
+      "mediaType": "audio",
+      "containers": ["g723_1"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mlp",
+      "mediaType": "audio",
+      "containers": ["mlp"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mp2",
+      "mediaType": "audio",
+      "containers": ["mp3", "mp2"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mp2fixed",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libmp3lame",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "nellymoser",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "opus",
+      "mediaType": "audio",
+      "containers": ["ogg", "oga", "webm", "opus"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libopus",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": ["vbr"],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_alaw",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_bluray",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_dvd",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_f32be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_f32le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_f64be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_f64le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_mulaw",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s16be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s16be_planar",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s16le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s16le_planar",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s24be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s24daud",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s24le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s24le_planar",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s32be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s32le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s32le_planar",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s64be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s64le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s8",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_s8_planar",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u16be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u16le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u24be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u24le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u32be",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u32le",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_u8",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "pcm_vidc",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "real_144",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "roq_dpcm",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "s302m",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "sbc",
+      "mediaType": "audio",
+      "containers": ["sbc"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "truehd",
+      "mediaType": "audio",
+      "containers": ["truehd"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "tta",
+      "mediaType": "audio",
+      "containers": ["tta"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "vorbis",
+      "mediaType": "audio",
+      "containers": ["ogg", "oga", "webm"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "libvorbis",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "wavpack",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "wmav1",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "wmav2",
+      "mediaType": "audio",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ssa",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ass",
+      "mediaType": "subtitle",
+      "containers": ["ass"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dvbsub",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "dvdsub",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "mov_text",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "srt",
+      "mediaType": "subtitle",
+      "containers": ["srt"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "subrip",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "text",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "ttml",
+      "mediaType": "subtitle",
+      "containers": ["ttml"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "webvtt",
+      "mediaType": "subtitle",
+      "containers": ["webvtt"],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    },
+    {
+      "name": "xsub",
+      "mediaType": "subtitle",
+      "containers": [],
+      "pix_fmts": [],
+      "rateControl": [],
+      "presets": [],
+      "profiles": []
+    }
+  ]
+}

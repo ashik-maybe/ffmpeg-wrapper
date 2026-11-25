@@ -53,8 +53,8 @@ function violates(value: string, constraint: ValueConstraint): boolean {
   const oneOf = constraint.oneOf
   const notOneOf = constraint.notOneOf
   if (oneOf !== undefined || notOneOf !== undefined) {
-    if (oneOf !== undefined && oneOf.includes(value)) return true
-    if (notOneOf !== undefined && !notOneOf.includes(value)) return true
+    if (oneOf !== undefined && !oneOf.includes(value)) return true
+    if (notOneOf !== undefined && notOneOf.includes(value)) return true
     return false
   }
   const number = Number(value)
@@ -81,14 +81,19 @@ export function validate(plan: Plan, spec: ToolSpec): Finding[] {
   const findings: Finding[] = []
   const args = plan.args
   for (const rule of rules) {
-    if (rule.requireAny && !rule.requireAny.some((flag) => hasFlag(args, flag))) continue
-    if (rule.valueConstraint) {
-      for (const flag of rule.requireAny ?? []) {
-        const arg = findArg(args, flag)
-        if (arg?.value !== undefined && violates(arg.value, rule.valueConstraint)) {
-          findings.push(finding(rule))
-        }
-      }
+    const required = rule.requireAny
+    if (required && !required.some((flag) => hasFlag(args, flag))) continue
+    // valueConstraint gates requireAny: the rule fires on forbidAny only
+    // when a required flag's value satisfies the constraint.
+    const gatePassed =
+      !rule.valueConstraint ||
+      (required ?? []).some((flag) => {
+        const value = findArg(args, flag)?.value
+        return value !== undefined && !violates(value, rule.valueConstraint!)
+      })
+    if (rule.valueConstraint && !gatePassed) {
+      if (rule.forbidAny === undefined) findings.push(finding(rule))
+      continue
     }
     for (const flag of rule.requireAll ?? []) {
       if (!hasFlag(args, flag)) findings.push(finding(rule))

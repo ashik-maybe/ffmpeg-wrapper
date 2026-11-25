@@ -1,0 +1,135 @@
+{
+  "recipes": [
+    {
+      "id": "av1-svt",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libsvtav1", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "option", "name": "preset", "value": "6" },
+        { "kind": "option", "name": "crf", "value": "35" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "vp9-alt",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "libvpx-vp9", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "option", "name": "speed", "value": "3" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "hevc-vulkan",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "hevc_vulkan", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "prores-mov",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "prores", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "option", "name": "f", "value": "mov" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "qsv",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "h264_qsv", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "vaapi",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "h264_vaapi", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "videotoolbox",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vcodec", "value": "h264_videotoolbox", "alias": "c:v" },
+        { "kind": "flag", "name": "sn" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "hdr-sdr",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "zscale=range=limited" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "deinterlace",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "yadif" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "denoise",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "nlmeans" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "upscale",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "scale=iw*2:ih*2" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "downscale",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "vf", "value": "scale=iw/2:ih/2" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    }
+  ]
+}

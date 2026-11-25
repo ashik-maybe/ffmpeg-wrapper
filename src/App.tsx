@@ -8,9 +8,12 @@ import type { CalibrationValues } from './ui/calibration/parse'
 import type { Shell } from './core/types'
 import type { TrimRulerMode } from './ui/moment/TrimRuler'
 import { content } from './content'
+import filters from './spec/filters.json'
 import { recipes } from './recipes'
 import { spec } from './spec'
 import { AdvancedDrawer } from './ui/advanced/AdvancedDrawer'
+import { UserBuildCheck } from './ui/buildcheck'
+import { FilterGraphEditor } from './ui/graph'
 import { CalibrationPanel } from './ui/calibration/CalibrationPanel'
 import { HandoffPanel } from './ui/handoff/HandoffPanel'
 import { OutcomeGrid } from './ui/outcomes/OutcomeGrid'
@@ -23,6 +26,8 @@ import { CommandReceipt } from './ui/receipt/CommandReceipt'
 import { TrimRuler } from './ui/moment/TrimRuler'
 
 const SHELLS: readonly Shell[] = ['posix', 'powershell', 'cmd']
+
+const filterNames = (filters as readonly { name: string }[]).map((item) => item.name)
 
 function isShell(value: string): value is Shell {
   return SHELLS.includes(value as Shell)
@@ -38,6 +43,7 @@ export default function App() {
   const [shell, setShell] = useState<Shell>('posix')
   const [rawArgs, setRawArgs] = useState('')
   const [advancedOpen, setAdvancedOpen] = useState(false)
+  const [graphValue, setGraphValue] = useState('')
 
   useEffect(() => {
     history.replaceState(
@@ -176,6 +182,22 @@ export default function App() {
 
       <section className="app-section" style={sectionStyle}>
         <CalibrationPanel onParsed={handleCalibration} />
+      </section>
+
+      <section className="app-section" style={sectionStyle}>
+        <Panel label="Build check">
+          <UserBuildCheck />
+        </Panel>
+      </section>
+
+      <section className="app-section" style={sectionStyle}>
+        <Panel label="Filter graph">
+          <FilterGraphEditor
+            value={graphValue}
+            onChange={setGraphValue}
+            filterNames={filterNames}
+          />
+        </Panel>
       </section>
 
       <section className="app-section" style={sectionStyle}>

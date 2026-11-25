@@ -1,7 +1,29 @@
 import recipesData from '../data/recipes.json'
+import recipesExtraData from '../data/recipes-extra.json'
+import recipesAdvancedData from '../data/recipes-advanced.json'
 import type { Plan, Recipe, Shell } from '../core/types'
 
-const recipes = (recipesData as { recipes: Recipe[] }).recipes
+const sets = [
+  (recipesData as { recipes: Recipe[] }).recipes,
+  (recipesExtraData as { recipes: Recipe[] }).recipes,
+  (recipesAdvancedData as { recipes: Recipe[] }).recipes,
+]
+
+/**
+ * Merge recipe sets, keeping the first recipe per id.
+ */
+function mergeBy(inputs: Recipe[][]): Recipe[] {
+  const seen = new Set<string>()
+  const merged: Recipe[] = []
+  for (const recipe of inputs.flat()) {
+    if (seen.has(recipe.id)) continue
+    seen.add(recipe.id)
+    merged.push(recipe)
+  }
+  return merged
+}
+
+const recipes = mergeBy(sets)
 
 /**
  * Replace every `{{key}}` placeholder in an arg's value with values[key].
