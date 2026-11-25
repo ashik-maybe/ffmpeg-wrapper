@@ -130,4 +130,34 @@ describe('tui ux', () => {
       }
     }
   })
+
+  it('shows Common tasks and More tasks', () => {
+    const { lastFrame } = render(<App runEnabled={false} version="test" />)
+    const frame = lastFrame() ?? ''
+    expect(frame).toContain('Common tasks')
+    expect(frame).toContain('More tasks...')
+  })
+
+  it('shows advanced toggle hint on options', async () => {
+    const { lastFrame, stdin } = render(
+      <App recipes={recipes} version="7.0-test" spec={spec} runEnabled={false} />,
+    )
+    stdin.write('\r')
+    await tick()
+    const frame = lastFrame() ?? ''
+    expect(frame).toContain('press a to edit')
+  })
+
+  it('shows Task and Checks labels on result', async () => {
+    const { lastFrame, stdin } = render(
+      <App recipes={recipes} version="7.0-test" spec={spec} runEnabled={false} />,
+    )
+    stdin.write('\r')
+    await tick()
+    stdin.write('\r')
+    await tick()
+    const frame = lastFrame() ?? ''
+    expect(frame).toContain('Task:')
+    expect(frame).toContain('Checks:')
+  })
 })

@@ -1,11 +1,12 @@
 import { stat } from 'node:fs/promises'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Box, Text, useApp, useInput, useStdout } from 'ink'
-import { OutcomeScreen, OptionsScreen, ResultScreen } from './screens/index.ts'
+import { OutcomeScreen, OptionsScreen, ResultScreen, MoreTasksScreen } from './screens/index.ts'
 import type { OptionsValues, ResultFinding } from './screens/index.ts'
 import { Chrome, HelpOverlay } from './components/index.ts'
 import { recipes } from '../recipes/index.ts'
 import { content } from '../content/index.ts'
+import { CURATED_TASKS } from './tasks.ts'
 import { render, validate } from '../core/index.ts'
 import type { Plan, Recipe } from '../core/index.ts'
 import { validateAgainstRuntime } from '../tools/index.ts'
@@ -15,7 +16,7 @@ import type { RunResult } from '../runner/index.ts'
 import { parseProgressLine } from '../progress/index.ts'
 import { bindRecipeValues } from './binding.ts'
 
-export type Screen = 'outcome' | 'options' | 'result'
+export type Screen = 'outcome' | 'options' | 'result' | 'more'
 
 export interface AppProps {
   readonly recipes?: readonly Recipe[]
@@ -187,18 +188,30 @@ export function App({
       return allRecipes.map((r) => ({ id: r.id, label: r.id }))
     }
     const available = new Set(allRecipes.map((r) => r.id))
-    return content.outcomes
+    const base = content.outcomes
       .filter((outcome) => outcome.recipeId && available.has(outcome.recipeId))
       .map((outcome) => ({
         id: outcome.recipeId as string,
         label: outcome.label,
         group: outcome.group,
       }))
+    const seen = new Set(base.map((item) => item.id))
+    const common = CURATED_TASKS.filter((task) => available.has(task.id)).map((task) => ({
+      id: seen.has(task.id) ? `curated:${task.id}` : task.id,
+      recipeId: task.id,
+      label: task.label,
+      group: 'Common tasks',
+      hint: task.hint,
+    }))
+    return [...base, ...common]
   }, [allRecipes, recipesProp])
   const [screen, setScreen] = useState<Screen>('outcome')
   const [helpOpen, setHelpOpen] = useState(false)
-  const [recipeId, setRecipeId] = useState<string>(outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '')
+  const [selectedOutcomeId, setSelectedOutcomeId] = useState<string>(
+    outcomeItems[0]?.id ?? allRecipes[0]?.id ?? '',
+  )
   const [activeField, setActiveField] = useState(0)
+  const [advanced, setAdvanced] = useState(false)
   const [opts, setOpts] = useState<OptionsValues>({
     inputPath: '',
     outputPath: '',
@@ -219,6 +232,12 @@ export function App({
   const abortRef = useRef<AbortController | null>(null)
   const ranRef = useRef(false)
   const stdoutBufferRef = useRef('')
+
+  const recipeId = useMemo(() => {
+    const item = outcomeItems.find((o) => o.id === selectedOutcomeId)
+    const raw = (item as { recipeId?: string } | undefined)?.recipeId ?? selectedOutcomeId
+    return raw.startsWith('curated:') ? raw.slice('curated:'.length) : raw
+  }, [outcomeItems, selectedOutcomeId])
 
   const selectedRecipe = useMemo(
     () => allRecipes.find((r) => r.id === recipeId) ?? allRecipes[0],
@@ -381,8 +400,15 @@ export function App({
   ])
 
   useEffect(() => {
-    if (screen === 'result' && runEnabled && yes && !ranRef.current && !hardwareNeedsConfirm) {
-      void doRun()
+    if (screen !== 'result' || !runEnabled || !yes || hardwareNeedsConfirm) return
+    if (!ranRef.current) void doRun()
+    const timers = [10, 30, 80].map((ms) =>
+      setTimeout(() => {
+        if (!ranRef.current) void doRun()
+      }, ms),
+    )
+    return () => {
+      for (const timer of timers) clearTimeout(timer)
     }
   }, [screen, runEnabled, yes, doRun, hardwareNeedsConfirm])
 
@@ -407,12 +433,16 @@ export function App({
       return
     }
 
-    if (input === 'q' && screen !== 'options') {
+    if (input === 'q' && screen !== 'options' && screen !== 'more') {
       exit()
       return
     }
 
     if (screen === 'outcome') {
+      if (input === 'm') {
+        setScreen('more')
+        return
+      }
       if (key.return) {
         // OutcomeScreen also handles Enter; we confirm here.
         if (selectedRecipe) setScreen('options')
@@ -420,7 +450,26 @@ export function App({
       return
     }
 
+    if (screen === 'more') {
+      return
+    }
+
     if (screen === 'options') {
+      const visibleFields = advanced ? OPTION_FIELDS : (['inputPath', 'outputPath'] as const)
+      const active = visibleFields.includes(OPTION_FIELDS[activeField]!)
+        ? OPTION_FIELDS[activeField]!
+        : visibleFields[0]!
+      const activeIndex = Math.max(0, visibleFields.indexOf(active))
+      if (input === 'a' && !key.ctrl && !key.meta) {
+        setAdvanced((v) => !v)
+        if (!advanced) {
+          // turning on: keep current active
+        } else {
+          // turning off: clamp to visible
+          setActiveField(0)
+        }
+        return
+      }
       if (key.escape) {
         setScreen('outcome')
         return
@@ -430,21 +479,21 @@ export function App({
         return
       }
       if (key.tab || key.downArrow) {
-        setActiveField((i) => (i + 1) % OPTION_FIELDS.length)
+        const next = visibleFields[(activeIndex + 1) % visibleFields.length]!
+        setActiveField(OPTION_FIELDS.indexOf(next))
         return
       }
       if (key.upArrow) {
-        setActiveField((i) => (i - 1 + OPTION_FIELDS.length) % OPTION_FIELDS.length)
+        const next = visibleFields[(activeIndex - 1 + visibleFields.length) % visibleFields.length]!
+        setActiveField(OPTION_FIELDS.indexOf(next))
         return
       }
       if (key.backspace || key.delete) {
-        const field = OPTION_FIELDS[activeField]!
-        setOpts((prev) => ({ ...prev, [field]: prev[field].slice(0, -1) }))
+        setOpts((prev) => ({ ...prev, [active]: prev[active].slice(0, -1) }))
         return
       }
       if (input && !key.ctrl && !key.meta) {
-        const field = OPTION_FIELDS[activeField]!
-        setOpts((prev) => ({ ...prev, [field]: prev[field] + input }))
+        setOpts((prev) => ({ ...prev, [active]: prev[active] + input }))
       }
       return
     }
@@ -475,13 +524,17 @@ export function App({
 
   const onOutcomeSelect = useCallback(
     (id: string) => {
-      if (id === recipeId && screen === 'outcome') {
+      if (id === '__more__') {
+        setScreen('more')
+        return
+      }
+      if (id === selectedOutcomeId && screen === 'outcome') {
         setScreen('options')
         return
       }
-      setRecipeId(id)
+      setSelectedOutcomeId(id)
     },
-    [recipeId, screen],
+    [selectedOutcomeId, screen],
   )
 
   if (allRecipes.length === 0) {
@@ -496,51 +549,70 @@ export function App({
         ? [
             { keys: 'Up/Down', label: 'move' },
             { keys: 'Enter', label: 'select' },
+            { keys: 'm', label: 'more' },
             { keys: '?', label: 'help' },
-            { keys: 'q', label: 'quit' },
           ]
         : [
             { keys: 'Up/Down', label: 'move' },
             { keys: 'Enter', label: 'select' },
+            { keys: 'm', label: 'more' },
             { keys: '?', label: 'help' },
             { keys: 'q', label: 'quit' },
           ]
-      : screen === 'options'
-        ? narrow
-          ? [
-              { keys: 'Tab', label: 'next' },
-              { keys: 'Enter', label: 'go' },
-              { keys: 'Esc', label: 'back' },
-              { keys: '?', label: 'help' },
-            ]
-          : [
-              { keys: 'Tab/Arrows', label: 'move' },
-              { keys: 'Enter', label: 'result' },
-              { keys: 'Esc', label: 'back' },
-              { keys: '?', label: 'help' },
-            ]
-        : narrow
-          ? [
-              { keys: 'Enter', label: 'run' },
-              { keys: 'Esc', label: 'back' },
-              { keys: '?', label: 'help' },
-              { keys: 'q', label: 'quit' },
-            ]
-          : [
-              { keys: 'Enter', label: 'run' },
-              { keys: 'Esc', label: 'edit' },
-              { keys: '?', label: 'help' },
-              { keys: 'q', label: 'quit' },
-            ]
+      : screen === 'more'
+        ? [
+            { keys: 'Up/Down', label: 'move' },
+            { keys: 'Enter', label: 'select' },
+            { keys: 'Esc', label: 'back' },
+            { keys: '?', label: 'help' },
+          ]
+        : screen === 'options'
+          ? narrow
+            ? [
+                { keys: 'Tab', label: 'next' },
+                { keys: 'a', label: 'advanced' },
+                { keys: 'Enter', label: 'go' },
+                { keys: 'Esc', label: 'back' },
+              ]
+            : [
+                { keys: 'Tab/Arrows', label: 'move' },
+                { keys: 'a', label: 'advanced' },
+                { keys: 'Enter', label: 'result' },
+                { keys: 'Esc', label: 'back' },
+                { keys: '?', label: 'help' },
+              ]
+          : narrow
+            ? [
+                { keys: 'Enter', label: 'run' },
+                { keys: 'Esc', label: 'back' },
+                { keys: '?', label: 'help' },
+                { keys: 'q', label: 'quit' },
+              ]
+            : [
+                { keys: 'Enter', label: 'run' },
+                { keys: 'Esc', label: 'edit' },
+                { keys: '?', label: 'help' },
+                { keys: 'q', label: 'quit' },
+              ]
 
   const screenContent = helpOpen ? (
     <HelpOverlay />
   ) : screen === 'outcome' ? (
     <OutcomeScreen
       outcomes={outcomeItems}
-      selectedId={recipeId}
+      selectedId={selectedOutcomeId}
       onSelect={onOutcomeSelect}
       embedded
+      onMore={() => setScreen('more')}
+    />
+  ) : screen === 'more' ? (
+    <MoreTasksScreen
+      embedded
+      onBack={() => setScreen('outcome')}
+      onSelect={(id) => {
+        setSelectedOutcomeId(id)
+        setScreen('options')
+      }}
     />
   ) : screen === 'options' ? (
     <Box flexDirection="column">
@@ -555,6 +627,7 @@ export function App({
         onInputPathChange={(value) => setOpts((prev) => ({ ...prev, inputPath: value }))}
         onOutputPathChange={(value) => setOpts((prev) => ({ ...prev, outputPath: value }))}
         activeField={OPTION_FIELDS[activeField]}
+        advanced={advanced}
         embedded
       />
     </Box>
@@ -574,6 +647,11 @@ export function App({
         unverified={hardwareUnverified}
         embedded
         showRawLog={!narrow}
+        taskLabel={
+          CURATED_TASKS.find((t) => t.id === recipeId)?.label ??
+          content.outcomes.find((o) => o.recipeId === recipeId)?.label ??
+          recipeId
+        }
       />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}

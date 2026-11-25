@@ -51,6 +51,67 @@ jobs:
           ./tools/bin/ffmpeg -version > .cache/ffmpeg-version.txt
           node tools/spec-compiler/generate.mjs
 
+      - name: Update coverage counts in REFERENCE
+        run: |
+          node --input-type=module -e '
+          import { readFileSync, writeFileSync, existsSync } from "node:fs";
+          import { resolve } from "node:path";
+          const root = process.cwd();
+          const refPath = resolve(root, "docs/REFERENCE.md");
+          if (!existsSync(refPath)) process.exit(0);
+          const specDir = resolve(root, "src/spec");
+          const read = (f) => JSON.parse(readFileSync(resolve(specDir, f), "utf8"));
+          const options = read("options.json");
+          const filters = read("filters.json");
+          const encoders = read("encoders.json");
+          const muxers = read("muxers.json");
+          const hwaccels = read("hwaccels.json");
+          const filterDetails = read("filter-details.json").filters;
+          const encoderDetails = read("encoder-details.json").encoders;
+          const streamSpecs = read("stream-specs.json");
+          const optionDetails = read("option-details.json").options;
+          const counts = {
+            options: options.options.length,
+            filters: filters.length,
+            encoders: encoders.length,
+            muxers: muxers.length,
+            hwaccels: hwaccels.length,
+            filterDetails: filterDetails.length,
+            encoderDetails: encoderDetails.length,
+            decoders: streamSpecs.decoders.length,
+            demuxers: streamSpecs.demuxers.length,
+            protocols: streamSpecs.protocols.length,
+            pixelFormats: streamSpecs.pixelFormats.length,
+            sampleFormats: streamSpecs.sampleFormats.length,
+            optionDetails: optionDetails.length,
+          };
+          const labels = {
+            'Options': counts.options,
+            'Filters': counts.filters,
+            'Encoders': counts.encoders,
+            'Muxers': counts.muxers,
+            'Hwaccels': counts.hwaccels,
+            'Filter details': counts.filterDetails,
+            'Encoder details': counts.encoderDetails,
+            'Decoders': counts.decoders,
+            'Demuxers': counts.demuxers,
+            'Protocols': counts.protocols,
+            'Pixel formats': counts.pixelFormats,
+            'Sample formats': counts.sampleFormats,
+            'Option details': counts.optionDetails,
+          };
+          const text = readFileSync(refPath, "utf8");
+          const updated = text.split("\n").map((line) => {
+            const m = line.match(/^\|\s*([^|]+?)\s*\|\s*\d+\s*\|/);
+            if (!m) return line;
+            const key = m[1].trim();
+            if (!(key in labels)) return line;
+            return line.replace(/^(\|\s*[^|]+?\s*\|\s*)\d+(\s*\|)/, "$1" + labels[key] + "$2");
+          }).join("\n");
+          writeFileSync(refPath, updated);
+          console.log("updated coverage counts in docs/REFERENCE.md");
+          '
+
       - name: Run gate
         run: bun run ci
 
