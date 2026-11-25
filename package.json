@@ -1,5 +1,5 @@
 {
-  "name": "scaffold-ffmpeg",
+  "name": "ffmpeg-wrapper",
   "version": "0.0.0",
   "private": true,
   "type": "module",
