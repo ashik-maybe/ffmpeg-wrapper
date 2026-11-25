@@ -13,6 +13,7 @@ import { recipes } from './recipes'
 import { spec } from './spec'
 import { AdvancedDrawer } from './ui/advanced/AdvancedDrawer'
 import { UserBuildCheck } from './ui/buildcheck'
+import { CoveragePanel } from './ui/coverage'
 import { FilterGraphEditor } from './ui/graph'
 import { CalibrationPanel } from './ui/calibration/CalibrationPanel'
 import { HandoffPanel } from './ui/handoff/HandoffPanel'
@@ -210,7 +211,9 @@ export default function App() {
       </section>
 
       <section className="app-section" style={sectionStyle}>
-        <Panel label="Coverage">{content.coverage}</Panel>
+        <Panel label="Coverage">
+          <CoveragePanel />
+        </Panel>
       </section>
 
       <p className="app-note">{content.emptyState}</p>
