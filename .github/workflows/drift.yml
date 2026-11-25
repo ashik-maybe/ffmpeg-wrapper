@@ -85,13 +85,28 @@ jobs:
             sampleFormats: streamSpecs.sampleFormats.length,
             optionDetails: optionDetails.length,
           };
+          const labels = {
+            'Options': counts.options,
+            'Filters': counts.filters,
+            'Encoders': counts.encoders,
+            'Muxers': counts.muxers,
+            'Hwaccels': counts.hwaccels,
+            'Filter details': counts.filterDetails,
+            'Encoder details': counts.encoderDetails,
+            'Decoders': counts.decoders,
+            'Demuxers': counts.demuxers,
+            'Protocols': counts.protocols,
+            'Pixel formats': counts.pixelFormats,
+            'Sample formats': counts.sampleFormats,
+            'Option details': counts.optionDetails,
+          };
           const text = readFileSync(refPath, "utf8");
           const updated = text.split("\n").map((line) => {
             const m = line.match(/^\|\s*([^|]+?)\s*\|\s*\d+\s*\|/);
             if (!m) return line;
             const key = m[1].trim();
-            if (!(key in counts)) return line;
-            return line.replace(/^(\|\s*[^|]+?\s*\|\s*)\d+(\s*\|)/, "$1" + counts[key] + "$2");
+            if (!(key in labels)) return line;
+            return line.replace(/^(\|\s*[^|]+?\s*\|\s*)\d+(\s*\|)/, "$1" + labels[key] + "$2");
           }).join("\n");
           writeFileSync(refPath, updated);
           console.log("updated coverage counts in docs/REFERENCE.md");
