@@ -15,7 +15,7 @@ test.describe('layout', () => {
       await page.setViewportSize({ width, height: 900 })
       await page.goto('/')
       await expect(
-        page.getByRole('heading', { name: 'Describe the edit. Get a command that runs.' }),
+        page.getByRole('heading', { name: 'FFmpeg command generator for video edits' }),
       ).toBeVisible()
 
       await page.screenshot({ path: join(screenshotsDir, `width-${width}.png`), fullPage: true })
