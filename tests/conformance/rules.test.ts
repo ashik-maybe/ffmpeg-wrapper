@@ -37,4 +37,27 @@ describe('ffmpeg validator rules', () => {
     )
     expect(findings.length).toBeGreaterThan(0)
   })
+
+  it('does not raise E_CONFLICT for -c copy without filters', () => {
+    const findings = validate(
+      plan([
+        { kind: 'option', name: 'c', value: 'copy' },
+        { kind: 'value', name: 'output', value: 'out.mp4' },
+      ]),
+      spec,
+    )
+    expect(findings.filter((f) => f.code === 'E_CONFLICT')).toEqual([])
+  })
+
+  it('raises E_CONFLICT for -c copy with a filter', () => {
+    const findings = validate(
+      plan([
+        { kind: 'option', name: 'c', value: 'copy' },
+        { kind: 'option', name: 'vf', value: 'scale=1280:720' },
+        { kind: 'value', name: 'output', value: 'out.mp4' },
+      ]),
+      spec,
+    )
+    expect(findings.some((f) => f.code === 'E_CONFLICT')).toBe(true)
+  })
 })
