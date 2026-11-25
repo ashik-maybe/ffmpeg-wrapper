@@ -1,3 +1,47 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "side-by-side",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{left}}" },
+        { "kind": "value", "name": "input", "value": "{{right}}" },
+        { "kind": "option", "name": "filter_complex", "value": "hstack" },
+        { "kind": "option", "name": "map", "value": "0:a?" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "filter-script",
+      "tool": "ffmpeg",
+      "confidence": "unverified",
+      "args": [
+        { "kind": "value", "name": "input", "value": "{{input}}" },
+        { "kind": "option", "name": "filter_complex_script", "value": "{{script}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "loop-image",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "loop", "value": "1" },
+        { "kind": "value", "name": "input", "value": "{{image}}" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
+      ]
+    },
+    {
+      "id": "lavfi-null-test",
+      "tool": "ffmpeg",
+      "confidence": "verified",
+      "args": [
+        { "kind": "option", "name": "f", "value": "lavfi" },
+        { "kind": "value", "name": "input", "value": "testsrc" },
+        { "kind": "option", "name": "f", "value": "null" },
+        { "kind": "value", "name": "output", "value": "-" }
+      ]
+    }
+  ]
 }

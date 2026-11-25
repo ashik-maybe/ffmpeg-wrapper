@@ -279,6 +279,11 @@
       "description": "create a complex filtergraph"
     },
     {
+      "name": "filter_complex_script",
+      "metavar": "filename",
+      "description": "read complex filtergraph description from a file"
+    },
+    {
       "name": "filter_complex_threads",
       "description": "number of threads for -filter_complex"
     },
