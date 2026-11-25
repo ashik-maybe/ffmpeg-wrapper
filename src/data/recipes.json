@@ -233,10 +233,10 @@
       "args": [
         { "kind": "value", "name": "input", "value": "{{input}}" },
         { "kind": "value", "name": "i", "value": "{{audio}}" },
-        { "kind": "value", "name": "output", "value": "{{output}}" },
         { "kind": "option", "name": "map", "value": "0:v" },
         { "kind": "option", "name": "map", "value": "1:a" },
-        { "kind": "option", "name": "c", "value": "copy" }
+        { "kind": "option", "name": "c", "value": "copy" },
+        { "kind": "value", "name": "output", "value": "{{output}}" }
       ]
     },
     {

@@ -9,6 +9,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { render } from '../../src/core/render/index.ts'
 import type { Command } from '../../src/core/types.ts'
+import { recipes, toPlan } from '../../src/recipes/index.ts'
 
 const execFile = promisify(execFileCb)
 
@@ -177,6 +178,22 @@ describeRuntime('pinned ffmpeg runtime', () => {
     expect(duration).toBeGreaterThan(0.8)
     expect(duration).toBeLessThan(1.3)
   }, 60_000)
+
+  it('puts replace-audio options before the output operand', () => {
+    const recipe = recipes.find((r) => r.id === 'replace-audio')
+    expect(recipe).toBeDefined()
+    const output = join(dir, 'replaced.mp4')
+    const plan = toPlan(recipe!, { input: clip, audio: join(dir, 'audio.m4a'), output }, 'posix')
+    const rendered = render({ tool: plan.recipe.tool, args: plan.args }, 'posix')
+    const outputToken = `'${output}'`
+    const outputIndex = rendered.indexOf(outputToken)
+    expect(outputIndex).toBeGreaterThan(-1)
+    expect(rendered.slice(outputIndex + outputToken.length).trim()).toBe('')
+    for (const option of ['-map', '-c']) {
+      expect(rendered).toContain(option)
+      expect(rendered.indexOf(option)).toBeLessThan(outputIndex)
+    }
+  })
 
   it('builds no command that uses -c copy together with a filter', () => {
     expect(builtCommands.length).toBeGreaterThan(0)

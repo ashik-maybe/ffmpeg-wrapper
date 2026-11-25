@@ -861,7 +861,7 @@ describe('recipe golden commands', () => {
       expect(command.startsWith('ffmpeg')).toBe(true)
       expect(command).not.toContain('undefined')
       expect(command).toMatchInlineSnapshot(
-        `"ffmpeg -i 'input.mp4' -i 'audio.m4a' 'output.mp4' -map '0:v' -map '1:a' -c 'copy'"`,
+        `"ffmpeg -i 'input.mp4' -i 'audio.m4a' -map '0:v' -map '1:a' -c 'copy' 'output.mp4'"`,
       )
     })
 
@@ -874,7 +874,7 @@ describe('recipe golden commands', () => {
       expect(command.startsWith('ffmpeg')).toBe(true)
       expect(command).not.toContain('undefined')
       expect(command).toMatchInlineSnapshot(
-        `"ffmpeg -i 'input.mp4' -i 'audio.m4a' 'output.mp4' -map '0:v' -map '1:a' -c 'copy'"`,
+        `"ffmpeg -i 'input.mp4' -i 'audio.m4a' -map '0:v' -map '1:a' -c 'copy' 'output.mp4'"`,
       )
     })
 
@@ -887,7 +887,7 @@ describe('recipe golden commands', () => {
       expect(command.startsWith('ffmpeg')).toBe(true)
       expect(command).not.toContain('undefined')
       expect(command).toMatchInlineSnapshot(
-        `"ffmpeg -i "input.mp4" -i "audio.m4a" "output.mp4" -map "0:v" -map "1:a" -c "copy""`,
+        `"ffmpeg -i "input.mp4" -i "audio.m4a" -map "0:v" -map "1:a" -c "copy" "output.mp4""`,
       )
     })
   })
