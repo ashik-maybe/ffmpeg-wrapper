@@ -52,7 +52,7 @@
   --line-height-body: 1.55;
 
   /* Easing */
-  --ease: cubic-bezier(.4,0,.2,1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Shape: sharp */
   --radius: 0px;
