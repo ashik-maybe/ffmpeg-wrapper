@@ -72,9 +72,14 @@ export function HandoffPanel({ value, onValueChange }: HandoffPanelProps) {
         </p>
       </Field>
 
-      <Field label="File path" hint={content.filePathHelper.dragIntoTerminal}>
+      <Field
+        label="File path"
+        htmlFor="handoff-file-path"
+        hint={content.filePathHelper.dragIntoTerminal}
+      >
         <div className="handoff__path">
           <input
+            id="handoff-file-path"
             className="handoff__path-input"
             value={path}
             onChange={(event) => setPath(event.target.value)}
@@ -90,9 +95,11 @@ export function HandoffPanel({ value, onValueChange }: HandoffPanelProps) {
 
       <Field
         label="Version check"
+        htmlFor="handoff-version"
         hint={`Enter a version to check it against the spec version ${spec.version}`}
       >
         <input
+          id="handoff-version"
           className="handoff__path-input"
           value={version}
           onChange={(event) => setVersion(event.target.value)}

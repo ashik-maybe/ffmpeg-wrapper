@@ -1,5 +1,5 @@
 import * as Label from '@radix-ui/react-label'
-import type { ReactNode } from 'react'
+import { cloneElement, isValidElement, useId, type ReactNode } from 'react'
 import { cn } from './cn'
 
 export type FieldProps = {
@@ -10,13 +10,20 @@ export type FieldProps = {
   className?: string
 }
 
+type ControlProps = { id?: string }
+
 export function Field({ label, hint, htmlFor, children, className }: FieldProps) {
+  const generatedId = useId()
+  const controlId = htmlFor ?? generatedId
+  const control = isValidElement<ControlProps>(children)
+    ? cloneElement(children, { id: children.props.id ?? controlId })
+    : children
   return (
     <div className={cn('ui-field', className)}>
-      <Label.Root className="ui-field__label" htmlFor={htmlFor}>
+      <Label.Root className="ui-field__label" htmlFor={controlId}>
         {label}
       </Label.Root>
-      {children}
+      {control}
       {hint ? <p className="ui-field__hint">{hint}</p> : null}
     </div>
   )
