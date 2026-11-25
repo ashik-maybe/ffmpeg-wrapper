@@ -4,6 +4,16 @@ import type { RuntimeSpec } from './types'
 const HARDWARE_ENCODER = /(nvenc|qsv|vaapi|amf|videotoolbox|v4l2m2m|mf)/i
 const ENCODER_FLAGS = new Set(['c', 'c:v', 'c:a', 'codec', 'vcodec', 'acodec'])
 
+const RECIPE_REQUIRED_OPTIONS: Readonly<Record<string, readonly string[]>> = {
+  faststart: ['movflags'],
+  'force-keyframes': ['force_key_frames'],
+  disposition: ['disposition'],
+}
+
+const RECIPE_REQUIRED_ENCODERS: Readonly<Record<string, readonly string[]>> = {
+  'web-h264': ['libx264'],
+}
+
 function isEncoderArg(arg: Arg): boolean {
   if (arg.kind !== 'option') return false
   const names = [arg.name, arg.alias].filter((v): v is string => Boolean(v))
@@ -61,8 +71,32 @@ export function validateAgainstRuntime(spec: RuntimeSpec, recipe: Recipe): Findi
     }
   }
 
-  // Mark hardware recipes unverified when their encoder is absent.
-  // If recipe uses hardware encoder and it's missing, we already reported.
-  // If recipe is hardware-oriented but no encoder arg found, check confidence? No, keep simple.
+  const requiredOptions = RECIPE_REQUIRED_OPTIONS[recipe.id] ?? []
+  for (const option of requiredOptions) {
+    if (isKnownOption(option, spec)) continue
+    if (findings.some((f) => f.code === 'E_UNKNOWN_OPTION' && f.message.includes(option))) continue
+    findings.push({
+      severity: 'error',
+      code: 'E_UNKNOWN_OPTION',
+      message: `Unknown option: -${option}`,
+      file,
+    })
+  }
+
+  const requiredEncoders = RECIPE_REQUIRED_ENCODERS[recipe.id] ?? []
+  for (const encoder of requiredEncoders) {
+    if (spec.encoders.includes(encoder)) continue
+    if (findings.some((f) => f.code === 'E_UNVERIFIED' && f.message.includes(encoder))) continue
+    const hardware = HARDWARE_ENCODER.test(encoder)
+    findings.push({
+      severity: hardware ? 'warning' : 'error',
+      code: 'E_UNVERIFIED',
+      message: hardware
+        ? `Hardware encoder unavailable, recipe unverified: ${encoder}`
+        : `Missing encoder: ${encoder}`,
+      file,
+    })
+  }
+
   return findings
 }
