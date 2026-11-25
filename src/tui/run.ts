@@ -66,6 +66,6 @@ export async function run(argv: string[], deps: RunDeps = {}): Promise<void> {
     return
   }
 
-  const instance = inkRender(React.createElement(App, props))
+  const instance = inkRender(React.createElement(App, props), { exitOnCtrlC: false })
   await instance.waitUntilExit()
 }

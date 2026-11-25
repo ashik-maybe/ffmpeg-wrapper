@@ -9,6 +9,7 @@ import { validateAgainstRuntime } from '../tools/index.ts'
 import type { RuntimeSpec } from '../tools/index.ts'
 import { runProcess } from '../runner/index.ts'
 import type { RunResult } from '../runner/index.ts'
+import { parseProgressLine } from '../progress/index.ts'
 
 export type Screen = 'outcome' | 'options' | 'result'
 
@@ -143,8 +144,13 @@ export function App({
   const [runStatus, setRunStatus] = useState<string>('')
   const [running, setRunning] = useState(false)
   const [hasRun, setHasRun] = useState(false)
+  const [progress, setProgress] = useState<{ time?: string; fps?: number; speed?: string } | null>(
+    null,
+  )
+  const [rawLog, setRawLog] = useState('')
   const abortRef = useRef<AbortController | null>(null)
   const ranRef = useRef(false)
+  const stdoutBufferRef = useRef('')
 
   const selectedRecipe = useMemo(
     () => allRecipes.find((r) => r.id === recipeId) ?? allRecipes[0],
@@ -179,12 +185,37 @@ export function App({
     setHasRun(true)
     setRunning(true)
     setRunStatus('Running...')
+    setProgress(null)
+    setRawLog('')
+    stdoutBufferRef.current = ''
     const controller = new AbortController()
     abortRef.current = controller
     try {
+      const onStdout = (chunk: string) => {
+        setRawLog((prev) => prev + chunk)
+        stdoutBufferRef.current += chunk
+        const lines = stdoutBufferRef.current.split(/\r\n|\r|\n/)
+        stdoutBufferRef.current = lines.pop() ?? ''
+        for (const line of lines) {
+          const update = parseProgressLine(line)
+          if (update) {
+            setProgress({ time: update.time, fps: update.fps, speed: update.speed })
+          }
+        }
+      }
       const runner =
-        onRun ?? ((args: readonly string[]) => runProcess([...args], { signal: controller.signal }))
+        onRun ??
+        ((args: readonly string[]) =>
+          runProcess([...args], { signal: controller.signal, onStdout }))
       const result = await runner(argv)
+      const tail = stdoutBufferRef.current
+      if (tail !== '') {
+        const update = parseProgressLine(tail)
+        if (update) {
+          setProgress({ time: update.time, fps: update.fps, speed: update.speed })
+        }
+        stdoutBufferRef.current = ''
+      }
       if (result.exitCode === 0) {
         setRunStatus(`Exit 0 (${result.durationMs}ms)`)
       } else {
@@ -256,6 +287,9 @@ export function App({
         ranRef.current = false
         setHasRun(false)
         setRunStatus('')
+        setProgress(null)
+        setRawLog('')
+        stdoutBufferRef.current = ''
         setScreen('options')
         return
       }
@@ -311,7 +345,14 @@ export function App({
 
   return (
     <Box flexDirection="column">
-      <ResultScreen command={command} findings={findings} version={version} running={running} />
+      <ResultScreen
+        command={command}
+        findings={findings}
+        version={version}
+        running={running}
+        progress={progress}
+        rawLog={rawLog}
+      />
       <Box marginTop={1} flexDirection="column">
         {runEnabled && !hasRun && !running ? <Text>Press Enter to run. Esc to edit.</Text> : null}
         {runStatus ? <Text>{runStatus}</Text> : null}

@@ -45,3 +45,11 @@ Raw arguments are marked unverified and are not validated like recipes.
 Coverage is limited to the included recipes and generated spec data.
 The app does not cover everything FFmpeg can do.
 Generated commands still need review before you run them.
+
+## TUI
+
+The TUI is Linux only.
+By default, it does not execute commands.
+Use `--run` to execute the generated command.
+Use `--yes` with `--run` to skip confirmation.
+Local tool versions are detected at runtime.
