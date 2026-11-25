@@ -61,3 +61,26 @@ if (streamSpecs.sampleFormats.length <= 5) {
 if (optionDetails.length < 201) {
   throw new Error(`optionDetails count is below 201: ${optionDetails.length}`)
 }
+
+const counts = JSON.parse(readFileSync(resolve(root, 'src/ui/coverage/counts.json'), 'utf8'))
+const computed = {
+  options: options.options.length,
+  filters: filters.length,
+  encoders: encoders.length,
+  muxers: muxers.length,
+  hwaccels: hwaccels.length,
+  filterDetails: filterDetails.length,
+  encoderDetails: encoderDetails.length,
+  decoders: streamSpecs.decoders.length,
+  demuxers: streamSpecs.demuxers.length,
+  protocols: streamSpecs.protocols.length,
+  pixelFormats: streamSpecs.pixelFormats.length,
+  sampleFormats: streamSpecs.sampleFormats.length,
+  optionDetails: optionDetails.length,
+}
+for (const [key, value] of Object.entries(computed)) {
+  if (counts[key] !== value) {
+    throw new Error(`counts.json ${key} is ${counts[key]}; generated spec says ${value}`)
+  }
+}
+console.log('counts.json matches every generated spec')
